@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 273d5b8788507a1439bd9f54e54ee8c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -178,9 +178,15 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
-  NPCname: 0
+  npcName: 2
+  sr: {fileID: 0}
   ink: {fileID: 0}
-  InkJsonAsset: {fileID: 4900000, guid: 19787921c01fc02448ecee89097eb0e3, type: 3}
+  pm: {fileID: 0}
+  textAssets:
+  - {fileID: 4900000, guid: 19787921c01fc02448ecee89097eb0e3, type: 3}
+  fuckOffText: {fileID: 4900000, guid: 699112a866d1c5c4e9df8f3f5c6b2b6c, type: 3}
+  dailyInteraction: 0
+  numOfInteractions: 0
 --- !u!1 &7854138435393480570
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +243,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 273d5b8788507a1439bd9f54e54ee8c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -304,7 +310,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.4}
     oldSize: {x: 1, y: 1.25}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5

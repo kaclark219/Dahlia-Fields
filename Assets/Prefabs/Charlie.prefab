@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 273d5b8788507a1439bd9f54e54ee8c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -178,9 +178,16 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
-  NPCname: 0
+  npcName: 3
+  sr: {fileID: 0}
   ink: {fileID: 0}
-  InkJsonAsset: {fileID: 4900000, guid: c1732635769f9504f8471eb12ce270de, type: 3}
+  pm: {fileID: 0}
+  textAssets:
+  - {fileID: 4900000, guid: c1732635769f9504f8471eb12ce270de, type: 3}
+  - {fileID: 4900000, guid: 162e0fb3ee596e6449d7592201af4617, type: 3}
+  fuckOffText: {fileID: 4900000, guid: 3769d9e121188cf499129f4c1cf8416b, type: 3}
+  dailyInteraction: 0
+  numOfInteractions: 0
 --- !u!1 &8490495413014769746
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +243,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 273d5b8788507a1439bd9f54e54ee8c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

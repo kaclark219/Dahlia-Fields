@@ -13,16 +13,18 @@ public class DaySystem : MonoBehaviour
 
     [SerializeField] private NPCManager npcManager;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerData playerData;
 
     private void Awake()
     {
         npcManager = GameObject.Find("NPCManager").GetComponent<NPCManager>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        playerData = GameObject.Find("Player").GetComponent<PlayerData>();
     }
     public void NextDay()
     {
         day++;
-        week = (day % 3);
+        week = (day / 3) + 1;
         LoadDay(day);
     }
 
@@ -44,10 +46,11 @@ public class DaySystem : MonoBehaviour
 
     private void LoadDay(int day)
     {
-        while (npcManager == null) { }
-
         // Reset player location
         playerMovement.ResetLocation();
+
+        // Reset player energy
+        playerData.ResetEnergy();
 
         // move NPCS
         npcManager.MoveNPCs(day, 1);
@@ -73,7 +76,7 @@ public class DaySystem : MonoBehaviour
             day = 1;
         }
 
-        week = (day % 3);
+        week = (day / 3) + 1;
 
         LoadDay(day);
     }

@@ -44,10 +44,10 @@ public class DialogueVariables : MonoBehaviour
     }
     public void ResetData()
     {
+        variables.Clear();
         foreach (KeyValuePair<string, Ink.Runtime.Object> var in variables)
         {
-            variables.Remove(var.Key);
-            variables.Add(var.Key, null);
+            variables.Add(var.Key, new Ink.Runtime.StringValue("0"));
             VariablesToStory(GlobalStory);
         }
     }
@@ -73,12 +73,12 @@ public class DialogueVariables : MonoBehaviour
         }
     }
 
-    public void ChangeVariable(string name, System.Object value)
+    public void ChangeVariable(string name, string value)
     {
         if (variables.ContainsKey(name))
         {
             variables.Remove(name);
-            variables.Add(name, (Ink.Runtime.Object)value);
+            variables.Add(name, new Ink.Runtime.StringValue(value));
             Debug.Log("Variable Updated: " + name + " = " + value);
         }
     }

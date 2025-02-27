@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 717402103552192964}
   - component: {fileID: 8881478173431373418}
-  - component: {fileID: 1968290784918929973}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -78,25 +77,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!114 &1968290784918929973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958762479267913299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a0fb6155bba671439f451eced3b376a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Popup: {fileID: 2900005604647082136}
-  active: 0
-  plint: {fileID: 0}
-  frame: 0
-  NPCname: 0
-  ink: {fileID: 0}
-  InkJsonAsset: {fileID: 4900000, guid: c07830df4470a7e448de38398a62fa58, type: 3}
 --- !u!1 &2900005604647082136
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +129,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 273d5b8788507a1439bd9f54e54ee8c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -236,7 +216,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 273d5b8788507a1439bd9f54e54ee8c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
