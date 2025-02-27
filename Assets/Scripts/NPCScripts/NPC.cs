@@ -18,6 +18,7 @@ public class NPC : InteractableObj
 
     public bool dailyInteraction;
     public int numOfInteractions;
+    private bool costsEnergy;
 
     private string npcKey;
 
@@ -33,6 +34,7 @@ public class NPC : InteractableObj
     {
         base.Start();
         dailyInteraction = false;
+        costsEnergy = false;
     }
 
     public override void Update(){
@@ -52,19 +54,24 @@ public class NPC : InteractableObj
         if (textAssets.Count <= numOfInteractions || dailyInteraction)
         {
             ink.StartStory(fuckOffText, this);
+            costsEnergy = false;
         }
         else
         {
             ink.StartStory(textAssets[numOfInteractions], this);
             dailyInteraction = true;
             numOfInteractions++;
+            costsEnergy = true;
         }
     }
 
     public override void EndInteract()
     {
         base.EndInteract();
-        playerData.ModifyEnergy(-5); // Decrease player energy
+        if (costsEnergy)
+        {
+            playerData.ModifyEnergy(-5); // Decrease player energy
+        }
     }
 
     public void SaveData()
