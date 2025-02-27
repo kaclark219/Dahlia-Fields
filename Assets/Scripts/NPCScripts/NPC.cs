@@ -5,8 +5,8 @@ using UnityEngine;
 public class NPC : InteractableObj
 {
     [SerializeField] NPCName NPCname;
-    NPCPosition dir = NPCPosition.Center;
-    NPCMood mood = NPCMood.Happy;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] SpriteRenderer sr;
     [SerializeField] InkManager ink;
     [SerializeField] TextAsset InkJsonAsset;
     PlayerMovement pm;
