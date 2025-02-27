@@ -76,7 +76,7 @@ public class PlayerData : MonoBehaviour
     public void SetName(string name)
     {
         playerName = name;
-        //GameObject.Find("InkManager").GetComponent<DialogueVariables>().ChangeVariable("PlayerName", playerName);
+        GameObject.Find("InkManager").GetComponent<DialogueVariables>().ChangeVariable("PlayerName", playerName);
     }   
 
     public void SaveData()

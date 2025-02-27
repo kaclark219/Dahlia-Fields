@@ -20,6 +20,7 @@ public class DayNightCycle : MonoBehaviour
         NightLight.color = NightLightGradient.Evaluate(ratio);
 
         transform.rotation = Quaternion.Euler(0, 0, 360.0f * ratio);
+        currEnergy = 50;
     }
 
     public void UpdateLight(int energy)
@@ -38,7 +39,7 @@ public class DayNightCycle : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 360.0f * ratio);
             currEnergy--;
 
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.1f);
         }
         currEnergy = energy;
     }

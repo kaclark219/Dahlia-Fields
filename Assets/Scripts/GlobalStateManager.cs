@@ -7,12 +7,14 @@ public class GlobalStateManager : MonoBehaviour
     [SerializeField] private DialogueVariables dialogueVariables;
     [SerializeField] private PlayerData playerData;
     [SerializeField] private DaySystem daySystem;
+    [SerializeField] private NPCManager npcManager;
 
     private void Awake()
     {
         dialogueVariables = GameObject.Find("InkManager").GetComponent<DialogueVariables>();
         playerData = GameObject.Find("Player").GetComponent<PlayerData>();  
         daySystem = GetComponent<DaySystem>();  
+        npcManager = GameObject.Find("NPCManager").GetComponent<NPCManager>();  
     }
 
     private void Start()
@@ -26,6 +28,7 @@ public class GlobalStateManager : MonoBehaviour
         dialogueVariables.SaveData();
         playerData.SaveData();
         daySystem.SaveData();
+        npcManager.SaveData();
     }
 
     public void LoadAllData()
@@ -34,6 +37,7 @@ public class GlobalStateManager : MonoBehaviour
         dialogueVariables.LoadData();
         playerData.LoadData();
         daySystem.LoadData();
+        npcManager.LoadData();
     }
 
     public void ResetAllData()
@@ -42,6 +46,9 @@ public class GlobalStateManager : MonoBehaviour
         dialogueVariables.ResetData();
         playerData.ResetData();
         daySystem.ResetData();
+        npcManager.ResetData();
+
+        PlayerPrefs.DeleteAll();
     }
     private void OnApplicationQuit()
     {
