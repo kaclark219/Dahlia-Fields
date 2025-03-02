@@ -12,6 +12,7 @@ public class PlayerData : MonoBehaviour
 
     [SerializeField] private DayNightCycle dayNightCycle;
     [SerializeField] private DaySystem daySystem;
+    [SerializeField] public InGameHUD inGameHud;
 
     public PlayerState state = PlayerState.Normal;
 
@@ -25,6 +26,7 @@ public class PlayerData : MonoBehaviour
     {
         daySystem = GameObject.Find("GameManager").GetComponent<DaySystem>();
         dayNightCycle = GameObject.Find("GameManager").GetComponent<DayNightCycle>();
+        inGameHud = GameObject.Find("InGameHUD").GetComponent<InGameHUD>(); 
     }
     public int GetMoney()
     {
@@ -33,6 +35,7 @@ public class PlayerData : MonoBehaviour
     public void ModifyMoney(int amount)
     {
         money += amount;
+        inGameHud.UpdateMoney(money); //Update UI
     }
     
     public int GetEnergy()
@@ -44,6 +47,7 @@ public class PlayerData : MonoBehaviour
         energy = startEnergy;
         timeOfDay = 1;
         dayNightCycle.ResetLight();
+        inGameHud.UpdateEnergy(energy); //Update UI
     }
     public void ModifyEnergy(int amount)
     {
@@ -65,6 +69,8 @@ public class PlayerData : MonoBehaviour
             daySystem.NextDay();
             ResetEnergy();
         }
+
+        inGameHud.UpdateEnergy(energy); //Update UI
 
         Debug.Log("Player Energy changed by " + amount + ", new energy is " + energy);
     }
