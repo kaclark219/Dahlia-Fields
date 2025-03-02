@@ -7,7 +7,7 @@ public class PauseUI : MonoBehaviour
 {
     [SerializeField] GameObject pause_button;
     [SerializeField] GameObject pause_ui;
-    public string menu_scene = "Nandni_Menu";
+    public string menu_scene = "Prototype_Menu";
 
     private void Start()
     {
@@ -28,7 +28,7 @@ public class PauseUI : MonoBehaviour
 
     public void ToMain()
     {
-        SceneManager.LoadScene("Nandni_Menu");
+        SceneManager.LoadScene(menu_scene);
     }
 
     public void SaveGame()
