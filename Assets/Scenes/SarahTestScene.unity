@@ -815,10 +815,6 @@ PrefabInstance:
       propertyPath: ink
       value: 
       objectReference: {fileID: 1334489662}
-    - target: {fileID: 1760953294473343035, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
-      propertyPath: ink
-      value: 
-      objectReference: {fileID: 1334489662}
     - target: {fileID: 1840002905592745101, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: m_Name
       value: NPCManager
