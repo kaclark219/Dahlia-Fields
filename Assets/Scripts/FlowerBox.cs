@@ -61,7 +61,7 @@ public class FlowerBox : InteractableObj
         {
             Water();
         }
-        else if(flowerPlanted.daysToGrow == CycleIndex) //growth completed
+        else if(flowerPlanted.daysToGrow == CycleIndex && !WateredToday) //growth completed
         {
             Harvest();
         }
