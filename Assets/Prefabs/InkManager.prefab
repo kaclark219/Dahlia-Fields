@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 5979394386717294336}
   - component: {fileID: 3697799267430201851}
   - component: {fileID: 7386746482836180379}
+  - component: {fileID: 5527674709890612324}
   m_Layer: 0
   m_Name: NPCData
   m_TagString: Untagged
@@ -434,7 +435,7 @@ MonoBehaviour:
   SebastianMoods: {fileID: 3697799267430201851}
   CharlieMoods: {fileID: 5941182217501235346}
   MeganMoods: {fileID: 5941182217501235346}
-  AvaMoods: {fileID: 5941182217501235346}
+  AvaMoods: {fileID: 5527674709890612324}
   BruceMoods: {fileID: 5941182217501235346}
   MaddieMoods: {fileID: 5941182217501235346}
   PoppyMoods: {fileID: 5941182217501235346}
@@ -504,6 +505,22 @@ MonoBehaviour:
   Normal: {fileID: 21300000, guid: abf592bc0f01735488faf90060f1a677, type: 3}
   Suspicious: {fileID: 21300000, guid: bf8201751e7639a4ba1cc846b59ce14e, type: 3}
   Happy: {fileID: 21300000, guid: ba830f63b0459b7419b1c46a29a38d95, type: 3}
+--- !u!114 &5527674709890612324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7034202726468025858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd0e5611d40e5b4ba395d1c4fa9a98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 5
+  Normal: {fileID: 21300000, guid: 0df515a7e692af7459e878369471d5fd, type: 3}
+  Suspicious: {fileID: 21300000, guid: ae8a2eb1f7d773848af7ba7c9799c3af, type: 3}
+  Happy: {fileID: 21300000, guid: 49579ddbd95447149b786ef2a2d4d48c, type: 3}
 --- !u!1 &8441651068179102444
 GameObject:
   m_ObjectHideFlags: 0
