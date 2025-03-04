@@ -8,21 +8,14 @@ public class FlowerBox : InteractableObj
     private InventoryItem flowerPlanted; 
     bool WateredToday = false;
     bool planted = false; 
+    SpriteRenderer sr;
+    int spriteInd = 0;
 
     [SerializedField] public InventoryManager inventoryManager;
     [SerializedField] public GameObject FlowerBoxUI;
     [SerializedField] public PlayerData player;
 
-    [SerializedField] public GameObject plot1;
-    [SerializedField] public GameObject plot2;
-    [SerializedField] public GameObject plot3;
-    [SerializedField] public GameObject plot4;
-    [SerializedField] public GameObject plot5;
-
-    [SerializedField] public GameObject plantedVis;
-    [SerializedField] public GameObject plantedWatVis;
-    [SerializedField] public GameObject sproutVis;
-    [SerializedField] public GameObject sproutWatVis;
+    [SerializedField] public Sprite[] sprites;
 
 
     private void Awake()
@@ -30,6 +23,7 @@ public class FlowerBox : InteractableObj
        inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
        player =  GameObject.Find("Player").GetComponent<PlayerData>();
        FlowerBoxUI.SetActive(false);
+       sr = GetComponentInParent<SpriteRenderer>();
     }
 
     public override void Start()
@@ -76,6 +70,7 @@ public class FlowerBox : InteractableObj
     {
         //Open UI and select a plant
         //return "Daisy"; //Placeholder
+        Debug.Log(inventoryManager.GetSeedStock(flower) >= 5);
         if(inventoryManager.GetSeedStock(flower) >= 5)
         {
             FlowerBoxUI.SetActive(false);
@@ -84,20 +79,11 @@ public class FlowerBox : InteractableObj
             inventoryManager.SetSeedStock(flower, -5);
             player.ModifyEnergy(-5); 
 
-            // set sprites 
-            plot1.GetComponent<SpriteRenderer>().enabled = true;
-            plot2.GetComponent<SpriteRenderer>().enabled = true;
-            plot3.GetComponent<SpriteRenderer>().enabled = true;
-            plot4.GetComponent<SpriteRenderer>().enabled = true;
-            plot5.GetComponent<SpriteRenderer>().enabled = true;
-
-            //plot1.GetComponent<SpriteRenderer>().sprite = flowerPlanted.planted;
-            //plot2.GetComponent<SpriteRenderer>().sprite = flowerPlanted.planted;
-            //plot3.GetComponent<SpriteRenderer>().sprite = flowerPlanted.planted;
-            //plot4.GetComponent<SpriteRenderer>().sprite = flowerPlanted.planted;
-            //plot5.GetComponent<SpriteRenderer>().sprite = flowerPlanted.planted;
-
-            plantedVis.GetComponent<SpriteRenderer>().enabled = true;
+            sprites[5] = Resources.Load<Sprite>("Flowerbox/");
+            sprites[6] = Resources.Load<Sprite>("Flowerbox/");
+            sprites[7] = Resources.Load<Sprite>("Flowerbox/");
+            sr.sprite = sprites[1];
+            spriteInd = 1;
 
             Debug.Log("Plant");
         }
@@ -110,17 +96,10 @@ public class FlowerBox : InteractableObj
         //yield return new WaitForSeconds(1);
         //plint.pm.canmove = true;
 
-        CycleIndex++;
         WateredToday = true;
         player.ModifyEnergy(-5);
-        if(CycleIndex == 1)
-        {
-            plantedWatVis.GetComponent<SpriteRenderer>().enabled = false;
-
-        } else
-        {
-            sproutWatVis.GetComponent<SpriteRenderer>().enabled = true;
-        }
+        
+        sr.sprite = sprites[++spriteInd];
         
         Debug.Log("Watered");
     }
@@ -136,42 +115,41 @@ public class FlowerBox : InteractableObj
         CycleIndex = 0;
         planted = false;
         player.ModifyEnergy(-5);
-        plot1.GetComponent<SpriteRenderer>().enabled = false;
-        plot2.GetComponent<SpriteRenderer>().enabled = false;
-        plot3.GetComponent<SpriteRenderer>().enabled = false;
-        plot4.GetComponent<SpriteRenderer>().enabled = false;
-        plot5.GetComponent<SpriteRenderer>().enabled = false;
+
+        sprites[5] = null;
+        sprites[6] = null;
+        sprites[7] = null;
+
+        sr.sprite = sprites[0];
+        spriteInd = 0;
+
         Debug.Log("Harvested");
     }
 
-    public void NextDayBox()
+    public IEnumerator NextDayBox()
     {
-        WateredToday = false;
+        yield return new WaitUntil(() => sr != null);
+
+        if(WateredToday){
+            WateredToday = false;
+            CycleIndex++;
+        }
+        sr.sprite = sprites[0];
+        spriteInd = 0;
 
         if (planted) {
-
-            plantedVis.GetComponent<SpriteRenderer>().enabled = false;
-            plantedWatVis.GetComponent<SpriteRenderer>().enabled = false;
-            sproutVis.GetComponent<SpriteRenderer>().enabled = false;
-            sproutWatVis.GetComponent<SpriteRenderer>().enabled = false;
+            sr.sprite = sprites[3];
+            spriteInd = 3;
 
             if (flowerPlanted.daysToGrow == CycleIndex)
             {
-                plot1.GetComponent<SpriteRenderer>().sprite = flowerPlanted.harvest;
-                plot2.GetComponent<SpriteRenderer>().sprite = flowerPlanted.harvest;
-                plot3.GetComponent<SpriteRenderer>().sprite = flowerPlanted.harvest;
-                plot4.GetComponent<SpriteRenderer>().sprite = flowerPlanted.harvest;
-                plot5.GetComponent<SpriteRenderer>().sprite = flowerPlanted.harvest;
+                sr.sprite = sprites[7];
+                spriteInd = 7;
             } 
-            else
+            else if(flowerPlanted.daysToGrow/2 >= CycleIndex)
             {
-                //plot1.GetComponent<SpriteRenderer>().sprite = flowerPlanted.growing;
-                //plot2.GetComponent<SpriteRenderer>().sprite = flowerPlanted.growing;
-                //plot3.GetComponent<SpriteRenderer>().sprite = flowerPlanted.growing;
-                //plot4.GetComponent<SpriteRenderer>().sprite = flowerPlanted.growing;
-                //plot5.GetComponent<SpriteRenderer>().sprite = flowerPlanted.growing;
-
-                sproutVis.GetComponent<SpriteRenderer>().enabled = true;
+                spriteInd = 5;
+                sr.sprite = sprites[5];
             }
         }
         
