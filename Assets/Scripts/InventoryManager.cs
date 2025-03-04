@@ -83,10 +83,10 @@ public class InventoryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventory.Add("Dandelion", new InventoryItem("Dandelion", 12.0f, "Ava favorite", 0, 0, 2,
+        inventory.Add("Dandelion", new InventoryItem("Dandelion", 12.0f, "Ava favorite", 10, 0, 2,
             dandelionGrowing, dandelionHarvest, dandelionSeed, dandelionFlower));
 
-        inventory.Add("Daisy", new InventoryItem("Daisy", 24.0f, "Bruce favorite", 0, 0, 3, 
+        inventory.Add("Daisy", new InventoryItem("Daisy", 24.0f, "Bruce favorite", 5, 0, 3, 
             daisyGrowing, daisyHarvest, daisySeed, daisyFlower));
 
         inventory.Add("Poppy", new InventoryItem("Poppy", 36.0f, "Linda favorite", 0, 0, 3,

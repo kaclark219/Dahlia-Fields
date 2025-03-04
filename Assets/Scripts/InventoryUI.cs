@@ -8,22 +8,23 @@ using UnityEngine.UI;
 
 public class InventoryUI : InteractableObj
 {
-    [SerializedField] public Canvas uiScreen;
-    [SerializedField] public InventoryManager inventoryManager;
+    
+    [SerializeField] public Canvas uiScreen;
+    [SerializeField] public InventoryManager inventoryManager;
     private InventoryItem item; 
     public bool flowers = false;
     public bool seeds = false;
 
     //view elements
-    [SerializedField] public GameObject view; 
-    [SerializedField] public TextMeshProUGUI viewName;
-    [SerializedField] public TextMeshProUGUI viewStock;
-    [SerializedField] public TextMeshProUGUI viewDescription;
-    [SerializedField] public Image viewIcon;
+    [SerializeField] public GameObject view; 
+    [SerializeField] public TextMeshProUGUI viewName;
+    [SerializeField] public TextMeshProUGUI viewStock;
+    [SerializeField] public TextMeshProUGUI viewDescription;
+    [SerializeField] public Image viewIcon;
 
     //slots
-    [SerializedField] public Image[] iconSlots = new Image[9];
-    [SerializedField] public TextMeshProUGUI[] amounts = new TextMeshProUGUI[9];
+    [SerializeField] public Image[] iconSlots = new Image[9];
+    [SerializeField] public TextMeshProUGUI[] amounts = new TextMeshProUGUI[9];
 
     public override void Start()
     {
