@@ -83,7 +83,7 @@ public class InventoryUI : InteractableObj
         if(seeds)
         {
             viewName.text = item.itemName + " Seeds";
-            viewDescription.text = item.description;
+            viewDescription.text = item.daysToGrow.ToString() + " Days to Grow";
             viewIcon.sprite = item.seedIcon;
             viewStock.text = item.seedStock.ToString();
         }
