@@ -19,7 +19,7 @@ public class InventoryUI : InteractableObj
     [SerializedField] public TextMeshProUGUI viewName;
     [SerializedField] public TextMeshProUGUI viewStock;
     [SerializedField] public TextMeshProUGUI viewDescription;
-    [SerializedField] public GameObject viewIcon;
+    [SerializedField] public Image viewIcon;
 
     //slots
     [SerializedField] public Image[] iconSlots = new Image[9];
@@ -30,7 +30,6 @@ public class InventoryUI : InteractableObj
         base.Start();
         view.SetActive(false);
         uiScreen.enabled = false;
-        
 
     }
 
@@ -60,25 +59,33 @@ public class InventoryUI : InteractableObj
         seeds = true;
         view.SetActive(false);
         int count = 0;
-        foreach (var item in inventoryManager.inventory)
+        foreach (var i in inventoryManager.inventory)
         {
-            iconSlots[count].sprite = item.Value.seedIcon;
-            amounts[count].text = item.Value.seedStock.ToString();
+            iconSlots[count].sprite = i.Value.seedIcon;
+            amounts[count].text = i.Value.seedStock.ToString();
             count++;
         }
     }
 
     public void SetUpView(string name)
     {
-        view.SetActive(true); 
+        view.SetActive(true);
+        item = inventoryManager.inventory[name];
+        
         if(flowers)
         {
-
+            viewName.text = item.itemName;
+            viewDescription.text = item.description;
+            viewIcon.sprite = item.flowerIcon;
+            viewStock.text = item.flowerStock.ToString(); 
         } 
         
         if(seeds)
         {
-
+            viewName.text = item.itemName + " Seeds";
+            viewDescription.text = item.description;
+            viewIcon.sprite = item.seedIcon;
+            viewStock.text = item.seedStock.ToString();
         }
     }
 

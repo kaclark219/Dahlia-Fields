@@ -101,13 +101,13 @@ public class InventoryManager : MonoBehaviour
         inventory.Add("Lavender", new InventoryItem("Lavender", 72.0f, "Gerald favorite", 0, 0, 5,
             lavenderGrowing, lavenderHarvest, lavenderSeed, lavenderFlower));
 
-        inventory.Add("PricklyPear", new InventoryItem("PricklyPear", 84.0f, "Jermey favorite", 0, 0, 6,
+        inventory.Add("PricklyPear", new InventoryItem("Prickly Pear", 84.0f, "Jermey favorite", 0, 0, 6,
             pearGrowing, pearHarvest, pearSeed, pearFlower));
 
         inventory.Add("Sunflower", new InventoryItem("Sunflower", 96.0f, "Sebastian favorite", 0, 0, 7,
             sunflowerGrowing, sunflowerHarvest, sunflowerSeed, sunflowerFlower));
 
-        inventory.Add("LilyValley", new InventoryItem("LilyValley", 108.0f, "Poppy favorite", 0, 0, 7,
+        inventory.Add("LilyValley", new InventoryItem("Lily of the Valley", 108.0f, "Poppy favorite", 0, 0, 7,
             lilyGrowing, lilyHarvest, lilySeed, lilyFlower));
 
     }
