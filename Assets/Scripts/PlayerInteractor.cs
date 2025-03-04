@@ -9,6 +9,7 @@ public class PlayerInteractor : MonoBehaviour
     private Rigidbody2D rb;
     public PlayerMovement pm;
     private PlayerData playerData;
+    private InteractableObj closest;
 
     void Awake()
     {
@@ -19,7 +20,7 @@ public class PlayerInteractor : MonoBehaviour
 
     void Update(){
         if(list.Count > 0){
-            InteractableObj closest = list[0];
+            closest = list[0];
             closest.active = false;
             float closestdistance = Vector2.Distance(closest.gameObject.transform.position, rb.position);
             for(int i = 1; i < list.Count; i++){
@@ -46,5 +47,11 @@ public class PlayerInteractor : MonoBehaviour
     {
         pm.canmove = true;
         playerData.state = PlayerData.PlayerState.Normal;
+    }
+
+    public void Plant(string plant){
+        if(closest is FlowerBox){
+            (closest as FlowerBox).Plant(plant);
+        }
     }
 }

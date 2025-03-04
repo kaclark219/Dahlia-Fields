@@ -60,7 +60,7 @@ public class DaySystem : MonoBehaviour
         npcManager.ResetDailyInteraction();
 
         // update Flowerboxes
-        box1.NextDayBox();
+        StartCoroutine(box1.NextDayBox());
     }
 
     public void SaveData()
