@@ -1574,7 +1574,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6339651229382287108}
-  - component: {fileID: 5015377261986698445}
   m_Layer: 0
   m_Name: Popup
   m_TagString: Untagged
@@ -1597,51 +1596,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7220218501828043558}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5015377261986698445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2455596361313270408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474c37466de67f648b89076e00c454ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Popup: {fileID: 2455596361313270408}
-  active: 0
-  plint: {fileID: 0}
-  frame: 0
-  uiScreen: {fileID: 7477394542343489636}
-  inventoryManager: {fileID: 2399888363277904680}
-  flowers: 0
-  seeds: 0
-  view: {fileID: 0}
-  viewName: {fileID: 0}
-  viewStock: {fileID: 0}
-  viewDescription: {fileID: 0}
-  viewIcon: {fileID: 0}
-  iconSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  amounts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &2465716781261236141
 GameObject:
   m_ObjectHideFlags: 0

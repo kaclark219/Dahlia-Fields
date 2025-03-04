@@ -1505,11 +1505,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7220218501828043558, guid: f79898c668be95243833f474b1627c18, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.46
+      value: 4.95
       objectReference: {fileID: 0}
     - target: {fileID: 7220218501828043558, guid: f79898c668be95243833f474b1627c18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: -2.53
       objectReference: {fileID: 0}
     - target: {fileID: 7220218501828043558, guid: f79898c668be95243833f474b1627c18, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1567,26 +1567,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6737742833225248807, guid: afaca9577ee675649b2eec3ac1c02406, type: 3}
-      propertyPath: Popup
-      value: 
-      objectReference: {fileID: 1090132058}
-    - target: {fileID: 6737742833225248807, guid: afaca9577ee675649b2eec3ac1c02406, type: 3}
-      propertyPath: plint
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737742833225248807, guid: afaca9577ee675649b2eec3ac1c02406, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 492082183}
-    - target: {fileID: 6737742833225248807, guid: afaca9577ee675649b2eec3ac1c02406, type: 3}
-      propertyPath: FlowerBoxUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6737742833225248807, guid: afaca9577ee675649b2eec3ac1c02406, type: 3}
-      propertyPath: inventoryManager
-      value: 
-      objectReference: {fileID: 885972413}
     - target: {fileID: 2439232789691295958, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
       propertyPath: m_Size.x
       value: 3
@@ -1667,6 +1647,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlowerBox
       objectReference: {fileID: 0}
+    - target: {fileID: 6737742833225248807, guid: afaca9577ee675649b2eec3ac1c02406, type: 3}
+      propertyPath: Popup
+      value: 
+      objectReference: {fileID: 1090132058}
+    - target: {fileID: 6737742833225248807, guid: afaca9577ee675649b2eec3ac1c02406, type: 3}
+      propertyPath: plint
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737742833225248807, guid: afaca9577ee675649b2eec3ac1c02406, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 492082183}
+    - target: {fileID: 6737742833225248807, guid: afaca9577ee675649b2eec3ac1c02406, type: 3}
+      propertyPath: FlowerBoxUI
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737742833225248807, guid: afaca9577ee675649b2eec3ac1c02406, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 885972413}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
