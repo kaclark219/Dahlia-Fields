@@ -778,7 +778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1977274584
 Transform:
   m_ObjectHideFlags: 0
@@ -1180,6 +1180,10 @@ PrefabInstance:
     - target: {fileID: 6495936110087613362, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_Name
       value: FlowerBoxUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6495936110087613362, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6672933785160886597, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1610,6 +1614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlowerBox
       objectReference: {fileID: 0}
+    - target: {fileID: 6897925162645074860, guid: afaca9577ee675649b2eec3ac1c02406, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4696941284132095915, guid: afaca9577ee675649b2eec3ac1c02406, type: 3}
     m_RemovedGameObjects: []
@@ -1995,6 +2003,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 7385635536402687388}
   - {fileID: 783781326}
   - {fileID: 2006658713}
   - {fileID: 5740073542675165705}
@@ -2002,4 +2011,3 @@ SceneRoots:
   - {fileID: 772185883}
   - {fileID: 5445630889982888454}
   - {fileID: 7789693353779488527}
-  - {fileID: 7385635536402687388}
