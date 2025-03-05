@@ -14,7 +14,7 @@ public class DaySystem : MonoBehaviour
     [SerializeField] private NPCManager npcManager;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerData playerData;
-    [SerializeField] public  FlowerBox box1;
+    [SerializeField] public  FlowerboxManager fman;
 
     private void Awake()
     {
@@ -60,7 +60,7 @@ public class DaySystem : MonoBehaviour
         npcManager.ResetDailyInteraction();
 
         // update Flowerboxes
-        StartCoroutine(box1.NextDayBox());
+        StartCoroutine(fman.NextDayBox());
     }
 
     public void SaveData()

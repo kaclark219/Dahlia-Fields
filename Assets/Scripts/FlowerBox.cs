@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class FlowerBox : InteractableObj
@@ -11,21 +10,20 @@ public class FlowerBox : InteractableObj
     bool planted = false; 
     SpriteRenderer sr;
     int spriteInd = 0;
+    FlowerboxManager fman;
 
     [SerializeField] public InventoryManager inventoryManager;
-    [SerializeField] public GameObject FlowerBoxUI;
     [SerializeField] public PlayerData player;
 
     [SerializeField] public Sprite[] sprites;
-    [SerializeField] public TextMeshProUGUI[] counts; 
 
 
     private void Awake()
     {
        inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
        player =  GameObject.Find("Player").GetComponent<PlayerData>();
-       FlowerBoxUI.SetActive(false);
        sr = GetComponentInParent<SpriteRenderer>();
+       fman = GetComponentInParent<FlowerboxManager>();
     }
 
     public override void Start()
@@ -35,24 +33,12 @@ public class FlowerBox : InteractableObj
 
     public override void OnInteract()
     {
-        //if (true && PlantedFlower == "")
-        //{
-        //   Plant();
-        //}
-        //else if (true && daysToGrow[PlantedFlower] == CycleIndex && !WateredToday)
-        //{
-        //    StartCoroutine(Harvest());
-        //}
-        //else if (true && !WateredToday)
-        //{ //Replace with (has enough energy)
-        //    ;//Decrease energy
-        //    StartCoroutine(Water());
-        //}
-
+        base.OnInteract();
         if (!planted)
         {
             base.OnInteract();
-            OpenUI();
+            fman.OpenUI();
+            fman.active = this;
         }
         else if (!WateredToday && flowerPlanted.daysToGrow != CycleIndex) //not watered today and growth not completed
         {
@@ -63,24 +49,9 @@ public class FlowerBox : InteractableObj
         {
             base.OnInteract();
             Harvest();
+        }else if(WateredToday){
+            base.EndInteract();
         }
-    }
-
-    public void OpenUI()
-    {
-        int i = 0; 
-        foreach (var item in inventoryManager.inventory)
-        {
-            counts[i].text = item.Value.seedStock.ToString();
-            i++;
-        }
-        FlowerBoxUI.SetActive(true);
-    }
-
-    public void CloseUI()
-    {
-        this.EndInteract();
-        FlowerBoxUI.SetActive(false);
     }
 
     public void Plant(string flower)
@@ -90,16 +61,16 @@ public class FlowerBox : InteractableObj
         Debug.Log(inventoryManager.GetSeedStock(flower) >= 5);
         if(inventoryManager.GetSeedStock(flower) >= 5)
         {
-            FlowerBoxUI.SetActive(false);
+            fman.CloseUI();
             planted = true;
             flowerPlanted = inventoryManager.FindItem(flower);
             inventoryManager.SetSeedStock(flower, -5);
             player.ModifyEnergy(-5); 
 
             //uncomment once sprites available
-            //sprites[5] = Resources.Load<Sprite>("Flowerbox/");
-            //sprites[6] = Resources.Load<Sprite>("Flowerbox/");
-            //sprites[7] = Resources.Load<Sprite>("Flowerbox/");
+            sprites[5] = Resources.Load<Sprite>("Flowerbox/" + flower + "_growing");
+            sprites[6] = Resources.Load<Sprite>("Flowerbox/" + flower + "_growing+watered");
+            sprites[7] = Resources.Load<Sprite>("Flowerbox/" + flower + "_final");
             sr.sprite = sprites[1];
             spriteInd = 1;
             EndInteract();
@@ -136,9 +107,9 @@ public class FlowerBox : InteractableObj
         player.ModifyEnergy(-5);
 
         //uncomment once sprites available
-        //sprites[5] = null;
-        //sprites[6] = null;
-        //sprites[7] = null;
+        sprites[5] = null;
+        sprites[6] = null;
+        sprites[7] = null;
 
         sr.sprite = sprites[0];
         spriteInd = 0;
@@ -167,7 +138,7 @@ public class FlowerBox : InteractableObj
                 sr.sprite = sprites[7];
                 spriteInd = 7;
             } 
-            else if(flowerPlanted.daysToGrow/2 >= CycleIndex)
+            else if(flowerPlanted.daysToGrow/2 < CycleIndex)
             {
                 spriteInd = 5;
                 sr.sprite = sprites[5];
