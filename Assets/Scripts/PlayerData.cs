@@ -81,6 +81,7 @@ public class PlayerData : MonoBehaviour
     }
     public void SetName(string name)
     {
+        Debug.Log("Set Name: " + name);
         playerName = name;
         GameObject.Find("InkManager").GetComponent<DialogueVariables>().ChangeVariable("PlayerName", playerName);
     }   

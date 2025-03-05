@@ -15,6 +15,7 @@ public class ScreenManager : MonoBehaviour
     public string game_scene = " ";
 
     private const string nameKey = "PLAYER_NAME";
+    private const string newGameKey = "NEW_GAME";   // tells the GlobalStateManager on load if its a new game 
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +49,9 @@ public class ScreenManager : MonoBehaviour
     //Load Saved Game
     public void LoadGame()
     {
-        //need to access save system
+        PlayerPrefs.SetInt(newGameKey, 0);  // 0 => not a new game
+        SceneManager.LoadScene(game_scene);
+
     }
 
     //Quit Application
@@ -65,6 +68,7 @@ public class ScreenManager : MonoBehaviour
         //DontDestroyOnLoad(tag_finder);
         Debug.Log(player_name);
         PlayerPrefs.SetString(nameKey, player_name);
+        PlayerPrefs.SetInt(newGameKey, 0);  // 1 => is a new game
         SceneManager.LoadScene(game_scene);
     }
 
