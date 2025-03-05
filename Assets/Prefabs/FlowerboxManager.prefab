@@ -268,7 +268,7 @@ PrefabInstance:
     - target: {fileID: 7948997640115522729, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7127635871099253818}
+      objectReference: {fileID: 0}
     - target: {fileID: 7948997640115522729, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Plant
@@ -288,7 +288,7 @@ PrefabInstance:
     - target: {fileID: 9044869268888409515, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7127635871099253818}
+      objectReference: {fileID: 0}
     - target: {fileID: 9044869268888409515, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Plant
@@ -308,7 +308,7 @@ PrefabInstance:
     - target: {fileID: 9129051103496738514, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7127635871099253818}
+      objectReference: {fileID: 0}
     - target: {fileID: 9129051103496738514, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Plant
@@ -497,11 +497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6009452050819619337, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6
+      value: 6.01
       objectReference: {fileID: 0}
     - target: {fileID: 6009452050819619337, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: -1.38
       objectReference: {fileID: 0}
     - target: {fileID: 6009452050819619337, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
       propertyPath: m_LocalPosition.z
@@ -540,6 +540,10 @@ PrefabInstance:
       value: Flowerbox
       objectReference: {fileID: 0}
     - target: {fileID: 7419999832601790866, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758939418575493930, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
       propertyPath: m_TagString
       value: Flowerbox
       objectReference: {fileID: 0}
