@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FlowerBox : InteractableObj
@@ -11,11 +12,12 @@ public class FlowerBox : InteractableObj
     SpriteRenderer sr;
     int spriteInd = 0;
 
-    [SerializedField] public InventoryManager inventoryManager;
-    [SerializedField] public GameObject FlowerBoxUI;
-    [SerializedField] public PlayerData player;
+    [SerializeField] public InventoryManager inventoryManager;
+    [SerializeField] public GameObject FlowerBoxUI;
+    [SerializeField] public PlayerData player;
 
-    [SerializedField] public Sprite[] sprites;
+    [SerializeField] public Sprite[] sprites;
+    [SerializeField] public TextMeshProUGUI[] counts; 
 
 
     private void Awake()
@@ -63,6 +65,12 @@ public class FlowerBox : InteractableObj
 
     public void OpenUI()
     {
+        int i = 0; 
+        foreach (var item in inventoryManager.inventory)
+        {
+            counts[i].text = item.Value.seedStock.ToString();
+            i++;
+        }
         FlowerBoxUI.SetActive(true);
     }
 
@@ -79,9 +87,10 @@ public class FlowerBox : InteractableObj
             inventoryManager.SetSeedStock(flower, -5);
             player.ModifyEnergy(-5); 
 
-            sprites[5] = Resources.Load<Sprite>("Flowerbox/");
-            sprites[6] = Resources.Load<Sprite>("Flowerbox/");
-            sprites[7] = Resources.Load<Sprite>("Flowerbox/");
+            //uncomment once sprites available
+            //sprites[5] = Resources.Load<Sprite>("Flowerbox/");
+            //sprites[6] = Resources.Load<Sprite>("Flowerbox/");
+            //sprites[7] = Resources.Load<Sprite>("Flowerbox/");
             sr.sprite = sprites[1];
             spriteInd = 1;
 
@@ -116,9 +125,10 @@ public class FlowerBox : InteractableObj
         planted = false;
         player.ModifyEnergy(-5);
 
-        sprites[5] = null;
-        sprites[6] = null;
-        sprites[7] = null;
+        //uncomment once sprites available
+        //sprites[5] = null;
+        //sprites[6] = null;
+        //sprites[7] = null;
 
         sr.sprite = sprites[0];
         spriteInd = 0;
