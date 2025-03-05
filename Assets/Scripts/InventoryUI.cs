@@ -36,8 +36,15 @@ public class InventoryUI : InteractableObj
 
     public override void OnInteract()
     {   
+        base.OnInteract();
         SetUpFlowers();
         uiScreen.enabled = true;
+    }
+
+    public override void EndInteract()
+    {
+        base.EndInteract();
+        uiScreen.enabled = false;
     }
 
     public void SetUpFlowers()

@@ -9,6 +9,9 @@ public class GlobalStateManager : MonoBehaviour
     [SerializeField] private DaySystem daySystem;
     [SerializeField] private NPCManager npcManager;
 
+    private const string newGameKey = "NEW_GAME";   // used to tell GlobalStateManager on load if its a new game 
+    private const string nameKey = "PLAYER_NAME";
+
     private void Awake()
     {
         dialogueVariables = GameObject.Find("InkManager").GetComponent<DialogueVariables>();
@@ -19,7 +22,18 @@ public class GlobalStateManager : MonoBehaviour
 
     private void Start()
     {
-        LoadAllData();
+
+        int newGame = PlayerPrefs.GetInt(newGameKey);
+        if (newGame == 1)   // reset all data, create new game
+        {
+            string name = PlayerPrefs.GetString(nameKey);
+            ResetAllData();
+            playerData.SetName(name);
+        }
+        else
+        {
+            LoadAllData();
+        }
     }
 
     public void SaveAllData()

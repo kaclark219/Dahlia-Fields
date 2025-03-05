@@ -37,42 +37,42 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] public Sprite dandelionHarvest;
     [SerializeField] public Sprite dandelionSeed;
     [SerializeField] public Sprite dandelionFlower;
-
+    [Space]
     [SerializeField] public Sprite daisyGrowing;
     [SerializeField] public Sprite daisyHarvest;
     [SerializeField] public Sprite daisySeed;
     [SerializeField] public Sprite daisyFlower;
-
+    [Space]
     [SerializeField] public Sprite poppyGrowing;
     [SerializeField] public Sprite poppyHarvest;
     [SerializeField] public Sprite poppySeed;
     [SerializeField] public Sprite poppyFlower;
-
+    [Space]
     [SerializeField] public Sprite tulipGrowing;
     [SerializeField] public Sprite tulipHarvest;
     [SerializeField] public Sprite tuilpSeed;
     [SerializeField] public Sprite tuilpFlower;
-
+    [Space]
     [SerializeField] public Sprite roseGrowing;
     [SerializeField] public Sprite roseHarvest;
     [SerializeField] public Sprite roseSeed;
     [SerializeField] public Sprite roseFlower;
-
+    [Space]
     [SerializeField] public Sprite lavenderGrowing;
     [SerializeField] public Sprite lavenderHarvest;
     [SerializeField] public Sprite lavenderSeed;
     [SerializeField] public Sprite lavenderFlower;
-
+    [Space]
     [SerializeField] public Sprite pearGrowing;
     [SerializeField] public Sprite pearHarvest;
     [SerializeField] public Sprite pearSeed;
     [SerializeField] public Sprite pearFlower;
-
+    [Space]
     [SerializeField] public Sprite sunflowerGrowing;
     [SerializeField] public Sprite sunflowerHarvest;
     [SerializeField] public Sprite sunflowerSeed;
     [SerializeField] public Sprite sunflowerFlower;
-
+    [Space]
     [SerializeField] public Sprite lilyGrowing;
     [SerializeField] public Sprite lilyHarvest;
     [SerializeField] public Sprite lilySeed;
