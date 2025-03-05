@@ -65,12 +65,6 @@ public class FlowerBox : InteractableObj
 
     public void OpenUI()
     {
-        int i = 0; 
-        foreach (var item in inventoryManager.inventory)
-        {
-            counts[i].text = item.Value.seedStock.ToString();
-            i++;
-        }
         FlowerBoxUI.SetActive(true);
     }
 
