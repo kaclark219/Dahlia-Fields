@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour
 {
-    [SerializeField] GameObject pause_button;
     [SerializeField] GameObject pause_ui;
     public string menu_scene = "Prototype_Menu";
 
@@ -16,14 +15,12 @@ public class PauseUI : MonoBehaviour
 
     public void OpenPause()
     {
-        pause_button.SetActive(false);
         pause_ui.SetActive(true);
     }
 
     public void Resume()
     {
         pause_ui.SetActive(false);
-        pause_button.SetActive(true);
     }
 
     public void ToMain()
