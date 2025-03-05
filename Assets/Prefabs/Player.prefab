@@ -3010,23 +3010,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5751421869202909, guid: e2a86da843f51664f969fa9b50b46ca0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 186003671779896403, guid: e2a86da843f51664f969fa9b50b46ca0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1435250017066242209, guid: e2a86da843f51664f969fa9b50b46ca0, type: 3}
       propertyPath: m_text
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3218811838912624062, guid: e2a86da843f51664f969fa9b50b46ca0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3278842660341688736, guid: e2a86da843f51664f969fa9b50b46ca0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4790567876667499818, guid: e2a86da843f51664f969fa9b50b46ca0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5845210843711453005, guid: e2a86da843f51664f969fa9b50b46ca0, type: 3}
       propertyPath: m_Pivot.x
@@ -3110,7 +3114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6256276556087752321, guid: e2a86da843f51664f969fa9b50b46ca0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7081330114733320217, guid: e2a86da843f51664f969fa9b50b46ca0, type: 3}
       propertyPath: m_Name
@@ -3118,7 +3122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8642034054014379448, guid: e2a86da843f51664f969fa9b50b46ca0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9008310771195703408, guid: e2a86da843f51664f969fa9b50b46ca0, type: 3}
       propertyPath: menu_scene
