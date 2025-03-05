@@ -14,6 +14,8 @@ public class ScreenManager : MonoBehaviour
     public string player_name = " "; 
     public string game_scene = " ";
 
+    private const string nameKey = "PLAYER_NAME";
+
     // Start is called before the first frame update
     void Start()
     {   
@@ -58,10 +60,11 @@ public class ScreenManager : MonoBehaviour
     //Start New Game
     public void NewGame()
     {
-        GameObject tag_finder = GameObject.FindWithTag("Player_Name"); ;
-        tag_finder.name = player_name; 
-        DontDestroyOnLoad(tag_finder);
+        //GameObject tag_finder = GameObject.FindWithTag("Player_Name"); ;
+        //tag_finder.name = player_name; 
+        //DontDestroyOnLoad(tag_finder);
         Debug.Log(player_name);
+        PlayerPrefs.SetString(nameKey, player_name);
         SceneManager.LoadScene(game_scene);
     }
 
