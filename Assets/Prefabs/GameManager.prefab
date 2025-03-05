@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 7373640166310615631}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.2, y: 22.4, z: 0}
+  m_LocalPosition: {x: -10.7, y: 19.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,6 +133,7 @@ MonoBehaviour:
   dialogueVariables: {fileID: 0}
   playerData: {fileID: 0}
   daySystem: {fileID: 1961994125542866198}
+  npcManager: {fileID: 0}
 --- !u!114 &1961994125542866198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +148,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   day: 1
   week: 1
+  npcManager: {fileID: 0}
+  playerMovement: {fileID: 0}
+  playerData: {fileID: 0}
+  box1: {fileID: 0}
 --- !u!114 &4218859400215620059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +252,7 @@ Transform:
   m_GameObject: {fileID: 8979737453066020999}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.1, y: 36.3, z: 0}
+  m_LocalPosition: {x: -10.7, y: 51.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

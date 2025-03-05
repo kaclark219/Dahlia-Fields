@@ -6,8 +6,9 @@ public class PlayerInteractor : MonoBehaviour
 {
     // Logic when interacting with stuff that'll affect player data
     public List<InteractableObj> list = new List<InteractableObj>();
-    private Rigidbody2D rb;
     public PlayerMovement pm;
+
+    private Rigidbody2D rb;
     private PlayerData playerData;
     private InteractableObj closest;
 

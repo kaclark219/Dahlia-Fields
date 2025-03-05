@@ -12,7 +12,6 @@ public class InGameHUD : MonoBehaviour
     public void UpdateEnergy(int energy)
     {
         float scale = (energy * 2.0f) / 100.0f;
-        Debug.Log(scale);
         energyBar.transform.localScale = new Vector3(scale, 1f, 1f);
     }
 

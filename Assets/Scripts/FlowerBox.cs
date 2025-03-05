@@ -51,14 +51,17 @@ public class FlowerBox : InteractableObj
 
         if (!planted)
         {
+            base.OnInteract();
             OpenUI();
         }
         else if (!WateredToday && flowerPlanted.daysToGrow != CycleIndex) //not watered today and growth not completed
         {
+            base.OnInteract();
             Water();
         }
-        else if(flowerPlanted.daysToGrow == CycleIndex) //growth completed
+        else if(flowerPlanted.daysToGrow == CycleIndex && !WateredToday) //growth completed
         {
+            base.OnInteract();
             Harvest();
         }
     }
@@ -66,6 +69,12 @@ public class FlowerBox : InteractableObj
     public void OpenUI()
     {
         FlowerBoxUI.SetActive(true);
+    }
+
+    public void CloseUI()
+    {
+        this.EndInteract();
+        FlowerBoxUI.SetActive(false);
     }
 
     public void Plant(string flower)
@@ -87,8 +96,8 @@ public class FlowerBox : InteractableObj
             //sprites[7] = Resources.Load<Sprite>("Flowerbox/");
             sr.sprite = sprites[1];
             spriteInd = 1;
-
-            Debug.Log("Plant");
+            EndInteract();
+            Debug.Log("Planted " + flower);
         }
     }
 
@@ -103,7 +112,8 @@ public class FlowerBox : InteractableObj
         player.ModifyEnergy(-5);
         
         sr.sprite = sprites[++spriteInd];
-        
+
+        EndInteract();
         Debug.Log("Watered");
     }
 
@@ -127,6 +137,7 @@ public class FlowerBox : InteractableObj
         sr.sprite = sprites[0];
         spriteInd = 0;
 
+        EndInteract();
         Debug.Log("Harvested");
     }
 

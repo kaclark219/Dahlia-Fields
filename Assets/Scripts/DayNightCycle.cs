@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.Rendering.Universal;
 
 public class DayNightCycle : MonoBehaviour
@@ -19,7 +20,9 @@ public class DayNightCycle : MonoBehaviour
         DayLight.color = DayLightGradient.Evaluate(ratio);
         NightLight.color = NightLightGradient.Evaluate(ratio);
 
-        transform.rotation = Quaternion.Euler(0, 0, 360.0f * ratio);
+        Vector3 point = DayLight.transform.position;
+        float angle = 360f * ratio;
+        NightLight.transform.RotateAround(point, Vector3.forward, angle);
         currEnergy = 50;
     }
 
@@ -36,7 +39,9 @@ public class DayNightCycle : MonoBehaviour
             DayLight.color = DayLightGradient.Evaluate(ratio);
             NightLight.color = NightLightGradient.Evaluate(ratio);
 
-            transform.rotation = Quaternion.Euler(0, 0, 360.0f * ratio);
+            Vector3 point = DayLight.transform.position;
+            float angle = 360f * ratio;
+            NightLight.transform.RotateAround(point, Vector3.forward, angle);
             currEnergy--;
 
             yield return new WaitForSeconds(0.1f);
