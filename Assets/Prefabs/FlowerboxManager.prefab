@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6729633469940695430}
+  - component: {fileID: 7127635871099253818}
   m_Layer: 0
   m_Name: FlowerboxManager
   m_TagString: Untagged
@@ -33,6 +34,31 @@ Transform:
   - {fileID: 4402127986198391266}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7127635871099253818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656354250974084565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c308a621e59454393ddb9f8397368b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlowerBoxUI: {fileID: 8111006526426147891}
+  inventoryManager: {fileID: 0}
+  counts:
+  - {fileID: 7656030454990013198}
+  - {fileID: 5454495750724500573}
+  - {fileID: 6320436096791555174}
+  - {fileID: 8432401176597001016}
+  - {fileID: 4416468502689416306}
+  - {fileID: 4154237965845448975}
+  - {fileID: 4876210820652929683}
+  - {fileID: 5909763425191203484}
+  - {fileID: 1315011667046959785}
+  active: {fileID: 0}
 --- !u!1 &9207821232009666029
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +209,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 810747485890826037, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 810747485890826037, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7127635871099253818}
+    - target: {fileID: 810747485890826037, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 810747485890826037, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FlowerboxManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396515825341651737, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7127635871099253818}
+    - target: {fileID: 2396515825341651737, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FlowerboxManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271141570558153449, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7127635871099253818}
+    - target: {fileID: 4271141570558153449, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FlowerboxManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681929032219224675, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7127635871099253818}
+    - target: {fileID: 5681929032219224675, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FlowerboxManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6495936110087613362, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_Name
       value: FlowerBoxUI
@@ -191,45 +257,180 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6672933785160886597, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7127635871099253818}
+    - target: {fileID: 6672933785160886597, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FlowerboxManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948997640115522729, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7127635871099253818}
     - target: {fileID: 7948997640115522729, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Plant
       objectReference: {fileID: 0}
     - target: {fileID: 7948997640115522729, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerInteractor, Assembly-CSharp
+      value: FlowerboxManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7971900394627757857, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7127635871099253818}
+    - target: {fileID: 7971900394627757857, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FlowerboxManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044869268888409515, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7127635871099253818}
     - target: {fileID: 9044869268888409515, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Plant
       objectReference: {fileID: 0}
     - target: {fileID: 9044869268888409515, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerInteractor, Assembly-CSharp
+      value: FlowerboxManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 9075199540867874104, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7127635871099253818}
+    - target: {fileID: 9075199540867874104, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FlowerboxManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129051103496738514, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7127635871099253818}
     - target: {fileID: 9129051103496738514, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Plant
       objectReference: {fileID: 0}
     - target: {fileID: 9129051103496738514, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerInteractor, Assembly-CSharp
+      value: FlowerboxManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+--- !u!114 &1315011667046959785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4074062401701596456, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+  m_PrefabInstance: {fileID: 3077689243903379329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2516300710417824346 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 602800814312046043, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
   m_PrefabInstance: {fileID: 3077689243903379329}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4154237965845448975 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1373869899063889550, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+  m_PrefabInstance: {fileID: 3077689243903379329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4416468502689416306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1728349522216076275, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+  m_PrefabInstance: {fileID: 3077689243903379329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4876210820652929683 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7574458536617956626, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+  m_PrefabInstance: {fileID: 3077689243903379329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5454495750724500573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6990823520404601820, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+  m_PrefabInstance: {fileID: 3077689243903379329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5909763425191203484 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8698021574671389981, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+  m_PrefabInstance: {fileID: 3077689243903379329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6320436096791555174 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9007363266811784167, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+  m_PrefabInstance: {fileID: 3077689243903379329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7656030454990013198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4650398917486593167, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+  m_PrefabInstance: {fileID: 3077689243903379329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8111006526426147891 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6495936110087613362, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
   m_PrefabInstance: {fileID: 3077689243903379329}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8432401176597001016 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6896082223896769721, guid: 98db814267a7f1947b4be3b4a144d919, type: 3}
+  m_PrefabInstance: {fileID: 3077689243903379329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5813038339284599747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -282,13 +483,25 @@ PrefabInstance:
       propertyPath: counts.Array.data[8]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5126033701613080066, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
+      propertyPath: sprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126033701613080066, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
+      propertyPath: sprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126033701613080066, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
+      propertyPath: sprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6009452050819619337, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 6009452050819619337, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6009452050819619337, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
       propertyPath: m_LocalPosition.z
@@ -324,6 +537,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7419999832601790866, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
       propertyPath: m_Name
+      value: Flowerbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419999832601790866, guid: 929ed8b5950b33a49a1910d688d79c27, type: 3}
+      propertyPath: m_TagString
       value: Flowerbox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
