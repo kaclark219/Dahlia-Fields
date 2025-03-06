@@ -46,7 +46,7 @@ public class InkManager : MonoBehaviour
         DisplayNextLine();
     }
 
-    public void StartStory(TextAsset newstory, NPC npc)
+    public Story StartStory(TextAsset newstory, NPC npc)
     {
         Debug.Log("Starting Dialogue");
 
@@ -61,6 +61,27 @@ public class InkManager : MonoBehaviour
         story.BindExternalFunction("ChangeMood", (string name, string mood) => npcDialogueManager.ChangeMood(name, mood));
         dialogueVariables.StartListening(story);
         DisplayNextLine();
+
+        return story;
+    }
+
+    // Used to create the story but not display the next line for other ExternalFunction bindings
+    public Story CreateStory(TextAsset newstory, NPC npc)
+    {
+        Debug.Log("Starting Dialogue");
+
+        currentNPC = npc;
+        inkJsonAsset = newstory;
+        story = new Story(inkJsonAsset.text);
+        UI.SetActive(true);
+
+        // Connects function calls in Ink file with function calls in Unity
+        story.BindExternalFunction("ShowCharacter", (string name, string position, string mood) => npcDialogueManager.ShowCharacter(name, position, mood));
+        story.BindExternalFunction("HideCharacter", (string name) => npcDialogueManager.HideCharacter(name));
+        story.BindExternalFunction("ChangeMood", (string name, string mood) => npcDialogueManager.ChangeMood(name, mood));
+        dialogueVariables.StartListening(story);
+
+        return story;
     }
 
     private void EndStory()
@@ -124,7 +145,7 @@ public class InkManager : MonoBehaviour
         foreach (char c in text)
         {
             textBox.maxVisibleCharacters++;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.04f);
         }
         printCoroutine = null;
     }
@@ -149,7 +170,7 @@ public class InkManager : MonoBehaviour
         foreach (Choice choice in story.currentChoices)
         {
             GameObject button = CreateChoiceButton(choice.text);
-
+            Debug.Log(choice.text);
             button.GetComponentsInChildren<Button>()[0].onClick.AddListener(() => OnClickChoiceButton(choice)); 
         }
     }

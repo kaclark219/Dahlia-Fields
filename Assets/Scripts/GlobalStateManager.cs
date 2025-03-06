@@ -22,7 +22,7 @@ public class GlobalStateManager : MonoBehaviour
 
     private void Start()
     {
-        int newGame = 1;
+        int newGame = 0;
         if (PlayerPrefs.HasKey(newGameKey))
         {
             newGame = PlayerPrefs.GetInt(newGameKey);

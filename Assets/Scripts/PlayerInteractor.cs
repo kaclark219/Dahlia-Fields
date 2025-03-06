@@ -7,6 +7,7 @@ public class PlayerInteractor : MonoBehaviour
     // Logic when interacting with stuff that'll affect player data
     public List<InteractableObj> list = new List<InteractableObj>();
     public PlayerMovement pm;
+    public bool canInteract = true;
 
     private Rigidbody2D rb;
     private PlayerData playerData;
@@ -20,7 +21,7 @@ public class PlayerInteractor : MonoBehaviour
     }
 
     void Update(){
-        if(list.Count > 0){
+        if (list.Count > 0){
             closest = list[0];
             closest.active = false;
             float closestdistance = Vector2.Distance(closest.gameObject.transform.position, rb.position);
@@ -41,12 +42,14 @@ public class PlayerInteractor : MonoBehaviour
     public void Interact()
     {
         pm.canmove = false;
+        canInteract = false;
         playerData.state = PlayerData.PlayerState.Interacting;
     }
 
     public void EndInteract()
     {
         pm.canmove = true;
+        canInteract = true;
         playerData.state = PlayerData.PlayerState.Normal;
     }
 

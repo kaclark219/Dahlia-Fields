@@ -17,7 +17,7 @@ public class PlayerData : MonoBehaviour
     public PlayerState state = PlayerState.Normal;
 
     private string playerName = "";
-    private int money;
+    public int money;
     public int energy;
 
     private int timeOfDay;  // 1: morning, 2: afternoon, 3:evening
@@ -32,12 +32,32 @@ public class PlayerData : MonoBehaviour
     {
         return money;
     }
-    public void ModifyMoney(int amount)
+    public bool ModifyMoney(int amount)
     {
-        money += amount;
-        inGameHud.UpdateMoney(money); //Update UI
+        if ((money + amount) >= 0)
+        {
+            money += amount;
+            inGameHud.UpdateMoney(money); //Update UI
+            return true;
+        }
+        else // not enough money
+        {
+            return false;
+        }
+    }
+
+    private void SetMoney(int amount)
+    {
+        money = amount;
+        inGameHud.UpdateMoney(money);
     }
     
+    // For testing
+    public void IncreaseMoney()
+    {
+        money += 50;
+        inGameHud.UpdateMoney(money);
+    }
     public int GetEnergy()
     {
         return energy;
@@ -52,27 +72,36 @@ public class PlayerData : MonoBehaviour
     public void ModifyEnergy(int amount)
     {
         energy += amount;
-        dayNightCycle.UpdateLight(energy);
-
-        if (energy <= 36 && energy > 15 && timeOfDay != 2)  // Change to Afternoon
+        if (energy > 50)
         {
-            timeOfDay = 2;
-            daySystem.ChangeTimeOfDay(timeOfDay);
+            energy = 50;
         }
-        else if (energy <= 15 && energy > 0 && timeOfDay != 3)  // Change to Evening
-        {
-            timeOfDay = 3;
-            daySystem.ChangeTimeOfDay(timeOfDay);
-        }
-        if (energy <= 0)    // change to Next Day
-        {
-            daySystem.NextDay();
-            ResetEnergy();
-        }
-
         inGameHud.UpdateEnergy(energy); //Update UI
-
         Debug.Log("Player Energy changed by " + amount + ", new energy is " + energy);
+
+
+        if (amount < 0) // Increasing energy should not affect dayNightCycle
+        {
+            dayNightCycle.UpdateLight(energy);
+
+            if (energy <= 36 && energy > 15 && timeOfDay != 2)  // Change to Afternoon
+            {
+                timeOfDay = 2;
+                daySystem.ChangeTimeOfDay(timeOfDay);
+                Debug.Log("Change Time of Day to Afternoon");
+            }
+            else if (energy <= 15 && energy > 0 && timeOfDay != 3)  // Change to Evening
+            {
+                timeOfDay = 3;
+                daySystem.ChangeTimeOfDay(timeOfDay);
+                Debug.Log("Change Time of Day to Evening");
+            }
+            if (energy <= 0)    // change to Next Day
+            {
+                daySystem.NextDay();
+                ResetEnergy();
+            }
+        }
     }
 
     public string GetName()
@@ -85,7 +114,6 @@ public class PlayerData : MonoBehaviour
         playerName = name;
         GameObject.Find("InkManager").GetComponent<DialogueVariables>().ChangeVariable("PlayerName", playerName);
     }   
-
     public void SaveData()
     {
         PlayerPrefs.SetString(nameKey, playerName); 
@@ -105,11 +133,11 @@ public class PlayerData : MonoBehaviour
 
         if (PlayerPrefs.HasKey(moneyKey))
         {
-            money = PlayerPrefs.GetInt(moneyKey);
+            SetMoney(PlayerPrefs.GetInt(moneyKey));
         }
         else
         {
-            money = startMoney;
+            SetMoney(startMoney);
         }
         ResetEnergy();
     }
@@ -117,7 +145,7 @@ public class PlayerData : MonoBehaviour
     public void ResetData()
     {
         SetName("Y/N");
-        money = startMoney;
+        SetMoney(startMoney);
         ResetEnergy();
     }
 

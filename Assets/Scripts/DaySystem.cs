@@ -14,13 +14,14 @@ public class DaySystem : MonoBehaviour
     [SerializeField] private NPCManager npcManager;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerData playerData;
-    [SerializeField] public  FlowerboxManager fman;
+    [SerializeField] public  FlowerboxManager flowerManager;
 
     private void Awake()
     {
         npcManager = GameObject.Find("NPCManager").GetComponent<NPCManager>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         playerData = GameObject.Find("Player").GetComponent<PlayerData>();
+        flowerManager = GameObject.Find("FlowerboxManager").GetComponent <FlowerboxManager>();
     }
     public void NextDay()
     {
@@ -60,7 +61,7 @@ public class DaySystem : MonoBehaviour
         npcManager.ResetDailyInteraction();
 
         // update Flowerboxes
-        StartCoroutine(fman.NextDayBox());
+        StartCoroutine(flowerManager.NextDayBox());
     }
 
     public void SaveData()
