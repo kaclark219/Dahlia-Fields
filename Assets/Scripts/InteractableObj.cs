@@ -36,7 +36,7 @@ public class InteractableObj : MonoBehaviour
     {
         if (active){
             Popup.SetActive(true);
-            if(Input.GetKeyDown(KeyCode.E)){
+            if(Input.GetKeyDown(KeyCode.E) && plint.canInteract){
                 OnInteract();
             }
         }else{
