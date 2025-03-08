@@ -170,7 +170,6 @@ public class InkManager : MonoBehaviour
         foreach (Choice choice in story.currentChoices)
         {
             GameObject button = CreateChoiceButton(choice.text);
-            Debug.Log(choice.text);
             button.GetComponentsInChildren<Button>()[0].onClick.AddListener(() => OnClickChoiceButton(choice)); 
         }
     }
