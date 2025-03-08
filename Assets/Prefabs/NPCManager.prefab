@@ -707,17 +707,21 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
-  npcName: 0
-  sr: {fileID: 0}
-  ink: {fileID: 0}
-  pm: {fileID: 0}
+  npcName: 1
   textAssets:
   - {fileID: 4900000, guid: eb0c9f9d75c25754788436c540fa184e, type: 3}
   - {fileID: 4900000, guid: 3ec61831ddb1d214aabd593ada156510, type: 3}
   fuckOffText: {fileID: 4900000, guid: e8c898e24dfe83e4f9a1afdf54abf551, type: 3}
+  playerData: {fileID: 0}
+  sr: {fileID: 0}
+  ink: {fileID: 0}
+  pm: {fileID: 0}
   dailyInteraction: 0
   numOfInteractions: 0
-  buyTonicText: {fileID: 0}
+  costsEnergy: 0
+  npcKey: 
+  buyTonicText: {fileID: 4900000, guid: 2a440d7f191cf6c40bbd26043cdd2dfe, type: 3}
+  clinicLocation: {x: -17, y: 42, z: 0}
 --- !u!4 &4628316051340762244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2260415845632587747, guid: ec8737fd0a7c0f14da20f18ef0ea0439, type: 3}

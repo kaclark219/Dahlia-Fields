@@ -21,7 +21,7 @@ public class DayNightCycle : MonoBehaviour
         NightLight.color = NightLightGradient.Evaluate(ratio);
 
         Vector3 point = DayLight.transform.position;
-        float angle = 360f * ratio;
+        float angle = 0.0f;
         NightLight.transform.RotateAround(point, Vector3.forward, angle);
         currEnergy = 50;
     }
@@ -35,13 +35,13 @@ public class DayNightCycle : MonoBehaviour
     {
         while (currEnergy != energy)
         {
-            float ratio = (50 - currEnergy) / 50.0f;
+            float ratio = ((50 - currEnergy) / 50.0f);
             DayLight.color = DayLightGradient.Evaluate(ratio);
             NightLight.color = NightLightGradient.Evaluate(ratio);
 
             Vector3 point = DayLight.transform.position;
-            float angle = 360f * ratio;
-            NightLight.transform.RotateAround(point, Vector3.forward, angle);
+            //float angle = 180 * ratio;
+            //NightLight.transform.RotateAround(point, Vector3.forward, angle);
             currEnergy--;
 
             yield return new WaitForSeconds(0.1f);

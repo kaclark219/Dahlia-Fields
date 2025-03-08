@@ -27,6 +27,7 @@ public class GlobalStateManager : MonoBehaviour
         {
             newGame = PlayerPrefs.GetInt(newGameKey);
         }
+
         if (newGame == 1)   // reset all data, create new game
         {
             string name = PlayerPrefs.GetString(nameKey);

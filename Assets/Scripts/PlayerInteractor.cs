@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class PlayerInteractor : MonoBehaviour
 {
@@ -10,14 +11,12 @@ public class PlayerInteractor : MonoBehaviour
     public bool canInteract = true;
 
     private Rigidbody2D rb;
-    private PlayerData playerData;
     private InteractableObj closest;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         pm = GetComponent<PlayerMovement>();
-        playerData = GetComponent<PlayerData>();
     }
 
     void Update(){
@@ -43,14 +42,12 @@ public class PlayerInteractor : MonoBehaviour
     {
         pm.canmove = false;
         canInteract = false;
-        playerData.state = PlayerData.PlayerState.Interacting;
     }
 
     public void EndInteract()
     {
         pm.canmove = true;
         canInteract = true;
-        playerData.state = PlayerData.PlayerState.Normal;
     }
 
     public void Plant(string plant){
