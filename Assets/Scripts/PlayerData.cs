@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class PlayerData : MonoBehaviour
 {
-    public enum PlayerState {  Normal, Interacting }
     private const string nameKey = "PLAYER_NAME";
     private const string moneyKey = "MONEY";
     private const int startEnergy = 50;
@@ -13,8 +13,6 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private DayNightCycle dayNightCycle;
     [SerializeField] private DaySystem daySystem;
     [SerializeField] public InGameHUD inGameHud;
-
-    public PlayerState state = PlayerState.Normal;
 
     private string playerName = "";
     public int money;
@@ -113,7 +111,9 @@ public class PlayerData : MonoBehaviour
         Debug.Log("Set Name: " + name);
         playerName = name;
         GameObject.Find("InkManager").GetComponent<DialogueVariables>().ChangeVariable("PlayerName", playerName);
-    }   
+    }
+
+    #region SAVE_SYSTEM
     public void SaveData()
     {
         PlayerPrefs.SetString(nameKey, playerName); 
@@ -148,5 +148,5 @@ public class PlayerData : MonoBehaviour
         SetMoney(startMoney);
         ResetEnergy();
     }
-
+    #endregion
 }
