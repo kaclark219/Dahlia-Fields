@@ -40,8 +40,8 @@ public class DayNightCycle : MonoBehaviour
             NightLight.color = NightLightGradient.Evaluate(ratio);
 
             Vector3 point = DayLight.transform.position;
-            float angle = 360 * ratio;
-            NightLight.transform.RotateAround(point, Vector3.forward, angle);
+            //float angle = 180 * ratio;
+            //NightLight.transform.RotateAround(point, Vector3.forward, angle);
             currEnergy--;
 
             yield return new WaitForSeconds(0.1f);

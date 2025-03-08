@@ -22,7 +22,7 @@ public class InkManager : MonoBehaviour
 
     [SerializeField] private DialogueVariables dialogueVariables;
 
-    private NPC currentNPC;
+    private InteractableObj currInteractable;
     private Coroutine printCoroutine = null;
     private string text;
 
@@ -32,6 +32,8 @@ public class InkManager : MonoBehaviour
         npcDialogueManager = FindObjectOfType<NPCDialogueManager>();
         UI.SetActive(false);
     }
+
+    // For testing
     private void StartStory()
     {
         Debug.Log("Starting Dialogue");
@@ -46,11 +48,12 @@ public class InkManager : MonoBehaviour
         DisplayNextLine();
     }
 
-    public Story StartStory(TextAsset newstory, NPC npc)
+    // keeps track of InteractableObj to call EndInteract() at end of dialogue
+    public Story StartStory(TextAsset newstory, InteractableObj obj)
     {
         Debug.Log("Starting Dialogue");
 
-        currentNPC = npc; 
+        currInteractable = obj; 
         inkJsonAsset = newstory;
         story = new Story(inkJsonAsset.text);
         UI.SetActive(true);
@@ -66,11 +69,11 @@ public class InkManager : MonoBehaviour
     }
 
     // Used to create the story but not display the next line for other ExternalFunction bindings
-    public Story CreateStory(TextAsset newstory, NPC npc)
+    public Story CreateStory(TextAsset newstory, InteractableObj obj)
     {
         Debug.Log("Starting Dialogue");
 
-        currentNPC = npc;
+        currInteractable = obj;
         inkJsonAsset = newstory;
         story = new Story(inkJsonAsset.text);
         UI.SetActive(true);
@@ -97,7 +100,7 @@ public class InkManager : MonoBehaviour
         npcDialogueManager.ClearCharacters();
 
         // End Interaction for Player
-        currentNPC.EndInteract();
+        currInteractable.EndInteract();
     }
 
     public void DisplayNextLine()

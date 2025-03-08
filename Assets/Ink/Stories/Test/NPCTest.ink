@@ -1,4 +1,4 @@
-INCLUDE Globals.ink
+INCLUDE ../Globals.ink
 
 // Variable Trust & Functions are from Globals.ink
 
