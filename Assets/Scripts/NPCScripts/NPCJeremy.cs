@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using Ink.Runtime;
 using UnityEngine;
 
-public class NPCGerald : NPC
+public class NPCJeremy : NPC
 {
-    [Header("Tonic Attributes")]
-    [SerializeField] public TextAsset buyTonicText;
-    public Vector3 clinicLocation;
+    [Header("Flower Box Attributes")]
+    [SerializeField] public TextAsset buyFlowerBox;
+    public Vector3 workshopLocation;
 
     private Story story;
     public override void OnInteract()
     {
         plint.Interact();
-        if (transform.parent.transform.position == clinicLocation && numOfInteractions > 0)
+        if (transform.parent.transform.position == workshopLocation && numOfInteractions > 0)
         {
-            story = ink.CreateStory(buyTonicText, this);
-            story.BindExternalFunction("BuyTonic", () => this.BuyTonic());
+            story = ink.CreateStory(buyFlowerBox, this);
+            story.BindExternalFunction("BuyBox", () => this.BuyTonic());
 
             ink.DisplayNextLine();
             costsEnergy = false;
@@ -49,14 +49,15 @@ public class NPCGerald : NPC
         PlayerData playerData = GameObject.Find("Player").GetComponent<PlayerData>();
         if (playerData.ModifyMoney(-25))
         {
-            story.variablesState["BoughtTonic"] = 1;
-            playerData.ModifyEnergy(10);
-            Debug.Log("Player Bought Tonic");
+            story.variablesState["BoughtBox"] = 1;
+            // access Flowerbox Manager
+
+            Debug.Log("Player bought a flower box");
         }
         else
         {
-            story.variablesState["BoughtTonic"] = 0;
-            Debug.Log("Player could not buy tonic");
+            story.variablesState["BoughtBox"] = 0;
+            Debug.Log("Player could not buy a flower box");
         }
     }
 }
