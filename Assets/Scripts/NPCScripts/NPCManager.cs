@@ -15,14 +15,6 @@ public class NPCManager : MonoBehaviour
             coords.Add(info[0], new Vector2(int.Parse(info[1]), int.Parse(info[2]))); //If this line errors make sure the CSV doesn't have a blak line at the end
         }
     }
-
-    void Update()
-    {
-        //foreach(GameObject npc in NPCs){
-        //    npc.transform.position = coords[npc.name + day + stage];
-        //}
-    }
-
     public void MoveNPCs(int day, int stage)
     {
         Debug.Log("Moving NPCs to day " + day + " and time " + stage);

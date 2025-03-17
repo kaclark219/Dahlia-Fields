@@ -50,7 +50,7 @@ public class PlayerInteractor : MonoBehaviour
         canInteract = true;
     }
 
-    public void Plant(string plant){
+    public void Plant(Flowers plant){
         if(closest is FlowerBox){
             (closest as FlowerBox).Plant(plant);
         }

@@ -16,7 +16,7 @@ public class NPCJeremy : NPC
         if (transform.parent.transform.position == workshopLocation && numOfInteractions > 0)
         {
             story = ink.CreateStory(buyFlowerBox, this);
-            story.BindExternalFunction("BuyBox", () => this.BuyTonic());
+            story.BindExternalFunction("BuyFlowerbox", () => this.BuyFlowerbox());
 
             ink.DisplayNextLine();
             costsEnergy = false;
@@ -44,19 +44,19 @@ public class NPCJeremy : NPC
         }
     }
 
-    public void BuyTonic()
+    public void BuyFlowerbox()
     {
         PlayerData playerData = GameObject.Find("Player").GetComponent<PlayerData>();
         if (playerData.ModifyMoney(-25))
         {
-            story.variablesState["BoughtBox"] = 1;
+            story.variablesState["BoughtFlowerbox"] = 1;
             // access Flowerbox Manager
 
             Debug.Log("Player bought a flower box");
         }
         else
         {
-            story.variablesState["BoughtBox"] = 0;
+            story.variablesState["BoughtFlowerbox"] = 0;
             Debug.Log("Player could not buy a flower box");
         }
     }

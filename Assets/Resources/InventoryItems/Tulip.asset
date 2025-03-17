@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d84fd6a01d4074bb644a2eeb1d76a7, type: 3}
+  m_Name: Tulip
+  m_EditorClassIdentifier: 
+  itemName: 3
+  seedPrice: 48
+  description: Megan's favorite
+  seedStock: 0
+  flowerStock: 0
+  daysToGrow: 4
+  growing: {fileID: 21300000, guid: 3ac3f0837a09ae047a22947e7d4e9c11, type: 3}
+  growingWatered: {fileID: 21300000, guid: 61976aad03fe57140aa5741149579bfc, type: 3}
+  harvest: {fileID: 21300000, guid: 4e140565aff71c246b27784c4ba433d1, type: 3}
+  seedIcon: {fileID: 21300000, guid: 9fc24137cda2614449b155ccec84617e, type: 3}
+  flowerIcon: {fileID: 493501419, guid: cc0766d1b06ddd54dae5a070e9070957, type: 3}

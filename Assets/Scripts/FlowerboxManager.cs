@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class FlowerboxManager : MonoBehaviour
 {
-    [SerializeField] GameObject FlowerBoxUI;
-    [SerializeField] InventoryManager inventoryManager;
+    [SerializeField] private GameObject FlowerBoxUI;
     [SerializeField] TextMeshProUGUI[] counts;
-    PlayerInteractor plint;
-    public FlowerBox active;
+    [SerializeField] private List<FlowerBox> FlowerBoxes; 
+    public FlowerBox ActiveBox;
+
+    private InventoryManager inventoryManager;
+    private PlayerInteractor plint;
 
     void Awake()
     {
         plint = GameObject.FindWithTag("Player").GetComponent<PlayerInteractor>();
+        inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
     }
 
     public void OpenUI()
@@ -30,24 +34,46 @@ public class FlowerboxManager : MonoBehaviour
     {
         FlowerBoxUI.SetActive(false);
         plint.EndInteract();
-        active = null;
+        ActiveBox = null;
     }
 
-    public IEnumerator NextDayBox(){
-        GameObject[] boxes = GameObject.FindGameObjectsWithTag("Flowerbox");
-        foreach(var box in boxes){
+    public void NextDayBoxes(){
+        //GameObject[] boxes = GameObject.FindGameObjectsWithTag("Flowerbox");
+        foreach(var box in FlowerBoxes)
+        {
             
             FlowerBox fb = box.GetComponent<FlowerBox>();
             //Debug.Log(fb);
-            yield return new WaitUntil(() => fb != null);
+            //yield return new WaitUntil(() => fb != null);
             //Debug.Log("fao");
-            StartCoroutine(fb.NextDayBox());
+            //StartCoroutine(fb.NextDayBox());
+            fb.NextDayBox();
         }
     }
 
     public void Plant(string plantName){
-        if(active != null){
-            active.Plant(plantName);
+        if(ActiveBox != null){
+            Flowers flower;
+            Enum.TryParse(plantName, out flower);
+            ActiveBox.Plant(flower);
         }
     }
+
+    #region SAVE_SYSTEM
+    public void SaveData()
+    {
+
+    }
+
+    public void LoadData()
+    {
+
+    }
+
+    public void ResetData()
+    {
+
+    }
+
+    #endregion
 }

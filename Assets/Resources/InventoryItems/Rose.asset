@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d84fd6a01d4074bb644a2eeb1d76a7, type: 3}
+  m_Name: Rose
+  m_EditorClassIdentifier: 
+  itemName: 4
+  seedPrice: 60
+  description: Charlie's favorite
+  seedStock: 0
+  flowerStock: 0
+  daysToGrow: 4
+  growing: {fileID: 0}
+  growingWatered: {fileID: 0}
+  harvest: {fileID: 0}
+  seedIcon: {fileID: 21300000, guid: 9129379e415e66543bd2bd779959a3ea, type: 3}
+  flowerIcon: {fileID: 1184209120, guid: 92bbf266b91d3ee4795c9ff4a4db6a9d, type: 3}

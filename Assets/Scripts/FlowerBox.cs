@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class FlowerBox : InteractableObj
 {
-    private int CycleIndex = 0;
-    private InventoryItem flowerPlanted; 
-    bool WateredToday = false;
-    bool planted = false; 
-    SpriteRenderer sr;
-    int spriteInd = 0;
-    FlowerboxManager fman;
-
-    [SerializeField] public InventoryManager inventoryManager;
-    [SerializeField] public PlayerData player;
-
+    [Header("Flower Box Attributes")]
+    public string BoxNumber;
     [SerializeField] public Sprite[] sprites;
 
+    private InventoryItem flowerPlanted;
+    private SpriteRenderer sr;
+    private FlowerboxManager fman;
+
+    public bool WateredToday = false;
+    public bool planted = false;
+    public int CycleIndex = 0;
+    int spriteInd = 0;
+
+    private InventoryManager inventoryManager;
+    private PlayerData player;
 
     private void Awake()
     {
@@ -38,7 +40,7 @@ public class FlowerBox : InteractableObj
         {
             base.OnInteract();
             fman.OpenUI();
-            fman.active = this;
+            fman.ActiveBox = this;
         }
         else if (!WateredToday && flowerPlanted.daysToGrow != CycleIndex) //not watered today and growth not completed
         {
@@ -54,23 +56,28 @@ public class FlowerBox : InteractableObj
         }
     }
 
-    public void Plant(string flower)
+    public void Plant(Flowers flower)
     {
         //Open UI and select a plant
         //return "Daisy"; //Placeholder
-        Debug.Log(inventoryManager.GetSeedStock(flower) >= 5);
-        if(inventoryManager.GetSeedStock(flower) >= 5)
+        //Debug.Log(inventoryManager.GetSeedStock(flower) > 5);
+        if(inventoryManager.GetSeedStock(flower) > 5)
         {
             fman.CloseUI();
             planted = true;
             flowerPlanted = inventoryManager.FindItem(flower);
             inventoryManager.SetSeedStock(flower, -5);
-            player.ModifyEnergy(-5); 
+            player.ModifyEnergy(-5);
 
-            //uncomment once sprites available
-            sprites[5] = Resources.Load<Sprite>("Flowerbox/" + flower + "_growing");
-            sprites[6] = Resources.Load<Sprite>("Flowerbox/" + flower + "_growing+watered");
-            sprites[7] = Resources.Load<Sprite>("Flowerbox/" + flower + "_final");
+            //uncomment once sprites available ===> can access sprites from inventory
+            //sprites[5] = Resources.Load<Sprite>("Flowerbox/" + flower + "_growing");
+            //sprites[6] = Resources.Load<Sprite>("Flowerbox/" + flower + "_growing+watered");
+            //sprites[7] = Resources.Load<Sprite>("Flowerbox/" + flower + "_final");
+            InventoryItem item = inventoryManager.FindItem(flower);
+            sprites[5] = item.growing;
+            sprites[6] = item.growingWatered;
+            sprites[7] = item.harvest;
+
             sr.sprite = sprites[1];
             spriteInd = 1;
             EndInteract();
@@ -118,9 +125,9 @@ public class FlowerBox : InteractableObj
         Debug.Log("Harvested");
     }
 
-    public IEnumerator NextDayBox()
+    public void NextDayBox()
     {
-        yield return new WaitUntil(() => sr != null);
+        //yield return new WaitUntil(() => sr != null);
 
         if(WateredToday){
             WateredToday = false;
@@ -146,4 +153,23 @@ public class FlowerBox : InteractableObj
         }
         
     }
+
+    #region SAVE_SYSTEM
+
+    public void SaveData()
+    {
+
+    }
+
+    public void LoadData()
+    {
+
+    }
+
+    public void ResetData()
+    {
+
+    }
+
+    #endregion
 }

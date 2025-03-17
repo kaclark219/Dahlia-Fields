@@ -75,7 +75,8 @@ public class DaySystem : MonoBehaviour
         npcManager.ResetDailyInteraction();
 
         // update Flowerboxes
-        StartCoroutine(flowerManager.NextDayBox());
+        //StartCoroutine(flowerManager.NextDayBox());
+        flowerManager.NextDayBoxes();
     }
 
     private Cutscene CheckForCutscene()
