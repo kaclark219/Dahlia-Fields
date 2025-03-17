@@ -21,7 +21,7 @@ public class MusicManager : MonoBehaviour
         speaker1.Play();
     }
 
-    void Update(){
+    void Update(){  
         if(primarySpeaker){
             if(time <= 3 && speaker1.time >= 80 && currentClip == 1){
                 speaker2.clip = morning;
@@ -49,5 +49,14 @@ public class MusicManager : MonoBehaviour
                 primarySpeaker = true;
             }
         }
+    }
+
+    // TODO: able to pause and unpause music for playing Cutscene audio
+    public void PauseMusic()
+    {
+    }
+
+    public void ResumeMusic()
+    {
     }
 }

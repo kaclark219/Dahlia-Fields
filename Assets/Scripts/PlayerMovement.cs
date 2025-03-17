@@ -48,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.position = SpawnLocation.position;
         transform.rotation = SpawnLocation.rotation;
+        anim.SetFloat("X", 0);
+        anim.SetFloat("Y", 0);
 
         rb.velocity = Vector2.zero;
     }

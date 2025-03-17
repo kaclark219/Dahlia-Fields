@@ -38,9 +38,9 @@ public class FlowerboxManager : MonoBehaviour
         foreach(var box in boxes){
             
             FlowerBox fb = box.GetComponent<FlowerBox>();
-            Debug.Log(fb);
+            //Debug.Log(fb);
             yield return new WaitUntil(() => fb != null);
-            Debug.Log("fao");
+            //Debug.Log("fao");
             StartCoroutine(fb.NextDayBox());
         }
     }

@@ -9,19 +9,24 @@ public class DaySystem : MonoBehaviour
     public int day;
     public int week;
 
+    public List<Cutscene> cutsceneList = new List<Cutscene>();
+
     private const string dayKey = "DAY";
 
-    [SerializeField] private NPCManager npcManager;
-    [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerData playerData;
-    [SerializeField] public  FlowerboxManager flowerManager;
+    private NPCManager npcManager;
+    private PlayerMovement playerMovement;
+    private PlayerData playerData;
+    private FlowerboxManager flowerManager;
+    private VideoPlayerManager videoPlayerManager;
 
     private void Awake()
     {
         npcManager = GameObject.Find("NPCManager").GetComponent<NPCManager>();
-        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        playerData = GameObject.Find("Player").GetComponent<PlayerData>();
-        flowerManager = GameObject.Find("FlowerboxManager").GetComponent <FlowerboxManager>();
+        flowerManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
+        GameObject player = GameObject.Find("Player");
+        playerMovement = player.GetComponent<PlayerMovement>();
+        playerData = player.GetComponent<PlayerData>();
+        videoPlayerManager = player.GetComponentInChildren<VideoPlayerManager>();
     }
     public void NextDay()
     {
@@ -48,6 +53,15 @@ public class DaySystem : MonoBehaviour
 
     private void LoadDay(int day)
     {
+        // Check for cutscene
+        Cutscene cutscene = CheckForCutscene();
+        if (cutscene != null)
+        {
+            // Load cutscene
+            Debug.Log("Loading cutscene: " + cutscene.clip.name);
+            videoPlayerManager.StartVideo(cutscene.clip);
+        }
+
         // Reset player location
         playerMovement.ResetLocation();
 
@@ -64,6 +78,19 @@ public class DaySystem : MonoBehaviour
         StartCoroutine(flowerManager.NextDayBox());
     }
 
+    private Cutscene CheckForCutscene()
+    {
+        foreach (Cutscene cutscene in cutsceneList)
+        {
+            if (cutscene.day == day)
+            {
+                return cutscene;
+            }
+        }
+        return null;
+    }
+
+    #region SAVE_SYSTEM
     public void SaveData()
     {
         PlayerPrefs.SetInt(dayKey, day);
@@ -89,4 +116,6 @@ public class DaySystem : MonoBehaviour
         week = 1;
         LoadDay(day);
     }
+
+    #endregion
 }

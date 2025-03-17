@@ -48,6 +48,7 @@ public class NPCManager : MonoBehaviour
         }
     }
 
+    #region SAVE_SYSTEM
     public void SaveData()
     {
         foreach (GameObject npc in NPCs)
@@ -74,4 +75,5 @@ public class NPCManager : MonoBehaviour
             npc.GetComponentInChildren<NPC>().ResetData();
         }
     }
+    #endregion
 }
