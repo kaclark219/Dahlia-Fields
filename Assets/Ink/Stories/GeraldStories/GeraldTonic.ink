@@ -1,44 +1,29 @@
 INCLUDE ../Globals.ink
 
 EXTERNAL BuyTonic()
-
 VAR BoughtTonic = 0
 
--> start
+-> start  
 
-=== start ===
-{ShowCharacter("Gerald", "Right", "Happy")} Hello {PlayerName}, welcome to the clinic!
-{ChangeMood("Gerald", "Normal")} How can I help you?
-* [I'd like to buy an Energy Tonic.] -> Tonic
-* [Just came by to say hello.] -> JustHello
-
-=== Tonic===
-{HideCharacter("Gerald")} {ShowCharacter("Player", "Right", "Normal")} I'd like to buy an energy tonic today.
-{HideCharacter("Player")} {ShowCharacter("Gerald", "Right", "Happy")} Sounds good! An Energy Tonic will cost your soul and replenish some energy.
-* [I'll take one.] -> Check
-* [Nevermind.] -> NoTonic
-
+=== start ===  
+{ShowCharacter("Gerald", "Right", "Normal")} Ah, {PlayerName}! You’re looking a little drained. Long days at the shop catching up to you? I’ve got a fresh batch of my energy tonics, they're only 100 wisps per serving if you're interested.
+* [Yes, I'll take one.] -> Check
+* [No, thank you.] -> No
 
 === Check ===
 {BuyTonic()}
-{ BoughtTonic==1: -> YesTonic }
+{ BoughtTonic==1: -> Yes }
 { BoughtTonic==0: -> Broke }
 
-=== YesTonic ===
-{HideCharacter("Player")} {ShowCharacter("Gerald", "Right", "Happy")} Thank you for your business.
+=== Yes ===
+{ShowCharacter("Gerald", "Right", "Happy")} Excellent choice! You won't be disappointed.
 -> END
 
 === Broke ===
-{HideCharacter("Player")} {ShowCharacter("Gerald", "Right", "Happy")} Looks like you don't have enough money for an energy tonic. Come back again when you aren't broke. 
+{ShowCharacter("Gerald", "Right", "Suspicious")} I really wish I could help you out, but you're going to need to come back another time when you have more wisps to spend.
+{HideCharacter("Gerald")}{ShowCharacter("Gerald", "Right", "Normal")} Have a good rest of your day, {PlayerName}.
 -> END
 
-=== NoTonic ===
-{HideCharacter("Gerald")} {ShowCharacter("Player", "Right", "Happy")} That's all, goodbye!
-{HideCharacter("Player")} {ShowCharacter("Gerald", "Right", "Happy")} Have a nice day! Come again soon.
+=== No ===
+{ShowCharacter("Gerald", "Right", "Normal")} Not a problem, you can come back later if you change your mind.
 -> END
-
-=== JustHello ===
-{HideCharacter("Gerald")} {ShowCharacter("Player", "Right", "Normal")} I just came by to say hello.
-{HideCharacter("Player")} {ShowCharacter("Gerald", "Right", "Happy")} Have a nice day {PlayerName}!
--> END
-
