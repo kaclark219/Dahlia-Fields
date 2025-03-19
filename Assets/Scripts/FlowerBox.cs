@@ -129,20 +129,28 @@ public class FlowerBox : InteractableObj
             WateredToday = false;
             CycleIndex++;
         }
-        
-        if (planted) { // if planted, change sprite to next growth 
-            sr.sprite = sprites[3];
-            spriteInd = 3;
 
+        UpdateSprite(); // update sprite based on growth
+    }
+
+    private void UpdateSprite()
+    {
+        if (planted)
+        { 
             if (flowerPlanted.daysToGrow == CycleIndex)
             {
                 sr.sprite = sprites[7];
                 spriteInd = 7;
-            } 
-            else if(flowerPlanted.daysToGrow/2 < CycleIndex)
+            }
+            else if (flowerPlanted.daysToGrow / 2 < CycleIndex)
             {
                 spriteInd = 5;
                 sr.sprite = sprites[5];
+            }
+            else
+            {
+                sr.sprite = sprites[3];
+                spriteInd = 3;
             }
         }
         else
@@ -150,16 +158,19 @@ public class FlowerBox : InteractableObj
             sr.sprite = sprites[0];
             spriteInd = 0;
         }
+        
     }
 
     #region SAVE_SYSTEM
     public void SaveData()
     {
-        PlayerPrefs.SetString(boxKey, flowerPlanted.itemName.ToString());
-        PlayerPrefs.SetInt(boxKey + "_Planted", planted ? 1 : 0);
-        PlayerPrefs.SetInt(boxKey + "_WateredToday", WateredToday ? 1 : 0);
-        PlayerPrefs.SetInt(boxKey + "_Cycle", CycleIndex);
-        PlayerPrefs.SetInt(boxKey + "_Sprite", spriteInd);
+        if (planted)
+        {
+            PlayerPrefs.SetString(boxKey, flowerPlanted.itemName.ToString());
+            PlayerPrefs.SetInt(boxKey + "_Planted", planted ? 1 : 0);
+            PlayerPrefs.SetInt(boxKey + "_Cycle", CycleIndex);
+            PlayerPrefs.SetInt(boxKey + "_Sprite", spriteInd);
+        }
     }
 
     public void LoadData()
@@ -171,13 +182,14 @@ public class FlowerBox : InteractableObj
             flowerPlanted = inventoryManager.inventory[flower];
 
             planted = PlayerPrefs.GetInt(boxKey + "_Planted") == 1 ? true : false;
-            WateredToday = PlayerPrefs.GetInt(boxKey + "_WateredToday") == 1 ? true : false;
             CycleIndex = PlayerPrefs.GetInt(boxKey + "_Cycle");
             spriteInd = PlayerPrefs.GetInt(boxKey + "_Sprite");
 
             sprites[5] = flowerPlanted.growing;
             sprites[6] = flowerPlanted.growingWatered;
             sprites[7] = flowerPlanted.harvest;
+
+            UpdateSprite();
         }
         else 
         {
@@ -192,6 +204,8 @@ public class FlowerBox : InteractableObj
         WateredToday = false;
         CycleIndex = 0;
         spriteInd = 0;
+
+        UpdateSprite();
     }
 
     #endregion

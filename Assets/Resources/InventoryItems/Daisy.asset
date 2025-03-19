@@ -15,11 +15,11 @@ MonoBehaviour:
   itemName: 1
   seedPrice: 24
   description: Bruce's favorite
-  seedStock: 5
+  seedStock: 10
   flowerStock: 0
   daysToGrow: 3
-  growing: {fileID: 21300000, guid: 8a22760edaaca224d927551e900cbfcf, type: 3}
-  growingWatered: {fileID: 21300000, guid: 3a799f50cf370494fb6e2cddb40a0998, type: 3}
-  harvest: {fileID: 21300000, guid: f2cfd204a1bca87459cfd9102424ac42, type: 3}
+  growing: {fileID: 21300000, guid: 697c4eaf0062b494789aa795eaf7c505, type: 3}
+  growingWatered: {fileID: 21300000, guid: d4d86d428b1a54d4fa7042c659fcc78f, type: 3}
+  harvest: {fileID: 21300000, guid: 5f7fb92b0ac29244bb89981c0d8da005, type: 3}
   seedIcon: {fileID: 21300000, guid: 58dc8fa54e53137499731a28a28446a3, type: 3}
   flowerIcon: {fileID: -240020443, guid: 5ae73d236b8dc7745b4ff31ff7333df4, type: 3}

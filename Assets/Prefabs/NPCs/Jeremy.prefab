@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6182593298762035464}
   - component: {fileID: 6596922751324113320}
-  - component: {fileID: 7061048458881445039}
+  - component: {fileID: 7414541292634137686}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -162,7 +162,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!114 &7061048458881445039
+--- !u!114 &7414541292634137686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4601248000668496242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a0fb6155bba671439f451eced3b376a, type: 3}
+  m_Script: {fileID: 11500000, guid: bcfaad3b236edea4f9afc16956165cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Popup: {fileID: 3535406938416072418}
@@ -179,15 +179,20 @@ MonoBehaviour:
   plint: {fileID: 0}
   frame: 0
   npcName: 10
-  sr: {fileID: 0}
-  ink: {fileID: 0}
-  pm: {fileID: 0}
   textAssets:
   - {fileID: 4900000, guid: ea77133d80ef00b419f14e659cf45715, type: 3}
   - {fileID: 4900000, guid: bcd2d0582c1977c4fbad10d18332b174, type: 3}
   fuckOffText: {fileID: 4900000, guid: 7b8933a1961ed504fa5a37cd7ca6e8a0, type: 3}
   dailyInteraction: 0
   numOfInteractions: 0
+  playerData: {fileID: 0}
+  sr: {fileID: 0}
+  ink: {fileID: 0}
+  pm: {fileID: 0}
+  costsEnergy: 0
+  npcKey: 
+  buyFlowerBox: {fileID: 4900000, guid: 35ca33103af590b44a3af76ec66d8125, type: 3}
+  workshopLocation: {x: -5, y: 49, z: 0}
 --- !u!1 &4734730512677606580
 GameObject:
   m_ObjectHideFlags: 0

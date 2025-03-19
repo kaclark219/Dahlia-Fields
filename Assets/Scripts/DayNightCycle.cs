@@ -13,6 +13,7 @@ public class DayNightCycle : MonoBehaviour
     public Gradient NightLightGradient;
 
     private int currEnergy = 50;
+    private Coroutine coroutine;
 
     public void ResetLight()
     {
@@ -24,11 +25,21 @@ public class DayNightCycle : MonoBehaviour
         float angle = 0.0f;
         NightLight.transform.RotateAround(point, Vector3.forward, angle);
         currEnergy = 50;
+
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
     }
 
     public void UpdateLight(int energy)
     {
-        StartCoroutine(IncrementLight(energy));
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+        coroutine = StartCoroutine(IncrementLight(energy));
+
     }
 
     IEnumerator IncrementLight(int energy)
@@ -47,6 +58,7 @@ public class DayNightCycle : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         currEnergy = energy;
+        coroutine = null;
     }
 }
 

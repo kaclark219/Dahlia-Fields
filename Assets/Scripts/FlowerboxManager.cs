@@ -14,7 +14,8 @@ public class FlowerboxManager : MonoBehaviour
     private InventoryManager inventoryManager;
     private PlayerInteractor plint;
 
-    private int numActiveBoxes = 1;
+    [SerializeField] private int numActiveBoxes = 1;
+    private const string activeBoxesKey = "Active_Boxes";
 
     void Awake()
     {
@@ -39,10 +40,16 @@ public class FlowerboxManager : MonoBehaviour
         ActiveBox = null;
     }
 
-    public void NextDayBoxes(){
-        foreach(var box in FlowerBoxes)
+    public void NextDayBoxes()
+    {
+        UpdateVisibleBoxes();
+
+        foreach (var box in FlowerBoxes)
         {
-            box.NextDayBox();
+            if (box.transform.parent.gameObject.activeSelf)
+            {
+                box.NextDayBox();
+            }
         }
     }
 
@@ -54,20 +61,79 @@ public class FlowerboxManager : MonoBehaviour
         }
     }
 
+    public bool AddBox()
+    {
+        if( numActiveBoxes == FlowerBoxes.Count)
+        {
+            return false;
+        }
+        numActiveBoxes++;
+        return true;
+    }
+
+    private void UpdateVisibleBoxes()
+    {
+        int i = 0;
+        foreach (FlowerBox box in FlowerBoxes)
+        {
+            if (i < numActiveBoxes)
+            {
+                box.transform.parent.gameObject.SetActive(true);
+            }
+            else
+            {
+                box.transform.parent.gameObject.SetActive(false);
+            }
+            i++;
+        }
+    }
+
     #region SAVE_SYSTEM
     public void SaveData()
     {
+        foreach (FlowerBox box in FlowerBoxes)
+        {
+            if (box.transform.parent.gameObject.activeSelf)
+            {
+                box.SaveData();
+            }
+        }
 
+        PlayerPrefs.SetInt(activeBoxesKey, numActiveBoxes);
     }
 
     public void LoadData()
     {
+        if (PlayerPrefs.HasKey(activeBoxesKey))
+        {
+            numActiveBoxes = PlayerPrefs.GetInt(activeBoxesKey);
+        }
+        else
+        {
+            numActiveBoxes = 1;
+        }
+        UpdateVisibleBoxes();
 
+        foreach (FlowerBox box in FlowerBoxes)
+        {
+            if (box.transform.parent.gameObject.activeSelf) 
+            {
+                box.LoadData();
+            }
+        }
     }
 
     public void ResetData()
     {
-
+        foreach (FlowerBox box in FlowerBoxes)
+        {
+            if (box.transform.parent.gameObject.activeSelf)
+            {
+                box.ResetData();
+            }
+        }
+        numActiveBoxes = 1;
+        UpdateVisibleBoxes();
     }
 
     #endregion

@@ -82,11 +82,9 @@ public class InventoryManager : MonoBehaviour
     {
         foreach (KeyValuePair<Flowers, InventoryItem> item in inventory)
         {
-            item.Value.seedStock = 0;
+            item.Value.seedStock = 10;
             item.Value.flowerStock = 0;
         }
-        inventory[Flowers.Dandelion].seedStock = 10;
-        inventory[Flowers.Daisy].seedStock = 10;
     }
 
 

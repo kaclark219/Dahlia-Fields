@@ -207,14 +207,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7272884149163975241}
     m_Modifications:
-    - target: {fileID: 1270620236657468936, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      propertyPath: textAssets.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1270620236657468936, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      propertyPath: textAssets.Array.data[1]
-      value: 
-      objectReference: {fileID: 4900000, guid: b1e86af19f7beb142b5f7874dc851a93, type: 3}
     - target: {fileID: 4021662385455669562, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -322,14 +314,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2969848605564873296, guid: 18e708e40212fe2419ee62d66a96d315, type: 3}
-      propertyPath: textAssets.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2969848605564873296, guid: 18e708e40212fe2419ee62d66a96d315, type: 3}
-      propertyPath: textAssets.Array.data[1]
-      value: 
-      objectReference: {fileID: 4900000, guid: 6374051bc4d08834dbe0acb8110cb1b7, type: 3}
     - target: {fileID: 7854138435393480570, guid: 18e708e40212fe2419ee62d66a96d315, type: 3}
       propertyPath: m_Name
       value: Sebastian
@@ -401,56 +385,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7061048458881445039, guid: 57fdd6d964bb3144ca5adf0318e73c51, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4601248000668496242, guid: 57fdd6d964bb3144ca5adf0318e73c51, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9198155359112217437}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57fdd6d964bb3144ca5adf0318e73c51, type: 3}
---- !u!1 &1399596823208546462 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4601248000668496242, guid: 57fdd6d964bb3144ca5adf0318e73c51, type: 3}
-  m_PrefabInstance: {fileID: 3221964106236830188}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &9198155359112217437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399596823208546462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcfaad3b236edea4f9afc16956165cbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Popup: {fileID: 2136675077787477774}
-  active: 0
-  plint: {fileID: 0}
-  frame: 0
-  npcName: 0
-  textAssets:
-  - {fileID: 4900000, guid: ea77133d80ef00b419f14e659cf45715, type: 3}
-  - {fileID: 4900000, guid: bcd2d0582c1977c4fbad10d18332b174, type: 3}
-  fuckOffText: {fileID: 4900000, guid: 7b8933a1961ed504fa5a37cd7ca6e8a0, type: 3}
-  dailyInteraction: 0
-  numOfInteractions: 0
-  playerData: {fileID: 0}
-  sr: {fileID: 0}
-  ink: {fileID: 0}
-  pm: {fileID: 0}
-  costsEnergy: 0
-  npcKey: 
-  buyFlowerBox: {fileID: 4900000, guid: 35ca33103af590b44a3af76ec66d8125, type: 3}
-  workshopLocation: {x: -5, y: 49, z: 0}
---- !u!1 &2136675077787477774 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3535406938416072418, guid: 57fdd6d964bb3144ca5adf0318e73c51, type: 3}
-  m_PrefabInstance: {fileID: 3221964106236830188}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6931739709034546195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5513755880966284799, guid: 57fdd6d964bb3144ca5adf0318e73c51, type: 3}
@@ -580,14 +519,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3436725269325857497, guid: 8cfd39cb03c140d40b3f70a55b6656e9, type: 3}
-      propertyPath: textAssets.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3436725269325857497, guid: 8cfd39cb03c140d40b3f70a55b6656e9, type: 3}
-      propertyPath: textAssets.Array.data[1]
-      value: 
-      objectReference: {fileID: 4900000, guid: b35d6e577484fa64595c86f206d12d5f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -722,51 +653,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3549580120721056038, guid: ec8737fd0a7c0f14da20f18ef0ea0439, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5547734375454966983, guid: ec8737fd0a7c0f14da20f18ef0ea0439, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3100324357470700279}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec8737fd0a7c0f14da20f18ef0ea0439, type: 3}
---- !u!1 &1411891490267344800 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5547734375454966983, guid: ec8737fd0a7c0f14da20f18ef0ea0439, type: 3}
-  m_PrefabInstance: {fileID: 6874050837614668647}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3100324357470700279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411891490267344800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3250fe476843bc642a7be25122442d43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Popup: {fileID: 7224545909619750260}
-  active: 0
-  plint: {fileID: 0}
-  frame: 0
-  npcName: 1
-  textAssets:
-  - {fileID: 4900000, guid: eb0c9f9d75c25754788436c540fa184e, type: 3}
-  - {fileID: 4900000, guid: 3ec61831ddb1d214aabd593ada156510, type: 3}
-  fuckOffText: {fileID: 4900000, guid: e8c898e24dfe83e4f9a1afdf54abf551, type: 3}
-  dailyInteraction: 0
-  numOfInteractions: 0
-  playerData: {fileID: 0}
-  sr: {fileID: 0}
-  ink: {fileID: 0}
-  pm: {fileID: 0}
-  costsEnergy: 0
-  npcKey: 
-  buyTonicText: {fileID: 4900000, guid: 2a440d7f191cf6c40bbd26043cdd2dfe, type: 3}
-  clinicLocation: {x: -17, y: 42, z: 0}
 --- !u!4 &4628316051340762244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2260415845632587747, guid: ec8737fd0a7c0f14da20f18ef0ea0439, type: 3}
@@ -775,11 +666,6 @@ Transform:
 --- !u!1 &4950969514594664748 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2004357315155438155, guid: ec8737fd0a7c0f14da20f18ef0ea0439, type: 3}
-  m_PrefabInstance: {fileID: 6874050837614668647}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7224545909619750260 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4262435956241292819, guid: ec8737fd0a7c0f14da20f18ef0ea0439, type: 3}
   m_PrefabInstance: {fileID: 6874050837614668647}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8620033949982308305
@@ -834,14 +720,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9120292084201543314, guid: 02746c246d949304ab1606f082ee0e3c, type: 3}
-      propertyPath: textAssets.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120292084201543314, guid: 02746c246d949304ab1606f082ee0e3c, type: 3}
-      propertyPath: textAssets.Array.data[1]
-      value: 
-      objectReference: {fileID: 4900000, guid: d48c195d2221f0740ba6f439716aa921, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

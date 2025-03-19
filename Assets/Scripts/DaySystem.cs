@@ -77,6 +77,8 @@ public class DaySystem : MonoBehaviour
 
         // update Flowerboxes
         flowerManager.NextDayBoxes();
+
+        // update inventory with any pending orders
     }
 
     private Cutscene CheckForCutscene()

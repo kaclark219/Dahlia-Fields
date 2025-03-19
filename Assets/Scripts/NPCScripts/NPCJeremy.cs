@@ -10,6 +10,7 @@ public class NPCJeremy : NPC
     public Vector3 workshopLocation;
 
     private Story story;
+
     public override void OnInteract()
     {
         plint.Interact();
@@ -46,12 +47,11 @@ public class NPCJeremy : NPC
 
     public void BuyFlowerbox()
     {
-        PlayerData playerData = GameObject.Find("Player").GetComponent<PlayerData>();
-        if (playerData.ModifyMoney(-25))
+        FlowerboxManager flowerboxManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
+        if (playerData.ModifyMoney(-50) && flowerboxManager.AddBox())
         {
-            story.variablesState["BoughtFlowerbox"] = 1;
-            // access Flowerbox Manager
 
+            story.variablesState["BoughtFlowerbox"] = 1;
             Debug.Log("Player bought a flower box");
         }
         else

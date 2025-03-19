@@ -888,10 +888,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlowerboxManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1697676654746078657, guid: 019fae2f58bf6d4478de0505d36424b4, type: 3}
-      propertyPath: BoxNumber
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6729633469940695430, guid: 019fae2f58bf6d4478de0505d36424b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1212,6 +1208,10 @@ PrefabInstance:
     - target: {fileID: 1986327812953897256, guid: e40394824ffa3f04ab1370017734a45d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192153332777588498, guid: e40394824ffa3f04ab1370017734a45d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2228359843444728476, guid: e40394824ffa3f04ab1370017734a45d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
