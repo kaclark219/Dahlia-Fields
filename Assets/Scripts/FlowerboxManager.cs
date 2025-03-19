@@ -14,6 +14,8 @@ public class FlowerboxManager : MonoBehaviour
     private InventoryManager inventoryManager;
     private PlayerInteractor plint;
 
+    private int numActiveBoxes = 1;
+
     void Awake()
     {
         plint = GameObject.FindWithTag("Player").GetComponent<PlayerInteractor>();
@@ -38,16 +40,9 @@ public class FlowerboxManager : MonoBehaviour
     }
 
     public void NextDayBoxes(){
-        //GameObject[] boxes = GameObject.FindGameObjectsWithTag("Flowerbox");
         foreach(var box in FlowerBoxes)
         {
-            
-            FlowerBox fb = box.GetComponent<FlowerBox>();
-            //Debug.Log(fb);
-            //yield return new WaitUntil(() => fb != null);
-            //Debug.Log("fao");
-            //StartCoroutine(fb.NextDayBox());
-            fb.NextDayBox();
+            box.NextDayBox();
         }
     }
 

@@ -55,17 +55,38 @@ public class InventoryManager : MonoBehaviour
     #region SAVE_SYSTEM
     public void SaveData()
     {
-
+        foreach (KeyValuePair<Flowers, InventoryItem> item in inventory)
+        {
+            PlayerPrefs.SetInt(item.Key.ToString() + "_Seed", item.Value.seedStock);
+            PlayerPrefs.SetInt(item.Key.ToString() + "_Flower", item.Value.flowerStock);
+        }
     }
 
     public void LoadData()
     {
-
+        foreach (KeyValuePair<Flowers, InventoryItem> item in inventory)
+        {
+            if (PlayerPrefs.HasKey(item.Key.ToString() + "_Seed")) {
+                item.Value.seedStock = PlayerPrefs.GetInt(item.Key.ToString() + "_Seed", item.Value.seedStock);
+                item.Value.flowerStock = PlayerPrefs.GetInt(item.Key.ToString() + "_Flower", item.Value.flowerStock);
+            }
+            else
+            {
+                item.Value.seedStock = 0;
+                item.Value.flowerStock = 0;
+            }
+        }
     }
 
     public void ResetData()
     {
+        foreach (KeyValuePair<Flowers, InventoryItem> item in inventory)
+        {
+            item.Value.seedStock = 0;
+            item.Value.flowerStock = 0;
+        }
         inventory[Flowers.Dandelion].seedStock = 10;
+        inventory[Flowers.Daisy].seedStock = 10;
     }
 
 

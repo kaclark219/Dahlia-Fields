@@ -1,22 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FlowerBox : InteractableObj
 {
     [Header("Flower Box Attributes")]
     public string BoxNumber;
+    public bool planted = false;
+    public bool WateredToday = false;
+    public int CycleIndex = 0;
+    public int spriteInd = 0;
+
     [SerializeField] public Sprite[] sprites;
 
+    private string boxKey;
     private InventoryItem flowerPlanted;
+
     private SpriteRenderer sr;
     private FlowerboxManager fman;
-
-    public bool WateredToday = false;
-    public bool planted = false;
-    public int CycleIndex = 0;
-    int spriteInd = 0;
-
     private InventoryManager inventoryManager;
     private PlayerData player;
 
@@ -26,6 +29,7 @@ public class FlowerBox : InteractableObj
        player =  GameObject.Find("Player").GetComponent<PlayerData>();
        sr = GetComponentInParent<SpriteRenderer>();
        fman = GetComponentInParent<FlowerboxManager>();
+       boxKey = "Box" + BoxNumber;
     }
 
     public override void Start()
@@ -59,9 +63,7 @@ public class FlowerBox : InteractableObj
     public void Plant(Flowers flower)
     {
         //Open UI and select a plant
-        //return "Daisy"; //Placeholder
-        //Debug.Log(inventoryManager.GetSeedStock(flower) > 5);
-        if(inventoryManager.GetSeedStock(flower) > 5)
+        if(inventoryManager.GetSeedStock(flower) >= 5)
         {
             fman.CloseUI();
             planted = true;
@@ -70,13 +72,9 @@ public class FlowerBox : InteractableObj
             player.ModifyEnergy(-5);
 
             //uncomment once sprites available ===> can access sprites from inventory
-            //sprites[5] = Resources.Load<Sprite>("Flowerbox/" + flower + "_growing");
-            //sprites[6] = Resources.Load<Sprite>("Flowerbox/" + flower + "_growing+watered");
-            //sprites[7] = Resources.Load<Sprite>("Flowerbox/" + flower + "_final");
-            InventoryItem item = inventoryManager.FindItem(flower);
-            sprites[5] = item.growing;
-            sprites[6] = item.growingWatered;
-            sprites[7] = item.harvest;
+            sprites[5] = flowerPlanted.growing;
+            sprites[6] = flowerPlanted.growingWatered;
+            sprites[7] = flowerPlanted.harvest;
 
             sr.sprite = sprites[1];
             spriteInd = 1;
@@ -98,7 +96,7 @@ public class FlowerBox : InteractableObj
         sr.sprite = sprites[++spriteInd];
 
         EndInteract();
-        Debug.Log("Watered");
+        Debug.Log("Watered box " + BoxNumber);
     }
 
     public void Harvest()
@@ -122,21 +120,17 @@ public class FlowerBox : InteractableObj
         spriteInd = 0;
 
         EndInteract();
-        Debug.Log("Harvested");
+        Debug.Log("Harvested box " + BoxNumber);
     }
 
     public void NextDayBox()
     {
-        //yield return new WaitUntil(() => sr != null);
-
-        if(WateredToday){
+        if(WateredToday && planted){   // if watered and planted, plant grows
             WateredToday = false;
             CycleIndex++;
         }
-        sr.sprite = sprites[0];
-        spriteInd = 0;
-
-        if (planted) {
+        
+        if (planted) { // if planted, change sprite to next growth 
             sr.sprite = sprites[3];
             spriteInd = 3;
 
@@ -151,24 +145,53 @@ public class FlowerBox : InteractableObj
                 sr.sprite = sprites[5];
             }
         }
-        
+        else
+        {
+            sr.sprite = sprites[0];
+            spriteInd = 0;
+        }
     }
 
     #region SAVE_SYSTEM
-
     public void SaveData()
     {
-
+        PlayerPrefs.SetString(boxKey, flowerPlanted.itemName.ToString());
+        PlayerPrefs.SetInt(boxKey + "_Planted", planted ? 1 : 0);
+        PlayerPrefs.SetInt(boxKey + "_WateredToday", WateredToday ? 1 : 0);
+        PlayerPrefs.SetInt(boxKey + "_Cycle", CycleIndex);
+        PlayerPrefs.SetInt(boxKey + "_Sprite", spriteInd);
     }
 
     public void LoadData()
     {
+        if (PlayerPrefs.HasKey(boxKey))
+        {
+            Flowers flower;
+            Enum.TryParse(PlayerPrefs.GetString(boxKey), out flower);
+            flowerPlanted = inventoryManager.inventory[flower];
 
+            planted = PlayerPrefs.GetInt(boxKey + "_Planted") == 1 ? true : false;
+            WateredToday = PlayerPrefs.GetInt(boxKey + "_WateredToday") == 1 ? true : false;
+            CycleIndex = PlayerPrefs.GetInt(boxKey + "_Cycle");
+            spriteInd = PlayerPrefs.GetInt(boxKey + "_Sprite");
+
+            sprites[5] = flowerPlanted.growing;
+            sprites[6] = flowerPlanted.growingWatered;
+            sprites[7] = flowerPlanted.harvest;
+        }
+        else 
+        {
+            ResetData();
+        }
     }
 
     public void ResetData()
     {
-
+        flowerPlanted = null;
+        planted = false;
+        WateredToday = false;
+        CycleIndex = 0;
+        spriteInd = 0;
     }
 
     #endregion

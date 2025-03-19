@@ -23,3 +23,7 @@ MonoBehaviour:
   harvest: {fileID: 21300000, guid: 4e140565aff71c246b27784c4ba433d1, type: 3}
   seedIcon: {fileID: 21300000, guid: 9fc24137cda2614449b155ccec84617e, type: 3}
   flowerIcon: {fileID: 493501419, guid: cc0766d1b06ddd54dae5a070e9070957, type: 3}
+  icons:
+  - {fileID: 21300000, guid: 3ac3f0837a09ae047a22947e7d4e9c11, type: 3}
+  - {fileID: 21300000, guid: 61976aad03fe57140aa5741149579bfc, type: 3}
+  - {fileID: 21300000, guid: 4e140565aff71c246b27784c4ba433d1, type: 3}
