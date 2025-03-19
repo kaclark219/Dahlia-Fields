@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d84fd6a01d4074bb644a2eeb1d76a7, type: 3}
+  m_Name: Lavender
+  m_EditorClassIdentifier: 
+  itemName: 5
+  seedPrice: 72
+  description: Gerald's favorite
+  seedStock: 0
+  flowerStock: 0
+  daysToGrow: 5
+  growing: {fileID: 21300000, guid: bc86b620c0529e946a986c0bb9bbe5a0, type: 3}
+  growingWatered: {fileID: 21300000, guid: 8b5d71b8ecc9ecc42848e2336515a047, type: 3}
+  harvest: {fileID: 21300000, guid: 57e5fe99063c3404db4d84f077298236, type: 3}
+  seedIcon: {fileID: 21300000, guid: ec522fe2e0b89b047a49f31f2aedb6a3, type: 3}
+  flowerIcon: {fileID: -1068924544, guid: 93d160abff70bbc4981f294668fe726a, type: 3}

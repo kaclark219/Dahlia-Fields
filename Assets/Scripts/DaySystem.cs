@@ -53,6 +53,7 @@ public class DaySystem : MonoBehaviour
 
     private void LoadDay(int day)
     {
+        Debug.Log("Loading day " + day);
         // Check for cutscene
         Cutscene cutscene = CheckForCutscene();
         if (cutscene != null)
@@ -75,7 +76,9 @@ public class DaySystem : MonoBehaviour
         npcManager.ResetDailyInteraction();
 
         // update Flowerboxes
-        StartCoroutine(flowerManager.NextDayBox());
+        flowerManager.NextDayBoxes();
+
+        // update inventory with any pending orders
     }
 
     private Cutscene CheckForCutscene()

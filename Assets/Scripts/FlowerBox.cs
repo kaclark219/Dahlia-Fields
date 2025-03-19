@@ -1,22 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FlowerBox : InteractableObj
 {
-    private int CycleIndex = 0;
-    private InventoryItem flowerPlanted; 
-    bool WateredToday = false;
-    bool planted = false; 
-    SpriteRenderer sr;
-    int spriteInd = 0;
-    FlowerboxManager fman;
-
-    [SerializeField] public InventoryManager inventoryManager;
-    [SerializeField] public PlayerData player;
+    [Header("Flower Box Attributes")]
+    public string BoxNumber;
+    public bool planted = false;
+    public bool WateredToday = false;
+    public int CycleIndex = 0;
+    public int spriteInd = 0;
 
     [SerializeField] public Sprite[] sprites;
 
+    private string boxKey;
+    private InventoryItem flowerPlanted;
+
+    private SpriteRenderer sr;
+    private FlowerboxManager fman;
+    private InventoryManager inventoryManager;
+    private PlayerData player;
 
     private void Awake()
     {
@@ -24,6 +29,7 @@ public class FlowerBox : InteractableObj
        player =  GameObject.Find("Player").GetComponent<PlayerData>();
        sr = GetComponentInParent<SpriteRenderer>();
        fman = GetComponentInParent<FlowerboxManager>();
+       boxKey = "Box" + BoxNumber;
     }
 
     public override void Start()
@@ -38,7 +44,7 @@ public class FlowerBox : InteractableObj
         {
             base.OnInteract();
             fman.OpenUI();
-            fman.active = this;
+            fman.ActiveBox = this;
         }
         else if (!WateredToday && flowerPlanted.daysToGrow != CycleIndex) //not watered today and growth not completed
         {
@@ -54,23 +60,22 @@ public class FlowerBox : InteractableObj
         }
     }
 
-    public void Plant(string flower)
+    public void Plant(Flowers flower)
     {
         //Open UI and select a plant
-        //return "Daisy"; //Placeholder
-        Debug.Log(inventoryManager.GetSeedStock(flower) >= 5);
         if(inventoryManager.GetSeedStock(flower) >= 5)
         {
             fman.CloseUI();
             planted = true;
             flowerPlanted = inventoryManager.FindItem(flower);
             inventoryManager.SetSeedStock(flower, -5);
-            player.ModifyEnergy(-5); 
+            player.ModifyEnergy(-5);
 
-            //uncomment once sprites available
-            sprites[5] = Resources.Load<Sprite>("Flowerbox/" + flower + "_growing");
-            sprites[6] = Resources.Load<Sprite>("Flowerbox/" + flower + "_growing+watered");
-            sprites[7] = Resources.Load<Sprite>("Flowerbox/" + flower + "_final");
+            //uncomment once sprites available ===> can access sprites from inventory
+            sprites[5] = flowerPlanted.growing;
+            sprites[6] = flowerPlanted.growingWatered;
+            sprites[7] = flowerPlanted.harvest;
+
             sr.sprite = sprites[1];
             spriteInd = 1;
             EndInteract();
@@ -91,7 +96,7 @@ public class FlowerBox : InteractableObj
         sr.sprite = sprites[++spriteInd];
 
         EndInteract();
-        Debug.Log("Watered");
+        Debug.Log("Watered box " + BoxNumber);
     }
 
     public void Harvest()
@@ -115,35 +120,93 @@ public class FlowerBox : InteractableObj
         spriteInd = 0;
 
         EndInteract();
-        Debug.Log("Harvested");
+        Debug.Log("Harvested box " + BoxNumber);
     }
 
-    public IEnumerator NextDayBox()
+    public void NextDayBox()
     {
-        yield return new WaitUntil(() => sr != null);
-
-        if(WateredToday){
+        if(WateredToday && planted){   // if watered and planted, plant grows
             WateredToday = false;
             CycleIndex++;
         }
-        sr.sprite = sprites[0];
-        spriteInd = 0;
 
-        if (planted) {
-            sr.sprite = sprites[3];
-            spriteInd = 3;
+        UpdateSprite(); // update sprite based on growth
+    }
 
+    private void UpdateSprite()
+    {
+        if (planted)
+        { 
             if (flowerPlanted.daysToGrow == CycleIndex)
             {
                 sr.sprite = sprites[7];
                 spriteInd = 7;
-            } 
-            else if(flowerPlanted.daysToGrow/2 < CycleIndex)
+            }
+            else if (flowerPlanted.daysToGrow / 2 < CycleIndex)
             {
                 spriteInd = 5;
                 sr.sprite = sprites[5];
             }
+            else
+            {
+                sr.sprite = sprites[3];
+                spriteInd = 3;
+            }
+        }
+        else
+        {
+            sr.sprite = sprites[0];
+            spriteInd = 0;
         }
         
     }
+
+    #region SAVE_SYSTEM
+    public void SaveData()
+    {
+        if (planted)
+        {
+            PlayerPrefs.SetString(boxKey, flowerPlanted.itemName.ToString());
+            PlayerPrefs.SetInt(boxKey + "_Planted", planted ? 1 : 0);
+            PlayerPrefs.SetInt(boxKey + "_Cycle", CycleIndex);
+            PlayerPrefs.SetInt(boxKey + "_Sprite", spriteInd);
+        }
+    }
+
+    public void LoadData()
+    {
+        if (PlayerPrefs.HasKey(boxKey))
+        {
+            Flowers flower;
+            Enum.TryParse(PlayerPrefs.GetString(boxKey), out flower);
+            flowerPlanted = inventoryManager.inventory[flower];
+
+            planted = PlayerPrefs.GetInt(boxKey + "_Planted") == 1 ? true : false;
+            CycleIndex = PlayerPrefs.GetInt(boxKey + "_Cycle");
+            spriteInd = PlayerPrefs.GetInt(boxKey + "_Sprite");
+
+            sprites[5] = flowerPlanted.growing;
+            sprites[6] = flowerPlanted.growingWatered;
+            sprites[7] = flowerPlanted.harvest;
+
+            UpdateSprite();
+        }
+        else 
+        {
+            ResetData();
+        }
+    }
+
+    public void ResetData()
+    {
+        flowerPlanted = null;
+        planted = false;
+        WateredToday = false;
+        CycleIndex = 0;
+        spriteInd = 0;
+
+        UpdateSprite();
+    }
+
+    #endregion
 }

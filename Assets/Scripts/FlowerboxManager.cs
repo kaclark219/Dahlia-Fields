@@ -2,18 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class FlowerboxManager : MonoBehaviour
 {
-    [SerializeField] GameObject FlowerBoxUI;
-    [SerializeField] InventoryManager inventoryManager;
+    [SerializeField] private GameObject FlowerBoxUI;
     [SerializeField] TextMeshProUGUI[] counts;
-    PlayerInteractor plint;
-    public FlowerBox active;
+    [SerializeField] private List<FlowerBox> FlowerBoxes; 
+    public FlowerBox ActiveBox;
+
+    private InventoryManager inventoryManager;
+    private PlayerInteractor plint;
+
+    [SerializeField] private int numActiveBoxes = 1;
+    private const string activeBoxesKey = "Active_Boxes";
 
     void Awake()
     {
         plint = GameObject.FindWithTag("Player").GetComponent<PlayerInteractor>();
+        inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
     }
 
     public void OpenUI()
@@ -30,24 +37,104 @@ public class FlowerboxManager : MonoBehaviour
     {
         FlowerBoxUI.SetActive(false);
         plint.EndInteract();
-        active = null;
+        ActiveBox = null;
     }
 
-    public IEnumerator NextDayBox(){
-        GameObject[] boxes = GameObject.FindGameObjectsWithTag("Flowerbox");
-        foreach(var box in boxes){
-            
-            FlowerBox fb = box.GetComponent<FlowerBox>();
-            //Debug.Log(fb);
-            yield return new WaitUntil(() => fb != null);
-            //Debug.Log("fao");
-            StartCoroutine(fb.NextDayBox());
+    public void NextDayBoxes()
+    {
+        UpdateVisibleBoxes();
+
+        foreach (var box in FlowerBoxes)
+        {
+            if (box.transform.parent.gameObject.activeSelf)
+            {
+                box.NextDayBox();
+            }
         }
     }
 
     public void Plant(string plantName){
-        if(active != null){
-            active.Plant(plantName);
+        if(ActiveBox != null){
+            Flowers flower;
+            Enum.TryParse(plantName, out flower);
+            ActiveBox.Plant(flower);
         }
     }
+
+    public bool AddBox()
+    {
+        if( numActiveBoxes == FlowerBoxes.Count)
+        {
+            return false;
+        }
+        numActiveBoxes++;
+        return true;
+    }
+
+    private void UpdateVisibleBoxes()
+    {
+        int i = 0;
+        foreach (FlowerBox box in FlowerBoxes)
+        {
+            if (i < numActiveBoxes)
+            {
+                box.transform.parent.gameObject.SetActive(true);
+            }
+            else
+            {
+                box.transform.parent.gameObject.SetActive(false);
+            }
+            i++;
+        }
+    }
+
+    #region SAVE_SYSTEM
+    public void SaveData()
+    {
+        foreach (FlowerBox box in FlowerBoxes)
+        {
+            if (box.transform.parent.gameObject.activeSelf)
+            {
+                box.SaveData();
+            }
+        }
+
+        PlayerPrefs.SetInt(activeBoxesKey, numActiveBoxes);
+    }
+
+    public void LoadData()
+    {
+        if (PlayerPrefs.HasKey(activeBoxesKey))
+        {
+            numActiveBoxes = PlayerPrefs.GetInt(activeBoxesKey);
+        }
+        else
+        {
+            numActiveBoxes = 1;
+        }
+        UpdateVisibleBoxes();
+
+        foreach (FlowerBox box in FlowerBoxes)
+        {
+            if (box.transform.parent.gameObject.activeSelf) 
+            {
+                box.LoadData();
+            }
+        }
+    }
+
+    public void ResetData()
+    {
+        foreach (FlowerBox box in FlowerBoxes)
+        {
+            if (box.transform.parent.gameObject.activeSelf)
+            {
+                box.ResetData();
+            }
+        }
+        numActiveBoxes = 1;
+        UpdateVisibleBoxes();
+    }
+
+    #endregion
 }

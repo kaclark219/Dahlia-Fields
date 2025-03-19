@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NPCGerald : NPC
 {
-    [Space]
+    [Header("Tonic Attributes")]
     [SerializeField] public TextAsset buyTonicText;
     public Vector3 clinicLocation;
 
