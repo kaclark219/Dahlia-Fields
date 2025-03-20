@@ -146,6 +146,9 @@ public class FlowerBox : InteractableObj
             {
                 spriteInd = 5;
                 sr.sprite = sprites[5];
+            }else if(CycleIndex == 0){
+                sr.sprite = sprites[1];
+                spriteInd = 1;
             }
             else
             {
