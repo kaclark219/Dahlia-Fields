@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class NPC : InteractableObj
 {
-    [Space]
+    [Header("NPC Attributes")]
     [SerializeField] public NPCName npcName;
     [SerializeField] public List<TextAsset> textAssets;
     [SerializeField] public TextAsset fuckOffText;
     [Space]
-    public PlayerData playerData;
-    public SpriteRenderer sr;
-    public InkManager ink;
-    public PlayerMovement pm;
-    [Space]
     public bool dailyInteraction;
     public int numOfInteractions;
-    public bool costsEnergy;
-    [Space]
-    public string npcKey;
+
+    // Public variables inherited by child classes but hidden in Unity inspector
+    [HideInInspector] public PlayerData playerData;
+    [HideInInspector] public SpriteRenderer sr;
+    [HideInInspector] public InkManager ink;
+    [HideInInspector] public PlayerMovement pm;
+
+    [HideInInspector] public bool costsEnergy;
+    [HideInInspector] public string npcKey;
 
     private void Awake()
     {

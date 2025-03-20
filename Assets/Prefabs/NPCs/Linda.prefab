@@ -227,14 +227,18 @@ MonoBehaviour:
   plint: {fileID: 0}
   frame: 0
   npcName: 9
-  sr: {fileID: 0}
-  ink: {fileID: 0}
-  pm: {fileID: 0}
   textAssets:
   - {fileID: 4900000, guid: 51c641154b8c7d24fa526850793aa9c8, type: 3}
+  - {fileID: 4900000, guid: b1e86af19f7beb142b5f7874dc851a93, type: 3}
   fuckOffText: {fileID: 4900000, guid: 851e2996dda73e643831cfc4ed1f8e30, type: 3}
   dailyInteraction: 0
   numOfInteractions: 0
+  playerData: {fileID: 0}
+  sr: {fileID: 0}
+  ink: {fileID: 0}
+  pm: {fileID: 0}
+  costsEnergy: 0
+  npcKey: 
 --- !u!1 &7639936785909288915
 GameObject:
   m_ObjectHideFlags: 0

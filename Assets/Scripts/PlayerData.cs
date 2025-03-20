@@ -94,11 +94,6 @@ public class PlayerData : MonoBehaviour
                 daySystem.ChangeTimeOfDay(timeOfDay);
                 Debug.Log("Change Time of Day to Evening");
             }
-            if (energy <= 0)    // change to Next Day
-            {
-                daySystem.NextDay();
-                ResetEnergy();
-            }
         }
     }
 

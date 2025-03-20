@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,11 +79,13 @@ public class InventoryUI : InteractableObj
     public void SetUpView(string name)
     {
         view.SetActive(true);
-        item = inventoryManager.inventory[name];
+        Flowers flower;
+        Enum.TryParse(name, out flower);
+        item = inventoryManager.inventory[flower];
         
         if(flowers)
         {
-            viewName.text = item.itemName;
+            viewName.text = item.itemName.ToString();
             viewDescription.text = item.description;
             viewIcon.sprite = item.flowerIcon;
             viewStock.text = item.flowerStock.ToString(); 
@@ -96,6 +99,5 @@ public class InventoryUI : InteractableObj
             viewStock.text = item.seedStock.ToString();
         }
     }
-
 
 }

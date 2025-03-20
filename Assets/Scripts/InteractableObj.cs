@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class InteractableObj : MonoBehaviour
 {
-
+    [Header("Intractable Object")]
     [SerializeField] private GameObject Popup;
     public bool active = false;
-    [SerializeField] protected PlayerInteractor plint;
-    public float frame = 0;
+
+    [HideInInspector] public PlayerInteractor plint;
+    [HideInInspector] public float frame = 0;
 
     public virtual void Start()
     {
