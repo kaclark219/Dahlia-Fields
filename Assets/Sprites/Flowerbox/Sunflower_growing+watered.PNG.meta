@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Resources/Flowerbox/Sunflower_growing+watered.PNG.meta
 guid: 707612aec99534041ac56b7d9749b096
-=======
-guid: 8421e02d511227047bbeac519b742c00
->>>>>>> main:Assets/Sprites/Flowerbox/Sunflower_growing+watered.PNG.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -38,11 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-<<<<<<< HEAD:Assets/Resources/Flowerbox/Sunflower_growing+watered.PNG.meta
     filterMode: 0
-=======
-    filterMode: 1
->>>>>>> main:Assets/Sprites/Flowerbox/Sunflower_growing+watered.PNG.meta
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -56,11 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD:Assets/Resources/Flowerbox/Sunflower_growing+watered.PNG.meta
   spritePixelsToUnits: 192
-=======
-  spritePixelsToUnits: 100
->>>>>>> main:Assets/Sprites/Flowerbox/Sunflower_growing+watered.PNG.meta
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,11 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-<<<<<<< HEAD:Assets/Resources/Flowerbox/Sunflower_growing+watered.PNG.meta
     textureCompression: 0
-=======
-    textureCompression: 1
->>>>>>> main:Assets/Sprites/Flowerbox/Sunflower_growing+watered.PNG.meta
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,22 +93,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD:Assets/Resources/Flowerbox/Sunflower_growing+watered.PNG.meta
-=======
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
->>>>>>> main:Assets/Sprites/Flowerbox/Sunflower_growing+watered.PNG.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []

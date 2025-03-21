@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Resources/Flowerbox/Sunflower_final.PNG.meta
 guid: c14b23368d1dc854a97f933a46ef299b
-=======
-guid: 8ab5b8fc6472fe544a59d9757ce8fa83
->>>>>>> main:Assets/Sprites/Flowerbox/Sunflower_final.PNG.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -38,11 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-<<<<<<< HEAD:Assets/Resources/Flowerbox/Sunflower_final.PNG.meta
     filterMode: 0
-=======
-    filterMode: 1
->>>>>>> main:Assets/Sprites/Flowerbox/Sunflower_final.PNG.meta
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -56,11 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD:Assets/Resources/Flowerbox/Sunflower_final.PNG.meta
   spritePixelsToUnits: 192
-=======
-  spritePixelsToUnits: 100
->>>>>>> main:Assets/Sprites/Flowerbox/Sunflower_final.PNG.meta
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,11 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-<<<<<<< HEAD:Assets/Resources/Flowerbox/Sunflower_final.PNG.meta
     textureCompression: 0
-=======
-    textureCompression: 1
->>>>>>> main:Assets/Sprites/Flowerbox/Sunflower_final.PNG.meta
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,22 +93,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD:Assets/Resources/Flowerbox/Sunflower_final.PNG.meta
-=======
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
->>>>>>> main:Assets/Sprites/Flowerbox/Sunflower_final.PNG.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
