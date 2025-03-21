@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
 {
     public Dictionary<Flowers, InventoryItem> inventory = new Dictionary<Flowers, InventoryItem>();
 
-    private void Start()
+    private void Awake()
     {
         InventoryItem[] list = Resources.LoadAll<InventoryItem>("InventoryItems/");
         foreach (var item in list)
