@@ -18,6 +18,7 @@ public class DaySystem : MonoBehaviour
     private PlayerData playerData;
     private FlowerboxManager flowerManager;
     private VideoPlayerManager videoPlayerManager;
+    private GlobalStateManager globalStateManager;
 
     private void Awake()
     {
@@ -27,12 +28,17 @@ public class DaySystem : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
         playerData = player.GetComponent<PlayerData>();
         videoPlayerManager = player.GetComponentInChildren<VideoPlayerManager>();
+        globalStateManager = GetComponent<GlobalStateManager>();
     }
     public void NextDay()
     {
+       // Load next day data
         day++;
         week = (day / 3) + 1;
         LoadDay(day);
+
+        // Save all progress at the start of the next day
+        globalStateManager.SaveAllData();
     }
 
     public int GetDay()
