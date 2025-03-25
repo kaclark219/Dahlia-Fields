@@ -304,6 +304,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 250418567240220309, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 505077195232307786, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -360,6 +364,10 @@ PrefabInstance:
       propertyPath: afternoon
       value: 
       objectReference: {fileID: 8300000, guid: 6a06fc2e083e4194a8682de370aff34e, type: 3}
+    - target: {fileID: 4848080322189456253, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: daysystem
+      value: 
+      objectReference: {fileID: 3424595474031006297}
     - target: {fileID: 5568591682137614157, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -428,6 +436,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1259964733}
   m_SourcePrefab: {fileID: 100100000, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+--- !u!114 &3424595474031006297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4896782759395972303, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+  m_PrefabInstance: {fileID: 3424595474031006296}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe06ab5cd3f4ba44946ee7c58c490e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
