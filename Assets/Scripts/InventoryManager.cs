@@ -72,7 +72,7 @@ public class InventoryManager : MonoBehaviour
             }
             else
             {
-                item.Value.seedStock = 0;
+                item.Value.seedStock = 10;
                 item.Value.flowerStock = 0;
             }
         }
