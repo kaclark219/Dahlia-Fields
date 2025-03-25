@@ -690,18 +690,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1961994125542866198, guid: 26a91b98de179714094b3966759ff6d1, type: 3}
-      propertyPath: cutsceneList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1961994125542866198, guid: 26a91b98de179714094b3966759ff6d1, type: 3}
-      propertyPath: cutsceneList.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 3c99d8a8986aa514086238cf4acc165e, type: 2}
-    - target: {fileID: 1961994125542866198, guid: 26a91b98de179714094b3966759ff6d1, type: 3}
-      propertyPath: cutsceneList.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: fc3a48442f77c7b4982dda527db3e5b9, type: 2}
     - target: {fileID: 6271288331911556575, guid: 26a91b98de179714094b3966759ff6d1, type: 3}
       propertyPath: npcManager
       value: 
@@ -1289,69 +1277,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 519614350332835461, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Tulip
-      objectReference: {fileID: 0}
-    - target: {fileID: 1660267419129196624, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Poppy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2399888363277904680, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: inventoryItems.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2399888363277904680, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: inventoryItems.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: aee346232f6a8ac438c7c644487de8c6, type: 2}
-    - target: {fileID: 2399888363277904680, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: inventoryItems.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: ed3372c276150dc4296ae9a1ea2c5d86, type: 2}
-    - target: {fileID: 2399888363277904680, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: inventoryItems.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5dfacb5607590174c8f3644b912f318d, type: 2}
-    - target: {fileID: 2399888363277904680, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: inventoryItems.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 29db8b8ecd446a843ac81a700ecc787f, type: 2}
-    - target: {fileID: 2399888363277904680, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: inventoryItems.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: e58dd2a59a95f6541850542f858d2c0f, type: 2}
-    - target: {fileID: 2399888363277904680, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: inventoryItems.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 618069640c46a104a98558bc8a5c87a2, type: 2}
-    - target: {fileID: 2399888363277904680, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: inventoryItems.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: 47f5e6e8a744bc146ba21e9b5f3842fd, type: 2}
-    - target: {fileID: 2399888363277904680, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: inventoryItems.Array.data[7]
-      value: 
-      objectReference: {fileID: 11400000, guid: 90fe2b3450b34964588cf1443ffffa8f, type: 2}
-    - target: {fileID: 2399888363277904680, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: inventoryItems.Array.data[8]
-      value: 
-      objectReference: {fileID: 11400000, guid: a114508296910d54289d21254eb71e77, type: 2}
-    - target: {fileID: 4198227663548800906, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: LilyValley
-      objectReference: {fileID: 0}
     - target: {fileID: 4201912888810625368, guid: f79898c668be95243833f474b1627c18, type: 3}
       propertyPath: m_Name
       value: Inventory
-      objectReference: {fileID: 0}
-    - target: {fileID: 4842568280185149555, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Daisy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5375101417191980941, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Lavender
       objectReference: {fileID: 0}
     - target: {fileID: 7220218501828043558, guid: f79898c668be95243833f474b1627c18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1392,22 +1320,6 @@ PrefabInstance:
     - target: {fileID: 7220218501828043558, guid: f79898c668be95243833f474b1627c18, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7358569792754933676, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Dandelion
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477394542343489636, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8442775609690105450, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Rose
-      objectReference: {fileID: 0}
-    - target: {fileID: 8608268652875563216, guid: f79898c668be95243833f474b1627c18, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: PricklyPear
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

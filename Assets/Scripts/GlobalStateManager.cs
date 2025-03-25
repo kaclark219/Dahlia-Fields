@@ -23,7 +23,6 @@ public class GlobalStateManager : MonoBehaviour
         flowerboxManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
         inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
     }
-
     private void Start()
     {
         int newGame = 0;
@@ -78,9 +77,5 @@ public class GlobalStateManager : MonoBehaviour
         inventoryManager.ResetData();
 
         PlayerPrefs.DeleteAll();
-    }
-    private void OnApplicationQuit()
-    {
-        SaveAllData();
     }
 }
