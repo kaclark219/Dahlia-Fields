@@ -35,7 +35,7 @@ public class InventoryManager : MonoBehaviour
     public void SetSeedStock(Flowers itemName, int newStock)
     {
         if (inventory.ContainsKey(itemName))
-            inventory[itemName  ].seedStock += newStock;
+            inventory[itemName].seedStock += newStock;
     }
 
     public int GetFlowerStock(Flowers itemName)
