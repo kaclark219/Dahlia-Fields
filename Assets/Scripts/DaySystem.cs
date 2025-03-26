@@ -17,7 +17,6 @@ public class DaySystem : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerData playerData;
     private FlowerboxManager flowerManager;
-    private SeedStore seedStore;
     private VideoPlayerManager videoPlayerManager;
     private GlobalStateManager globalStateManager;
 
@@ -25,7 +24,6 @@ public class DaySystem : MonoBehaviour
     {
         npcManager = GameObject.Find("NPCManager").GetComponent<NPCManager>();
         flowerManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
-        seedStore = GameObject.Find("SeedStore").GetComponent<SeedStore>();
         GameObject player = GameObject.Find("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
         playerData = player.GetComponent<PlayerData>();
@@ -87,8 +85,6 @@ public class DaySystem : MonoBehaviour
         flowerManager.NextDayBoxes();
 
         // update inventory with any pending orders
-        seedStore.Delivery();  
-
     }
 
     private Cutscene CheckForCutscene()
