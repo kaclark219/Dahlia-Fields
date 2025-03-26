@@ -11,6 +11,8 @@ public class RequestBoard : InteractableObj
     [SerializeField] GameObject check2;
     [SerializeField] GameObject complete;
     [SerializeField] InventoryManager inventory;
+    [SerializeField] PlayerData pdata;
+    [SerializeField] DialogueVariables dvar;
     int day;
     Dictionary<GameObject, Request> requestList;
 
@@ -82,6 +84,12 @@ public class RequestBoard : InteractableObj
     
     private void GainTrust(GameObject request){
         //TODO:
+        pdata.ModifyMoney(requestList[request].reward);
+        string[] trusts = requestList[request].trust.Split("; ");
+        foreach (string people in trusts){
+            string[] statement = people.Split(" Trust ");
+            dvar.AddTrust(statement[1], int.Parse(statement[0]));
+        }
     }
     
     private void MarkComplete(GameObject request){

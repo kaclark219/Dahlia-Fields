@@ -18,16 +18,15 @@ public class FlowerBox : InteractableObj
     private string boxKey;
     private InventoryItem flowerPlanted;
 
-    private SpriteRenderer sr;
     private FlowerboxManager fman;
     private InventoryManager inventoryManager;
     private PlayerData player;
 
     private void Awake()
     {
+        base.Awake();
        inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
        player =  GameObject.Find("Player").GetComponent<PlayerData>();
-       sr = GetComponentInParent<SpriteRenderer>();
        fman = GetComponentInParent<FlowerboxManager>();
        boxKey = "Box" + BoxNumber;
     }
