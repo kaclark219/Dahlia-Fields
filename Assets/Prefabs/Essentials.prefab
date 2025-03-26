@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -704,7 +704,7 @@ MonoBehaviour:
   morning: {fileID: 8300000, guid: 3d44bf576f0ae7344b149c6e3ecea230, type: 3}
   afternoon: {fileID: 8300000, guid: 6a06fc2e083e4194a8682de370aff34e, type: 3}
   evening: {fileID: 8300000, guid: ef783d263a4b76c4c8c372d67e3db437, type: 3}
-  daysystem: {fileID: 4896782759395972303}
+  time: 0
 --- !u!1 &969334552954946369
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,7 +913,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -1133,7 +1133,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -2025,7 +2025,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -2480,7 +2480,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: PlaceOrder
         m_Mode: 1
@@ -2805,7 +2805,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -3049,7 +3049,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -3070,7 +3070,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7534728633387038640}
-  - component: {fileID: 8717172366304386275}
   - component: {fileID: 1031146022061422998}
   m_Layer: 0
   m_Name: Hitbox
@@ -3094,42 +3093,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6646992987744913788}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8717172366304386275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6573714443468889067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21a219274c39e4489aa4f267583851d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Popup: {fileID: 3475105645537400652}
-  active: 0
-  plint: {fileID: 0}
-  frame: 0
-  canvas: {fileID: 4891893793258461579}
-  requests:
-  - {fileID: 8456579731569092045}
-  - {fileID: 6078982175264157012}
-  - {fileID: 3402851561008104609}
-  - {fileID: 7553745214136722976}
-  - {fileID: 3248844476804003079}
-  - {fileID: 7471677368131659567}
-  - {fileID: 7148920361139853248}
-  - {fileID: 8842809230547674529}
-  - {fileID: 3978187690950622146}
-  - {fileID: 2578257040249078627}
-  - {fileID: 6587626044604695196}
-  - {fileID: 6466985718190169080}
-  - {fileID: 814202785878915375}
-  daySystem: {fileID: 4896782759395972303}
-  check1: {fileID: 6287287789222591758}
-  check2: {fileID: 8598256635927776213}
-  complete: {fileID: 5015677944531036794}
-  inventory: {fileID: 0}
 --- !u!61 &1031146022061422998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3571,7 +3534,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: CloseBoard
         m_Mode: 1
@@ -3831,7 +3794,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -4051,7 +4014,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -4183,7 +4146,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8717172366304386275}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RequestBoard, Assembly-CSharp
         m_MethodName: ClickNote
         m_Mode: 2
@@ -5467,10 +5430,6 @@ PrefabInstance:
     - target: {fileID: 8311761607671232863, guid: e40394824ffa3f04ab1370017734a45d, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8584565063724182912, guid: e40394824ffa3f04ab1370017734a45d, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 9018626378201395224, guid: e40394824ffa3f04ab1370017734a45d, type: 3}
       propertyPath: m_AnchorMax.y
