@@ -93,6 +93,7 @@ public class SeedStore : InteractableObj
 
         sets = 0;
         price.text = sets.ToString();
+        broke.SetActive(false);
     }
 
     public void Delivery()
