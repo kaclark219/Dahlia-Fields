@@ -25,6 +25,7 @@ public class InkManager : MonoBehaviour
     private InteractableObj currInteractable;
     private Coroutine printCoroutine = null;
     private string text;
+    private bool isStoryPaused = false;
 
     private void Awake()
     {
@@ -105,6 +106,11 @@ public class InkManager : MonoBehaviour
 
     public void DisplayNextLine()
     {
+        if (isStoryPaused)
+        {
+            return;
+        }
+
         // Check if a line is being printed
         if (printCoroutine != null)
         {
@@ -161,6 +167,30 @@ public class InkManager : MonoBehaviour
         else
         {
             textBox.fontStyle= FontStyles.Normal;
+        }
+    }
+
+    public void DisableUI()
+    {
+        UI.GetComponent<Canvas>().enabled = false;
+        isStoryPaused = true;
+    }
+
+    public void EnableUI()
+    {
+        UI.GetComponent<Canvas>().enabled = true;
+        isStoryPaused = false;
+
+        if (story != null)
+        {
+
+            if (printCoroutine != null)
+            {
+                StopCoroutine(printCoroutine);
+                printCoroutine = null;
+            }
+
+            DisplayNextLine();
         }
     }
 

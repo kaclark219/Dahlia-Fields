@@ -28,7 +28,6 @@ public class DoorHandler : InteractableObj
     {
         base.OnInteract();
         StartCoroutine(FadeAndTeleport());
-        base.EndInteract();
     }
 
     private IEnumerator FadeAndTeleport()
@@ -55,6 +54,9 @@ public class DoorHandler : InteractableObj
         }
 
         baseui.enabled = false;
+        yield return null;
+
+        base.EndInteract();
         yield return null;
     }
 }
