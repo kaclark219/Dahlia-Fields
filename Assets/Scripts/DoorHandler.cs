@@ -15,6 +15,7 @@ public class DoorHandler : InteractableObj
 
     private void Awake()
     {
+        base.Awake();
         player = GameObject.Find("Player");
     }
 

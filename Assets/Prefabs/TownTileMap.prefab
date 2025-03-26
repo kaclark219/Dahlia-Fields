@@ -8871,6 +8871,8 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
+  sr: {fileID: 0}
+  pm: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 3904078440669945604}
   baseui: {fileID: 343348730103759751}
@@ -16091,6 +16093,8 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
+  sr: {fileID: 0}
+  pm: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 3058518903201326305}
   baseui: {fileID: 343348730103759751}
