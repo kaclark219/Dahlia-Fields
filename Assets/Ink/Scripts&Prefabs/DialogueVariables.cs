@@ -83,6 +83,22 @@ public class DialogueVariables : MonoBehaviour
         }
     }
 
+    public void AddTrust(string name, int value)
+    {
+        if (variables.ContainsKey(name) && variables[name] is Ink.Runtime.IntValue intValue)
+        {
+            int current = intValue.value; 
+            current += value; 
+            variables[name] = new Ink.Runtime.IntValue(current); 
+
+            Debug.Log($"Variable Updated: {name} = {current}");
+        }
+        else
+        {
+            Debug.LogWarning($"Variable '{name}' not found or is not an integer.");
+        }
+    }
+
     // Updates all variable changes to the dictionary to the Ink Story
     private void VariablesToStory(Story story)
     {

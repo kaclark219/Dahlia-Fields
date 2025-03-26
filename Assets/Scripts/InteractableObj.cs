@@ -10,6 +10,13 @@ public class InteractableObj : MonoBehaviour
 
     [HideInInspector] public PlayerInteractor plint;
     [HideInInspector] public float frame = 0;
+    [HideInInspector] public SpriteRenderer sr;
+    [HideInInspector] public PlayerMovement pm;
+
+    public virtual void Awake(){
+        pm = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        sr = GetComponentInParent<SpriteRenderer>();
+    }
 
     public virtual void Start()
     {
@@ -36,6 +43,11 @@ public class InteractableObj : MonoBehaviour
     public virtual void Update()
     {
         if (active){
+            if(pm.rb.position.y > transform.position.y){
+                sr.sortingOrder = 4;
+            }else{
+                sr.sortingOrder = 2;
+            }
             Popup.SetActive(true);
             if(Input.GetKeyDown(KeyCode.E) && plint.canInteract){
                 OnInteract();

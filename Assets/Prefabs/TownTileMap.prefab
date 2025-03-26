@@ -5822,9 +5822,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.18431373, g: 0.41960788, b: 0.5803922, a: 1}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 362b6f7a7a3b0ef4389b2dd050bbe101, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5990,9 +5990,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.18431373, g: 0.41960788, b: 0.5803922, a: 1}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 362b6f7a7a3b0ef4389b2dd050bbe101, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -16111,6 +16111,8 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
+  sr: {fileID: 0}
+  pm: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 5500656095218182162}
   doorTransition: {fileID: 7269651105475700293}
@@ -25668,6 +25670,8 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
+  sr: {fileID: 0}
+  pm: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 4323552158894606222}
   doorTransition: {fileID: 7269651105475700293}
@@ -38032,7 +38036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6528382531777937429
 RectTransform:
   m_ObjectHideFlags: 0

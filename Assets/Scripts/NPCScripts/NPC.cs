@@ -14,17 +14,14 @@ public class NPC : InteractableObj
 
     // Public variables inherited by child classes but hidden in Unity inspector
     [HideInInspector] public PlayerData playerData;
-    [HideInInspector] public SpriteRenderer sr;
     [HideInInspector] public InkManager ink;
-    [HideInInspector] public PlayerMovement pm;
 
     [HideInInspector] public bool costsEnergy;
     [HideInInspector] public string npcKey;
 
     private void Awake()
     {
-        pm = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
-        sr = GetComponentInParent<SpriteRenderer>();
+        base.Awake();
         playerData = GameObject.Find("Player").GetComponent<PlayerData>();
         ink = GameObject.Find("InkManager").GetComponent<InkManager>();
         npcKey = npcName.ToString();
@@ -38,13 +35,6 @@ public class NPC : InteractableObj
 
     public override void Update(){
         base.Update();
-        if(active){
-            if(pm.rb.position.y > transform.position.y){
-                sr.sortingOrder = 4;
-            }else{
-                sr.sortingOrder = 2;
-            }
-        }
     }
 
     public override void OnInteract()
