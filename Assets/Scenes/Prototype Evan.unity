@@ -187,6 +187,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79898c668be95243833f474b1627c18, type: 3}
+--- !u!114 &1944916674 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2399888363277904680, guid: f79898c668be95243833f474b1627c18, type: 3}
+  m_PrefabInstance: {fileID: 885972412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a47a59629069d341a41815bd5c17d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2070612021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -237,6 +248,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5815935777196421091, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269263744687537258, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -311,6 +326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Essentials
       objectReference: {fileID: 0}
+    - target: {fileID: 8717172366304386275, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1944916674}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
