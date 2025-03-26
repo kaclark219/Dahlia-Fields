@@ -9,85 +9,248 @@ public class RequestBoard : InteractableObj
     [SerializeField] DaySystem daySystem;
     [SerializeField] GameObject check1;
     [SerializeField] GameObject check2;
+    [SerializeField] GameObject complete;
+    [SerializeField] InventoryManager inventory;
     int day;
-    List<Request> requestList;
+    Dictionary<GameObject, Request> requestList;
 
-    void Start(){
-        requestList = new List<Request>();
+    void Start()
+    {
+        base.Start();
+        requestList = new Dictionary<GameObject, Request>();
         day = daySystem.day;
         string[] lines = Resources.Load<TextAsset>("RequestBoard").ToString().Split("\n");
-        for(int i = 1; i < lines.Length; i++){
+        for (int i = 1; i < lines.Length; i++)
+        {
             string[] info = lines[i].Split(",");
-            requestList.Add(new Request(int.Parse(info[0]), info[1], getName(info[2]), int.Parse(info[3]), int.Parse(info[4]), info[5])); //If this line errors make sure the CSV doesn't have a blak line at the end
+            requestList.Add(requests[i - 1], new Request(int.Parse(info[0]), info[1], getName(info[2]), int.Parse(info[3]), int.Parse(info[4]), info[5], int.Parse(info[6]))); //If this line errors make sure the CSV doesn't have a blak line at the end
+        }
+        Refresh();
+    }
+
+    private void Refresh(){
+        foreach (GameObject req in requests)
+        {
+            req.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        check1.SetActive(false);
+        check2.SetActive(false);
+        complete.SetActive(false);
+
+        foreach (GameObject req in requests)
+        {
+            if (isDay(requestList[req]) && requestList[req].completed == 0)
+            {
+                req.SetActive(true);
+            }
+            else
+            {
+                req.SetActive(false);
+            }
         }
     }
 
-    public void ClickNote(int num){
-        foreach(GameObject req in requests){
+    private bool isDay(Request request)
+    {
+        return (day >= request.day && day <= request.due);
+    }
+
+    private void LoseFlowers(GameObject request){
+        Request req = requestList[request];
+        string[] needs = req.flowerAmounts.Split(" + ");
+        Flowers first = GetFlowers(needs[0].Split(" (x")[0]);
+        int firstAmount = int.Parse(needs[0].Split(" (x")[1].Split(")")[0]); //This is optimal I swear
+        if (inventory.GetFlowerStock(first) >= firstAmount)
+        {
+            inventory.SetFlowerStock(first, -1 * firstAmount);
+        }else{
+            Debug.LogError("Not enough " + first);
+        }
+
+        if (needs.Length > 1)
+        {
+            Flowers second = GetFlowers(needs[1].Split(" (x")[0]);
+            int secondAmount = int.Parse(needs[1].Split(" (x")[1].Split(")")[0]);
+            if (inventory.GetFlowerStock(second) >= secondAmount)
+            {
+                inventory.SetFlowerStock(second, -1 * secondAmount);
+            }else{
+                Debug.LogError("Not enough " + second);
+            }
+        }
+    }
+    
+    private void GainTrust(GameObject request){
+        //TODO:
+    }
+    
+    private void MarkComplete(GameObject request){
+        Request temp = requestList[request];
+        temp.completed = 1;
+        requestList[request] = temp;
+        Refresh();
+    }
+
+    private int RequirementMet(GameObject text)
+    {
+        int result = 0;
+        Request req = requestList[text.transform.parent.gameObject];
+        string[] needs = req.flowerAmounts.Split(" + ");
+        Flowers first = GetFlowers(needs[0].Split(" (x")[0]);
+        int firstAmount = int.Parse(needs[0].Split(" (x")[1].Split(")")[0]); //This is optimal I swear
+        if (inventory.GetFlowerStock(first) >= firstAmount)
+        {
+            result += 1;
+        }
+
+        if (needs.Length > 1)
+        {
+            Flowers second = GetFlowers(needs[1].Split(" (x")[0]);
+            int secondAmount = int.Parse(needs[1].Split(" (x")[1].Split(")")[0]);
+            if (inventory.GetFlowerStock(second) >= secondAmount)
+            {
+                result += 2;
+            }
+        }
+        return result;
+    }
+
+    public int numRequests(GameObject text){
+        Request req = requestList[text.transform.parent.gameObject];
+        string[] needs = req.flowerAmounts.Split(" + ");
+        return needs.Length;
+    }
+
+    private NPCName getName(string n)
+    {
+        switch (n)
+        {
+            case "Gerald":
+                return NPCName.Gerald;
+            case "Sebastian":
+                return NPCName.Sebastian;
+            case "Charlie":
+                return NPCName.Charlie;
+            case "Megan":
+                return NPCName.Megan;
+            case "Ava":
+                return NPCName.Ava;
+            case "Bruce":
+                return NPCName.Bruce;
+            case "Maddie":
+                return NPCName.Maddie;
+            case "Poppy":
+                return NPCName.Poppy;
+            case "Linda":
+                return NPCName.Linda;
+            case "Jeremy":
+                return NPCName.Jeremy;
+            default:
+                Debug.LogError($"Could not find name for {name}");
+                return NPCName.Sebastian;
+        }
+    }
+
+    private Flowers GetFlowers(string n)
+    {
+        switch (n)
+        {
+            case "Dandelion":
+                return Flowers.Dandelion;
+            case "Daisy":
+                return Flowers.Daisy;
+            case "Poppy":
+                return Flowers.Poppy;
+            case "Tulip":
+                return Flowers.Tulip;
+            case "Rose":
+                return Flowers.Rose;
+            case "Lavender":
+                return Flowers.Lavender;
+            case "PricklyPear":
+                return Flowers.PricklyPear;
+            case "Sunflower":
+                return Flowers.Sunflower;
+            case "LilyValley":
+                return Flowers.LilyValley;
+            default:
+                Debug.LogError($"Could not find name for {n}");
+                return Flowers.Dandelion;
+        }
+    }
+
+    public void ClickNote(GameObject text)
+    {
+        foreach (GameObject req in requests)
+        {
             req.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
         text.SetActive(true);
-        if(RequirementMet(num) == 1){
+        check1.SetActive(false);
+        check2.SetActive(false);
+        if (RequirementMet(text) == 1)
+        {
             check1.SetActive(true);
             check2.SetActive(false);
-        }else if(RequirementMet(num) == 2){
+        }
+        else if (RequirementMet(text) == 2)
+        {
             check1.SetActive(false);
             check2.SetActive(true);
-        }else if(RequirementMet(num) == 3){
+        }
+        else if (RequirementMet(text) == 3)
+        {
             check1.SetActive(true);
             check2.SetActive(true);
         }
 
-    }
-
-    private int RequirementMet(int num){
-        return true;
-    }
-
-    private NPCName getName(string n){
-        switch (name)
-        {
-            case "Gerald":
-                return NPCName.Gerald:
-            case "Sebastian":
-                return NPCName.Sebastian:
-            case "Charlie":
-                return NPCName.Charlie:
-            case "Megan":
-                return NPCName.Megan:
-            case "Ava":
-                return NPCName.Ava:
-            case "Bruce":
-                return NPCName.Bruce:
-            case "Maddie":
-                return NPCName.Maddie:
-            case "Poppy":
-                return NPCName.Poppy:
-            case "Linda":
-                return NPCName.Linda:
-            case "Jeremy":
-                return NPCName.Jeremy:
-            default:
-                Debug.LogError($"Could not find name for {name}");
-                return null;
+        if((RequirementMet(text) == 1 && numRequests(text) == 1) || (RequirementMet(text) == 3 && numRequests(text) == 2)){
+            complete.SetActive(true);
+        }else{
+            complete.SetActive(false);
         }
     }
 
-    struct Request {
+    public void PlaceOrder(){
+        foreach (GameObject req in requests){
+            if(req.transform.GetChild(0).gameObject.activeSelf){
+                LoseFlowers(req);
+                GainTrust(req);
+                MarkComplete(req);
+            }
+        }
+    }
+
+    public void CloseBoard(){
+        canvas.SetActive(false);
+        EndInteract();
+    }
+
+    override public void OnInteract(){
+        base.OnInteract();
+        canvas.SetActive(true);
+        Refresh();
+    }
+
+    struct Request
+    {
         public int day;
         public string flowerAmounts;
         public NPCName author;
         public int due;
         public int reward;
         public string trust;
-    
-        public Request(int d, string fa, NPCName a, int du, int r, string t) {
+        public int completed;
+
+        public Request(int d, string fa, NPCName a, int du, int r, string t, int c)
+        {
             day = d;
             flowerAmounts = fa;
             author = a;
             due = du;
             reward = r;
             trust = t;
+            completed = c;
         }
     }
 }
