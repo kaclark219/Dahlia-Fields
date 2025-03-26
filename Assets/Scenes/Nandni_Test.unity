@@ -233,46 +233,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1170137100929974878, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 1170137100929974878, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2986248033586869148, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: Popup
-      value: 
-      objectReference: {fileID: 1709947092}
-    - target: {fileID: 2986248033586869148, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: npcName
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 2986248033586869148, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: SeedStoreUI
       value: 
       objectReference: {fileID: 934215313}
-    - target: {fileID: 2986248033586869148, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: buySeedText
-      value: 
-      objectReference: {fileID: 4900000, guid: 40b93c458af2d204488093a624121c00, type: 3}
-    - target: {fileID: 3437143225838155746, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: inventoryManager
-      value: 
-      objectReference: {fileID: 2023167066}
-    - target: {fileID: 3643865243802050101, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5661182910453733906, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 5661182910453733906, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.22
-      objectReference: {fileID: 0}
     - target: {fileID: 5814080197229141757, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.95
@@ -313,10 +277,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6545427278507527705, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: inventoryManager
-      value: 
-      objectReference: {fileID: 2023167066}
     - target: {fileID: 7105137776691616820, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_Name
       value: Essentials
@@ -326,11 +286,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
---- !u!1 &1709947092 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6603719862168330081, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-  m_PrefabInstance: {fileID: 1709947091}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2023167065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -421,11 +376,11 @@ PrefabInstance:
       objectReference: {fileID: 2023167066}
     - target: {fileID: 3304685411809124879, guid: cf38f8d0a12d7d64cac4d6262dcb8b22, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.24
+      value: 6.23
       objectReference: {fileID: 0}
     - target: {fileID: 3304685411809124879, guid: cf38f8d0a12d7d64cac4d6262dcb8b22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.6200001
+      value: -3.29
       objectReference: {fileID: 0}
     - target: {fileID: 3304685411809124879, guid: cf38f8d0a12d7d64cac4d6262dcb8b22, type: 3}
       propertyPath: m_LocalPosition.z
