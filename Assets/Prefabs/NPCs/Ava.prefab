@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3336241447512476822}
   - component: {fileID: 5324034754909727710}
   - component: {fileID: 1842675519881207303}
+  - component: {fileID: 4992890174376832110}
   m_Layer: 0
   m_Name: Ava
   m_TagString: Untagged
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.93710685, g: 0.4096158, b: 0.7737142, a: 1}
+  m_Sprite: {fileID: 1005338522, guid: 45e10d8c463a2e64bb3d24c78a0bd25b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -132,6 +133,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &4992890174376832110
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403890261758895200}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5493f1d96fd9f014fa8aea89590b9c23, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &668195541575800355
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,16 +248,28 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
-  npcName: 5
   sr: {fileID: 0}
-  ink: {fileID: 0}
   pm: {fileID: 0}
+  playerData: {fileID: 0}
+  npcName: 5
   textAssets:
   - {fileID: 4900000, guid: c07830df4470a7e448de38398a62fa58, type: 3}
   - {fileID: 4900000, guid: 99c8b0b4b61f8ad42b85e70d81d241db, type: 3}
-  fuckOffText: {fileID: 4900000, guid: b1a56c1db413b3841a74a40d44a65b95, type: 3}
+  - {fileID: 4900000, guid: bf46f581c82862d4b961025c790dd420, type: 3}
+  - {fileID: 4900000, guid: 32f8084313185dd4caf6be5f260450eb, type: 3}
+  - {fileID: 4900000, guid: fe5cfb7d619d6e24e8e5fb07fb185794, type: 3}
+  - {fileID: 4900000, guid: ea93b96f3b8398e41b5aea39a6a218f8, type: 3}
+  - {fileID: 4900000, guid: c73cbd56068bac74cabe086e388d205c, type: 3}
   dailyInteraction: 0
   numOfInteractions: 0
+  fuckOffText: {fileID: 4900000, guid: b1a56c1db413b3841a74a40d44a65b95, type: 3}
+  isFeedDay: 0
+  trustRequired: 80
+  killText: {fileID: 4900000, guid: 295bab1e935a9ce4f8f95123a82eec45, type: 3}
+  ink: {fileID: 0}
+  dialogueVariables: {fileID: 0}
+  costsEnergy: 0
+  npcKey: 
 --- !u!1 &7761968765579791838
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,9 +342,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.22978067, b: 1, a: 1}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 362b6f7a7a3b0ef4389b2dd050bbe101, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5704739124108183099}
   - component: {fileID: 4915977011140790803}
   - component: {fileID: 2613945333306105795}
+  - component: {fileID: 7805905742008536070}
   m_Layer: 0
   m_Name: Bruce
   m_TagString: Untagged
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.57861626, g: 0.27286282, b: 0.06004502, a: 1}
+  m_Sprite: {fileID: 521979894, guid: 1a4d8134ace75524f98c3ab45998db0b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,8 +123,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.3478261}
+    oldSize: {x: 1, y: 1.4375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -132,6 +133,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &7805905742008536070
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461315665496832470}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb708fbdbf896694aac8eb0de0a0b8a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4210371561341912901
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,9 +226,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.22978067, b: 1, a: 1}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 362b6f7a7a3b0ef4389b2dd050bbe101, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -310,13 +332,25 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
-  npcName: 6
   sr: {fileID: 0}
-  ink: {fileID: 0}
   pm: {fileID: 0}
+  playerData: {fileID: 0}
+  npcName: 6
   textAssets:
   - {fileID: 4900000, guid: ccfefdeb0e91a664487933fea22560eb, type: 3}
   - {fileID: 4900000, guid: ae2aee9c3499511489328e579104907c, type: 3}
-  fuckOffText: {fileID: 4900000, guid: 76d8ae0865d3dc94d998873eab4492a3, type: 3}
+  - {fileID: 4900000, guid: a64b575d4438e2f458b4439b42cd5c86, type: 3}
+  - {fileID: 4900000, guid: 235eb8d235b879b438d9c5f143d4a9e6, type: 3}
+  - {fileID: 4900000, guid: 11ea398a6cb6b2f4faf411eaedd40745, type: 3}
+  - {fileID: 4900000, guid: a92a8881b02b15449b114f72d7900fb5, type: 3}
+  - {fileID: 4900000, guid: 10edc4879e68f6341a40fd2f156563f3, type: 3}
   dailyInteraction: 0
   numOfInteractions: 0
+  fuckOffText: {fileID: 4900000, guid: 76d8ae0865d3dc94d998873eab4492a3, type: 3}
+  isFeedDay: 0
+  trustRequired: 60
+  killText: {fileID: 4900000, guid: 2bdf3ac2f8ebc524791f7f00913824d0, type: 3}
+  ink: {fileID: 0}
+  dialogueVariables: {fileID: 0}
+  costsEnergy: 0
+  npcKey: 

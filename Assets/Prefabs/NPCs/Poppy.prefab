@@ -94,17 +94,26 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
+  sr: {fileID: 0}
+  pm: {fileID: 0}
+  playerData: {fileID: 0}
   npcName: 8
   textAssets:
   - {fileID: 4900000, guid: 876167f7de5286e43b7045e76eaf09da, type: 3}
   - {fileID: 4900000, guid: d48c195d2221f0740ba6f439716aa921, type: 3}
-  fuckOffText: {fileID: 4900000, guid: ef7d1174a1685644293fdb171ce8ad3a, type: 3}
+  - {fileID: 4900000, guid: fe0dac910ec91f94cb6be82625972edd, type: 3}
+  - {fileID: 4900000, guid: 1772ea3e07724364aa64a163aec5c3d1, type: 3}
+  - {fileID: 4900000, guid: 974d1c868cd12f243a1fa280c7f0f965, type: 3}
+  - {fileID: 4900000, guid: 6a6a5de7eba347b4ebaf595b55df42b4, type: 3}
+  - {fileID: 4900000, guid: 14e65b88600d5bd4694bfcf3556eacdf, type: 3}
   dailyInteraction: 0
   numOfInteractions: 0
-  playerData: {fileID: 0}
-  sr: {fileID: 0}
+  fuckOffText: {fileID: 4900000, guid: ef7d1174a1685644293fdb171ce8ad3a, type: 3}
+  isFeedDay: 0
+  trustRequired: 170
+  killText: {fileID: 0}
   ink: {fileID: 0}
-  pm: {fileID: 0}
+  dialogueVariables: {fileID: 0}
   costsEnergy: 0
   npcKey: 
 --- !u!1 &7010926688919273310
@@ -179,9 +188,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.22978067, b: 1, a: 1}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 362b6f7a7a3b0ef4389b2dd050bbe101, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

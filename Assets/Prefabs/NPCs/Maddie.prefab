@@ -94,15 +94,19 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
+  sr: {fileID: 0}
+  pm: {fileID: 0}
+  playerData: {fileID: 0}
   npcName: 7
   textAssets: []
-  fuckOffText: {fileID: 0}
   dailyInteraction: 0
   numOfInteractions: 0
-  playerData: {fileID: 0}
-  sr: {fileID: 0}
+  fuckOffText: {fileID: 0}
+  isFeedDay: 0
+  trustRequired: 1000
+  killText: {fileID: 0}
   ink: {fileID: 0}
-  pm: {fileID: 0}
+  dialogueVariables: {fileID: 0}
   costsEnergy: 0
   npcKey: 
   buySeedText: {fileID: 4900000, guid: 40b93c458af2d204488093a624121c00, type: 3}
@@ -180,9 +184,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.22978067, b: 1, a: 1}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 362b6f7a7a3b0ef4389b2dd050bbe101, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
