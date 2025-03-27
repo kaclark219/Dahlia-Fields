@@ -8,8 +8,11 @@ public class DaySystem : MonoBehaviour
 {
     public int day;
     public int week;
-
     public List<Cutscene> cutsceneList = new List<Cutscene>();
+    [Space]
+    public List<int> feedDays = new List<int> { 8, 14, 19, 23 };
+    public bool isFeedDay = false;
+    public bool npcKilled = false;
 
     private const string dayKey = "DAY";
 
@@ -62,6 +65,17 @@ public class DaySystem : MonoBehaviour
     private void LoadDay(int day)
     {
         Debug.Log("Loading day " + day);
+
+        // Check if yesterday was a kill day before updating
+        if (feedDays.Contains(day - 1) && !npcKilled)  // Player loses, didn't feed plant
+        {
+            Debug.Log("Player Lost Game!");
+            LoseGame();
+            return;
+        }
+        isFeedDay = feedDays.Contains(day);
+        npcKilled = false;
+
         // Check for cutscene
         Cutscene cutscene = CheckForCutscene();
         if (cutscene != null)
@@ -77,8 +91,8 @@ public class DaySystem : MonoBehaviour
         // Reset player energy
         playerData.ResetEnergy();
 
-        // move NPCS
-        npcManager.MoveNPCs(day, 1);
+        // Update NPCS (move them and check if kill day
+        npcManager.NextDay(day, isFeedDay);
 
         // reset NPC daily interaction
         npcManager.ResetDailyInteraction();
@@ -101,6 +115,16 @@ public class DaySystem : MonoBehaviour
             }
         }
         return null;
+    }
+
+    private void LoseGame()
+    {
+        // Disable player movement and interactions
+        playerMovement.enabled = false;
+        GameObject.Find("Player").GetComponent<PlayerInteractor>().enabled = false;
+
+        // Display lose ui
+        globalStateManager.ShowLoseScreen();
     }
 
     #region SAVE_SYSTEM
@@ -128,6 +152,7 @@ public class DaySystem : MonoBehaviour
         day = 1;
         week = 1;
         LoadDay(day);
+        isFeedDay = false;
     }
 
     #endregion

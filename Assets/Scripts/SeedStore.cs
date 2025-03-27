@@ -41,8 +41,9 @@ public class SeedStore : InteractableObj
 
     [SerializeField] GameObject signal; 
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         player = GameObject.Find("Player").GetComponent<PlayerData>();
         inventory = GameObject.Find("Inventory").GetComponent<InventoryManager>();
     }

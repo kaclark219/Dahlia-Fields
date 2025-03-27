@@ -23,35 +23,6 @@ public class DialogueVariables : MonoBehaviour
         }
     }
 
-    public void SaveData()
-    {
-        if (GlobalStory != null) {
-            VariablesToStory(GlobalStory);  // Load current state of all variables
-            PlayerPrefs.SetString(saveVariablesKey, GlobalStory.state.ToJson());  // saves data
-        }
-    }
-
-    public void LoadData()
-    {
-        if (GlobalStory == null) {
-            GlobalStory = new Story(LoadGlobalsJSON.text);
-        }
-        if (PlayerPrefs.HasKey(saveVariablesKey))   // check if there is saved data, load it
-        {
-            string state = PlayerPrefs.GetString(saveVariablesKey);
-            GlobalStory.state.LoadJson(state);
-        }
-    }
-    public void ResetData()
-    {
-        variables.Clear();
-        foreach (KeyValuePair<string, Ink.Runtime.Object> var in variables)
-        {
-            variables.Add(var.Key, new Ink.Runtime.StringValue("0"));
-            VariablesToStory(GlobalStory);
-        }
-    }
-
     public void StartListening(Story story)
     {
         VariablesToStory(story);
@@ -121,5 +92,38 @@ public class DialogueVariables : MonoBehaviour
         }
         return variableValue;
     }
+
+    #region SAVE_SYSTEM
+    public void SaveData()
+    {
+        if (GlobalStory != null)
+        {
+            VariablesToStory(GlobalStory);  // Load current state of all variables
+            PlayerPrefs.SetString(saveVariablesKey, GlobalStory.state.ToJson());  // saves data
+        }
+    }
+
+    public void LoadData()
+    {
+        if (GlobalStory == null)
+        {
+            GlobalStory = new Story(LoadGlobalsJSON.text);
+        }
+        if (PlayerPrefs.HasKey(saveVariablesKey))   // check if there is saved data, load it
+        {
+            string state = PlayerPrefs.GetString(saveVariablesKey);
+            GlobalStory.state.LoadJson(state);
+        }
+    }
+    public void ResetData()
+    {
+        variables.Clear();
+        foreach (KeyValuePair<string, Ink.Runtime.Object> var in variables)
+        {
+            variables.Add(var.Key, new Ink.Runtime.StringValue("0"));
+            VariablesToStory(GlobalStory);
+        }
+    }
+    #endregion
 }
 

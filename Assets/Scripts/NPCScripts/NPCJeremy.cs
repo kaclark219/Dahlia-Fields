@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Ink.Runtime;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class NPCJeremy : NPC
@@ -8,12 +9,20 @@ public class NPCJeremy : NPC
     [Header("Flower Box Attributes")]
     [SerializeField] public TextAsset buyFlowerBox;
     public Vector3 workshopLocation;
+    public int BoxCost = -40;
 
     private Story story;
 
     public override void OnInteract()
     {
         plint.Interact();
+
+        int trust = 0;
+        if (dialogueVariables.variables[npcName.ToString() + "Trust"] is Ink.Runtime.Value<int> trustValue)
+        {
+            trust = trustValue.value;
+        }
+
         if (transform.parent.transform.position == workshopLocation && numOfInteractions > 0)
         {
             story = ink.CreateStory(buyFlowerBox, this);
@@ -21,6 +30,12 @@ public class NPCJeremy : NPC
 
             ink.DisplayNextLine();
             costsEnergy = false;
+        }
+        else if (isFeedDay && trust < trustRequired)
+        {
+            ink.StartStory(killText, this);
+            costsEnergy = true;
+            isFeedDay = false;
         }
         else if (textAssets.Count <= numOfInteractions || dailyInteraction)
         {
@@ -48,7 +63,7 @@ public class NPCJeremy : NPC
     public void BuyFlowerbox()
     {
         FlowerboxManager flowerboxManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
-        if (playerData.ModifyMoney(-50) && flowerboxManager.AddBox())
+        if (playerData.ModifyMoney(BoxCost) && flowerboxManager.AddBox())
         {
 
             story.variablesState["BoughtFlowerbox"] = 1;

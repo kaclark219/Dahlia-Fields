@@ -8,11 +8,20 @@ public class NPCGerald : NPC
     [Header("Tonic Attributes")]
     [SerializeField] public TextAsset buyTonicText;
     public Vector3 clinicLocation;
+    public int TonicCost = 100;
+    public int TonicEnergy = 10;
 
     private Story story;
     public override void OnInteract()
     {
         plint.Interact();
+
+        int trust = 0;
+        if (dialogueVariables.variables[npcName.ToString() + "Trust"] is Ink.Runtime.Value<int> trustValue)
+        {
+            trust = trustValue.value;
+        }
+
         if (transform.parent.transform.position == clinicLocation && numOfInteractions > 0)
         {
             story = ink.CreateStory(buyTonicText, this);
@@ -20,6 +29,12 @@ public class NPCGerald : NPC
 
             ink.DisplayNextLine();
             costsEnergy = false;
+        }
+        else if (isFeedDay && trust >= trustRequired)
+        {
+            ink.StartStory(killText, this);
+            costsEnergy = true;
+            isFeedDay = false;
         }
         else if (textAssets.Count <= numOfInteractions || dailyInteraction)
         {
@@ -47,10 +62,10 @@ public class NPCGerald : NPC
     public void BuyTonic()
     {
         PlayerData playerData = GameObject.Find("Player").GetComponent<PlayerData>();
-        if (playerData.ModifyMoney(-25))
+        if (playerData.ModifyMoney(-TonicCost))
         {
             story.variablesState["BoughtTonic"] = 1;
-            playerData.ModifyEnergy(10);
+            playerData.ModifyEnergy(TonicEnergy);
             Debug.Log("Player Bought Tonic");
         }
         else

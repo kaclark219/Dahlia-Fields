@@ -130,6 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d457f81d4fc594b8af27477a43dbba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuSceneName: Prototype_Menu
+  LoseUI: {fileID: 0}
+  WinUI: {fileID: 0}
   dialogueVariables: {fileID: 0}
   playerData: {fileID: 0}
   daySystem: {fileID: 1961994125542866198}
@@ -153,6 +156,9 @@ MonoBehaviour:
   cutsceneList:
   - {fileID: 11400000, guid: 3c99d8a8986aa514086238cf4acc165e, type: 2}
   - {fileID: 11400000, guid: fc3a48442f77c7b4982dda527db3e5b9, type: 2}
+  feedDays: 080000000e0000001300000017000000
+  isKillDay: 0
+  npcKilled: 0
 --- !u!114 &4218859400215620059
 MonoBehaviour:
   m_ObjectHideFlags: 0

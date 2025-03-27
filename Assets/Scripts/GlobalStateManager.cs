@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GlobalStateManager : MonoBehaviour
 {
+    public string menuSceneName = "Prototype_Menu";
+    public GameObject LoseUI;
+    public GameObject WinUI;
+    [Space]
     [SerializeField] private DialogueVariables dialogueVariables;
     [SerializeField] private PlayerData playerData;
     [SerializeField] private DaySystem daySystem;
@@ -42,11 +47,14 @@ public class GlobalStateManager : MonoBehaviour
             LoadAllData();
         }
         PlayerPrefs.DeleteKey(newGameKey);
+
+        WinUI.SetActive(false);
+        LoseUI.SetActive(false);
     }
 
     public void SaveAllData()
     {
-        Debug.Log("Saving Data...");
+        //Debug.Log("Saving Data...");
         dialogueVariables.SaveData();
         playerData.SaveData();
         daySystem.SaveData();
@@ -57,7 +65,7 @@ public class GlobalStateManager : MonoBehaviour
 
     public void LoadAllData()
     {
-        Debug.Log("Loading Data...");
+        //Debug.Log("Loading Data...");
         dialogueVariables.LoadData();
         playerData.LoadData();
         daySystem.LoadData();
@@ -68,7 +76,7 @@ public class GlobalStateManager : MonoBehaviour
 
     public void ResetAllData()
     {
-        Debug.Log("Resetting Data Data...");
+        //Debug.Log("Resetting Data Data...");
         dialogueVariables.ResetData();
         playerData.ResetData();
         daySystem.ResetData();
@@ -77,5 +85,21 @@ public class GlobalStateManager : MonoBehaviour
         inventoryManager.ResetData();
 
         PlayerPrefs.DeleteAll();
+    }
+
+    public void ShowLoseScreen()
+    {
+        LoseUI.SetActive (true);
+    }
+
+    public void ShowWinScreen()
+    {
+        WinUI.SetActive (true);
+    }
+
+    public void PlayAgain()
+    {
+        ResetAllData();
+        SceneManager.LoadScene(menuSceneName);
     }
 }
