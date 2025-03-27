@@ -13,15 +13,17 @@ public class NPCJeremy : NPC
 
     private Story story;
 
+    public override void Start()
+    {
+        base.Start();
+        workshopLocation = GetComponentInParent<NPCManager>().coords["Jeremy11"];
+    }
+
     public override void OnInteract()
     {
         plint.Interact();
 
-        int trust = 0;
-        if (dialogueVariables.variables[npcName.ToString() + "Trust"] is Ink.Runtime.Value<int> trustValue)
-        {
-            trust = trustValue.value;
-        }
+        int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
 
         if (transform.parent.transform.position == workshopLocation && numOfInteractions > 0)
         {

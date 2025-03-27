@@ -4,63 +4,77 @@ using Ink.Runtime;
 
 public class DialogueVariables : MonoBehaviour 
 {
-    public Dictionary<string, Ink.Runtime.Object> variables { get; private set; }
+    public Dictionary<string, string> variables { get; private set; }
     [SerializeField] private TextAsset LoadGlobalsJSON;
 
     private Story GlobalStory;
+    private Story currStory;
     private const string saveVariablesKey = "INK_VARIABLES";
 
     private void Awake()
     {
         GlobalStory = new Story(LoadGlobalsJSON.text);
-        variables = new Dictionary<string, Ink.Runtime.Object>();
+        variables = new Dictionary<string, string>();
 
         foreach (string name in GlobalStory.variablesState)
         {
-            Ink.Runtime.Object value = GlobalStory.variablesState.GetVariableWithName(name);
-            variables.Add(name, value);
+            string value = GlobalStory.variablesState.GetVariableWithName(name).ToString();
+            variables[name] = value;
+
             // Debug.Log("Initialized global dialogue variable: " + name + " = " + value);
         }
     }
 
     public void StartListening(Story story)
     {
+        currStory = story;
         VariablesToStory(story);
         story.variablesState.variableChangedEvent += VariableChanged;
     }
 
     public void StopListening(Story story)
     {
+        currStory = null;
         story.variablesState.variableChangedEvent -= VariableChanged;
     }
 
+    // Used as listener
     private void VariableChanged(string name, Ink.Runtime.Object value)
     {
         if (variables.ContainsKey(name))
         {
             variables.Remove(name);
-            variables.Add(name, value);
+            variables.Add(name, value.ToString());
             Debug.Log("Variable Updated: " + name + " = " + value);
         }
     }
 
+    // Functions that change variables outside of Ink and updates the stories
     public void ChangeVariable(string name, string value)
     {
         if (variables.ContainsKey(name))
         {
-            variables.Remove(name);
-            variables.Add(name, new Ink.Runtime.StringValue(value));
+            variables[name] = value;
+            if (currStory)
+            {
+                currStory.variablesState.SetGlobal(name, new Ink.Runtime.StringValue(value));
+            }
             Debug.Log("Variable Updated: " + name + " = " + value);
         }
     }
 
     public void AddTrust(string name, int value)
     {
-        if (variables.ContainsKey(name) && variables[name] is Ink.Runtime.IntValue intValue)
+        if (variables.ContainsKey(name))
         {
-            int current = intValue.value; 
+            int current = int.Parse(variables[name]); 
             current += value; 
-            variables[name] = new Ink.Runtime.IntValue(current); 
+            variables[name] = current.ToString();
+
+            if (currStory)
+            {
+                currStory.variablesState.SetGlobal(name, new Ink.Runtime.IntValue(value));
+            }
 
             Debug.Log($"Variable Updated: {name} = {current}");
         }
@@ -75,22 +89,24 @@ public class DialogueVariables : MonoBehaviour
     {
         if (variables != null)
         {
-            foreach (KeyValuePair<string, Ink.Runtime.Object> var in variables)
+            foreach (KeyValuePair<string, string> var in variables)
             {
-                story.variablesState.SetGlobal(var.Key, var.Value);
+                story.variablesState.SetGlobal(var.Key, new Ink.Runtime.StringValue(var.Value));
             }
         }
     }
 
-    public Ink.Runtime.Object GetVariableState(string name)
+    public int GetVariableState(string name)
     {
-        Ink.Runtime.Object variableValue = null;
-        variables.TryGetValue(name, out variableValue);
-        if (variableValue != null)
+        if (variables.ContainsKey (name))
         {
-            Debug.Log("Ink variable was found to be null: " + name);
+            return int.Parse(variables[name]);
         }
-        return variableValue;
+        else
+        {
+            Debug.Log($"Variable '{name}' was not found or is not an integer");
+            return -1;
+        }
     }
 
     #region SAVE_SYSTEM
@@ -118,9 +134,9 @@ public class DialogueVariables : MonoBehaviour
     public void ResetData()
     {
         variables.Clear();
-        foreach (KeyValuePair<string, Ink.Runtime.Object> var in variables)
+        foreach (KeyValuePair<string, string> var in variables)
         {
-            variables.Add(var.Key, new Ink.Runtime.StringValue("0"));
+            variables.Add(var.Key, "0");
             VariablesToStory(GlobalStory);
         }
     }

@@ -12,15 +12,17 @@ public class NPCGerald : NPC
     public int TonicEnergy = 10;
 
     private Story story;
+
+    public override void Start()
+    {
+        base.Start();
+        clinicLocation = GetComponentInParent<NPCManager>().coords["Gerald12"];
+    }
     public override void OnInteract()
     {
         plint.Interact();
 
-        int trust = 0;
-        if (dialogueVariables.variables[npcName.ToString() + "Trust"] is Ink.Runtime.Value<int> trustValue)
-        {
-            trust = trustValue.value;
-        }
+        int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
 
         if (transform.parent.transform.position == clinicLocation && numOfInteractions > 0)
         {

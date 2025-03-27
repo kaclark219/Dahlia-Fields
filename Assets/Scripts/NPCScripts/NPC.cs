@@ -48,11 +48,7 @@ public class NPC : InteractableObj
     {
         base.OnInteract();
 
-        int trust = 0;
-        if (dialogueVariables.variables[npcName.ToString() + "Trust"] is Ink.Runtime.Value<int> trustValue)
-        {
-            trust = trustValue.value;
-        }
+        int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
 
         if (textAssets.Count <= numOfInteractions || dailyInteraction)
         {

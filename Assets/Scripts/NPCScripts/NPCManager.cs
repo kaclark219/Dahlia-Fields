@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class NPCManager : MonoBehaviour
 {
-    [SerializeField] List<GameObject> NPCs = new List<GameObject>();
-    Dictionary<string, Vector2> coords = new Dictionary<string, Vector2>();
+    [SerializeField] public List<GameObject> NPCs = new List<GameObject>();
+    public Dictionary<string, Vector2> coords = new Dictionary<string, Vector2>();
 
     private DaySystem daySystem;
     private void Awake()
