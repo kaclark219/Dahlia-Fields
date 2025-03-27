@@ -15,6 +15,7 @@ public class GlobalStateManager : MonoBehaviour
     [SerializeField] private NPCManager npcManager;
     [SerializeField] private FlowerboxManager flowerboxManager;
     [SerializeField] private InventoryManager inventoryManager;
+    [SerializeField] private RequestBoard requestBoard;
 
     private const string newGameKey = "NEW_GAME";   // used to tell GlobalStateManager on load if its a new game 
     private const string nameKey = "PLAYER_NAME";
@@ -27,6 +28,7 @@ public class GlobalStateManager : MonoBehaviour
         npcManager = GameObject.Find("NPCManager").GetComponent<NPCManager>();  
         flowerboxManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
         inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
+        requestBoard = FindFirstObjectByType<RequestBoard>();
     }
     private void Start()
     {
@@ -61,6 +63,7 @@ public class GlobalStateManager : MonoBehaviour
         npcManager.SaveData();
         flowerboxManager.SaveData();
         inventoryManager.SaveData();
+        requestBoard.SaveData();
     }
 
     public void LoadAllData()
@@ -71,7 +74,8 @@ public class GlobalStateManager : MonoBehaviour
         daySystem.LoadData();
         npcManager.LoadData();
         flowerboxManager.LoadData();
-        inventoryManager.LoadData();    
+        inventoryManager.LoadData();
+        requestBoard.LoadData();
     }
 
     public void ResetAllData()
@@ -83,6 +87,7 @@ public class GlobalStateManager : MonoBehaviour
         npcManager.ResetData();
         flowerboxManager.ResetData();
         inventoryManager.ResetData();
+        requestBoard.ResetData();
 
         PlayerPrefs.DeleteAll();
     }

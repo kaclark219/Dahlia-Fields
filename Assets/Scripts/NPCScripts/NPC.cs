@@ -18,9 +18,8 @@ public class NPC : InteractableObj
     [SerializeField] public TextAsset killText;
 
     // Public variables inherited by child classes but hidden in Unity inspector
-    [HideInInspector] public PlayerData playerData;
     [HideInInspector] public InkManager ink;
-    [HideInInspector] public DialogueVariables dialogueVariables;
+    [HideInInspector] public DialogueVariables dialogueVariables;   
 
     [HideInInspector] public bool costsEnergy;
     [HideInInspector] public string npcKey;
@@ -46,6 +45,8 @@ public class NPC : InteractableObj
 
     public override void OnInteract()
     {
+        if (!playerData.CheckEnergy(5)) { return; }
+
         base.OnInteract();
 
         int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");

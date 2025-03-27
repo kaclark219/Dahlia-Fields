@@ -7,8 +7,9 @@ public class SimpleDialogueInteractable : InteractableObj
     public TextAsset textAsset;
     private InkManager inkManager;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         inkManager = GameObject.Find("InkManager").GetComponent<InkManager>();
     }
 
