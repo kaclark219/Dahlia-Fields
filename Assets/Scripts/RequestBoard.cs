@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class RequestBoard : InteractableObj
 {
@@ -11,12 +12,11 @@ public class RequestBoard : InteractableObj
     [SerializeField] GameObject check2;
     [SerializeField] GameObject complete;
     [SerializeField] InventoryManager inventory;
-    [SerializeField] PlayerData pdata;
     [SerializeField] DialogueVariables dvar;
     int day;
     Dictionary<GameObject, Request> requestList;
 
-    void Start()
+    public override void Start()
     {
         base.Start();
         requestList = new Dictionary<GameObject, Request>();
@@ -84,7 +84,7 @@ public class RequestBoard : InteractableObj
     
     private void GainTrust(GameObject request){
         //TODO:
-        pdata.ModifyMoney(requestList[request].reward);
+        playerData.ModifyMoney(requestList[request].reward);
         string[] trusts = requestList[request].trust.Split("; ");
         foreach (string people in trusts){
             string[] statement = people.Split(" Trust ");
@@ -261,4 +261,49 @@ public class RequestBoard : InteractableObj
             completed = c;
         }
     }
+
+
+    #region SAVE_SYSTEM
+
+    public void SaveData()
+    {
+        foreach (KeyValuePair<GameObject, Request> req in requestList)
+        {
+            string key = req.Value.author.ToString() + "_" + req.Value.day + "_" + "Request";
+            PlayerPrefs.SetInt(key, req.Value.completed);
+        }
+    }
+
+    public void LoadData()
+    {
+        List<GameObject> keys = new List<GameObject>(requestList.Keys);
+        foreach (GameObject key in keys)
+        {
+            Request req = requestList[key]; 
+            string prefKey = req.author.ToString() + "_" + req.day + "_" + "Request";
+
+            if (PlayerPrefs.HasKey(prefKey))
+            {
+                req.completed = PlayerPrefs.GetInt(prefKey);
+                requestList[key] = req; 
+            }
+        }
+    }
+
+    public void ResetData()
+    {
+        List<GameObject> keys = new List<GameObject>(requestList.Keys);
+        foreach (GameObject key in keys)
+        {
+            Request req = requestList[key];
+            string prefKey = req.author.ToString() + "_" + req.day + "_" + "Request";
+
+            if (PlayerPrefs.HasKey(prefKey))
+            {
+                req.completed = 0;
+                requestList[key] = req;
+            }
+        }
+    }
+    #endregion
 }
