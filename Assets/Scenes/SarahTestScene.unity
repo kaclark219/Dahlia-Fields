@@ -305,6 +305,7 @@ MonoBehaviour:
   frame: 0
   sr: {fileID: 0}
   pm: {fileID: 0}
+  playerData: {fileID: 0}
 --- !u!61 &292606568
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -524,15 +525,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4235161703076174748, guid: e9f783ca30ac333469bb2c96eec04977, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.844
+      value: -2.34
       objectReference: {fileID: 0}
     - target: {fileID: 4235161703076174748, guid: e9f783ca30ac333469bb2c96eec04977, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.73
+      value: 5.16
       objectReference: {fileID: 0}
     - target: {fileID: 4235161703076174748, guid: e9f783ca30ac333469bb2c96eec04977, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4235161703076174748, guid: e9f783ca30ac333469bb2c96eec04977, type: 3}
       propertyPath: m_LocalRotation.w
@@ -581,15 +582,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7363661033120934317, guid: 8b28a09fb3848c44a9cc3cdba184ef79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.63
+      value: -4.04
       objectReference: {fileID: 0}
     - target: {fileID: 7363661033120934317, guid: 8b28a09fb3848c44a9cc3cdba184ef79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.73
+      value: 4.21
       objectReference: {fileID: 0}
     - target: {fileID: 7363661033120934317, guid: 8b28a09fb3848c44a9cc3cdba184ef79, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7363661033120934317, guid: 8b28a09fb3848c44a9cc3cdba184ef79, type: 3}
       propertyPath: m_LocalRotation.w
