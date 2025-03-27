@@ -12,9 +12,12 @@ public class InteractableObj : MonoBehaviour
     [HideInInspector] public float frame = 0;
     [HideInInspector] public SpriteRenderer sr;
     [HideInInspector] public PlayerMovement pm;
+    [HideInInspector] public PlayerData playerData;
+
 
     public virtual void Awake(){
         pm = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        playerData = GameObject.Find("Player").GetComponent< PlayerData>(); 
         sr = GetComponentInParent<SpriteRenderer>();
     }
 

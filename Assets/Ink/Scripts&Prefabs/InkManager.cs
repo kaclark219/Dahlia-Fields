@@ -22,6 +22,7 @@ public class InkManager : MonoBehaviour
 
     [SerializeField] private DialogueVariables dialogueVariables;
 
+    private NPCManager npcManager;
     private InteractableObj currInteractable;
     private Coroutine printCoroutine = null;
     private string text;
@@ -31,6 +32,7 @@ public class InkManager : MonoBehaviour
     {
         dialogueVariables = GetComponent<DialogueVariables>();
         npcDialogueManager = FindObjectOfType<NPCDialogueManager>();
+        npcManager = FindAnyObjectByType<NPCManager>();
         UI.SetActive(false);
     }
 
@@ -42,10 +44,8 @@ public class InkManager : MonoBehaviour
         UI.SetActive(true);
 
         // Connects function calls in Ink file with function calls in Unity
-        story.BindExternalFunction("ShowCharacter", (string name, string position, string mood) => npcDialogueManager.ShowCharacter(name, position, mood));
-        story.BindExternalFunction("HideCharacter", (string name) => npcDialogueManager.HideCharacter(name));
-        story.BindExternalFunction("ChangeMood", (string name, string mood) => npcDialogueManager.ChangeMood(name, mood));
-        dialogueVariables.StartListening(story);
+        BindFunctions();
+
         DisplayNextLine();
     }
 
@@ -60,10 +60,8 @@ public class InkManager : MonoBehaviour
         UI.SetActive(true);
 
         // Connects function calls in Ink file with function calls in Unity
-        story.BindExternalFunction("ShowCharacter", (string name, string position, string mood) => npcDialogueManager.ShowCharacter(name, position, mood));
-        story.BindExternalFunction("HideCharacter", (string name) => npcDialogueManager.HideCharacter(name));
-        story.BindExternalFunction("ChangeMood", (string name, string mood) => npcDialogueManager.ChangeMood(name, mood));
-        dialogueVariables.StartListening(story);
+        BindFunctions();
+
         DisplayNextLine();
 
         return story;
@@ -80,15 +78,21 @@ public class InkManager : MonoBehaviour
         UI.SetActive(true);
 
         // Connects function calls in Ink file with function calls in Unity
-        story.BindExternalFunction("ShowCharacter", (string name, string position, string mood) => npcDialogueManager.ShowCharacter(name, position, mood));
-        story.BindExternalFunction("HideCharacter", (string name) => npcDialogueManager.HideCharacter(name));
-        story.BindExternalFunction("ChangeMood", (string name, string mood) => npcDialogueManager.ChangeMood(name, mood));
-        dialogueVariables.StartListening(story);
+        BindFunctions();
 
         return story;
     }
 
-    private void EndStory()
+    private void BindFunctions()
+    {
+        story.BindExternalFunction("ShowCharacter", (string name, string position, string mood) => npcDialogueManager.ShowCharacter(name, position, mood));
+        story.BindExternalFunction("HideCharacter", (string name) => npcDialogueManager.HideCharacter(name));
+        story.BindExternalFunction("ChangeMood", (string name, string mood) => npcDialogueManager.ChangeMood(name, mood));
+        story.BindExternalFunction("KillNPC", (string name) => npcManager.KillNPC(name));
+        dialogueVariables.StartListening(story);
+    }
+
+    public void EndStory()
     {
         Debug.Log("Exiting Dialogue");
 
@@ -159,6 +163,7 @@ public class InkManager : MonoBehaviour
         printCoroutine = null;
     }
 
+    // Styling Stuff:
     private void ApplyStyling()
     {
         if (story.currentTags.Contains("thought")) {

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
 
 public class FlowerBox : InteractableObj
@@ -20,13 +21,11 @@ public class FlowerBox : InteractableObj
 
     private FlowerboxManager fman;
     private InventoryManager inventoryManager;
-    private PlayerData player;
 
-    private void Awake()
+    public override void Awake()
     {
-        base.Awake();
+       base.Awake();
        inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
-       player =  GameObject.Find("Player").GetComponent<PlayerData>();
        fman = GetComponentInParent<FlowerboxManager>();
        boxKey = "Box" + BoxNumber;
     }
@@ -38,6 +37,8 @@ public class FlowerBox : InteractableObj
 
     public override void OnInteract()
     {
+        if (!playerData.CheckEnergy(5)) { return; }
+
         base.OnInteract();
         if (!planted)
         {
@@ -68,7 +69,7 @@ public class FlowerBox : InteractableObj
             planted = true;
             flowerPlanted = inventoryManager.FindItem(flower);
             inventoryManager.SetSeedStock(flower, -5);
-            player.ModifyEnergy(-5);
+            playerData.ModifyEnergy(-5);
 
             //uncomment once sprites available ===> can access sprites from inventory
             sprites[5] = flowerPlanted.growing;
@@ -90,7 +91,7 @@ public class FlowerBox : InteractableObj
         //plint.pm.canmove = true;
 
         WateredToday = true;
-        player.ModifyEnergy(-5);
+        playerData.ModifyEnergy(-5);
         
         sr.sprite = sprites[++spriteInd];
 
@@ -108,7 +109,7 @@ public class FlowerBox : InteractableObj
         inventoryManager.SetFlowerStock(flowerPlanted.itemName, 5); 
         CycleIndex = 0;
         planted = false;
-        player.ModifyEnergy(-5);
+        playerData.ModifyEnergy(-5);
 
         //uncomment once sprites available
         sprites[5] = null;

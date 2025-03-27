@@ -97,6 +97,11 @@ public class PlayerData : MonoBehaviour
         }
     }
 
+    public bool CheckEnergy(int amount)
+    {
+        return energy >= amount;
+    }
+
     public string GetName()
     {
         return playerName;

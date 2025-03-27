@@ -25,7 +25,6 @@ public class SeedStore : InteractableObj
     [SerializeField] public GameObject broke;
 
     [Space]
-    [SerializeField] public PlayerData player;
     [SerializeField] public InventoryManager inventory;
 
     public bool ifDelivery = false;
@@ -41,9 +40,9 @@ public class SeedStore : InteractableObj
 
     [SerializeField] GameObject signal; 
 
-    private void Awake()
+    public override void Awake()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerData>();
+        base.Awake();
         inventory = GameObject.Find("Inventory").GetComponent<InventoryManager>();
     }
 
@@ -164,7 +163,7 @@ public class SeedStore : InteractableObj
 
     public void Purchase()
     {
-        if(player.ModifyMoney(-1 * int.Parse(price.text)))
+        if(playerData.ModifyMoney(-1 * int.Parse(price.text)))
         {
             int j = 0;
             price.text = j.ToString();

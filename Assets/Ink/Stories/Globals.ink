@@ -28,3 +28,5 @@ VAR PlayerName = "Y/N"
 EXTERNAL ShowCharacter(characterName, position, mood) 
 EXTERNAL HideCharacter(characterName)
 EXTERNAL ChangeMood(characterName, mood)
+
+EXTERNAL KillNPC(characterName)

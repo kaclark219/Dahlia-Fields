@@ -49,7 +49,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.1
   m_Color: {r: 1, g: 0.88113207, b: 0.88113207, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.75
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -130,12 +130,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d457f81d4fc594b8af27477a43dbba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuSceneName: Prototype_Menu
+  LoseUI: {fileID: 0}
+  WinUI: {fileID: 0}
   dialogueVariables: {fileID: 0}
   playerData: {fileID: 0}
   daySystem: {fileID: 1961994125542866198}
   npcManager: {fileID: 0}
   flowerboxManager: {fileID: 0}
   inventoryManager: {fileID: 0}
+  requestBoard: {fileID: 0}
 --- !u!114 &1961994125542866198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,9 +154,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   day: 1
   week: 1
-  cutsceneList:
-  - {fileID: 11400000, guid: 3c99d8a8986aa514086238cf4acc165e, type: 2}
-  - {fileID: 11400000, guid: fc3a48442f77c7b4982dda527db3e5b9, type: 2}
+  cutsceneList: []
+  feedDays: 080000000e0000001300000017000000
+  isFeedDay: 0
+  npcKilled: 0
 --- !u!114 &4218859400215620059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +281,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.1
   m_Color: {r: 0.14716971, g: 0.12967595, b: 0.12967595, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.75
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000

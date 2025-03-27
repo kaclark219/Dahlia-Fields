@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GlobalStateManager : MonoBehaviour
 {
+    public string menuSceneName = "Prototype_Menu";
+    public GameObject LoseUI;
+    public GameObject WinUI;
+    [Space]
     [SerializeField] private DialogueVariables dialogueVariables;
     [SerializeField] private PlayerData playerData;
     [SerializeField] private DaySystem daySystem;
     [SerializeField] private NPCManager npcManager;
     [SerializeField] private FlowerboxManager flowerboxManager;
     [SerializeField] private InventoryManager inventoryManager;
+    [SerializeField] private RequestBoard requestBoard;
 
     private const string newGameKey = "NEW_GAME";   // used to tell GlobalStateManager on load if its a new game 
     private const string nameKey = "PLAYER_NAME";
@@ -22,6 +28,7 @@ public class GlobalStateManager : MonoBehaviour
         npcManager = GameObject.Find("NPCManager").GetComponent<NPCManager>();  
         flowerboxManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
         inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
+        requestBoard = FindFirstObjectByType<RequestBoard>();
     }
     private void Start()
     {
@@ -42,40 +49,62 @@ public class GlobalStateManager : MonoBehaviour
             LoadAllData();
         }
         PlayerPrefs.DeleteKey(newGameKey);
+
+        WinUI.SetActive(false);
+        LoseUI.SetActive(false);
     }
 
     public void SaveAllData()
     {
-        Debug.Log("Saving Data...");
+        //Debug.Log("Saving Data...");
         dialogueVariables.SaveData();
         playerData.SaveData();
         daySystem.SaveData();
         npcManager.SaveData();
         flowerboxManager.SaveData();
         inventoryManager.SaveData();
+        requestBoard.SaveData();
     }
 
     public void LoadAllData()
     {
-        Debug.Log("Loading Data...");
+        //Debug.Log("Loading Data...");
         dialogueVariables.LoadData();
         playerData.LoadData();
         daySystem.LoadData();
         npcManager.LoadData();
         flowerboxManager.LoadData();
-        inventoryManager.LoadData();    
+        inventoryManager.LoadData();
+        requestBoard.LoadData();
     }
 
     public void ResetAllData()
     {
-        Debug.Log("Resetting Data Data...");
+        //Debug.Log("Resetting Data Data...");
         dialogueVariables.ResetData();
         playerData.ResetData();
         daySystem.ResetData();
         npcManager.ResetData();
         flowerboxManager.ResetData();
         inventoryManager.ResetData();
+        requestBoard.ResetData();
 
         PlayerPrefs.DeleteAll();
+    }
+
+    public void ShowLoseScreen()
+    {
+        LoseUI.SetActive (true);
+    }
+
+    public void ShowWinScreen()
+    {
+        WinUI.SetActive (true);
+    }
+
+    public void PlayAgain()
+    {
+        ResetAllData();
+        SceneManager.LoadScene(menuSceneName);
     }
 }

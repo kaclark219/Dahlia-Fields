@@ -340,6 +340,9 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
+  sr: {fileID: 0}
+  pm: {fileID: 0}
+  playerData: {fileID: 0}
   textAsset: {fileID: 4900000, guid: cd470f6d109d9ff45897f33dbd3f41ca, type: 3}
 --- !u!1 &2966470520857263367
 GameObject:
@@ -368,7 +371,7 @@ Transform:
   m_GameObject: {fileID: 2966470520857263367}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.844, y: 2.73, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 0.77373, y: 0.77373, z: 0.77373}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -420,7 +423,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a0937918d33dc454d89aa7690ef83292, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
