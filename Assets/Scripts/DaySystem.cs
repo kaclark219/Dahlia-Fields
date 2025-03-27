@@ -67,7 +67,7 @@ public class DaySystem : MonoBehaviour
         Debug.Log("Loading day " + day);
 
         // Check if yesterday was a kill day before updating
-        if (feedDays.Contains(day - 1) && !npcKilled)  // Player loses, didn't feed plant
+        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
         {
             Debug.Log("Player Lost Game!");
             LoseGame();

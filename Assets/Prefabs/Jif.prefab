@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3776191481810430419}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.63, y: 2.73, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 0.80201, y: 0.80201, z: 0.80201}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -257,4 +257,7 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
+  sr: {fileID: 0}
+  pm: {fileID: 0}
+  playerData: {fileID: 0}
   textAsset: {fileID: 4900000, guid: f196a75bd55e5c74ba58bd4e35139136, type: 3}
