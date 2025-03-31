@@ -10,93 +10,59 @@ using UnityEngine.UI;
 public class InventoryUI : InteractableObj
 {
     
-    [SerializeField] public Canvas uiScreen;
-    [SerializeField] public InventoryManager inventoryManager;
-    private InventoryItem item; 
-    public bool flowers = false;
-    public bool seeds = false;
+    [SerializeField] public GameObject uiScreen;
+    [SerializeField] public InventoryManager inventory;
 
-    //view elements
-    [SerializeField] public GameObject view; 
-    [SerializeField] public TextMeshProUGUI viewName;
-    [SerializeField] public TextMeshProUGUI viewStock;
-    [SerializeField] public TextMeshProUGUI viewDescription;
-    [SerializeField] public Image viewIcon;
+    public Dictionary<string, int> mapValues;
 
     //slots
-    [SerializeField] public Image[] iconSlots = new Image[9];
-    [SerializeField] public TextMeshProUGUI[] amounts = new TextMeshProUGUI[9];
+    [SerializeField] public TextMeshProUGUI[] flowerAmounts = new TextMeshProUGUI[9];
+    [SerializeField] public TextMeshProUGUI[] seedAmounts = new TextMeshProUGUI[9];
 
     public override void Start()
     {
         base.Start();
-        view.SetActive(false);
-        uiScreen.enabled = false;
+        uiScreen.SetActive(false);
+
+        mapValues = new Dictionary<string, int>()
+        {
+            {"Dandelion", 0},
+            {"Daisy",  1},
+            {"Poppy", 2},
+            {"Tulip", 3},
+            {"Rose", 4},
+            {"Lavender", 5},
+            {"PricklyPear", 6},
+            {"Sunflower", 7},
+            {"LilyValley", 8},
+        };
 
     }
 
     public override void OnInteract()
     {   
         base.OnInteract();
-        SetUpFlowers();
-        uiScreen.enabled = true;
+        SetUpView();
+        uiScreen.SetActive(true);
     }
 
     public override void EndInteract()
     {
         base.EndInteract();
-        uiScreen.enabled = false;
+        uiScreen.SetActive(false);
     }
 
-    public void SetUpFlowers()
+    public void SetUpView()
     {
-        seeds = false;
-        flowers = true;
-        view.SetActive(false);
-        int count = 0; 
-        foreach (var item in inventoryManager.inventory)
+        foreach (string key in mapValues.Keys)
         {
-            iconSlots[count].sprite = item.Value.flowerIcon;
-            amounts[count].text = item.Value.flowerStock.ToString();
-            count++;
-        }
-    }
+            int id = mapValues[key];
 
-    public void SetUpSeeds()
-    {   
-        flowers = false;
-        seeds = true;
-        view.SetActive(false);
-        int count = 0;
-        foreach (var i in inventoryManager.inventory)
-        {
-            iconSlots[count].sprite = i.Value.seedIcon;
-            amounts[count].text = i.Value.seedStock.ToString();
-            count++;
-        }
-    }
+            Flowers flower;
+            Enum.TryParse(key, out flower);
 
-    public void SetUpView(string name)
-    {
-        view.SetActive(true);
-        Flowers flower;
-        Enum.TryParse(name, out flower);
-        item = inventoryManager.inventory[flower];
-        
-        if(flowers)
-        {
-            viewName.text = item.itemName.ToString();
-            viewDescription.text = item.description;
-            viewIcon.sprite = item.flowerIcon;
-            viewStock.text = item.flowerStock.ToString(); 
-        } 
-        
-        if(seeds)
-        {
-            viewName.text = item.itemName + " Seeds";
-            viewDescription.text = item.daysToGrow.ToString() + " Days to Grow";
-            viewIcon.sprite = item.seedIcon;
-            viewStock.text = item.seedStock.ToString();
+            flowerAmounts[id].text = inventory.GetFlowerStock(flower).ToString();
+            seedAmounts[id].text = inventory.GetSeedStock(flower).ToString();
         }
     }
 

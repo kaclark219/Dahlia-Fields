@@ -9,7 +9,6 @@ public class DoorHandler : InteractableObj
 {
     [SerializeField] public GameObject player;
     [SerializeField] public GameObject location;
-    [SerializeField] public Canvas baseui; 
     [SerializeField] public Image doorTransition;
     float alpha = 0f; 
 
@@ -22,7 +21,6 @@ public class DoorHandler : InteractableObj
     public override void Start()
     {
         base.Start();
-        baseui.enabled = false; 
     }
 
     public override void OnInteract()
@@ -33,7 +31,6 @@ public class DoorHandler : InteractableObj
 
     private IEnumerator FadeAndTeleport()
     {
-        baseui.enabled = true;
         yield return null;
 
         for (float i = 0; i < 1.2f; i += Time.deltaTime)
@@ -53,9 +50,6 @@ public class DoorHandler : InteractableObj
             doorTransition.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
-
-        baseui.enabled = false;
-        yield return null;
 
         base.EndInteract();
         yield return null;
