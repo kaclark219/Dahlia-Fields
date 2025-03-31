@@ -119,6 +119,8 @@ public class FlowerBox : InteractableObj
         sr.sprite = sprites[0];
         spriteInd = 0;
 
+        UpdateSprite();
+
         EndInteract();
         Debug.Log("Harvested box " + BoxNumber);
     }
@@ -170,28 +172,38 @@ public class FlowerBox : InteractableObj
         if (planted)
         {
             PlayerPrefs.SetString(boxKey, flowerPlanted.itemName.ToString());
-            PlayerPrefs.SetInt(boxKey + "_Planted", planted ? 1 : 0);
-            PlayerPrefs.SetInt(boxKey + "_Cycle", CycleIndex);
-            PlayerPrefs.SetInt(boxKey + "_Sprite", spriteInd);
         }
+        else
+        {
+            PlayerPrefs.SetString(boxKey, "None");
+        }
+        PlayerPrefs.SetInt(boxKey + "_Planted", planted ? 1 : 0);
+        PlayerPrefs.SetInt(boxKey + "_Cycle", CycleIndex);
+        PlayerPrefs.SetInt(boxKey + "_Sprite", spriteInd);
     }
 
     public void LoadData()
     {
         if (PlayerPrefs.HasKey(boxKey))
         {
-            Flowers flower;
-            Enum.TryParse(PlayerPrefs.GetString(boxKey), out flower);
-            flowerPlanted = inventoryManager.inventory[flower];
+            string flowerName = PlayerPrefs.GetString(boxKey);
+            if (flowerName != "None")
+            {
+                Flowers flower;
+                Enum.TryParse(flowerName, out flower);
+                flowerPlanted = inventoryManager.inventory[flower];
+            }
 
             planted = PlayerPrefs.GetInt(boxKey + "_Planted") == 1 ? true : false;
             CycleIndex = PlayerPrefs.GetInt(boxKey + "_Cycle");
             spriteInd = PlayerPrefs.GetInt(boxKey + "_Sprite");
 
-            sprites[5] = flowerPlanted.growing;
-            sprites[6] = flowerPlanted.growingWatered;
-            sprites[7] = flowerPlanted.harvest;
-
+            if (planted)
+            {
+                sprites[5] = flowerPlanted.growing;
+                sprites[6] = flowerPlanted.growingWatered;
+                sprites[7] = flowerPlanted.harvest;
+            }
             UpdateSprite();
         }
         else 

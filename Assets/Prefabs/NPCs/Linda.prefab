@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4021662385455669562}
   - component: {fileID: 6487276485128166600}
   - component: {fileID: 6794977773131746762}
-  - component: {fileID: 720056366713248790}
+  - component: {fileID: 6270763129217988765}
   m_Layer: 0
   m_Name: Linda
   m_TagString: Untagged
@@ -255,12 +255,17 @@ MonoBehaviour:
   textAssets:
   - {fileID: 4900000, guid: 51c641154b8c7d24fa526850793aa9c8, type: 3}
   - {fileID: 4900000, guid: b1e86af19f7beb142b5f7874dc851a93, type: 3}
+  - {fileID: 4900000, guid: 748baebeae43e2e4d9ccc555a7f318bd, type: 3}
+  - {fileID: 4900000, guid: e8a6a0b13509103439ccaf9e5e53262f, type: 3}
+  - {fileID: 4900000, guid: 0a8fd4da7c8a29c4bb274ccac9bc1f6b, type: 3}
+  - {fileID: 4900000, guid: a161daef74c9f9544a36069c50e7fd26, type: 3}
+  - {fileID: 4900000, guid: 6944083a523dd3d46bfd134516f66637, type: 3}
   dailyInteraction: 0
   numOfInteractions: 0
   fuckOffText: {fileID: 4900000, guid: 851e2996dda73e643831cfc4ed1f8e30, type: 3}
   isFeedDay: 0
   trustRequired: 120
-  killText: {fileID: 0}
+  killText: {fileID: 4900000, guid: 6c813129aa64ad949bff6890a56d8d98, type: 3}
   ink: {fileID: 0}
   dialogueVariables: {fileID: 0}
   costsEnergy: 0

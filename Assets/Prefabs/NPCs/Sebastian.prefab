@@ -72,9 +72,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.22978067, b: 1, a: 1}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 362b6f7a7a3b0ef4389b2dd050bbe101, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -178,17 +178,26 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
+  sr: {fileID: 0}
+  pm: {fileID: 0}
+  playerData: {fileID: 0}
   npcName: 2
   textAssets:
   - {fileID: 4900000, guid: 19787921c01fc02448ecee89097eb0e3, type: 3}
   - {fileID: 4900000, guid: 6374051bc4d08834dbe0acb8110cb1b7, type: 3}
-  fuckOffText: {fileID: 4900000, guid: 699112a866d1c5c4e9df8f3f5c6b2b6c, type: 3}
+  - {fileID: 4900000, guid: 971252608fbbfb74b8b5cbfff4d1babc, type: 3}
+  - {fileID: 4900000, guid: ab22914a292451f48bba5ddfe8e47d10, type: 3}
+  - {fileID: 4900000, guid: 280d0acb582920d448d74b081df2e70b, type: 3}
+  - {fileID: 4900000, guid: 564d4fe46bd074b408ec852fe683cb0c, type: 3}
+  - {fileID: 4900000, guid: 79415bb6917507b469755187a61bc49d, type: 3}
   dailyInteraction: 0
   numOfInteractions: 0
-  playerData: {fileID: 0}
-  sr: {fileID: 0}
+  fuckOffText: {fileID: 4900000, guid: 699112a866d1c5c4e9df8f3f5c6b2b6c, type: 3}
+  isFeedDay: 0
+  trustRequired: 140
+  killText: {fileID: 4900000, guid: 1541fc3b647408a4496e29e43d1128aa, type: 3}
   ink: {fileID: 0}
-  pm: {fileID: 0}
+  dialogueVariables: {fileID: 0}
   costsEnergy: 0
   npcKey: 
 --- !u!1 &7854138435393480570
