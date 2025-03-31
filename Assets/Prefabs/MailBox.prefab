@@ -3366,7 +3366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6362315722803412863
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5008,7 +5008,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   pm: {fileID: 0}
   playerData: {fileID: 0}
-  storeCanvas: {fileID: 4284973386466800182}
+  storeCanvas: {fileID: 0}
   counts:
   - {fileID: 5543592289623250564}
   - {fileID: 997931231926898995}
