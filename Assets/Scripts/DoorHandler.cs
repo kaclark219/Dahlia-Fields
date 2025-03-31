@@ -13,7 +13,7 @@ public class DoorHandler : InteractableObj
     [SerializeField] public Image doorTransition;
     float alpha = 0f; 
 
-    private void Awake()
+    public override void Awake()
     {
         base.Awake();
         player = GameObject.Find("Player");

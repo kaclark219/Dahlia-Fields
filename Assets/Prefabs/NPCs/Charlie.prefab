@@ -195,7 +195,7 @@ MonoBehaviour:
   fuckOffText: {fileID: 4900000, guid: 3769d9e121188cf499129f4c1cf8416b, type: 3}
   isFeedDay: 0
   trustRequired: 110
-  killText: {fileID: 0}
+  killText: {fileID: 4900000, guid: 4c526a1d8e223e54095f5c7b838ab258, type: 3}
   ink: {fileID: 0}
   dialogueVariables: {fileID: 0}
   costsEnergy: 0

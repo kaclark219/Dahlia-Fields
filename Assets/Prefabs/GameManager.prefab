@@ -154,7 +154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   day: 1
   week: 1
-  cutsceneList: []
+  cutsceneList:
+  - {fileID: 11400000, guid: 3c99d8a8986aa514086238cf4acc165e, type: 2}
+  - {fileID: 11400000, guid: e7a0094c7d6c67a478cfe6abd486cd5c, type: 2}
   feedDays: 080000000e0000001300000017000000
   isFeedDay: 0
   npcKilled: 0
