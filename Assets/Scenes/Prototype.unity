@@ -122,6 +122,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &155392119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6842786665147799577, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+  m_PrefabInstance: {fileID: 3424595474031006296}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2070612021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +145,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TownTileMap
       objectReference: {fileID: 0}
+    - target: {fileID: 5043102087215460145, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
+      propertyPath: doorTransition
+      value: 
+      objectReference: {fileID: 155392119}
     - target: {fileID: 5815935777196421091, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -177,22 +192,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6031985817062407281, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5724821608910658772, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3422718424085778320, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6956581940139100376, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3840164158900631983, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
 --- !u!1001 &3424595474031006296
 PrefabInstance:

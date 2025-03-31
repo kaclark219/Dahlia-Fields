@@ -6,8 +6,9 @@ public class BedInteractable : InteractableObj
 {
     private DaySystem daySystem;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         daySystem = GameObject.Find("GameManager").GetComponent<DaySystem>();
     }
     public override void OnInteract()
