@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class RequestBoard : InteractableObj
 {
@@ -13,6 +14,7 @@ public class RequestBoard : InteractableObj
     [SerializeField] GameObject complete;
     [SerializeField] InventoryManager inventory;
     [SerializeField] DialogueVariables dvar;
+    [SerializeField] GameObject remaining;
     int day;
     Dictionary<GameObject, Request> requestList;
 
@@ -20,7 +22,6 @@ public class RequestBoard : InteractableObj
     {
         base.Start();
         requestList = new Dictionary<GameObject, Request>();
-        day = daySystem.day;
         string[] lines = Resources.Load<TextAsset>("RequestBoard").ToString().Split("\n");
         for (int i = 1; i < lines.Length; i++)
         {
@@ -31,6 +32,7 @@ public class RequestBoard : InteractableObj
     }
 
     private void Refresh(){
+        day = daySystem.day;
         foreach (GameObject req in requests)
         {
             req.gameObject.transform.GetChild(0).gameObject.SetActive(false);
@@ -50,6 +52,8 @@ public class RequestBoard : InteractableObj
                 req.SetActive(false);
             }
         }
+
+        remaining.SetActive(false);
     }
 
     private bool isDay(Request request)
@@ -216,6 +220,17 @@ public class RequestBoard : InteractableObj
             complete.SetActive(true);
         }else{
             complete.SetActive(false);
+        }
+
+        Request req1 = requestList[text.transform.parent.gameObject];
+        remaining.SetActive(true);
+        remaining.GetComponent<TMPro.TextMeshProUGUI>().text = "" + (req1.due - day + 1);
+        if((req1.due - day + 1) == 1){
+            remaining.GetComponent<TMPro.TextMeshProUGUI>().color = Color.red;
+        }else if((req1.due - day + 1) == 2){
+            remaining.GetComponent<TMPro.TextMeshProUGUI>().color = Color.yellow;
+        }else{
+            remaining.GetComponent<TMPro.TextMeshProUGUI>().color = Color.green;
         }
     }
 
