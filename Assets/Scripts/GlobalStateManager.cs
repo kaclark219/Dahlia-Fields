@@ -28,7 +28,7 @@ public class GlobalStateManager : MonoBehaviour
         npcManager = GameObject.Find("NPCManager").GetComponent<NPCManager>();  
         flowerboxManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
         inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
-        requestBoard = GameObject.Find("Request Board").GetComponent<RequestBoard>();
+        //requestBoard = GameObject.Find("Request Board").GetComponent<RequestBoard>();
     }
     private void Start()
     {
