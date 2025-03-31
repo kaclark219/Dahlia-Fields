@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class SeedStore : InteractableObj
 {
-    [SerializeField] public Canvas storeCanvas;
+    [SerializeField] public GameObject storeCanvas;
 
     [Space]
     [SerializeField] public TextMeshProUGUI[] counts;
@@ -49,7 +49,7 @@ public class SeedStore : InteractableObj
     public override void Start()
     {   
         base.Start();
-        storeCanvas.enabled = false;
+        storeCanvas.SetActive(false);
         mapValues = new Dictionary<string, int>()
         {
             {"Dandelion", 0},
@@ -73,12 +73,12 @@ public class SeedStore : InteractableObj
 
     public void OpenSeedStore()
     {
-        storeCanvas.enabled = true; 
+        storeCanvas.SetActive(true);  
     }
 
     public void CloseSeedStore()
     {
-        storeCanvas.enabled = false;
+        storeCanvas.SetActive(false);
 
         int sets = 0;
 
