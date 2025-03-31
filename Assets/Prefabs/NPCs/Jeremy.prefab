@@ -160,7 +160,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 2, y: 2.5}
   m_EdgeRadius: 0
 --- !u!114 &7414541292634137686
 MonoBehaviour:
@@ -178,21 +178,26 @@ MonoBehaviour:
   active: 0
   plint: {fileID: 0}
   frame: 0
+  sr: {fileID: 0}
+  pm: {fileID: 0}
+  playerData: {fileID: 0}
   npcName: 10
   textAssets:
   - {fileID: 4900000, guid: ea77133d80ef00b419f14e659cf45715, type: 3}
   - {fileID: 4900000, guid: bcd2d0582c1977c4fbad10d18332b174, type: 3}
-  fuckOffText: {fileID: 4900000, guid: 7b8933a1961ed504fa5a37cd7ca6e8a0, type: 3}
   dailyInteraction: 0
   numOfInteractions: 0
-  playerData: {fileID: 0}
-  sr: {fileID: 0}
+  fuckOffText: {fileID: 4900000, guid: 7b8933a1961ed504fa5a37cd7ca6e8a0, type: 3}
+  isFeedDay: 0
+  trustRequired: 0
+  killText: {fileID: 0}
   ink: {fileID: 0}
-  pm: {fileID: 0}
+  dialogueVariables: {fileID: 0}
   costsEnergy: 0
   npcKey: 
   buyFlowerBox: {fileID: 4900000, guid: 35ca33103af590b44a3af76ec66d8125, type: 3}
   workshopLocation: {x: -5, y: 49, z: 0}
+  BoxCost: -40
 --- !u!1 &4734730512677606580
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +208,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5513755880966284799}
   - component: {fileID: 6865809019729870852}
-  - component: {fileID: 3358569904558610745}
+  - component: {fileID: 4120212431751969050}
+  - component: {fileID: 8391961684356398957}
   m_Layer: 0
   m_Name: Jeremy
   m_TagString: Untagged
@@ -269,8 +275,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.9088694, b: 0, a: 1}
+  m_Sprite: {fileID: -1507069641, guid: 6d044984dcf75f44297692ec30674a87, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -280,7 +286,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3358569904558610745
+--- !u!61 &4120212431751969050
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -316,12 +322,33 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.0875, y: 2.01875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0875, y: 2.01875}
   m_EdgeRadius: 0
+--- !u!95 &8391961684356398957
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4734730512677606580}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 452a4ad21d9653c499ada97a79e57026, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

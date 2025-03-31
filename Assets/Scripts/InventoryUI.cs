@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class InventoryUI : InteractableObj
 {
     
-    [SerializeField] public Canvas uiScreen;
+    [SerializeField] public GameObject uiScreen;
     [SerializeField] public InventoryManager inventoryManager;
     private InventoryItem item; 
     public bool flowers = false;
@@ -31,7 +31,7 @@ public class InventoryUI : InteractableObj
     {
         base.Start();
         view.SetActive(false);
-        uiScreen.enabled = false;
+        uiScreen.SetActive(false);
 
     }
 
@@ -39,13 +39,13 @@ public class InventoryUI : InteractableObj
     {   
         base.OnInteract();
         SetUpFlowers();
-        uiScreen.enabled = true;
+        uiScreen.SetActive(true);
     }
 
     public override void EndInteract()
     {
         base.EndInteract();
-        uiScreen.enabled = false;
+        uiScreen.SetActive(false);
     }
 
     public void SetUpFlowers()

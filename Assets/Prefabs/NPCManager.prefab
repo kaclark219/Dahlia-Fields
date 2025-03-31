@@ -173,8 +173,12 @@ PrefabInstance:
       value: 0.3478261
       objectReference: {fileID: 0}
     - target: {fileID: 2613945333306105795, guid: f1ab328904f66b84583c77f16dc823aa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2613945333306105795, guid: f1ab328904f66b84583c77f16dc823aa, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.4375
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 4915977011140790803, guid: f1ab328904f66b84583c77f16dc823aa, type: 3}
       propertyPath: m_Sprite
@@ -295,26 +299,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7272884149163975241}
     m_Modifications:
-    - target: {fileID: 1270620236657468936, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      propertyPath: trustRequired
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 2537708214369107214, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 362b6f7a7a3b0ef4389b2dd050bbe101, type: 3}
-    - target: {fileID: 2537708214369107214, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2537708214369107214, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2537708214369107214, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4021662385455669562, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
       propertyPath: m_LocalPosition.x
       value: -140.8
@@ -359,33 +343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Linda
       objectReference: {fileID: 0}
-    - target: {fileID: 6487276485128166600, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1371338220, guid: 0f1643dadad27994c897f67138ad308a, type: 3}
-    - target: {fileID: 6487276485128166600, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6487276485128166600, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794977773131746762, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6794977773131746762, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.25
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6208760412430302706, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6559100791301779948}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
 --- !u!4 &2377736039188463728 stripped
 Transform:
@@ -397,27 +358,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6208760412430302706, guid: 59e2a1e0b47b84244b613a97af556c28, type: 3}
   m_PrefabInstance: {fileID: 1671041026184945994}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &6559100791301779948
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4690859955265330360}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3b5022d859619c042a93fa7369c8bfa0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2227681097350992727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -603,6 +543,14 @@ PrefabInstance:
     - target: {fileID: 403890261758895200, guid: 978099fa962e1b64683c1eedf3d45950, type: 3}
       propertyPath: m_Name
       value: Ava
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842675519881207303, guid: 978099fa962e1b64683c1eedf3d45950, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842675519881207303, guid: 978099fa962e1b64683c1eedf3d45950, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 2991161227568850138, guid: 978099fa962e1b64683c1eedf3d45950, type: 3}
       propertyPath: m_Sprite
