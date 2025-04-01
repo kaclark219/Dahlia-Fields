@@ -19,10 +19,12 @@ public class DaySystem : MonoBehaviour
     private NPCManager npcManager;
     private PlayerMovement playerMovement;
     private PlayerData playerData;
+    private PlayerInteractor playerInteractor;
     private FlowerboxManager flowerManager;
     private SeedStore seedStore;
     private VideoPlayerManager videoPlayerManager;
     private GlobalStateManager globalStateManager;
+    private FadeInFadeOut transition;
 
     private void Awake()
     {
@@ -32,17 +34,18 @@ public class DaySystem : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
         playerData = player.GetComponent<PlayerData>();
-        videoPlayerManager = player.GetComponentInChildren<VideoPlayerManager>();
+        playerInteractor = player.GetComponent<PlayerInteractor>();
+        videoPlayerManager = FindFirstObjectByType<VideoPlayerManager>();
         globalStateManager = GetComponent<GlobalStateManager>();
+        transition = FindFirstObjectByType<FadeInFadeOut>();
     }
     public void NextDay()
     {
-       // Load next day data
         day++;
         week = (day / 3) + 1;
-        LoadDay(day);
 
-        // Save all progress at the start of the next day
+        StartCoroutine(LoadDay(day, true));
+
         globalStateManager.SaveAllData();
     }
 
@@ -56,25 +59,32 @@ public class DaySystem : MonoBehaviour
         return week;
     }
 
-    public void ChangeTimeOfDay(int time)
+    public IEnumerator ChangeTimeOfDay(int time)
     {
-        // move NPCS
+        yield return new WaitUntil(() => playerInteractor.canInteract); // Wait until player is done interacting
+
+        transition.FadeIn();
+        playerInteractor.Interact();
+
+        while (transition.coroutine != null) { yield return null; }
+
         npcManager.MoveNPCs(day, time);
+
+        transition.FadeOut();
+        playerInteractor.EndInteract();
     }
 
-    private void LoadDay(int day)
+    private IEnumerator LoadDay(int day, bool fadeIn)
     {
         Debug.Log("Loading day " + day);
 
-        // Check if yesterday was a kill day before updating
-        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
+        playerInteractor.Interact();
+
+        if (fadeIn)
         {
-            Debug.Log("Player Lost Game!");
-            LoseGame();
-            return;
+            transition.FadeIn();
+            yield return new WaitUntil(() => transition.coroutine == null);
         }
-        isFeedDay = feedDays.Contains(day);
-        npcKilled = false;
 
         // Check for cutscene
         Cutscene cutscene = CheckForCutscene();
@@ -83,7 +93,20 @@ public class DaySystem : MonoBehaviour
             // Load cutscene
             Debug.Log("Loading cutscene: " + cutscene.clip.name);
             videoPlayerManager.StartVideo(cutscene.clip);
+            yield return new WaitWhile(() => videoPlayerManager.isPlaying);
         }
+
+        transition.FadeOut();
+
+        // Check if yesterday was a kill day before updating
+        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
+        {
+            Debug.Log("Player Lost Game!");
+            LoseGame();
+            yield break;
+        }
+        isFeedDay = feedDays.Contains(day);
+        npcKilled = false;
 
         // Reset player location
         playerMovement.ResetLocation();
@@ -101,7 +124,9 @@ public class DaySystem : MonoBehaviour
         flowerManager.NextDayBoxes();
 
         // update inventory with any pending orders
-        seedStore.Delivery();  
+        seedStore.Delivery();
+
+        playerInteractor.EndInteract();
 
     }
 
@@ -120,7 +145,7 @@ public class DaySystem : MonoBehaviour
     private void LoseGame()
     {
         // Disable player movement and interactions
-        playerMovement.enabled = false;
+        playerInteractor.Interact();
         GameObject.Find("Player").GetComponent<PlayerInteractor>().enabled = false;
 
         // Display lose ui
@@ -145,13 +170,13 @@ public class DaySystem : MonoBehaviour
 
         week = (day / 3) + 1;
 
-        LoadDay(day);
+        StartCoroutine(LoadDay(day, false));
     }
     public void ResetData()
     {
         day = 1;
         week = 1;
-        LoadDay(day);
+        StartCoroutine(LoadDay(day, false));
         isFeedDay = false;
     }
 

@@ -22,13 +22,13 @@ public class GlobalStateManager : MonoBehaviour
 
     private void Awake()
     {
-        dialogueVariables = GameObject.Find("InkManager").GetComponent<DialogueVariables>();
-        playerData = GameObject.Find("Player").GetComponent<PlayerData>();  
-        daySystem = GetComponent<DaySystem>();  
-        npcManager = GameObject.Find("NPCManager").GetComponent<NPCManager>();  
-        flowerboxManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
-        inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
-        //requestBoard = GameObject.Find("Request Board").GetComponent<RequestBoard>();
+        dialogueVariables = dialogueVariables ? dialogueVariables: FindObjectOfType<DialogueVariables>(); ;
+        playerData = playerData ? playerData : FindObjectOfType<PlayerData>(); ;  
+        daySystem = daySystem ? daySystem : GetComponent<DaySystem>();  
+        npcManager = npcManager ? npcManager : FindObjectOfType<NPCManager>(); ;  
+        flowerboxManager = flowerboxManager ? flowerboxManager : FindObjectOfType<FlowerboxManager>();
+        inventoryManager = inventoryManager ? inventoryManager : FindObjectOfType<InventoryManager>(); ;
+        requestBoard = requestBoard ? requestBoard : FindObjectOfType<RequestBoard>();
     }
     private void Start()
     {

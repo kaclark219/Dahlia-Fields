@@ -5032,7 +5032,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d0bfc33843f5b9341a8c35a54cce67c1, type: 3}
   - {fileID: 21300000, guid: dcb2e46f5150ffb43bb0a2eab6f368a0, type: 3}
   background: {fileID: 3612163031196558459}
-  broke: {fileID: 3926051803929916713}
+  broke: {fileID: 0}
   inventory: {fileID: 0}
   ifDelivery: 0
   delivered: 0

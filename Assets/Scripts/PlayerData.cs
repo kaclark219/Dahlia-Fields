@@ -8,7 +8,7 @@ public class PlayerData : MonoBehaviour
     private const string nameKey = "PLAYER_NAME";
     private const string moneyKey = "MONEY";
     private const int startEnergy = 50;
-    private const int startMoney = 0;
+    private const int startMoney = 30;
 
     [SerializeField] private DayNightCycle dayNightCycle;
     [SerializeField] private DaySystem daySystem;
@@ -85,13 +85,13 @@ public class PlayerData : MonoBehaviour
             if (energy <= 36 && energy > 15 && timeOfDay != 2)  // Change to Afternoon
             {
                 timeOfDay = 2;
-                daySystem.ChangeTimeOfDay(timeOfDay);
+                StartCoroutine(daySystem.ChangeTimeOfDay(timeOfDay));
                 Debug.Log("Change Time of Day to Afternoon");
             }
             else if (energy <= 15 && energy > 0 && timeOfDay != 3)  // Change to Evening
             {
                 timeOfDay = 3;
-                daySystem.ChangeTimeOfDay(timeOfDay);
+                StartCoroutine(daySystem.ChangeTimeOfDay(timeOfDay));
                 Debug.Log("Change Time of Day to Evening");
             }
         }

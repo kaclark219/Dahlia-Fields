@@ -13,14 +13,7 @@ public class BedInteractable : InteractableObj
     }
     public override void OnInteract()
     {
-        base.OnInteract();
         daySystem.NextDay();
-        EndInteract();
 
-    }
-
-    public override void EndInteract()
-    {
-        base.EndInteract();
     }
 }

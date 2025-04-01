@@ -15,6 +15,7 @@ public class InkManager : MonoBehaviour
 
     [SerializeField] private GameObject UI;
     [SerializeField] private TextMeshProUGUI textBox;
+    [SerializeField] private OnClickNextDialogue panel;
 
     [SerializeField] private VerticalLayoutGroup choiceButtonContainer;
 
@@ -210,6 +211,8 @@ public class InkManager : MonoBehaviour
             GameObject button = CreateChoiceButton(choice.text);
             button.GetComponentsInChildren<Button>()[0].onClick.AddListener(() => OnClickChoiceButton(choice)); 
         }
+
+        panel.enabled = false;
     }
 
     
@@ -218,6 +221,7 @@ public class InkManager : MonoBehaviour
         story.ChooseChoiceIndex(choice.index);
         RefreshChoiceView();
         DisplayNextLine();
+        panel.enabled = true;
     }
 
     // Removes all choices
