@@ -23,6 +23,7 @@ public class DaySystem : MonoBehaviour
     private SeedStore seedStore;
     private VideoPlayerManager videoPlayerManager;
     private GlobalStateManager globalStateManager;
+    private FadeInFadeOut transition;
 
     private void Awake()
     {
@@ -34,16 +35,14 @@ public class DaySystem : MonoBehaviour
         playerData = player.GetComponent<PlayerData>();
         videoPlayerManager = player.GetComponentInChildren<VideoPlayerManager>();
         globalStateManager = GetComponent<GlobalStateManager>();
+        transition = FindFirstObjectByType<FadeInFadeOut>();
     }
     public void NextDay()
     {
-       // Load next day data
         day++;
         week = (day / 3) + 1;
-        LoadDay(day);
 
-        // Save all progress at the start of the next day
-        globalStateManager.SaveAllData();
+        StartCoroutine(LoadDay(day));
     }
 
     public int GetDay()
@@ -56,25 +55,22 @@ public class DaySystem : MonoBehaviour
         return week;
     }
 
-    public void ChangeTimeOfDay(int time)
+    public IEnumerator ChangeTimeOfDay(int time)
     {
-        // move NPCS
+        transition.FadeIn();
+        while (transition.coroutine != null) { yield return null; }
+
         npcManager.MoveNPCs(day, time);
+
+        transition.FadeOut();
     }
 
-    private void LoadDay(int day)
+    private IEnumerator LoadDay(int day)
     {
         Debug.Log("Loading day " + day);
 
-        // Check if yesterday was a kill day before updating
-        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
-        {
-            Debug.Log("Player Lost Game!");
-            LoseGame();
-            return;
-        }
-        isFeedDay = feedDays.Contains(day);
-        npcKilled = false;
+        transition.FadeIn();
+        yield return new WaitUntil(() => transition.coroutine == null);
 
         // Check for cutscene
         Cutscene cutscene = CheckForCutscene();
@@ -83,7 +79,20 @@ public class DaySystem : MonoBehaviour
             // Load cutscene
             Debug.Log("Loading cutscene: " + cutscene.clip.name);
             videoPlayerManager.StartVideo(cutscene.clip);
+            yield return new WaitWhile(() => videoPlayerManager.isPlaying);
         }
+
+        transition.FadeOut();
+
+        // Check if yesterday was a kill day before updating
+        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
+        {
+            Debug.Log("Player Lost Game!");
+            LoseGame();
+            yield break;
+        }
+        isFeedDay = feedDays.Contains(day);
+        npcKilled = false;
 
         // Reset player location
         playerMovement.ResetLocation();

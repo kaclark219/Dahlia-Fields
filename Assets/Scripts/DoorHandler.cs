@@ -9,12 +9,13 @@ public class DoorHandler : InteractableObj
 {
     [SerializeField] public GameObject player;
     [SerializeField] public GameObject location;
-    [SerializeField] public Image doorTransition;
+    private FadeInFadeOut transition;
     float alpha = 0f; 
 
     public override void Awake()
     {
         base.Awake();
+        transition = FindObjectOfType<FadeInFadeOut>();
         player = GameObject.Find("Player");
     }
 
@@ -26,32 +27,11 @@ public class DoorHandler : InteractableObj
     public override void OnInteract()
     {
         base.OnInteract();
-        StartCoroutine(FadeAndTeleport());
+        transition.StartTransition(TeleportPlayer, base.EndInteract);
     }
 
-    private IEnumerator FadeAndTeleport()
+    private void TeleportPlayer()
     {
-        yield return null;
-
-        for (float i = 0; i < 1.2f; i += Time.deltaTime)
-        {
-            alpha = Mathf.Lerp(0f, 1f, i / 1.2f);
-            doorTransition.color = new Color(0, 0, 0, alpha);
-            yield return null;
-        }
-        
-
         player.transform.position = location.transform.position;
-        yield return null;
-
-        for (float i = 0; i < 1.2f; i += Time.deltaTime)
-        {
-            alpha = Mathf.Lerp(1f, 0f, i / 1.2f);
-            doorTransition.color = new Color(0, 0, 0, alpha);
-            yield return null;
-        }
-
-        base.EndInteract();
-        yield return null;
     }
 }

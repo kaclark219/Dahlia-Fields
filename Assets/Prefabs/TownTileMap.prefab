@@ -11088,7 +11088,6 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 3904078440669945604}
-  doorTransition: {fileID: 0}
 --- !u!61 &8884807021450900799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24160,7 +24159,6 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 3058518903201326305}
-  doorTransition: {fileID: 0}
 --- !u!1 &4223914081009646677
 GameObject:
   m_ObjectHideFlags: 0
@@ -24497,7 +24495,6 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 5500656095218182162}
-  doorTransition: {fileID: 0}
 --- !u!1 &4464428472181239766
 GameObject:
   m_ObjectHideFlags: 0
@@ -34789,7 +34786,6 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 4323552158894606222}
-  doorTransition: {fileID: 0}
 --- !u!1 &5724821608910658772
 GameObject:
   m_ObjectHideFlags: 0

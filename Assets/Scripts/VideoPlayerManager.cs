@@ -11,6 +11,7 @@ public class VideoPlayerManager : MonoBehaviour
     [SerializeField] private GameObject HUD;
     [SerializeField] private MusicManager musicManager;
 
+    public bool isPlaying = false;
     private float length;
 
     private void Awake()
@@ -32,6 +33,7 @@ public class VideoPlayerManager : MonoBehaviour
         // pause music
         musicManager.PauseMusic();
 
+        isPlaying = true;
         StartCoroutine(WaitClipToEnd());
     }   
 
@@ -42,6 +44,8 @@ public class VideoPlayerManager : MonoBehaviour
         playerInteractor.canInteract=true;
         HUD.SetActive(true);
         musicManager.ResumeMusic();
+
+        isPlaying = false;
     }
 
     private IEnumerator WaitClipToEnd()
