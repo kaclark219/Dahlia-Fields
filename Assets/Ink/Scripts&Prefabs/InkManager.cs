@@ -178,13 +178,13 @@ public class InkManager : MonoBehaviour
 
     public void DisableUI()
     {
-        UI.GetComponent<Canvas>().enabled = false;
+        UI.SetActive(false);
         isStoryPaused = true;
     }
 
     public void EnableUI()
     {
-        UI.GetComponent<Canvas>().enabled = true;
+        UI.SetActive(true);
         isStoryPaused = false;
 
         if (story != null)
