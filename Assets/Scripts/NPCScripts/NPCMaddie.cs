@@ -41,8 +41,17 @@ public class NPCMaddie : NPC
         SeedStoreUI.GetComponent<SeedStore>().OpenSeedStore();
     }
 
-    public void CloseSeedUI()
+    public void PurchaseClose()
     {
+        if (SeedStoreUI.GetComponent<SeedStore>().Purchase())
+        {
+            CloseSeedUI();
+        }
+    }
+
+    public void CloseSeedUI()
+    {   
+       
         SeedStoreUI.GetComponent<SeedStore>().CloseSeedStore();
 
         if (SeedStoreUI.GetComponent<SeedStore>().ifDelivery)

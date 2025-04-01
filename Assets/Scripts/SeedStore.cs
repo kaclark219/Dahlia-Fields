@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Xml;
 using TMPro;
 using UnityEditor.Purchasing;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Device;
 using UnityEngine.Rendering;
@@ -16,6 +17,7 @@ public class SeedStore : InteractableObj
     [Space]
     [SerializeField] public TextMeshProUGUI[] counts;
     [SerializeField] public TextMeshProUGUI price;
+    [SerializeField] public TextMeshProUGUI backCount;
 
     [Space]
     [SerializeField] public Sprite[] fbackgrounds;
@@ -64,6 +66,15 @@ public class SeedStore : InteractableObj
         };
     }
 
+    public override void Update()
+    {
+        base.Update();
+        if(!delivered)
+        {
+            base.Popup.SetActive(false);
+        }
+    }
+
     public override void OnInteract()
     {
         base.OnInteract();
@@ -92,6 +103,7 @@ public class SeedStore : InteractableObj
 
         sets = 0;
         price.text = sets.ToString();
+        backCount.text = sets.ToString();
         broke.SetActive(false);
     }
 
@@ -137,6 +149,7 @@ public class SeedStore : InteractableObj
 
             int p = int.Parse(price.text) + (int)chosenFlower.seedPrice;
             price.text = p.ToString();
+            backCount.text = counts[id].text;
         }
             
     }
@@ -147,7 +160,7 @@ public class SeedStore : InteractableObj
         //update price
         if (id < 10)
         {
-            if (cart[id] > 0)
+            if (cart[id] > purchase[id])
             {
                 cart[id] -= 5;
                 int amount = int.Parse(counts[id].text) - 1;
@@ -155,13 +168,14 @@ public class SeedStore : InteractableObj
 
                 int p = int.Parse(price.text) - (int)chosenFlower.seedPrice;
                 price.text = p.ToString();
+                backCount.text = counts[id].text;
             }
 
         }
 
     }
 
-    public void Purchase()
+    public bool Purchase()
     {
         if(playerData.ModifyMoney(-1 * int.Parse(price.text)))
         {
@@ -177,11 +191,15 @@ public class SeedStore : InteractableObj
             }
 
             ifDelivery = true;
+
+            return true; 
         } 
         else
         {
             broke.SetActive(true);
         }
+
+        return false;
     }
 
     public void ChooseFlower(string name)
@@ -194,7 +212,8 @@ public class SeedStore : InteractableObj
         chosenFlower = inventory.FindItem(flower);
 
         id = mapValues[name]; 
-        background.sprite = fbackgrounds[id]; 
+        background.sprite = fbackgrounds[id];
+        backCount.text = counts[id].text;
     }
 
     public void PickUpDelivery()

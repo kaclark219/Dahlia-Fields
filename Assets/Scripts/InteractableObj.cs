@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractableObj : MonoBehaviour
 {
     [Header("Intractable Object")]
-    [SerializeField] private GameObject Popup;
+    [SerializeField] public GameObject Popup;
     public bool active = false;
 
     [HideInInspector] public PlayerInteractor plint;
