@@ -289,8 +289,9 @@ public class RequestBoard : InteractableObj
         }
     }
 
-    public void LoadData()
-    {
+    private IEnumerator Load(){
+        yield return new WaitUntil(() => (requestList != null && requestList.Count == 13));
+
         List<GameObject> keys = new List<GameObject>(requestList.Keys);
         foreach (GameObject key in keys)
         {
@@ -303,6 +304,11 @@ public class RequestBoard : InteractableObj
                 requestList[key] = req; 
             }
         }
+    }
+
+    public void LoadData()
+    {
+        StartCoroutine(Load());
     }
 
     public void ResetData()
