@@ -130,6 +130,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4717784597767211093, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
+      propertyPath: UI
+      value: 
+      objectReference: {fileID: 1021724572}
     - target: {fileID: 4911046717922890885, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
       propertyPath: m_Name
       value: TownTileMap
@@ -187,6 +191,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3964267981384660083, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1984914596}
     - target: {fileID: 5814080197229141757, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.95
@@ -236,6 +244,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+--- !u!1 &1021724572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5574350773633409292, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+  m_PrefabInstance: {fileID: 1021724571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1984914596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4717784597767211093, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
+  m_PrefabInstance: {fileID: 321146226}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbff7a43f3780594797ed5723a2d6fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

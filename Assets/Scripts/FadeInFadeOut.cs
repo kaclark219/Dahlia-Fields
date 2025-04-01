@@ -42,6 +42,7 @@ public class FadeInFadeOut : MonoBehaviour
         coroutine = StartCoroutine(FadeOutCoroutine());
     }
 
+    // Basic transition for basic functions to be called in between the transition and at the end
     private IEnumerator FadeInFadeOutCoroutine(UnityAction inBetween, UnityAction atEnd)
     {
         yield return null;
@@ -71,6 +72,7 @@ public class FadeInFadeOut : MonoBehaviour
     }
 
 
+    // For more complicated transitions, where complex functions need to be called in between 
     private IEnumerator FadeInCoroutine()
     {
         yield return null;
@@ -83,7 +85,6 @@ public class FadeInFadeOut : MonoBehaviour
         }
 
         coroutine = null;
-        image.enabled = false;
     }
 
     private IEnumerator FadeOutCoroutine()

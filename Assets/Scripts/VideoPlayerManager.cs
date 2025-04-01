@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class VideoPlayerManager : MonoBehaviour
@@ -13,14 +14,16 @@ public class VideoPlayerManager : MonoBehaviour
 
     public bool isPlaying = false;
     private float length;
+    private RawImage image;
 
-    private void Awake()
+    private void Start()
     {
-        musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>();
+        image = GetComponent<RawImage>();
+        image.enabled = false;
     }
     public void StartVideo(VideoClip clip)
     {
-        videoPlayer.gameObject.SetActive(true);
+        image.enabled = true;
         videoPlayer.clip = clip;
         length = (float)clip.length;
         videoPlayer.Play();
@@ -39,7 +42,7 @@ public class VideoPlayerManager : MonoBehaviour
 
     public void EndVideo()
     {
-        videoPlayer.gameObject.SetActive(false);
+        image.enabled = false;
         playerMovement.canmove=true;
         playerInteractor.canInteract=true;
         HUD.SetActive(true);

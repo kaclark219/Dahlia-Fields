@@ -19,6 +19,7 @@ public class DaySystem : MonoBehaviour
     private NPCManager npcManager;
     private PlayerMovement playerMovement;
     private PlayerData playerData;
+    private PlayerInteractor playerInteractor;
     private FlowerboxManager flowerManager;
     private SeedStore seedStore;
     private VideoPlayerManager videoPlayerManager;
@@ -33,7 +34,8 @@ public class DaySystem : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
         playerData = player.GetComponent<PlayerData>();
-        videoPlayerManager = player.GetComponentInChildren<VideoPlayerManager>();
+        playerInteractor = player.GetComponent<PlayerInteractor>();
+        videoPlayerManager = FindFirstObjectByType<VideoPlayerManager>();
         globalStateManager = GetComponent<GlobalStateManager>();
         transition = FindFirstObjectByType<FadeInFadeOut>();
     }
@@ -42,7 +44,9 @@ public class DaySystem : MonoBehaviour
         day++;
         week = (day / 3) + 1;
 
-        StartCoroutine(LoadDay(day));
+        StartCoroutine(LoadDay(day, true));
+
+        globalStateManager.SaveAllData();
     }
 
     public int GetDay()
@@ -57,20 +61,30 @@ public class DaySystem : MonoBehaviour
 
     public IEnumerator ChangeTimeOfDay(int time)
     {
+        yield return new WaitUntil(() => playerInteractor.canInteract); // Wait until player is done interacting
+
         transition.FadeIn();
+        playerInteractor.Interact();
+
         while (transition.coroutine != null) { yield return null; }
 
         npcManager.MoveNPCs(day, time);
 
         transition.FadeOut();
+        playerInteractor.EndInteract();
     }
 
-    private IEnumerator LoadDay(int day)
+    private IEnumerator LoadDay(int day, bool fadeIn)
     {
         Debug.Log("Loading day " + day);
 
-        transition.FadeIn();
-        yield return new WaitUntil(() => transition.coroutine == null);
+        playerInteractor.Interact();
+
+        if (fadeIn)
+        {
+            transition.FadeIn();
+            yield return new WaitUntil(() => transition.coroutine == null);
+        }
 
         // Check for cutscene
         Cutscene cutscene = CheckForCutscene();
@@ -110,7 +124,9 @@ public class DaySystem : MonoBehaviour
         flowerManager.NextDayBoxes();
 
         // update inventory with any pending orders
-        seedStore.Delivery();  
+        seedStore.Delivery();
+
+        playerInteractor.EndInteract();
 
     }
 
@@ -129,7 +145,7 @@ public class DaySystem : MonoBehaviour
     private void LoseGame()
     {
         // Disable player movement and interactions
-        playerMovement.enabled = false;
+        playerInteractor.Interact();
         GameObject.Find("Player").GetComponent<PlayerInteractor>().enabled = false;
 
         // Display lose ui
@@ -154,13 +170,13 @@ public class DaySystem : MonoBehaviour
 
         week = (day / 3) + 1;
 
-        LoadDay(day);
+        StartCoroutine(LoadDay(day, false));
     }
     public void ResetData()
     {
         day = 1;
         week = 1;
-        LoadDay(day);
+        StartCoroutine(LoadDay(day, false));
         isFeedDay = false;
     }
 
