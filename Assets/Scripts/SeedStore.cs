@@ -13,6 +13,8 @@ using UnityEngine.UI;
 public class SeedStore : InteractableObj
 {
     [SerializeField] public GameObject storeCanvas;
+    [SerializeField] public GameObject notCollect;
+    [SerializeField] public GameObject Collect;
 
     [Space]
     [SerializeField] public TextMeshProUGUI[] counts;
@@ -66,19 +68,14 @@ public class SeedStore : InteractableObj
         };
     }
 
-    public override void Update()
-    {
-        base.Update();
-        if(!delivered)
-        {
-            base.Popup.SetActive(false);
-        }
-    }
-
     public override void OnInteract()
     {
         base.OnInteract();
         PickUpDelivery();
+    }
+
+    public override void EndInteract()
+    {
         base.EndInteract();
     }
 
@@ -237,7 +234,12 @@ public class SeedStore : InteractableObj
 
             delivered = false;
             signal.SetActive(false);
-        } 
+            Collect.SetActive(true); 
+
+        } else
+        {
+            notCollect.SetActive(true); 
+        }
               
     }
 
