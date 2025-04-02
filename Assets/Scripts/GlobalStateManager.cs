@@ -16,6 +16,8 @@ public class GlobalStateManager : MonoBehaviour
     [SerializeField] private FlowerboxManager flowerboxManager;
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private RequestBoard requestBoard;
+    [Space]
+    [SerializeField] private GameObject startingNote;
 
     private const string newGameKey = "NEW_GAME";   // used to tell GlobalStateManager on load if its a new game 
     private const string nameKey = "PLAYER_NAME";
@@ -52,6 +54,8 @@ public class GlobalStateManager : MonoBehaviour
 
         WinUI.SetActive(false);
         LoseUI.SetActive(false);
+
+        startingNote.SetActive(true);
     }
 
     public void SaveAllData()
@@ -88,6 +92,8 @@ public class GlobalStateManager : MonoBehaviour
         flowerboxManager.ResetData();
         inventoryManager.ResetData();
         requestBoard.ResetData();
+
+        startingNote.SetActive(true);
 
         PlayerPrefs.DeleteAll();
     }
