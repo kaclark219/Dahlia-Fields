@@ -47,9 +47,9 @@ public class InteractableObj : MonoBehaviour
     {
         if (active){
             if(pm.rb.position.y > transform.position.y){
-                sr.sortingOrder = 4;
+                sr.sortingOrder = 6;
             }else{
-                sr.sortingOrder = 2;
+                sr.sortingOrder = 3;
             }
             if (Popup) { Popup.SetActive(true); }
             if(Input.GetKeyDown(KeyCode.E) && plint.canInteract){

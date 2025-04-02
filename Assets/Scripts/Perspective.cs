@@ -18,7 +18,7 @@ public class Perspective : MonoBehaviour
     void Update()
     {
         if(pm.rb.position.y > transform.position.y){
-            sr.sortingOrder = 4;
+            sr.sortingOrder = 5;
         }else{
             sr.sortingOrder = 2;
         }
