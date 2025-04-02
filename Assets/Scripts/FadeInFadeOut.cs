@@ -55,7 +55,7 @@ public class FadeInFadeOut : MonoBehaviour
         }
 
         inBetween?.Invoke();
-        yield return null;
+        yield return new WaitForSeconds(.5f);
 
         for (float i = 0; i < 1.2f; i += Time.deltaTime)
         {
@@ -75,6 +75,8 @@ public class FadeInFadeOut : MonoBehaviour
     // For more complicated transitions, where complex functions need to be called in between 
     private IEnumerator FadeInCoroutine()
     {
+        image.color = new Color(0, 0, 0, 0);
+
         yield return null;
 
         for (float i = 0; i < 1.2f; i += Time.deltaTime)
@@ -89,6 +91,8 @@ public class FadeInFadeOut : MonoBehaviour
 
     private IEnumerator FadeOutCoroutine()
     {
+        image.color = new Color(0, 0, 0, 1.0f);
+
         yield return null;
 
         for (float i = 0; i < 1.2f; i += Time.deltaTime)

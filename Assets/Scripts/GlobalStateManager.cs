@@ -16,6 +16,7 @@ public class GlobalStateManager : MonoBehaviour
     [SerializeField] private FlowerboxManager flowerboxManager;
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private RequestBoard requestBoard;
+    [SerializeField] private SeedStore seedStore;
     [Space]
     [SerializeField] private GameObject startingNote;
 
@@ -31,6 +32,7 @@ public class GlobalStateManager : MonoBehaviour
         flowerboxManager = flowerboxManager ? flowerboxManager : FindObjectOfType<FlowerboxManager>();
         inventoryManager = inventoryManager ? inventoryManager : FindObjectOfType<InventoryManager>(); ;
         requestBoard = requestBoard ? requestBoard : FindObjectOfType<RequestBoard>();
+        seedStore = seedStore ? seedStore : FindFirstObjectByType<SeedStore>();
     }
     private void Start()
     {
@@ -66,8 +68,10 @@ public class GlobalStateManager : MonoBehaviour
         daySystem.SaveData();
         npcManager.SaveData();
         flowerboxManager.SaveData();
-        inventoryManager.SaveData();
         requestBoard.SaveData();
+        seedStore.SaveData();
+        inventoryManager.SaveData();
+
     }
 
     public void LoadAllData()
@@ -80,6 +84,7 @@ public class GlobalStateManager : MonoBehaviour
         flowerboxManager.LoadData();
         inventoryManager.LoadData();
         requestBoard.LoadData();
+        seedStore.LoadData();
     }
 
     public void ResetAllData()
@@ -92,6 +97,7 @@ public class GlobalStateManager : MonoBehaviour
         flowerboxManager.ResetData();
         inventoryManager.ResetData();
         requestBoard.ResetData();
+        seedStore.ResetData();
 
         startingNote.SetActive(true);
 

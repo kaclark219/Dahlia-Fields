@@ -72,7 +72,7 @@ public class InventoryManager : MonoBehaviour
             }
             else
             {
-                item.Value.seedStock = 10;
+                item.Value.seedStock = 0;
                 item.Value.flowerStock = 0;
             }
         }
@@ -82,7 +82,7 @@ public class InventoryManager : MonoBehaviour
     {
         foreach (KeyValuePair<Flowers, InventoryItem> item in inventory)
         {
-            item.Value.seedStock = 10;
+            item.Value.seedStock = 0;
             item.Value.flowerStock = 0;
         }
     }

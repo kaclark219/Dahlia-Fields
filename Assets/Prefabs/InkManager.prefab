@@ -50,6 +50,7 @@ MonoBehaviour:
   inkJsonAsset: {fileID: 0}
   UI: {fileID: 0}
   textBox: {fileID: 0}
+  panel: {fileID: 0}
   choiceButtonContainer: {fileID: 0}
   choiceButtonPrefab: {fileID: 4802107501613646800, guid: 7d27a6f0e87402444905bd23e4e9d10d, type: 3}
   dialogueVariables: {fileID: 5934105558860872651}

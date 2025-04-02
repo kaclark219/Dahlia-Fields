@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &799142147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7288771178756787929, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+  m_PrefabInstance: {fileID: 3424595474031006296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2070612021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 3408999764752355583, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
       propertyPath: UI
       value: 
-      objectReference: {fileID: 3424595474031006297}
+      objectReference: {fileID: 799142147}
     - target: {fileID: 4911046717922890885, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
       propertyPath: m_Name
       value: TownTileMap
@@ -211,10 +216,6 @@ PrefabInstance:
       propertyPath: startingNote
       value: 
       objectReference: {fileID: 2102094166}
-    - target: {fileID: 3964267981384660083, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2070612022}
     - target: {fileID: 5814080197229141757, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.95
@@ -255,6 +256,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7069678754783186391, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2070612022}
     - target: {fileID: 7105137776691616820, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_Name
       value: Essentials
@@ -264,11 +269,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
---- !u!1 &3424595474031006297 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5574350773633409292, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-  m_PrefabInstance: {fileID: 3424595474031006296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -8,6 +8,11 @@ public class DaySystem : MonoBehaviour
 {
     public int day;
     public int week;
+    [SerializeField] GameObject MorningToAfternoon;
+    [SerializeField] GameObject AfternoonToEvening;
+
+    [Space]
+    public bool playCutscenes = true;   // for testing sake
     public List<Cutscene> cutsceneList = new List<Cutscene>();
     [Space]
     public List<int> feedDays = new List<int> { 8, 14, 19, 23 };
@@ -39,6 +44,12 @@ public class DaySystem : MonoBehaviour
         globalStateManager = GetComponent<GlobalStateManager>();
         transition = FindFirstObjectByType<FadeInFadeOut>();
     }
+
+    private void Start()
+    {
+        MorningToAfternoon.SetActive(false);
+        AfternoonToEvening.SetActive(false);
+    }
     public void NextDay()
     {
         day++;
@@ -67,6 +78,11 @@ public class DaySystem : MonoBehaviour
         playerInteractor.Interact();
 
         while (transition.coroutine != null) { yield return null; }
+        
+        GameObject UI = time == 2 ? MorningToAfternoon : AfternoonToEvening;
+        UI.SetActive(true);
+        yield return new WaitForSeconds(.75f);
+        UI.SetActive(false);
 
         npcManager.MoveNPCs(day, time);
 
@@ -88,12 +104,14 @@ public class DaySystem : MonoBehaviour
 
         // Check for cutscene
         Cutscene cutscene = CheckForCutscene();
-        if (cutscene != null)
+        if (cutscene != null && playCutscenes)
         {
+            yield return new WaitForSeconds(0.5f);
             // Load cutscene
             Debug.Log("Loading cutscene: " + cutscene.clip.name);
             videoPlayerManager.StartVideo(cutscene.clip);
             yield return new WaitWhile(() => videoPlayerManager.isPlaying);
+            yield return new WaitForSeconds(0.5f);
         }
 
         transition.FadeOut();

@@ -140,6 +140,8 @@ MonoBehaviour:
   flowerboxManager: {fileID: 0}
   inventoryManager: {fileID: 0}
   requestBoard: {fileID: 0}
+  seedStore: {fileID: 0}
+  startingNote: {fileID: 0}
 --- !u!114 &1961994125542866198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   day: 1
   week: 1
+  MorningToAfternoon: {fileID: 0}
+  AfternoonToEvening: {fileID: 0}
+  playCutscenes: 0
   cutsceneList:
   - {fileID: 11400000, guid: 3c99d8a8986aa514086238cf4acc165e, type: 2}
   - {fileID: 11400000, guid: e7a0094c7d6c67a478cfe6abd486cd5c, type: 2}
