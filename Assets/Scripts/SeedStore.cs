@@ -1,13 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
 using TMPro;
-using UnityEditor.Purchasing;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.Device;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class SeedStore : InteractableObj
@@ -32,7 +26,8 @@ public class SeedStore : InteractableObj
     [SerializeField] public InventoryManager inventory;
 
     public bool ifDelivery = false;
-    public bool delivered = false;  
+    public bool delivered = false;
+    public bool pickedUp = false;
 
     private InventoryItem chosenFlower; 
     public Dictionary<string, int> mapValues;
@@ -117,7 +112,9 @@ public class SeedStore : InteractableObj
             delivered = true;
             ifDelivery = false;
             signal.SetActive(true);
-        } 
+        }
+
+        pickedUp = false;
 
         int sets = 0;
         for (int i = 0; i < purchase.Length; i++)
@@ -232,6 +229,7 @@ public class SeedStore : InteractableObj
                 delivery[i] = 0;
             }
 
+            pickedUp = true;
             delivered = false;
             signal.SetActive(false);
             Collect.SetActive(true); 
@@ -242,5 +240,67 @@ public class SeedStore : InteractableObj
         }
               
     }
+
+    #region SAVE_SYSTEM
+    public void SaveData()
+    {
+        PlayerPrefs.SetInt("Delivery", delivered ? 1 : 0);
+        PlayerPrefs.SetInt("IfDelivery", ifDelivery? 1 : 0);
+        if (delivered)
+        {
+            foreach (string key in mapValues.Keys)
+            {
+                int i = mapValues[key];
+
+                Flowers flower;
+                Enum.TryParse(key, out flower);
+
+                PlayerPrefs.SetInt("Delivery_" + i, delivery[i]);
+
+                inventory.inventory[flower].seedStock -= delivery[i];
+            }
+        }
+    }
+
+    public void LoadData()
+    {
+        if (PlayerPrefs.HasKey("Delivery"))
+        {
+            delivered = PlayerPrefs.GetInt("Delivery") == 1 ? true : false;
+            if (delivered)
+            {
+                for (int i = 0; i < delivery.Length; i++)
+                {
+                    delivery[i] = PlayerPrefs.GetInt("Delivery_" + i);
+                }
+                signal.SetActive(true);
+            }
+        }
+        else
+        {
+            delivered = false;
+        }
+        if (PlayerPrefs.HasKey("IfDelivery"))
+        {
+            ifDelivery = PlayerPrefs.GetInt("IfDelivery") == 1 ? true : false;
+        }
+        else
+        {
+            ifDelivery = false;
+        }
+        Delivery();
+    }
+
+    public void ResetData()
+    {
+        delivered = false;
+        for (int i = 0; i < delivery.Length; i++)
+        {
+            delivery[i] = 0;
+        }
+        Delivery();
+    }
+
+    #endregion
 
 }

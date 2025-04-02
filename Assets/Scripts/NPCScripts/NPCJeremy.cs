@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Ink.Runtime;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class NPCJeremy : NPC
