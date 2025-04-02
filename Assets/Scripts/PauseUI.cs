@@ -6,30 +6,15 @@ using UnityEngine.SceneManagement;
 public class PauseUI : MonoBehaviour
 {
     [SerializeField] GameObject pause_ui;
-    public string menu_scene = "Prototype_Menu";
 
     private void Start()
     {
         pause_ui.SetActive(false);
     }
 
-    public void OpenPause()
-    {
-        pause_ui.SetActive(true);
-    }
-
-    public void Resume()
-    {
-        pause_ui.SetActive(false);
-    }
-
     public void ToMain()
     {
-        SceneManager.LoadScene(menu_scene);
+        SceneManager.LoadScene(0);
     }
 
-    public void SaveGame()
-    {
-
-    }
 }
