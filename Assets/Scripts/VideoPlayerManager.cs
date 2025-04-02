@@ -26,6 +26,7 @@ public class VideoPlayerManager : MonoBehaviour
         image.enabled = true;
         videoPlayer.clip = clip;
         length = (float)clip.length;
+        videoPlayer.Prepare();
         videoPlayer.Play();
 
         // Disable player
