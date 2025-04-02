@@ -23,7 +23,7 @@ public class InteractableObj : MonoBehaviour
 
     public virtual void Start()
     {
-        Popup.SetActive(false);
+        if (Popup) { Popup.SetActive(false); }
         plint = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerInteractor>();
     }
 
@@ -51,12 +51,12 @@ public class InteractableObj : MonoBehaviour
             }else{
                 sr.sortingOrder = 2;
             }
-            Popup.SetActive(true);
+            if (Popup) { Popup.SetActive(true); }
             if(Input.GetKeyDown(KeyCode.E) && plint.canInteract){
                 OnInteract();
             }
         }else{
-            Popup.SetActive(false);
+            if (Popup) { Popup.SetActive(false); }
         }
     }
 
