@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float speed = 4.0f;
+    private float speed = 5.0f;
     public Rigidbody2D rb;
     [SerializeField] private Vector2 dir;
     [SerializeField] Transform SpawnLocation;
