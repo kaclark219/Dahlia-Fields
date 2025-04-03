@@ -57,6 +57,7 @@ public class InteractableObj : MonoBehaviour
             }
         }else{
             if (Popup) { Popup.SetActive(false); }
+            if(sr.sortingOrder != 6){sr.sortingOrder=6;}
         }
     }
 

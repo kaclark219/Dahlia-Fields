@@ -15,7 +15,7 @@ public class NPCManager : MonoBehaviour
         string[] lines = Resources.Load<TextAsset>("NPClocations").ToString().Split("\n");
         for(int i = 1; i < lines.Length; i++){
             string[] info = lines[i].Split(",");
-            coords.Add(info[0], new Vector2(int.Parse(info[1]), int.Parse(info[2]))); //If this line errors make sure the CSV doesn't have a blak line at the end
+            coords.Add(info[0], new Vector2(int.Parse(info[1]), int.Parse(info[2]))); //If this line errors make sure the CSV doesn't have a blank line at the end
         }
     }
     public void MoveNPCs(int day, int stage)

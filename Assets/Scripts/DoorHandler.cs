@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
+// using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 using static Unity.Burst.Intrinsics.X86;
@@ -32,6 +32,6 @@ public class DoorHandler : InteractableObj
 
     private void TeleportPlayer()
     {
-        player.transform.position = location.transform.position;
+        player.transform.position = new Vector2(location.transform.position.x, location.transform.position.y + 1);
     }
 }
