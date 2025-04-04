@@ -23,12 +23,6 @@ public class VideoPlayerManager : MonoBehaviour
     }
     public void StartVideo(VideoClip clip)
     {
-        image.enabled = true;
-        videoPlayer.clip = clip;
-        length = (float)clip.length;
-        videoPlayer.Prepare();
-        videoPlayer.Play();
-
         // Disable player
         playerMovement.canmove = false;
         playerInteractor.canInteract = false;
@@ -38,8 +32,25 @@ public class VideoPlayerManager : MonoBehaviour
         musicManager.PauseMusic();
 
         isPlaying = true;
+
+        StartCoroutine(LoadVideo(clip));
+    }
+
+    private IEnumerator LoadVideo(VideoClip clip)
+    {
+        image.enabled = true;
+        image.color = Color.black;
+
+        videoPlayer.clip = clip;
+        length = (float)clip.length;
+
+        videoPlayer.Prepare();
+        yield return new WaitUntil(() => videoPlayer.isPrepared == true);
+        image.color = Color.white;
+        videoPlayer.Play();
+
         StartCoroutine(WaitClipToEnd());
-    }   
+    }
 
     public void EndVideo()
     {
