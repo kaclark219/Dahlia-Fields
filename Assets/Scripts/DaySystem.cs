@@ -30,6 +30,7 @@ public class DaySystem : MonoBehaviour
     private VideoPlayerManager videoPlayerManager;
     private GlobalStateManager globalStateManager;
     private FadeInFadeOut transition;
+    private MusicManager musicManager;
 
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class DaySystem : MonoBehaviour
         videoPlayerManager = FindFirstObjectByType<VideoPlayerManager>();
         globalStateManager = GetComponent<GlobalStateManager>();
         transition = FindFirstObjectByType<FadeInFadeOut>();
+        musicManager = FindFirstObjectByType<MusicManager>();
     }
 
     private void Start()
@@ -94,6 +96,9 @@ public class DaySystem : MonoBehaviour
     {
         Debug.Log("Loading day " + day);
 
+        //Suspend the music
+        musicManager.fadeOut();
+
         playerInteractor.Interact();
 
         Cutscene cutscene = CheckForCutscene();
@@ -116,6 +121,9 @@ public class DaySystem : MonoBehaviour
         }
         isFeedDay = feedDays.Contains(day);
         npcKilled = false;
+
+        //Restart music
+        musicManager.fadeIn();
 
         // Reset player location
         playerMovement.ResetLocation();

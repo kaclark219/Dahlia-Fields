@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MusicManager : MonoBehaviour
 {
@@ -11,14 +12,14 @@ public class MusicManager : MonoBehaviour
     [SerializeField] AudioClip evening;
     private bool primarySpeaker = true;
     [SerializeField] DaySystem daysystem;
+    public float thisTime;
 
     void Start(){
-        speaker1.clip = morning;
-        primarySpeaker = true;
-        speaker1.Play();
+        fadeIn();
     }
 
     void Update(){  
+        thisTime = speaker1.time;
         if(primarySpeaker){
             if(daysystem.day%3 == 1 && speaker1.time >= 80){
                 speaker2.clip = morning;
@@ -56,12 +57,30 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    // TODO: able to pause and unpause music for playing Cutscene audio
-    public void PauseMusic()
+    public void fadeOut()
     {
+        while(speaker1.volume > 0){
+            speaker1.volume = Math.Max(speaker1.volume - Time.deltaTime*.01f, 0f);
+            speaker2.volume = speaker1.volume;
+        }
+        speaker1.Stop();
+        speaker2.Stop();
     }
 
-    public void ResumeMusic()
+    public void fadeIn()
     {
+        speaker1.volume = .5f;
+        speaker2.volume = .5f;
+        speaker1.time = 70;
+        speaker2.time = 70;
+        if(daysystem.day%3 == 1){
+            speaker1.clip = morning;
+        }else if(daysystem.day%3 == 2){
+            speaker1.clip = afternoon;
+        }else{
+            speaker1.clip = evening;
+        }
+        primarySpeaker = true;
+        speaker1.Play();
     }
 }
