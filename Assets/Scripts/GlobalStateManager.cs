@@ -62,7 +62,7 @@ public class GlobalStateManager : MonoBehaviour
 
     public void SaveAllData()
     {
-        //Debug.Log("Saving Data...");
+        Debug.Log("Saving Data...");
         dialogueVariables.SaveData();
         playerData.SaveData();
         daySystem.SaveData();

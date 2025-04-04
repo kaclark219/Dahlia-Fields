@@ -7,8 +7,8 @@ public class PlayerData : MonoBehaviour
 {
     private const string nameKey = "PLAYER_NAME";
     private const string moneyKey = "MONEY";
-    private const int startEnergy = 50;
-    private const int startMoney = 30;
+    private const int startEnergy = 35;
+    private const int startMoney = 150;
 
     [SerializeField] private DayNightCycle dayNightCycle;
     [SerializeField] private DaySystem daySystem;

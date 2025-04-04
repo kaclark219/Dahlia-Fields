@@ -67,7 +67,7 @@ MonoBehaviour:
   - {fileID: 7108894432670214686}
   - {fileID: 1790407756425000834}
   ActiveBox: {fileID: 0}
-  numActiveBoxes: 1
+  numActiveBoxes: 2
 --- !u!1001 &2703437049471132700
 PrefabInstance:
   m_ObjectHideFlags: 0
