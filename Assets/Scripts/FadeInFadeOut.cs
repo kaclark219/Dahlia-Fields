@@ -11,6 +11,7 @@ public class FadeInFadeOut : MonoBehaviour
     public Coroutine coroutine;
 
     private float alpha = 0f;
+    private float defaultSpeed = 1.2f;
 
     private void Awake()
     {
@@ -32,14 +33,28 @@ public class FadeInFadeOut : MonoBehaviour
     {
         if (coroutine != null) { StopCoroutine(coroutine); }
         image.enabled = true;
-        coroutine = StartCoroutine(FadeInCoroutine());
+        coroutine = StartCoroutine(FadeInCoroutine(defaultSpeed));
     }
 
     public void FadeOut()
     {
         if (coroutine != null) { StopCoroutine(coroutine); }
         image.enabled = true;
-        coroutine = StartCoroutine(FadeOutCoroutine());
+        coroutine = StartCoroutine(FadeOutCoroutine(defaultSpeed));
+    }
+
+    public void FadeIn(float speed)
+    {
+        if (coroutine != null) { StopCoroutine(coroutine); }
+        image.enabled = true;
+        coroutine = StartCoroutine(FadeInCoroutine(speed));
+    }
+
+    public void FadeOut(float speed)
+    {
+        if (coroutine != null) { StopCoroutine(coroutine); }
+        image.enabled = true;
+        coroutine = StartCoroutine(FadeOutCoroutine(speed));
     }
 
     // Basic transition for basic functions to be called in between the transition and at the end
@@ -73,13 +88,13 @@ public class FadeInFadeOut : MonoBehaviour
 
 
     // For more complicated transitions, where complex functions need to be called in between 
-    private IEnumerator FadeInCoroutine()
+    private IEnumerator FadeInCoroutine(float speed)
     {
         image.color = new Color(0, 0, 0, 0);
 
         yield return null;
 
-        for (float i = 0; i < 1.2f; i += Time.deltaTime)
+        for (float i = 0; i < speed; i += Time.deltaTime)
         {
             alpha = Mathf.Lerp(0f, 1f, i / 1.2f);
             image.color = new Color(0, 0, 0, alpha);
@@ -87,15 +102,17 @@ public class FadeInFadeOut : MonoBehaviour
         }
 
         coroutine = null;
+        image.color = new Color(0, 0, 0, 1);
+
     }
 
-    private IEnumerator FadeOutCoroutine()
+    private IEnumerator FadeOutCoroutine(float speed)
     {
         image.color = new Color(0, 0, 0, 1.0f);
 
         yield return null;
 
-        for (float i = 0; i < 1.2f; i += Time.deltaTime)
+        for (float i = 0; i < speed; i += Time.deltaTime)
         {
             alpha = Mathf.Lerp(1f, 0f, i / 1.2f);
             image.color = new Color(0, 0, 0, alpha);

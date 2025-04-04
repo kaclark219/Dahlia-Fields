@@ -1546,7 +1546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause_ui: {fileID: 3218811838912624062}
-  menu_scene: ' Prototype_Menu'
+  sceneName: Prototype_Menu
 --- !u!114 &3697728642292806546
 MonoBehaviour:
   m_ObjectHideFlags: 0

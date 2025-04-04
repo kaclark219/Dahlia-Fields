@@ -90,38 +90,29 @@ public class DaySystem : MonoBehaviour
         playerInteractor.EndInteract();
     }
 
-    private IEnumerator LoadDay(int day, bool fadeIn)
+    private IEnumerator LoadDay(int day, bool startingGame)
     {
         Debug.Log("Loading day " + day);
 
         playerInteractor.Interact();
 
-        if (fadeIn)
-        {
-            transition.FadeIn();
-            yield return new WaitUntil(() => transition.coroutine == null);
-        }
-
-        // Check for cutscene
         Cutscene cutscene = CheckForCutscene();
-        if (cutscene != null && playCutscenes)
-        {
-            yield return new WaitForSeconds(0.5f);
-            // Load cutscene
-            Debug.Log("Loading cutscene: " + cutscene.clip.name);
-            videoPlayerManager.StartVideo(cutscene.clip);
-            yield return new WaitWhile(() => videoPlayerManager.isPlaying);
-            yield return new WaitForSeconds(0.5f);
-        }
 
-        transition.FadeOut();
+        yield return StartCoroutine(videoPlayerManager.PlayNextDay(cutscene ? cutscene.clip : null, startingGame));   
 
+        UpdateGameState(day);
+
+        playerInteractor.EndInteract();
+    }
+
+    private void UpdateGameState(int day)
+    {
         // Check if yesterday was a kill day before updating
         if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
         {
             Debug.Log("Player Lost Game!");
             LoseGame();
-            yield break;
+            return;
         }
         isFeedDay = feedDays.Contains(day);
         npcKilled = false;
@@ -143,9 +134,6 @@ public class DaySystem : MonoBehaviour
 
         // update inventory with any pending orders
         seedStore.Delivery();
-
-        playerInteractor.EndInteract();
-
     }
 
     private Cutscene CheckForCutscene()
