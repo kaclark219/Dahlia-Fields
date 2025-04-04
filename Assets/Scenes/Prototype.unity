@@ -216,6 +216,14 @@ PrefabInstance:
       propertyPath: startingNote
       value: 
       objectReference: {fileID: 2102094166}
+    - target: {fileID: 2686931258976746758, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831517011601596728, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5814080197229141757, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.95

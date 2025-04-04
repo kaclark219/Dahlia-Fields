@@ -46,6 +46,7 @@ public class VideoPlayerManager : MonoBehaviour
         image.enabled = false;
         playerMovement.canmove=true;
         playerInteractor.canInteract=true;
+        videoPlayer.clip = null;
         HUD.SetActive(true);
         musicManager.ResumeMusic();
 
