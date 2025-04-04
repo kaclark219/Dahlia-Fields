@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         canmove = true;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         //Movement Logic
         if(canmove){

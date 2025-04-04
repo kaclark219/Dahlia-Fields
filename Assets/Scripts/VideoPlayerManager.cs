@@ -35,7 +35,7 @@ public class VideoPlayerManager : MonoBehaviour
         HUD.SetActive(false);
 
         // pause music
-        musicManager.PauseMusic();
+        // musicManager.PauseMusic();
 
         isPlaying = true;
         StartCoroutine(WaitClipToEnd());
@@ -47,7 +47,7 @@ public class VideoPlayerManager : MonoBehaviour
         playerMovement.canmove=true;
         playerInteractor.canInteract=true;
         HUD.SetActive(true);
-        musicManager.ResumeMusic();
+        // musicManager.ResumeMusic();
 
         isPlaying = false;
     }
