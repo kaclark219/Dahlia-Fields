@@ -31,7 +31,7 @@ public class MusicManager : MonoBehaviour
                 speaker2.time = 0;
                 speaker2.Play();
                 primarySpeaker = false;
-            }else if(daysystem.day%3 == 3 && speaker1.time >= 104){
+            }else if(daysystem.day%3 == 0 && speaker1.time >= 105){
                 speaker2.clip = evening;
                 speaker2.time = 0;
                 speaker2.Play();
@@ -48,7 +48,7 @@ public class MusicManager : MonoBehaviour
                 speaker1.time = 0;
                 speaker1.Play();
                 primarySpeaker = true;
-            }else if(daysystem.day%3 == 3 && speaker2.time >= 104){
+            }else if(daysystem.day%3 == 0 && speaker2.time >= 105){
                 speaker1.clip = evening;
                 speaker1.time = 0;
                 speaker1.Play();
