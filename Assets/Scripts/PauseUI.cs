@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseUI : MonoBehaviour
 {
     [SerializeField] GameObject pause_ui;
+    public string sceneName = "Prototype_Menu";
 
     private void Start()
     {
@@ -14,7 +15,7 @@ public class PauseUI : MonoBehaviour
 
     public void ToMain()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(sceneName);
     }
 
 }

@@ -15,7 +15,7 @@ public class FlowerboxManager : MonoBehaviour
     private InventoryManager inventoryManager;
     private PlayerInteractor plint;
 
-    [SerializeField] private int numActiveBoxes = 1;
+    [SerializeField] private int numActiveBoxes = 2;
     private const string activeBoxesKey = "Active_Boxes";
     public bool openedBox = false;
 
@@ -113,7 +113,7 @@ public class FlowerboxManager : MonoBehaviour
         }
         else
         {
-            numActiveBoxes = 1;
+            numActiveBoxes = 2;
         }
 
         if (PlayerPrefs.HasKey("OpenedBox"))
@@ -145,8 +145,8 @@ public class FlowerboxManager : MonoBehaviour
                 box.ResetData();
             }
         }
-        numActiveBoxes = 1;
         openedBox = false;
+        numActiveBoxes = 2;
         UpdateVisibleBoxes();
     }
 

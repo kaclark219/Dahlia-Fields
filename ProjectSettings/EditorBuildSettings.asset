@@ -14,12 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Nandni_Test.unity
     guid: 92565a483b1f6a94ba2f46466a6a0104
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Prototype_Menu.unity
     guid: 0d1d009aad07fc64ca6f30025047aa70
-  - enabled: 1
-    path: Assets/Scenes/PrototypeMenu.unity
-    guid: e18e314df68f2d94890022f10183fba6
   - enabled: 1
     path: Assets/Scenes/Prototype.unity
     guid: 3b5be1f5d232a344fa9ecc271ccf3eb3
