@@ -96,8 +96,7 @@ public class DaySystem : MonoBehaviour
     {
         Debug.Log("Loading day " + day);
 
-        //Suspend the music
-        musicManager.fadeOut();
+        
 
         playerInteractor.Interact();
 

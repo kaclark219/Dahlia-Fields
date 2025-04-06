@@ -9,22 +9,23 @@ public class BedInteractable : InteractableObj
     [SerializeField] private TextMeshProUGUI description;
 
     private DaySystem daySystem;
-    
-
+    private MusicManager musicManager;
 
     public override void Start()
     {
         base.Start();
         bedUI.SetActive(false);
     }
-
     public override void Awake()
     {
         base.Awake();
         daySystem = GameObject.Find("GameManager").GetComponent<DaySystem>();
+        musicManager = FindFirstObjectByType<MusicManager>();
     }
     public override void OnInteract()
     {
+        //Suspend the music
+        musicManager.fadeOut();
         base.OnInteract();
         bedUI.SetActive(true);
 
@@ -36,7 +37,6 @@ public class BedInteractable : InteractableObj
         {
             description.text = "You had a busy day today. Sleep to end the day and rest up.";
         }
-
     }
 
     public override void EndInteract()

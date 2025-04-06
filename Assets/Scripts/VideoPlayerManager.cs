@@ -62,7 +62,7 @@ public class VideoPlayerManager : MonoBehaviour
         HUD.SetActive(false);
 
         // pause music
-        // musicManager.PauseMusic();
+        // musicManager.fadeOut();
 
         image.enabled = true;   
         image.color = Color.black;  // for smoother transition
@@ -87,7 +87,7 @@ public class VideoPlayerManager : MonoBehaviour
         videoPlayer.clip = null;
 
         HUD.SetActive(true);
-        // musicManager.ResumeMusic();
+        // musicManager.fadeIn();
 
         currCoroutine = null;
     }

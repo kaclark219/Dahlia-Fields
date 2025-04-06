@@ -14,9 +14,9 @@ public class MusicManager : MonoBehaviour
     [SerializeField] DaySystem daysystem;
     public float thisTime;
 
-    void Start(){
-        fadeIn();
-    }
+    // void Start(){
+    //     fadeIn();
+    // }
 
     void Update(){  
         thisTime = speaker1.time;
@@ -59,8 +59,13 @@ public class MusicManager : MonoBehaviour
 
     public void fadeOut()
     {
-        while(speaker1.volume > 0){
-            speaker1.volume = Math.Max(speaker1.volume - Time.deltaTime*.01f, 0f);
+        StartCoroutine(Fade());
+    }
+
+    private IEnumerator Fade(){
+        for(int i = 0; i < 100; i++){
+            yield return new WaitForSeconds(.01f);
+            speaker1.volume -= .005f;
             speaker2.volume = speaker1.volume;
         }
         speaker1.Stop();
