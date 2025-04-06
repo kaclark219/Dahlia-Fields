@@ -9,6 +9,7 @@ public class FlowerboxManager : MonoBehaviour
     [SerializeField] private GameObject FlowerBoxUI;
     [SerializeField] TextMeshProUGUI[] counts;
     [SerializeField] private List<FlowerBox> FlowerBoxes; 
+    [SerializeField] public GameObject exclaim;
     public FlowerBox ActiveBox;
 
     private InventoryManager inventoryManager;
@@ -16,6 +17,7 @@ public class FlowerboxManager : MonoBehaviour
 
     [SerializeField] private int numActiveBoxes = 1;
     private const string activeBoxesKey = "Active_Boxes";
+    public bool openedBox = false;
 
     void Awake()
     {
@@ -100,6 +102,7 @@ public class FlowerboxManager : MonoBehaviour
         }
 
         PlayerPrefs.SetInt(activeBoxesKey, numActiveBoxes);
+        PlayerPrefs.SetInt("OpenedBox", openedBox ? 1 : 0);
     }
 
     public void LoadData()
@@ -112,6 +115,16 @@ public class FlowerboxManager : MonoBehaviour
         {
             numActiveBoxes = 1;
         }
+
+        if (PlayerPrefs.HasKey("OpenedBox"))
+        {
+            openedBox = PlayerPrefs.GetInt("OpenedBox") == 1;
+        }
+        else
+        {
+            openedBox = false;
+        }
+        exclaim.SetActive(!openedBox);
         UpdateVisibleBoxes();
 
         foreach (FlowerBox box in FlowerBoxes)
@@ -133,6 +146,7 @@ public class FlowerboxManager : MonoBehaviour
             }
         }
         numActiveBoxes = 1;
+        openedBox = false;
         UpdateVisibleBoxes();
     }
 

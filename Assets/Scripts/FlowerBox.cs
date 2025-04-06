@@ -14,6 +14,7 @@ public class FlowerBox : InteractableObj
     public int spriteInd = 0;
 
     [SerializeField] public Sprite[] sprites;
+    [SerializeField] private GameObject exclaim;
 
     private string boxKey;
     private InventoryItem flowerPlanted;
@@ -54,6 +55,10 @@ public class FlowerBox : InteractableObj
 
     public override void OnInteract()
     {
+        if(exclaim.activeSelf){
+            exclaim.GetComponent<Tutorial>().FlowerBoxTutorial();
+        }
+
         if (!playerData.CheckEnergy(5)) { return; }
 
         base.OnInteract();

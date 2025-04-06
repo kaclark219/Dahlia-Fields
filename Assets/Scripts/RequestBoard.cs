@@ -15,8 +15,10 @@ public class RequestBoard : InteractableObj
     [SerializeField] InventoryManager inventory;
     [SerializeField] DialogueVariables dvar;
     [SerializeField] GameObject remaining;
+    [SerializeField] public GameObject exclaim;
     int day;
     Dictionary<GameObject, Request> requestList;
+    public bool openedBoard = false;
 
     public override void Start()
     {
@@ -251,6 +253,9 @@ public class RequestBoard : InteractableObj
 
     override public void OnInteract(){
         base.OnInteract();
+        if(exclaim.activeSelf){
+            exclaim.GetComponent<Tutorial>().RequestBoardTutorial();
+        }
         canvas.SetActive(true);
         Refresh();
     }
@@ -287,6 +292,8 @@ public class RequestBoard : InteractableObj
             string key = req.Value.author.ToString() + "_" + req.Value.day + "_" + "Request";
             PlayerPrefs.SetInt(key, req.Value.completed);
         }
+
+        PlayerPrefs.SetInt("OpenedBoard", openedBoard ? 1 : 0);
     }
 
     private IEnumerator Load(){
@@ -304,6 +311,16 @@ public class RequestBoard : InteractableObj
                 requestList[key] = req; 
             }
         }
+
+        if (PlayerPrefs.HasKey("OpenedBoard"))
+        {
+            openedBoard = PlayerPrefs.GetInt("OpenedBoard") == 1;
+        }
+        else
+        {
+            openedBoard = false;
+        }
+        exclaim.SetActive(!openedBoard);
     }
 
     public void LoadData()
@@ -325,6 +342,8 @@ public class RequestBoard : InteractableObj
                 requestList[key] = req;
             }
         }
+
+        openedBoard = false;
     }
     #endregion
 }
