@@ -21,7 +21,19 @@ public class NPCMaddie : NPC
         plint.Interact();
         story = ink.CreateStory(buySeedText, this);
         story.BindExternalFunction("OpenSeedUI", ()=> this.OpenSeedUI());
-        ink.DisplayNextLine();
+        ink.StartCreatedStory();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {   
+            if(SeedStoreUI.GetComponent<SeedStore>().storeCanvas.activeInHierarchy)
+            {
+                CloseSeedUI();
+            }
+        }
     }
 
     public override void EndInteract()
@@ -41,6 +53,7 @@ public class NPCMaddie : NPC
         {
             CloseSeedUI();
         }
+        EndInteract();
     }
 
     public void CloseSeedUI()
@@ -59,6 +72,7 @@ public class NPCMaddie : NPC
         }
 
         ink.EnableUI();
+        EndInteract();
     }
     
 }

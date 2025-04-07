@@ -32,6 +32,8 @@ public class DaySystem : MonoBehaviour
     private FadeInFadeOut transition;
     private MusicManager musicManager;
 
+    private InGameHUD inGameHud;
+
     private void Awake()
     {
         npcManager = GameObject.Find("NPCManager").GetComponent<NPCManager>();
@@ -45,6 +47,8 @@ public class DaySystem : MonoBehaviour
         globalStateManager = GetComponent<GlobalStateManager>();
         transition = FindFirstObjectByType<FadeInFadeOut>();
         musicManager = FindFirstObjectByType<MusicManager>();
+
+        inGameHud = GameObject.Find("InGameHUD").GetComponent<InGameHUD>();
     }
 
     private void Start()
@@ -138,6 +142,9 @@ public class DaySystem : MonoBehaviour
 
         // update inventory with any pending orders
         seedStore.Delivery();
+
+        //Update Day counter
+        inGameHud.UpdateDay(day); 
     }
 
     private Cutscene CheckForCutscene()

@@ -77,18 +77,18 @@ public class PlayerData : MonoBehaviour
         inGameHud.UpdateEnergy(energy); //Update UI
         Debug.Log("Player Energy changed by " + amount + ", new energy is " + energy);
 
-
+            
         if (amount < 0) // Increasing energy should not affect dayNightCycle
         {
             dayNightCycle.UpdateLight(energy);
 
-            if (energy <= 36 && energy > 15 && timeOfDay != 2)  // Change to Afternoon
+            if (energy <= 24 && energy > 12 && timeOfDay != 2)  // Change to Afternoon
             {
                 timeOfDay = 2;
                 StartCoroutine(daySystem.ChangeTimeOfDay(timeOfDay));
                 Debug.Log("Change Time of Day to Afternoon");
             }
-            else if (energy <= 15 && energy > 0 && timeOfDay != 3)  // Change to Evening
+            else if (energy <= 12 && energy > 0 && timeOfDay != 3)  // Change to Evening
             {
                 timeOfDay = 3;
                 StartCoroutine(daySystem.ChangeTimeOfDay(timeOfDay));
