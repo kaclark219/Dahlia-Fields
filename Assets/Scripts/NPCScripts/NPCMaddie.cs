@@ -21,7 +21,7 @@ public class NPCMaddie : NPC
         plint.Interact();
         story = ink.CreateStory(buySeedText, this);
         story.BindExternalFunction("OpenSeedUI", ()=> this.OpenSeedUI());
-        ink.DisplayNextLine();
+        ink.StartCreatedStory();
     }
 
     public override void Update()
