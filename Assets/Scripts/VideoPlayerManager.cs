@@ -11,6 +11,9 @@ public class VideoPlayerManager : MonoBehaviour
     [Space]
     public VideoClip SleepClip;
     public VideoClip WakeUpClip;
+    [Space]
+    public VideoClip MorningToAfternoon;
+    public VideoClip AfternoonToEvening;
 
     private RawImage image;
     private VideoPlayer videoPlayer;
@@ -49,22 +52,29 @@ public class VideoPlayerManager : MonoBehaviour
         image.enabled = false;
     }
 
+    public IEnumerator PlayTimeChange(int time)
+    {
+        VideoClip clip = time == 2 ? MorningToAfternoon : AfternoonToEvening;   
+        yield return StartCoroutine(PrepareVideo(clip));
+        yield return StartCoroutine(PlayVideo());
+    }
+
     public IEnumerator PrepareVideo(VideoClip clip)
     {
-        image.enabled=true;
-        image.color = Color.black;
+        videoPlayer.enabled = true;
         videoPlayer.clip = clip;
         length = (float)clip.length;
         videoPlayer.Prepare();  // Prepare video and wait till it's done
         yield return new WaitUntil(() => videoPlayer.isPrepared == true);
-        image.color = Color.white;
     }
 
     private IEnumerator PlayVideo()
     {
+        image.enabled = true;
         videoPlayer.Play();
         yield return new WaitForSeconds(length);
         videoPlayer.clip = null;
         image.enabled = false;
+        videoPlayer.enabled = false;
     }
 }

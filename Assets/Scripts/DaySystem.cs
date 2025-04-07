@@ -8,9 +8,6 @@ public class DaySystem : MonoBehaviour
 {
     public int day;
     public int week;
-    [SerializeField] GameObject MorningToAfternoon;
-    [SerializeField] GameObject AfternoonToEvening;
-
     [Space]
     public bool playCutscenes = true;   // for testing sake
     public List<Cutscene> cutsceneList = new List<Cutscene>();
@@ -51,11 +48,6 @@ public class DaySystem : MonoBehaviour
         inGameHud = GameObject.Find("InGameHUD").GetComponent<InGameHUD>();
     }
 
-    private void Start()
-    {
-        MorningToAfternoon.SetActive(false);
-        AfternoonToEvening.SetActive(false);
-    }
     public void NextDay()
     {
         day++;
@@ -83,10 +75,7 @@ public class DaySystem : MonoBehaviour
         playerInteractor.Interact();
         yield return StartCoroutine(transition.FadeIn(1f));
 
-        GameObject UI = time == 2 ? MorningToAfternoon : AfternoonToEvening;
-        UI.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        UI.SetActive(false);
+        yield return videoPlayerManager.PlayTimeChange(time);
 
         npcManager.MoveNPCs(day, time);
 
