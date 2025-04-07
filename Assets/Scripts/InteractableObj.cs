@@ -29,14 +29,14 @@ public class InteractableObj : MonoBehaviour
 
     virtual protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && collision.gameObject.GetComponent<PlayerInteractor>().enabled)
+        if (collision.CompareTag("Player") && collision.gameObject.GetComponent<PlayerInteractor>().canInteract && !plint.list.Contains(this))
         {
             plint.list.Add(this);
         }
     }
     virtual protected void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && plint.list.Contains(this))
         {
             plint.list.Remove(this);
             active = false;

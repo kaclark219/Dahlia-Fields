@@ -27,7 +27,7 @@ public class DoorHandler : InteractableObj
     public override void OnInteract()
     {
         base.OnInteract();
-        transition.StartTransition(TeleportPlayer, base.EndInteract);
+        StartCoroutine(transition.FullTransition(TeleportPlayer, base.EndInteract));
     }
 
     private void TeleportPlayer()

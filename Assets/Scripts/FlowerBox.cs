@@ -55,7 +55,7 @@ public class FlowerBox : InteractableObj
 
     public override void OnInteract()
     {
-        if(exclaim.activeSelf){
+        if(exclaim && exclaim.activeSelf){
             exclaim.GetComponent<Tutorial>().FlowerBoxTutorial();
         }
 

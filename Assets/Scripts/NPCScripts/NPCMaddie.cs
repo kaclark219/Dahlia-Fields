@@ -19,15 +19,9 @@ public class NPCMaddie : NPC
     public override void OnInteract()
     {
         plint.Interact();
-        //if (transform.parent.transform.position == seedLocation && numOfInteractions > 0)
-        //{
-            story = ink.CreateStory(buySeedText, this);
-        Debug.Log("Maddie story created");
-            story.BindExternalFunction("OpenSeedUI", ()=> this.OpenSeedUI());
-        Debug.Log("Maddie bind");
+        story = ink.CreateStory(buySeedText, this);
+        story.BindExternalFunction("OpenSeedUI", ()=> this.OpenSeedUI());
         ink.DisplayNextLine();
-        //}
-
     }
 
     public override void EndInteract()
