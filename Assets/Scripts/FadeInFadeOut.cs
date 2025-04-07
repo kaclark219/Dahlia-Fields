@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 public class FadeInFadeOut : MonoBehaviour
 {
-    [SerializeField] public Image image;
-    public Coroutine coroutine;
+    private Image image;
 
     private float alpha = 0f;
     private float defaultSpeed = 1.2f;
@@ -19,47 +18,10 @@ public class FadeInFadeOut : MonoBehaviour
         image.enabled = false;
     }
 
-    // inBetween is invoced in between the fade in, fade out transition
-    // at End is invoced at the end
-    public void StartTransition(UnityAction inBetween, UnityAction atEnd)
-    {
-        if (coroutine != null) { StopCoroutine(coroutine); }
-
-        image.enabled = true;
-        coroutine = StartCoroutine(FadeInFadeOutCoroutine(inBetween, atEnd));
-    }
-
-    public void FadeIn()
-    {
-        if (coroutine != null) { StopCoroutine(coroutine); }
-        image.enabled = true;
-        coroutine = StartCoroutine(FadeInCoroutine(defaultSpeed));
-    }
-
-    public void FadeOut()
-    {
-        if (coroutine != null) { StopCoroutine(coroutine); }
-        image.enabled = true;
-        coroutine = StartCoroutine(FadeOutCoroutine(defaultSpeed));
-    }
-
-    public void FadeIn(float speed)
-    {
-        if (coroutine != null) { StopCoroutine(coroutine); }
-        image.enabled = true;
-        coroutine = StartCoroutine(FadeInCoroutine(speed));
-    }
-
-    public void FadeOut(float speed)
-    {
-        if (coroutine != null) { StopCoroutine(coroutine); }
-        image.enabled = true;
-        coroutine = StartCoroutine(FadeOutCoroutine(speed));
-    }
-
     // Basic transition for basic functions to be called in between the transition and at the end
-    private IEnumerator FadeInFadeOutCoroutine(UnityAction inBetween, UnityAction atEnd)
+    public IEnumerator FullTransition(UnityAction inBetween, UnityAction atEnd)
     {
+        image.enabled=true;
         yield return null;
 
         for (float i = 0; i < 1.2f; i += Time.deltaTime)
@@ -82,14 +44,15 @@ public class FadeInFadeOut : MonoBehaviour
         atEnd?.Invoke();
         yield return null;
 
-        coroutine = null;
         image.enabled = false;
     }
 
 
     // For more complicated transitions, where complex functions need to be called in between 
-    private IEnumerator FadeInCoroutine(float speed)
+    public IEnumerator FadeIn(float speed)
     {
+        image.enabled = true;
+
         image.color = new Color(0, 0, 0, 0);
 
         yield return null;
@@ -101,13 +64,13 @@ public class FadeInFadeOut : MonoBehaviour
             yield return null;
         }
 
-        coroutine = null;
-        image.color = new Color(0, 0, 0, 1);
-
+        image.color = Color.black;
     }
 
-    private IEnumerator FadeOutCoroutine(float speed)
+    public IEnumerator FadeOut(float speed)
     {
+        image.enabled = true;
+
         image.color = new Color(0, 0, 0, 1.0f);
 
         yield return null;
@@ -119,7 +82,6 @@ public class FadeInFadeOut : MonoBehaviour
             yield return null;
         }
 
-        coroutine = null;
         image.enabled = false;
     }
 

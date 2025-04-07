@@ -48,6 +48,6 @@ public class BedInteractable : InteractableObj
     public void Sleep()
     {
         daySystem.NextDay();
-        EndInteract();
+        bedUI.SetActive(false);
     }
 }

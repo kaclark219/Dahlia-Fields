@@ -32,6 +32,8 @@ public class DaySystem : MonoBehaviour
     private FadeInFadeOut transition;
     private MusicManager musicManager;
 
+    private InGameHUD inGameHud;
+
     private void Awake()
     {
         npcManager = GameObject.Find("NPCManager").GetComponent<NPCManager>();
@@ -45,6 +47,8 @@ public class DaySystem : MonoBehaviour
         globalStateManager = GetComponent<GlobalStateManager>();
         transition = FindFirstObjectByType<FadeInFadeOut>();
         musicManager = FindFirstObjectByType<MusicManager>();
+
+        inGameHud = GameObject.Find("InGameHUD").GetComponent<InGameHUD>();
     }
 
     private void Start()
@@ -76,19 +80,17 @@ public class DaySystem : MonoBehaviour
     {
         yield return new WaitUntil(() => playerInteractor.canInteract); // Wait until player is done interacting
 
-        transition.FadeIn();
         playerInteractor.Interact();
+        yield return StartCoroutine(transition.FadeIn(1f));
 
-        while (transition.coroutine != null) { yield return null; }
-        
         GameObject UI = time == 2 ? MorningToAfternoon : AfternoonToEvening;
         UI.SetActive(true);
-        yield return new WaitForSeconds(.75f);
+        yield return new WaitForSeconds(1f);
         UI.SetActive(false);
 
         npcManager.MoveNPCs(day, time);
 
-        transition.FadeOut();
+        yield return StartCoroutine(transition.FadeOut(1f));
         playerInteractor.EndInteract();
     }
 
@@ -96,17 +98,19 @@ public class DaySystem : MonoBehaviour
     {
         Debug.Log("Loading day " + day);
 
-        
-
         playerInteractor.Interact();
+        musicManager.fadeOut();
 
-        Cutscene cutscene = CheckForCutscene();
-
-        yield return StartCoroutine(videoPlayerManager.PlayNextDay(cutscene ? cutscene.clip : null, startingGame));   
+        if (playCutscenes)
+        {
+            Cutscene cutscene = CheckForCutscene();
+            yield return StartCoroutine(videoPlayerManager.PlayNextDay(cutscene ? cutscene.clip : null, startingGame));
+        }
 
         UpdateGameState(day);
 
         playerInteractor.EndInteract();
+        musicManager.fadeIn();
     }
 
     private void UpdateGameState(int day)
@@ -120,9 +124,6 @@ public class DaySystem : MonoBehaviour
         }
         isFeedDay = feedDays.Contains(day);
         npcKilled = false;
-
-        //Restart music
-        musicManager.fadeIn();
 
         // Reset player location
         playerMovement.ResetLocation();
@@ -141,6 +142,9 @@ public class DaySystem : MonoBehaviour
 
         // update inventory with any pending orders
         seedStore.Delivery();
+
+        //Update Day counter
+        inGameHud.UpdateDay(day); 
     }
 
     private Cutscene CheckForCutscene()

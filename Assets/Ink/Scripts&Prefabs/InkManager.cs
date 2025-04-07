@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
@@ -12,15 +13,13 @@ public class InkManager : MonoBehaviour
     [SerializeField] private NPCDialogueManager npcDialogueManager;
     [SerializeField] private TextAsset inkJsonAsset;
     [SerializeField] private Story story;
-
+    [Space]
     [SerializeField] private GameObject UI;
     [SerializeField] private TextMeshProUGUI textBox;
     [SerializeField] private OnClickNextDialogue panel;
-
     [SerializeField] private VerticalLayoutGroup choiceButtonContainer;
-
     [SerializeField] private GameObject choiceButtonPrefab;
-
+    [Space]
     [SerializeField] private DialogueVariables dialogueVariables;
 
     private NPCManager npcManager;
@@ -28,6 +27,7 @@ public class InkManager : MonoBehaviour
     private Coroutine printCoroutine = null;
     private string text;
     private bool isStoryPaused = false;
+    private bool storyPlaying = false;
 
     private void Awake()
     {
@@ -37,10 +37,16 @@ public class InkManager : MonoBehaviour
         UI.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (storyPlaying && Input.GetKeyDown(KeyCode.E)) {
+            DisplayNextLine();
+        } 
+    }
+
     // For testing
     private void StartStory()
     {
-        Debug.Log("Starting Dialogue");
         story = new Story(inkJsonAsset.text);
         UI.SetActive(true);
 
@@ -48,13 +54,12 @@ public class InkManager : MonoBehaviour
         BindFunctions();
 
         DisplayNextLine();
+        storyPlaying = true;
     }
 
     // keeps track of InteractableObj to call EndInteract() at end of dialogue
     public Story StartStory(TextAsset newstory, InteractableObj obj)
     {
-        Debug.Log("Starting Dialogue");
-
         currInteractable = obj; 
         inkJsonAsset = newstory;
         story = new Story(inkJsonAsset.text);
@@ -64,6 +69,7 @@ public class InkManager : MonoBehaviour
         BindFunctions();
 
         DisplayNextLine();
+        storyPlaying = true;
 
         return story;
     }
@@ -71,8 +77,6 @@ public class InkManager : MonoBehaviour
     // Used to create the story but not display the next line for other ExternalFunction bindings
     public Story CreateStory(TextAsset newstory, InteractableObj obj)
     {
-        Debug.Log("Starting Dialogue");
-
         currInteractable = obj;
         inkJsonAsset = newstory;
         story = new Story(inkJsonAsset.text);
@@ -80,8 +84,22 @@ public class InkManager : MonoBehaviour
 
         // Connects function calls in Ink file with function calls in Unity
         BindFunctions();
-
+        
         return story;
+    }
+
+    public void SetDialogueName(string name)
+    {
+        npcDialogueManager.SetName(name);
+    }
+
+    public void StartCreatedStory()
+    {
+        if (story)
+        {
+            DisplayNextLine();
+            storyPlaying = true;
+        }
     }
 
     private void BindFunctions()
@@ -95,18 +113,20 @@ public class InkManager : MonoBehaviour
 
     public void EndStory()
     {
-        Debug.Log("Exiting Dialogue");
-
         // Reset Dialogue 
         story.ResetState();
         dialogueVariables.StopListening(story);
         UI.SetActive(false);
+        story = null;
 
         // Clear all Portraits
         npcDialogueManager.ClearCharacters();
 
         // End Interaction for Player
         currInteractable.EndInteract();
+        currInteractable = null;
+
+        storyPlaying = false;
     }
 
     public void DisplayNextLine()

@@ -19,15 +19,21 @@ public class NPCMaddie : NPC
     public override void OnInteract()
     {
         plint.Interact();
-        //if (transform.parent.transform.position == seedLocation && numOfInteractions > 0)
-        //{
-            story = ink.CreateStory(buySeedText, this);
-        Debug.Log("Maddie story created");
-            story.BindExternalFunction("OpenSeedUI", ()=> this.OpenSeedUI());
-        Debug.Log("Maddie bind");
-        ink.DisplayNextLine();
-        //}
+        story = ink.CreateStory(buySeedText, this);
+        story.BindExternalFunction("OpenSeedUI", ()=> this.OpenSeedUI());
+        ink.StartCreatedStory();
+    }
 
+    public override void Update()
+    {
+        base.Update();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {   
+            if(SeedStoreUI.GetComponent<SeedStore>().storeCanvas.activeInHierarchy)
+            {
+                CloseSeedUI();
+            }
+        }
     }
 
     public override void EndInteract()
@@ -47,6 +53,7 @@ public class NPCMaddie : NPC
         {
             CloseSeedUI();
         }
+        EndInteract();
     }
 
     public void CloseSeedUI()
@@ -65,6 +72,7 @@ public class NPCMaddie : NPC
         }
 
         ink.EnableUI();
+        EndInteract();
     }
     
 }

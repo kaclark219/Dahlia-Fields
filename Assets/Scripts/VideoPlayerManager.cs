@@ -7,7 +7,6 @@ using UnityEngine.Video;
 public class VideoPlayerManager : MonoBehaviour
 {
     [SerializeField] private GameObject HUD;
-    [SerializeField] private MusicManager musicManager;
     [SerializeField] private FadeInFadeOut transition;
     [Space]
     public VideoClip SleepClip;
@@ -15,80 +14,57 @@ public class VideoPlayerManager : MonoBehaviour
 
     private RawImage image;
     private VideoPlayer videoPlayer;
-
-    private Coroutine currCoroutine;
+    private float length;
     private void Start()
     {
         image = GetComponent<RawImage>();
-        image.enabled = false;
         videoPlayer = GetComponent<VideoPlayer>();
         transition = FindFirstObjectByType<FadeInFadeOut>();
     }
-
-    private void Update()
-    {
-        if (currCoroutine != null && Input.GetKeyDown(KeyCode.Escape))
-        {
-            StopCoroutine(currCoroutine);
-            EndVideo();
-        }
-    }
-
     public IEnumerator PlayNextDay(VideoClip cutscene, bool includeSleepAnimation)
     {
-        
+        HUD.SetActive(false);
+        image.enabled =true;
+
         if (includeSleepAnimation)
         {
-            yield return StartVideo(SleepClip);
+            yield return StartCoroutine(transition.FadeIn(3));
+
+            yield return StartCoroutine(PrepareVideo(SleepClip));
+            yield return StartCoroutine(PlayVideo());
         }
 
         if (cutscene != null)
         {
-            yield return StartVideo(cutscene);
+            yield return StartCoroutine(PrepareVideo(cutscene));
+            yield return StartCoroutine(PlayVideo());
         }
 
+        yield return StartCoroutine(PrepareVideo(WakeUpClip));
+        yield return StartCoroutine(PlayVideo());
 
-        yield return StartVideo(WakeUpClip);
+        yield return StartCoroutine(transition.FadeOut(3));
+
+        HUD.SetActive(true);
+        image.enabled = false;
     }
 
-    public Coroutine StartVideo(VideoClip clip)
+    public IEnumerator PrepareVideo(VideoClip clip)
     {
-        currCoroutine = StartCoroutine(PlayVideo(clip));
-        return currCoroutine;
-    }
-
-    private IEnumerator PlayVideo(VideoClip clip)
-    {
-        HUD.SetActive(false);
-
-        // pause music
-        // musicManager.fadeOut();
-
-        image.enabled = true;   
-        image.color = Color.black;  // for smoother transition
-
+        image.enabled=true;
+        image.color = Color.black;
         videoPlayer.clip = clip;
-        float length = (float)clip.length;
-
+        length = (float)clip.length;
         videoPlayer.Prepare();  // Prepare video and wait till it's done
         yield return new WaitUntil(() => videoPlayer.isPrepared == true);
         image.color = Color.white;
-        videoPlayer.Play();
-
-        yield return new WaitForSeconds(length);
-
-        EndVideo();
     }
 
-    private void EndVideo()
+    private IEnumerator PlayVideo()
     {
-        image.enabled = false;
-        videoPlayer.Stop();
+        videoPlayer.Play();
+        yield return new WaitForSeconds(length);
         videoPlayer.clip = null;
-
-        HUD.SetActive(true);
-        // musicManager.fadeIn();
-
-        currCoroutine = null;
+        image.enabled = false;
     }
 }

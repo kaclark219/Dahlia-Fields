@@ -20,38 +20,31 @@ public class NPCGerald : NPC
     }
     public override void OnInteract()
     {
+        plint.Interact();
 
         int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
 
         if (transform.parent.transform.position == clinicLocation && numOfInteractions > 0)
         {
-            plint.Interact();
-
             story = ink.CreateStory(buyTonicText, this);
             story.BindExternalFunction("BuyTonic", () => this.BuyTonic());
 
-            ink.DisplayNextLine();
+            ink.StartCreatedStory();
             costsEnergy = false;
         }
         else if (isFeedDay && trust >= trustRequired && playerData.CheckEnergy(5))
         {
-            plint.Interact();
-
             ink.StartStory(killText, this);
             costsEnergy = true;
             isFeedDay = false;
         }
         else if (textAssets.Count <= numOfInteractions || dailyInteraction)
         {
-            plint.Interact();
-
             ink.StartStory(fuckOffText, this);
             costsEnergy = false;
         }
         else if (playerData.CheckEnergy(5))
         {
-            plint.Interact();
-
             ink.StartStory(textAssets[numOfInteractions], this);
             dailyInteraction = true;
             numOfInteractions++;
@@ -62,6 +55,7 @@ public class NPCGerald : NPC
     public override void EndInteract()
     {
         plint.EndInteract();
+
         if (costsEnergy)
         {
             playerData.ModifyEnergy(-5); // Decrease player energy
