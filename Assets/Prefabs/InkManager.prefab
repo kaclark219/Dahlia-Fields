@@ -123,9 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 3720186509679898539, guid: 990afb787b2754e4f9e267376375e815, type: 3}
-  dialogueVariables: {fileID: 5934105558860872651}
   nameText: {fileID: 0}
-  trust: {fileID: 0}
+  trustImage: {fileID: 0}
   leftLocation: {fileID: 0}
   centerLocation: {fileID: 0}
   rightLocation: {fileID: 0}

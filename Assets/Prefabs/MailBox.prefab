@@ -120,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00040626526, y: -0.15492833}
+  m_Offset: {x: 0, y: -0.49}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -131,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9616432, y: 0.6084783}
+  m_Size: {x: 0.6, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &5897880172392447952
 GameObject:
@@ -273,32 +273,56 @@ MonoBehaviour:
   notCollect: {fileID: 0}
   Collect: {fileID: 0}
   price: {fileID: 0}
-  slots: []
-  cartItems: []
+  slots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  cartItems:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   counts:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  clears:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   fbackgrounds:
-  - {fileID: 21300000, guid: 0d680cc4fbf07c749afcb94a7453712f, type: 3}
-  - {fileID: 21300000, guid: 9e16df651f286244abef54396dde600c, type: 3}
-  - {fileID: 21300000, guid: 21175b67087f878428fd44ae8aee2605, type: 3}
-  - {fileID: 21300000, guid: 05a69f0faeebd0245a8b62aeb6d72d5d, type: 3}
-  - {fileID: 21300000, guid: c29e4cbe1155bc647a2f018a184bd25a, type: 3}
-  - {fileID: 21300000, guid: 5bf95bf88b1f81d488df384c6355579f, type: 3}
-  - {fileID: 21300000, guid: 6b4ddbed9928aab49b76b816546d23a8, type: 3}
-  - {fileID: 21300000, guid: c107932b9a7b43d469d873a7bbd6a4da, type: 3}
-  - {fileID: 21300000, guid: d0bfc33843f5b9341a8c35a54cce67c1, type: 3}
-  - {fileID: 21300000, guid: dcb2e46f5150ffb43bb0a2eab6f368a0, type: 3}
-  cartIcons: []
+  - {fileID: 21300000, guid: b65b008cb61759a46a23d50cee604805, type: 3}
+  - {fileID: 21300000, guid: fa30586c334a8694d9b5547761ebc6ad, type: 3}
+  - {fileID: 21300000, guid: a789622e008442145b9f4533949b44bd, type: 3}
+  - {fileID: 21300000, guid: 1f456de007e46374db4faf4df7214ef7, type: 3}
+  - {fileID: 21300000, guid: d1400bc2c3ac88e4ea157d298b4180a2, type: 3}
+  - {fileID: 21300000, guid: 9d858287e731ce64e804248b71a19991, type: 3}
+  - {fileID: 21300000, guid: f7ffa6720f61437419e11482a455d882, type: 3}
+  - {fileID: 21300000, guid: 9548578a6a327fb46b6265a7b5ad55a8, type: 3}
+  - {fileID: 21300000, guid: 65a7660561867bf4ca69c10d31036339, type: 3}
+  - {fileID: -160751424, guid: 13f4b0731b353ef4fb9e33965ba55ba7, type: 3}
+  cartIcons:
+  - {fileID: 21300000, guid: 509af4d4351238741bb5da732b73ca19, type: 3}
+  - {fileID: 21300000, guid: 58dc8fa54e53137499731a28a28446a3, type: 3}
+  - {fileID: 21300000, guid: 3c6e61c4fb0f39f43a37489036327477, type: 3}
+  - {fileID: 21300000, guid: 9fc24137cda2614449b155ccec84617e, type: 3}
+  - {fileID: 21300000, guid: 9129379e415e66543bd2bd779959a3ea, type: 3}
+  - {fileID: 21300000, guid: ec522fe2e0b89b047a49f31f2aedb6a3, type: 3}
+  - {fileID: 21300000, guid: 11dbd0d7999e1ca4b977475d9f90b979, type: 3}
+  - {fileID: 21300000, guid: afcddac1586233c418dcf207c6fd29f9, type: 3}
+  - {fileID: 21300000, guid: 72615cf4897f1eb499d2d15d3706a519, type: 3}
   background: {fileID: 0}
-  statements: []
+  statements:
+  - {fileID: 21300000, guid: 8108460cc14bfd54b960fa4a15391f9d, type: 3}
+  - {fileID: 21300000, guid: fde9221efb0ae3d46a5843c4586ea3d5, type: 3}
+  - {fileID: 21300000, guid: 9d5e53629ba3fcb45a3541e90ab64ec5, type: 3}
   maddie: {fileID: 0}
   broke: {fileID: 0}
   inventory: {fileID: 0}
