@@ -11,7 +11,7 @@ INCLUDE ../Globals.ink
 {HideCharacter("Poppy")} {ShowCharacter("Player", "Right", "Normal")} Haven't you? Everyone is so comfortable around you.
 {HideCharacter("Player")} {ShowCharacter("Poppy", "Right", "Happy")} Nope! Moved here about... six years ago? But I guess I blend in well.
 {HideCharacter("Poppy")} {ShowCharacter("Player", "Right", "Normal")} Huh. Never would've guessed.
-{HideCharacter("Player")} {ShowCharacter("Poppy", "Right", "Happy")} Good! That means I’ve successfully infiltrated the town.  
+{HideCharacter("Player")} {ShowCharacter("Poppy", "Right", "Happy")} Good! That means I've successfully infiltrated the town.  
 {HideCharacter("Poppy")} {ShowCharacter("Poppy", "Right", "Normal")} ...Kidding! Probably.  
 ~PoppyTrust += 10
 -> END  

@@ -10,8 +10,8 @@ INCLUDE ../Globals.ink
 === NightPeace ===  
 {HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Normal")} Nighttime? Why?
 {HideCharacter("Player")} {ShowCharacter("Sebastian", "Right", "Normal")} No noise. No people. Just the wind in the trees and the sound of your own thoughts.
-{HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Normal")} That’s kind of poetic.
-{HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Happy")} Don’t tell anyone I said that.
+{HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Normal")} That's kind of poetic.
+{HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Happy")} Don't tell anyone I said that.
 ~SebastianTrust += 10
 -> END
 

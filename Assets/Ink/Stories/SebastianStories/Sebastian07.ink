@@ -17,7 +17,7 @@ INCLUDE ../Globals.ink
 {HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Normal")} Yeah, I'd play again just for moments like that.
 {HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Happy")} Then you should join my group. Gerald, Maddie, and I have a campaign going. You in?
 * [Sounds fun!] -> JoinGroup
-* [I’ll pass.] -> DeclineGroup
+* [I'll pass.] -> DeclineGroup
 
 === JoinGroup ===
 {HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Happy")} Sounds fun! It would be nice to play again.
@@ -26,7 +26,7 @@ INCLUDE ../Globals.ink
 -> END  
 
 === DeclineGroup ===  
-{HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Normal")} I’ll pass. I'm busy enough these days.
+{HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Normal")} I'll pass. I'm busy enough these days.
 {HideCharacter("Player")} {ShowCharacter("Sebastian", "Right", "Normal")} Your loss. But hey, if you ever change your mind, let me know.
 ~SebastianTrust += 5
 -> END

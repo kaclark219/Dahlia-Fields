@@ -17,8 +17,8 @@ INCLUDE ../Globals.ink
 
 === NotRelatable ===
 {HideCharacter("Jeremy")} {ShowCharacter("Player", "Right", "Normal")} Not really. I like to finish what I start.
-{HideCharacter("Player")} {ShowCharacter("Jeremy", "Right", "Normal")} Huh. Can’t relate. My workshop’s basically a graveyard of good intentions.
-{HideCharacter("Jeremy")} {ShowCharacter("Player", "Right", "Normal")} Maybe one day you’ll get back to them. For the sake of your customers, I hope so.
+{HideCharacter("Player")} {ShowCharacter("Jeremy", "Right", "Normal")} Huh. Can't relate. My workshop's basically a graveyard of good intentions.
+{HideCharacter("Jeremy")} {ShowCharacter("Player", "Right", "Normal")} Maybe one day you'll get back to them. For the sake of your customers, I hope so.
 {HideCharacter("Player")} {ShowCharacter("Jeremy", "Right", "Suspicious")} Woah there, careful bro. I always get my paid projects done, these are just my personal creative stints.
 ~JeremyTrust -= 10
 -> END

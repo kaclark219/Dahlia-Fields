@@ -4,7 +4,7 @@ INCLUDE ../Globals.ink
 
 === start ===
 {ShowCharacter("Gerald", "Right", "Normal")} Hey there, {PlayerName}. You wouldn't happen to have any types of herbs, would you? I'm running low on some key tonic ingredients.
-* [I've got something special at my place.] -> Kill
+* [I've got something special at my place. #kill] -> Kill
 * [Sorry, can't help.] -> NoKill
 
 === Kill ===

@@ -4,7 +4,7 @@ INCLUDE ../Globals.ink
 
 === start ===
 {ShowCharacter("Jeremy", "Right", "Normal")} Man, I've had the weirdest day. You ever just feel like you're so close to figuring something out, but it's just out of reach? I feel like every idea I have for my current project just falls flat.
-* [Maybe you need a change of scenery.] -> Kill
+* [Maybe you need a change of scenery. #Kill] -> Kill
 * [No, I can't relate.] -> NoKill
 
 === Kill ===

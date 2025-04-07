@@ -10,7 +10,7 @@ INCLUDE ../Globals.ink
 === Shocked ===
 {HideCharacter("Charlie")} {ShowCharacter("Player", "Right", "Suspicious")} Excuse me?! What have you been doing?
 {HideCharacter("Player")} {ShowCharacter("Charlie", "Right", "Suspicious")} Nothing TOO weird. Don't sound all concerned like that.
-{HideCharacter("Player")} {ShowCharacter("Charlie", "Right", "Normal")} It's just that last week this lil' guy was going after some old donuts in the can outside of the pub. Didn’t even see me coming. And it wasn't happy.
+{HideCharacter("Player")} {ShowCharacter("Charlie", "Right", "Normal")} It's just that last week this lil guy was going after some old donuts in the can outside of the pub. Didn't even see me coming. And it wasn't happy.
 {HideCharacter("Player")} {ShowCharacter("Player", "Right", "Normal")} Maybe you should go talk to Gerald.
 {HideCharacter("Player")} {ShowCharacter("Charlie", "Right", "Normal")} I'm trying to avoid a doctor's visit! Why do you think I asked you for advice?
 ~CharlieTrust -= 10

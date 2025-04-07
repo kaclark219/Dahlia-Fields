@@ -4,7 +4,7 @@ INCLUDE ../Globals.ink
 
 === start ===
 {ShowCharacter("Ava", "Right", "Normal")} I'm a little busy playing shop right now, are you here to buy something?
-* [You could play shop at my house if you want.] -> Kill
+* [You could play shop at my house if you want. #kill] -> Kill
 * [Nevermind.] -> NoKill
 
 === Kill ===

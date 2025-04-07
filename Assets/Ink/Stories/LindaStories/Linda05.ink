@@ -16,7 +16,7 @@ INCLUDE ../Globals.ink
 -> END
 
 === RequestBoard ===
-{HideCharacter("Linda")} {ShowCharacter("Player", "Right", "Normal")} So I've been wondering .. how have the flowers from my request board been gtting delivered?
+{HideCharacter("Linda")} {ShowCharacter("Player", "Right", "Normal")} So I've been wondering .. how have the flowers from my request board been getting delivered?
 {HideCharacter("Player")} {ShowCharacter("Linda", "Right", "Normal")} I've been collecting and distributing them in my free time. Why?
 {HideCharacter("Linda")} {ShowCharacter("Player", "Right", "Normal")} Oh, wow. Thanks! I was just curious, but I really appreciate your help!
 {HideCharacter("Player")} {ShowCharacter("Linda", "Right", "Happy")} No problem! Just doing my part to stimulate the town economy.
