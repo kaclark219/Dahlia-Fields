@@ -36,7 +36,14 @@ public class InkManager : MonoBehaviour
         npcManager = FindAnyObjectByType<NPCManager>();
         UI.SetActive(false);
     }
-    
+
+    private void Update()
+    {
+        if (storyPlaying && Input.GetKeyDown(KeyCode.E)) {
+            DisplayNextLine();
+        } 
+    }
+
     // For testing
     private void StartStory()
     {
