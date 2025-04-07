@@ -24,6 +24,18 @@ public class NPCMaddie : NPC
         ink.DisplayNextLine();
     }
 
+    public override void Update()
+    {
+        base.Update();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {   
+            if(SeedStoreUI.GetComponent<SeedStore>().storeCanvas.activeInHierarchy)
+            {
+                CloseSeedUI();
+            }
+        }
+    }
+
     public override void EndInteract()
     {
         plint.EndInteract();
@@ -41,6 +53,7 @@ public class NPCMaddie : NPC
         {
             CloseSeedUI();
         }
+        EndInteract();
     }
 
     public void CloseSeedUI()
@@ -59,6 +72,7 @@ public class NPCMaddie : NPC
         }
 
         ink.EnableUI();
+        EndInteract();
     }
     
 }

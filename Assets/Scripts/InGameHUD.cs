@@ -7,11 +7,18 @@ public class InGameHUD : MonoBehaviour
 {
     [SerializeField] public GameObject energyBar;
     [SerializeField] public GameObject susBar;
-    [SerializeField] public TextMeshProUGUI moneyUI; 
+    [SerializeField] public TextMeshProUGUI moneyUI;
+    [SerializeField] public TextMeshProUGUI dayUI;
 
     public void UpdateEnergy(int energy)
     {
-        float scale = (energy * 2.0f) / 100.0f;
+        float minScale = 0f;
+        float maxScale = 1.0f;
+
+        float energyPercentage = (35.0f - energy) / 35.0f;
+
+        float scale = minScale + (energyPercentage * (maxScale - minScale));
+
         energyBar.transform.localScale = new Vector3(scale, 1f, 1f);
     }
 
@@ -24,5 +31,10 @@ public class InGameHUD : MonoBehaviour
     public void UpdateMoney(int money)
     {
         moneyUI.text = money.ToString();
+    }
+
+    public void UpdateDay(int day) 
+    { 
+        dayUI.text = day.ToString();
     }
 }
