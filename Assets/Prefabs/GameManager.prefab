@@ -161,8 +161,13 @@ MonoBehaviour:
   playCutscenes: 0
   cutsceneList:
   - {fileID: 11400000, guid: 3c99d8a8986aa514086238cf4acc165e, type: 2}
+  - {fileID: 11400000, guid: fc3a48442f77c7b4982dda527db3e5b9, type: 2}
+  - {fileID: 11400000, guid: f08c263eeb2359f42936e9362ef79a6d, type: 2}
+  - {fileID: 11400000, guid: ece24411fe3415f49a86891fc77d40c5, type: 2}
+  - {fileID: 11400000, guid: ac9654859c96b2143910dc0609d046f9, type: 2}
+  - {fileID: 11400000, guid: ffb9ea01ea490d644a8bb714281ca24e, type: 2}
   - {fileID: 11400000, guid: e7a0094c7d6c67a478cfe6abd486cd5c, type: 2}
-  feedDays: 080000000e0000001300000017000000
+  feedDays: 070000000e0000001300000017000000
   isFeedDay: 0
   npcKilled: 0
 --- !u!114 &4218859400215620059
