@@ -133,11 +133,15 @@ public class DialogueVariables : MonoBehaviour
     }
     public void ResetData()
     {
-        variables.Clear();
-        foreach (KeyValuePair<string, string> var in variables)
+        if (GlobalStory == null)
         {
-            variables.Add(var.Key, "0");
-            VariablesToStory(GlobalStory);
+            GlobalStory = new Story(LoadGlobalsJSON.text);
+        }
+        variables.Clear();
+        foreach (string name in GlobalStory.variablesState)
+        {
+            string value = GlobalStory.variablesState.GetVariableWithName(name).ToString();
+            variables[name] = value;
         }
     }
     #endregion
