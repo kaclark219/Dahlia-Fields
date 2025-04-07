@@ -95,8 +95,11 @@ public class InkManager : MonoBehaviour
 
     public void StartCreatedStory()
     {
-        DisplayNextLine();
-        storyPlaying = true;
+        if (story)
+        {
+            DisplayNextLine();
+            storyPlaying = true;
+        }
     }
 
     private void BindFunctions()

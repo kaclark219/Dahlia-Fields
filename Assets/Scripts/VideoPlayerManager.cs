@@ -28,11 +28,11 @@ public class VideoPlayerManager : MonoBehaviour
 
         if (includeSleepAnimation)
         {
+            yield return StartCoroutine(transition.FadeIn(3));
+
             yield return StartCoroutine(PrepareVideo(SleepClip));
             yield return StartCoroutine(PlayVideo());
         }
-
-        yield return StartCoroutine(transition.FadeIn(1));
 
         if (cutscene != null)
         {
@@ -40,10 +40,10 @@ public class VideoPlayerManager : MonoBehaviour
             yield return StartCoroutine(PlayVideo());
         }
 
-        yield return StartCoroutine(transition.FadeOut(1));
-
         yield return StartCoroutine(PrepareVideo(WakeUpClip));
         yield return StartCoroutine(PlayVideo());
+
+        yield return StartCoroutine(transition.FadeOut(3));
 
         HUD.SetActive(true);
         image.enabled = false;
@@ -51,18 +51,20 @@ public class VideoPlayerManager : MonoBehaviour
 
     public IEnumerator PrepareVideo(VideoClip clip)
     {
+        image.enabled=true;
+        image.color = Color.black;
         videoPlayer.clip = clip;
         length = (float)clip.length;
         videoPlayer.Prepare();  // Prepare video and wait till it's done
         yield return new WaitUntil(() => videoPlayer.isPrepared == true);
+        image.color = Color.white;
     }
 
     private IEnumerator PlayVideo()
     {
-
         videoPlayer.Play();
         yield return new WaitForSeconds(length);
         videoPlayer.clip = null;
-
+        image.enabled = false;
     }
 }
