@@ -34,6 +34,18 @@ public class NPCManager : MonoBehaviour
         }
     }
 
+    public NPC GetNPC(NPCName name)
+    {
+        foreach (GameObject npc in NPCs)
+        {
+            if (npc.activeSelf && npc.GetComponentInChildren<NPC>() != null && npc.GetComponentInChildren<NPC>().npcName == name)
+            {
+                return npc.GetComponentInChildren<NPC>();
+            }
+        }
+        return null;
+    }
+
     public void ResetDailyInteraction()
     {
         foreach (GameObject npc in NPCs)

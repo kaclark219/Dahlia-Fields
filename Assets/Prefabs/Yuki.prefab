@@ -98,6 +98,7 @@ MonoBehaviour:
   pm: {fileID: 0}
   playerData: {fileID: 0}
   textAsset: {fileID: 4900000, guid: cd470f6d109d9ff45897f33dbd3f41ca, type: 3}
+  DisplayName: Yuki
 --- !u!1 &2966470520857263367
 GameObject:
   m_ObjectHideFlags: 0

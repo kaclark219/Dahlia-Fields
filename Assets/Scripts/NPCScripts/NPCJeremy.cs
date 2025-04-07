@@ -29,7 +29,7 @@ public class NPCJeremy : NPC
             story = ink.CreateStory(buyFlowerBox, this);
             story.BindExternalFunction("BuyFlowerbox", () => this.BuyFlowerbox());
 
-            ink.DisplayNextLine();
+            ink.StartCreatedStory();
             costsEnergy = false;
         }
         else if (isFeedDay && trust < trustRequired)
