@@ -619,6 +619,18 @@ public class SeedStore : InteractableObj
                 inventory.inventory[flower].seedStock -= delivery[i];
             }
         }
+        else if (delivered) {
+            foreach (string key in mapValues.Keys)
+            {
+                int i = mapValues[key];
+
+                Flowers flower;
+                Enum.TryParse(key, out flower);
+
+                PlayerPrefs.SetInt("Delivery_" + i, delivery[i]);
+
+            }
+        }
     }
 
     public void LoadData()
