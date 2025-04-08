@@ -3225,6 +3225,14 @@ PrefabInstance:
       propertyPath: animations.Array.data[1]
       value: 
       objectReference: {fileID: 9100000, guid: 5791a58ec4bfb5c41bf0fe0b93e8b78f, type: 2}
+    - target: {fileID: 2048107341106363207, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -145.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 2048107341106363207, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 45.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2090094949705218038, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: ink
       value: 
@@ -3257,6 +3265,14 @@ PrefabInstance:
       propertyPath: animations.Array.data[0]
       value: 
       objectReference: {fileID: 9100000, guid: 1f6036cfe6c40934ea2710f79cddfe27, type: 2}
+    - target: {fileID: 4628316051340762244, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -175.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628316051340762244, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 4752162024808070822, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: ink
       value: 
@@ -3277,6 +3293,14 @@ PrefabInstance:
       propertyPath: animations.Array.data[0]
       value: 
       objectReference: {fileID: 9100000, guid: 452a4ad21d9653c499ada97a79e57026, type: 2}
+    - target: {fileID: 5401801099112124740, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -170
+      objectReference: {fileID: 0}
+    - target: {fileID: 5401801099112124740, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6470094834758403691, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: SeedStoreUI
       value: 
@@ -3437,6 +3461,22 @@ PrefabInstance:
       propertyPath: SpawnLocation
       value: 
       objectReference: {fileID: 1737927310997805695}
+    - target: {fileID: 7089783140578975955, guid: e40394824ffa3f04ab1370017734a45d, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089783140578975955, guid: e40394824ffa3f04ab1370017734a45d, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089783140578975955, guid: e40394824ffa3f04ab1370017734a45d, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089783140578975955, guid: e40394824ffa3f04ab1370017734a45d, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
