@@ -38,6 +38,7 @@ public class SeedStore : InteractableObj
     public bool ifDelivery = false;
     public bool delivered = false;
     public bool pickedUp = false;
+    public bool p = false;
 
     private InventoryItem chosenFlower; 
     public Dictionary<string, int> mapValues;
@@ -159,19 +160,17 @@ public class SeedStore : InteractableObj
 
         int sets = 0;
 
-        for (int i = 0; i < purchase.Length; i++)
+        for (int i = 0; i < cart.Length; i++)
         {
-            cart[i] = purchase[i];
-            sets = purchase[i] / 5;
-            //counts[i].text = sets.ToString();
-            
+            cart[i] = 0;            
         }
 
         for (int i = 0; i < 5; i++)
         {
             if (cartMap[i] < 10)
-            {   
-                sets = purchase[cartMap[i]] / 5;
+            {
+                //sets = purchase[cartMap[i]] / 5;
+                sets = 0; 
                 counts[i].text = sets.ToString();
 
                 if (sets == 0)
@@ -194,101 +193,6 @@ public class SeedStore : InteractableObj
         id = 10;
         background.sprite = fbackgrounds[9];
     }
-
-    /*
-    private void SetUpCart(int version)
-    {
-        if (version == 1)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                if (cartMap[i] == 10)
-                {
-                    cartMap[i] = id;
-                    slots[i].SetActive(true);
-                    cartItems[i].sprite = cartIcons[id];
-                    counts[i].text = 0.ToString();
-
-                    //Set Up Button
-                    clears[i].onClick.AddListener(() => ClearButton(id));
-
-                    return;
-                }
-            }
-
-        }
-        else if (version == 2)
-        {
-            bool moveup = false;
-
-            for (int i = 0; i < 5; i++)
-            {
-                if (cartMap[i] == id)
-                {
-                    moveup = true;
-                    if (i + 1 == 5)
-                    {
-                        cartMap[i] = 10;
-                        slots[i].SetActive(false);
-                        counts[i].text = 0.ToString();
-                        clears[i].onClick.RemoveListener(() => ClearButton(id));
-                    }
-
-                }
-                else if (moveup)
-                {
-                    
-                    clears[i - 1].onClick.RemoveListener(() => ClearButton(cartMap[i - 1]));
-                    clears[i - 1].onClick.AddListener(() => ClearButton(cartMap[i]));
-
-                    cartMap[i - 1] = cartMap[i];
-                    cartItems[i - 1].sprite = cartItems[i].sprite;
-                    counts[i - 1].text = counts[i].text;
-
-                    if (cartMap[i] == 10)
-                    {
-                        clears[i - 1].onClick.RemoveListener(() => ClearButton(cartMap[i - 1]));
-                        clears[i].onClick.RemoveListener(() => ClearButton(cartMap[i]));
-
-                        slots[i].SetActive(false);
-                        slots[i - 1].SetActive(false);
-
-                        counts[i].text = 0.ToString();
-                        counts[i - 1].text = 0.ToString();
-
-                        cartMap[i] = 10;
-                        cartMap[i - 1] = 10;
-                        
-                    }
-
-                    if (i + 1 == 5)
-                    {
-                        clears[i].onClick.RemoveListener(() => ClearButton(cartMap[i]));
-                        cartMap[i] = 10;
-                        slots[i].SetActive(false);
-                        counts[i].text = 0.ToString();
-                    }
-
-                } else if (i + 1 == 5)
-                {
-                    clears[i].onClick.RemoveListener(() => ClearButton(cartMap[i]));
-                    cartMap[i] = 10;
-                    slots[i].SetActive(false);
-                    counts[i].text = 0.ToString();
-                }
-            }
-
-        } else
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                cartMap[i] = 10;
-                slots[i].SetActive(false);
-                counts[i].text = 0.ToString();
-            }
-        }
-    }
-    */
 
     private void SetUpCart(int version)
     {
@@ -413,7 +317,6 @@ public class SeedStore : InteractableObj
         }
     }
 
-
     public void Delivery()
     {   
 
@@ -486,7 +389,7 @@ public class SeedStore : InteractableObj
 
         if (id < 10)
         {
-            if (cart[id] > purchase[id])
+            if (cart[id] > 0)
             {
 
                 for (int key = 0; key < 5; key++)
@@ -531,6 +434,8 @@ public class SeedStore : InteractableObj
             }
 
             ifDelivery = true;
+
+            p = true; 
 
             return true; 
         } 
@@ -605,7 +510,7 @@ public class SeedStore : InteractableObj
     {
         PlayerPrefs.SetInt("Delivery", delivered ? 1 : 0);
         PlayerPrefs.SetInt("IfDelivery", ifDelivery? 1 : 0);
-        if (pickedUp)
+        if (delivered || pickedUp)
         {
             foreach (string key in mapValues.Keys)
             {
@@ -616,7 +521,10 @@ public class SeedStore : InteractableObj
 
                 PlayerPrefs.SetInt("Delivery_" + i, delivery[i]);
 
-                inventory.inventory[flower].seedStock -= delivery[i];
+                if (pickedUp)
+                {
+                    inventory.inventory[flower].seedStock -= delivery[i];
+                }
             }
         }
     }

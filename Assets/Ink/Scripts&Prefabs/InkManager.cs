@@ -19,6 +19,7 @@ public class InkManager : MonoBehaviour
     [SerializeField] private OnClickNextDialogue panel;
     [SerializeField] private VerticalLayoutGroup choiceButtonContainer;
     [SerializeField] private GameObject choiceButtonPrefab;
+    [SerializeField] private Sprite killButtonSprite;
     [Space]
     [SerializeField] private DialogueVariables dialogueVariables;
 
@@ -41,6 +42,8 @@ public class InkManager : MonoBehaviour
     {
         if (storyPlaying && Input.GetKeyDown(KeyCode.E)) {
             DisplayNextLine();
+            storyPlaying = false;
+            StartCoroutine(StoryIsPlaying());
         } 
     }
 
@@ -54,7 +57,7 @@ public class InkManager : MonoBehaviour
         BindFunctions();
 
         DisplayNextLine();
-        storyPlaying = true;
+        StartCoroutine(StoryIsPlaying());
     }
 
     // keeps track of InteractableObj to call EndInteract() at end of dialogue
@@ -69,7 +72,7 @@ public class InkManager : MonoBehaviour
         BindFunctions();
 
         DisplayNextLine();
-        storyPlaying = true;
+        StartCoroutine(StoryIsPlaying());
 
         return story;
     }
@@ -98,7 +101,7 @@ public class InkManager : MonoBehaviour
         if (story)
         {
             DisplayNextLine();
-            storyPlaying = true;
+            StartCoroutine(StoryIsPlaying());
         }
     }
 
@@ -184,6 +187,12 @@ public class InkManager : MonoBehaviour
         printCoroutine = null;
     }
 
+    private IEnumerator StoryIsPlaying()
+    {
+        yield return new WaitForSeconds(.25f);
+        storyPlaying = true;
+    }
+
     // Styling Stuff:
     private void ApplyStyling()
     {
@@ -226,9 +235,13 @@ public class InkManager : MonoBehaviour
     {
         if (choiceButtonContainer.GetComponentsInChildren<Button>().Length > 0) { return; }
 
-        foreach (Choice choice in story.currentChoices)
-        {
+        foreach (Choice choice in story.currentChoices) 
+        { 
             GameObject button = CreateChoiceButton(choice.text);
+            if (choice.tags != null && choice.tags.Contains("kill"))
+            {
+                button.GetComponentInChildren<Image>().sprite = killButtonSprite;
+            }
             button.GetComponentsInChildren<Button>()[0].onClick.AddListener(() => OnClickChoiceButton(choice)); 
         }
 

@@ -4,7 +4,7 @@ INCLUDE ../Globals.ink
 
 === start ===
 {ShowCharacter("Poppy", "Right", "Normal")} Hey, {PlayerName}, what's up?  
-* [You want to try something new?] -> Kill
+* [You want to try something new? #kill] -> Kill
 * [Nothing much.] -> NoKill
 
 === Kill ===

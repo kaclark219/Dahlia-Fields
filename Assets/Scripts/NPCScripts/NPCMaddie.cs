@@ -61,7 +61,7 @@ public class NPCMaddie : NPC
        
         SeedStoreUI.GetComponent<SeedStore>().CloseSeedStore();
 
-        if (SeedStoreUI.GetComponent<SeedStore>().ifDelivery)
+        if (SeedStoreUI.GetComponent<SeedStore>().p)
         {
             story.variablesState["BoughtSeeds"] = 1;
 
@@ -70,6 +70,7 @@ public class NPCMaddie : NPC
         {
             story.variablesState["BoughtSeeds"] = 0;
         }
+        SeedStoreUI.GetComponent<SeedStore>().p = false; 
 
         ink.EnableUI();
         EndInteract();

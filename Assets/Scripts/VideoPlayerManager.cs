@@ -11,60 +11,73 @@ public class VideoPlayerManager : MonoBehaviour
     [Space]
     public VideoClip SleepClip;
     public VideoClip WakeUpClip;
+    [Space]
+    public VideoClip MorningToAfternoon;
+    public VideoClip AfternoonToEvening;
 
     private RawImage image;
     private VideoPlayer videoPlayer;
+    private RenderTexture blackRenderTexture;
+    private RenderTexture originalTexture;
     private float length;
     private void Start()
     {
         image = GetComponent<RawImage>();
         videoPlayer = GetComponent<VideoPlayer>();
         transition = FindFirstObjectByType<FadeInFadeOut>();
+        originalTexture = videoPlayer.targetTexture;
+        blackRenderTexture = new RenderTexture(1920, 1080, 0);
     }
     public IEnumerator PlayNextDay(VideoClip cutscene, bool includeSleepAnimation)
     {
         HUD.SetActive(false);
-        image.enabled =true;
 
         if (includeSleepAnimation)
         {
-            yield return StartCoroutine(transition.FadeIn(3));
-
             yield return StartCoroutine(PrepareVideo(SleepClip));
             yield return StartCoroutine(PlayVideo());
+            yield return new WaitForSeconds(2f);
         }
 
         if (cutscene != null)
         {
             yield return StartCoroutine(PrepareVideo(cutscene));
             yield return StartCoroutine(PlayVideo());
+            yield return new WaitForSeconds(2f);
         }
 
         yield return StartCoroutine(PrepareVideo(WakeUpClip));
         yield return StartCoroutine(PlayVideo());
 
-        yield return StartCoroutine(transition.FadeOut(3));
-
         HUD.SetActive(true);
-        image.enabled = false;
+    }
+
+    public IEnumerator PlayTimeChange(int time)
+    {
+        VideoClip clip = time == 2 ? MorningToAfternoon : AfternoonToEvening;   
+        yield return StartCoroutine(PrepareVideo(clip));
+        yield return StartCoroutine(PlayVideo());
     }
 
     public IEnumerator PrepareVideo(VideoClip clip)
     {
-        image.enabled=true;
-        image.color = Color.black;
+        videoPlayer.enabled = true;
         videoPlayer.clip = clip;
         length = (float)clip.length;
         videoPlayer.Prepare();  // Prepare video and wait till it's done
         yield return new WaitUntil(() => videoPlayer.isPrepared == true);
-        image.color = Color.white;
     }
 
     private IEnumerator PlayVideo()
     {
+        image.enabled = true;
+        videoPlayer.targetTexture = originalTexture;
         videoPlayer.Play();
         yield return new WaitForSeconds(length);
         videoPlayer.clip = null;
         image.enabled = false;
+        videoPlayer.enabled = false; 
+        videoPlayer.Stop();
+        videoPlayer.targetTexture = blackRenderTexture;
     }
 }

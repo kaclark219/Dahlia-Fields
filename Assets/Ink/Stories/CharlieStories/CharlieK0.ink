@@ -4,7 +4,7 @@ INCLUDE ../Globals.ink
 
 === start ===
 {ShowCharacter("Charlie", "Right", "Normal")} Hey, {PlayerName}! You ever wonder what’s at the bottom of the dump?
-* [We could look through my place instead.] -> Kill
+* [We could look through my place instead. #kill] -> Kill
 * [Nope, and I don’t wanna know.] -> NoKill
 
 === Kill ===

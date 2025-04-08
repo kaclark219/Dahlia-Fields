@@ -3,7 +3,7 @@ INCLUDE ../Globals.ink
 -> start
 
 === start ===
-{ShowCharacter("Gerald", "Right", "Normal")} You ever notice how I don’t drink much?
+{ShowCharacter("Gerald", "Right", "Normal")} You ever notice how I don't drink much?
 * [Why is that?] -> CuriousLimit
 * [Never paid attention.] -> Unobservant
 

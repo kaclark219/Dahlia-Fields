@@ -110,7 +110,7 @@ public class PlayerData : MonoBehaviour
     {
         Debug.Log("Set Name: " + name);
         playerName = name;
-        GameObject.Find("InkManager").GetComponent<DialogueVariables>().ChangeVariable("PlayerName", playerName);
+        GameObject.Find("InkManager").GetComponent<DialogueVariables>().ChangePlayerName(playerName);
     }
 
     #region SAVE_SYSTEM
