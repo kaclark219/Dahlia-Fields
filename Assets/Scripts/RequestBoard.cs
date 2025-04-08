@@ -33,6 +33,18 @@ public class RequestBoard : InteractableObj
         Refresh();
     }
 
+    public override void Update()
+    {
+        base.Update();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (canvas.activeInHierarchy && !exclaim.activeInHierarchy)
+            {
+                CloseBoard();
+            }
+        }
+    }
+
     private void Refresh(){
         day = daySystem.day;
         foreach (GameObject req in requests)

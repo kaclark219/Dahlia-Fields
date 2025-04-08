@@ -25,6 +25,17 @@ public class FlowerboxManager : MonoBehaviour
         inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (FlowerBoxUI.activeInHierarchy && !exclaim.activeInHierarchy)
+            {
+                CloseUI();
+            }
+        }
+    }
+
     public void OpenUI()
     {
         int i=0;

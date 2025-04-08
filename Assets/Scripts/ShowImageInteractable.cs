@@ -11,6 +11,19 @@ public class ShowImageInteractable : InteractableObj
         base.Start();
         UI.SetActive(false);
     }
+
+    public override void Update()
+    {
+        base.Update();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (UI.activeInHierarchy)
+            {
+                EndInteract(); 
+            }
+        }
+    }
+
     public override void OnInteract()
     {
         base.OnInteract();
