@@ -6,7 +6,7 @@ using UnityEngine;
 public class NPCManager : MonoBehaviour
 {
     [SerializeField] public List<GameObject> NPCs = new List<GameObject>();
-    public Dictionary<string, Vector2> coords = new Dictionary<string, Vector2>();
+    public Dictionary<string, Vector3> coords = new Dictionary<string, Vector3>();
 
     private DaySystem daySystem;
     private void Awake()
@@ -15,21 +15,26 @@ public class NPCManager : MonoBehaviour
         string[] lines = Resources.Load<TextAsset>("NPClocations").ToString().Split("\n");
         for(int i = 1; i < lines.Length; i++){
             string[] info = lines[i].Split(",");
-            coords.Add(info[0], new Vector2(int.Parse(info[1]), int.Parse(info[2]))); //If this line errors make sure the CSV doesn't have a blank line at the end
+            coords.Add(info[0], new Vector3(int.Parse(info[1]), int.Parse(info[2]), int.Parse(info[3]))); //If this line errors make sure the CSV doesn't have a blank line at the end
         }
     }
     public void MoveNPCs(int day, int stage)
     {
         Debug.Log("Moving NPCs to day " + day + " and time " + stage);
+        day = day%3;
+        if(day == 0){
+            day = 3;
+        }
         foreach (GameObject npc in NPCs)
         {
             if (coords.ContainsKey(npc.name + day.ToString() + stage.ToString()))
             {
-                npc.transform.position = coords[npc.name + day.ToString() + stage.ToString()];
+                npc.transform.position = new Vector2(coords[npc.name + day.ToString() + stage.ToString()].x, coords[npc.name + day.ToString() + stage.ToString()].y);
+                npc.GetComponent<Animator>().runtimeAnimatorController = npc.GetComponentInChildren<NPC>().animations[(int) coords[npc.name + day.ToString() + stage.ToString()].z];
             }
             else
             {
-                npc.transform.position = coords[npc.name + "1" + stage.ToString()];
+                Debug.LogError($"Sprite missing for " + npc.name + day.ToString() + stage.ToString());
             }
         }
     }
