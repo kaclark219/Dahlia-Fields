@@ -13,6 +13,17 @@ public class PauseUI : MonoBehaviour
         pause_ui.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pause_ui.activeInHierarchy)
+            {
+                pause_ui.SetActive(false);
+            }
+        }
+    }
+
     public void ToMain()
     {
         SceneManager.LoadScene(sceneName);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class MusicManager : MonoBehaviour
     private bool primarySpeaker = true;
     [SerializeField] DaySystem daysystem;
     public float thisTime;
+
+    [SerializeField] Slider volumeSlider; 
 
     // void Start(){
     //     fadeIn();
@@ -78,14 +81,22 @@ public class MusicManager : MonoBehaviour
         speaker2.volume = .5f;
         speaker1.time = 70;
         speaker2.time = 70;
-        if(daysystem.day%3 == 1){
+        if (daysystem.day % 3 == 1) {
             speaker1.clip = morning;
-        }else if(daysystem.day%3 == 2){
+        } else if (daysystem.day % 3 == 2) {
             speaker1.clip = afternoon;
-        }else{
+        } else {
             speaker1.clip = evening;
         }
         primarySpeaker = true;
         speaker1.Play();
+    }
+
+    public void VolumeControl()
+    {
+        float value = volumeSlider.value;
+        Debug.Log(value); 
+        speaker1.volume = value;
+        speaker2.volume = value;    
     }
 }
