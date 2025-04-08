@@ -15,7 +15,9 @@ public class MusicManager : MonoBehaviour
     [SerializeField] DaySystem daysystem;
     public float thisTime;
 
-    [SerializeField] Slider volumeSlider; 
+    [SerializeField] Slider volumeSlider;
+    private float volume = 0.5f;
+    private Coroutine coroutine = null;
 
     // void Start(){
     //     fadeIn();
@@ -62,23 +64,28 @@ public class MusicManager : MonoBehaviour
 
     public void fadeOut()
     {
-        StartCoroutine(Fade());
+        coroutine = StartCoroutine(Fade());
     }
 
     private IEnumerator Fade(){
         for(int i = 0; i < 100; i++){
             yield return new WaitForSeconds(.01f);
-            speaker1.volume -= .005f;
+            speaker1.volume -= volume / 100.0f;
             speaker2.volume = speaker1.volume;
         }
         speaker1.Stop();
         speaker2.Stop();
+        coroutine = null;
     }
 
     public void fadeIn()
     {
-        speaker1.volume = .5f;
-        speaker2.volume = .5f;
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+        speaker1.volume = volume;
+        speaker2.volume = volume;
         speaker1.time = 70;
         speaker2.time = 70;
         if (daysystem.day % 3 == 1) {
@@ -94,8 +101,9 @@ public class MusicManager : MonoBehaviour
 
     public void VolumeControl()
     {
-        float value = volumeSlider.value; 
-        speaker1.volume = value;
-        speaker2.volume = value;    
+        float value = volumeSlider.value;
+        volume = value;
     }
+
+    // TODO: Save player's volume setting
 }
