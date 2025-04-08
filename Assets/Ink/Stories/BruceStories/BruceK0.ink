@@ -4,7 +4,7 @@ INCLUDE ../Globals.ink
 
 === start ===
 {ShowCharacter("Bruce", "Right", "Normal")} What's going on kid?
-* [Do you want to come look at my vintage tool collection?] -> Kill
+* [Do you want to come look at my vintage tool collection? #kill] -> Kill
 * [Nevermind.] -> NoKill
 
 === Kill ===

@@ -510,7 +510,7 @@ public class SeedStore : InteractableObj
     {
         PlayerPrefs.SetInt("Delivery", delivered ? 1 : 0);
         PlayerPrefs.SetInt("IfDelivery", ifDelivery? 1 : 0);
-        if (pickedUp)
+        if (delivered || pickedUp)
         {
             foreach (string key in mapValues.Keys)
             {
@@ -521,19 +521,10 @@ public class SeedStore : InteractableObj
 
                 PlayerPrefs.SetInt("Delivery_" + i, delivery[i]);
 
-                inventory.inventory[flower].seedStock -= delivery[i];
-            }
-        }
-        else if (delivered) {
-            foreach (string key in mapValues.Keys)
-            {
-                int i = mapValues[key];
-
-                Flowers flower;
-                Enum.TryParse(key, out flower);
-
-                PlayerPrefs.SetInt("Delivery_" + i, delivery[i]);
-
+                if (pickedUp)
+                {
+                    inventory.inventory[flower].seedStock -= delivery[i];
+                }
             }
         }
     }

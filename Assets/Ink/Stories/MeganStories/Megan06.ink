@@ -19,7 +19,7 @@ INCLUDE ../Globals.ink
 
 === MeganCharlieOpinion ===
 {HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Normal")} You don't like him?
-{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Normal")} No, I ... appreciate him. He’s just a little exhausting. It's like having another kid.
+{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Normal")} No, I ... appreciate him. He's just a little exhausting. It's like having another kid.
 {HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Normal")} That's fair.
 {HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Normal")} But he always makes Ava laugh, so I guess he's doing something right.
 ~MeganTrust += 5

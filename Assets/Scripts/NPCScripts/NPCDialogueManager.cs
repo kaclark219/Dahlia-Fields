@@ -42,13 +42,13 @@ public class NPCDialogueManager : MonoBehaviour
         nameText.text = name;
         trustImage.enabled = false;
     }
-
     public void UpdateTrustMeter(NPCName name)
     {
         NPC npc = npcM.GetNPC(name);
         int trust = int.Parse(dialogueVariables.variables[name.ToString() + "Trust"]);
         int maxTrust = npc.trustRequired;
-        float percentage = ((float)20 / maxTrust) * 10;
+        float percentage = ((float)trust / maxTrust) * 10;
+        Debug.Log("trust: " + trust + ", maxTrust: " + maxTrust + ", precentage: " + percentage);
         trustImage.sprite = trustSprites[(int) percentage]; 
     }
     public void ShowCharacter(NPCName name, NPCPosition position, NPCMood mood)
@@ -88,15 +88,23 @@ public class NPCDialogueManager : MonoBehaviour
         character.Init(name, position, mood, GetMoodSetForCharacter(name));
 
         // Update Displayed name and trust meter
-        trustImage.enabled = true;
-        if (name == NPCName.Player)
+        if (name == NPCName.Player )
         {
             nameText.text = "You";
         }
         else
         {
             nameText.text = name.ToString();
-            UpdateTrustMeter(name);
+
+            if (name != NPCName.Maddie)
+            {
+                trustImage.enabled = true;
+                UpdateTrustMeter(name);
+            }
+            else
+            {
+                trustImage.enabled=false;
+            }
         }
     }
 
