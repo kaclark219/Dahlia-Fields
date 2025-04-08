@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4021662385455669562}
   - component: {fileID: 6487276485128166600}
   - component: {fileID: 6794977773131746762}
-  - component: {fileID: 6270763129217988765}
+  - component: {fileID: 720056366713248790}
   m_Layer: 0
   m_Name: Linda
   m_TagString: Untagged
@@ -120,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.03399849, y: -0.32999262}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.4}
@@ -131,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8440037, y: 0.9800003}
   m_EdgeRadius: 0
 --- !u!95 &720056366713248790
 Animator:
@@ -219,7 +219,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.05999863}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -230,7 +230,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 2, y: 2.1199973}
   m_EdgeRadius: 0
 --- !u!114 &1270620236657468936
 MonoBehaviour:
@@ -266,6 +266,7 @@ MonoBehaviour:
   isFeedDay: 0
   trustRequired: 120
   killText: {fileID: 4900000, guid: 6c813129aa64ad949bff6890a56d8d98, type: 3}
+  animations: []
   ink: {fileID: 0}
   dialogueVariables: {fileID: 0}
   costsEnergy: 0
