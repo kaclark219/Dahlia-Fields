@@ -90,6 +90,18 @@ public class DaySystem : MonoBehaviour
         playerInteractor.Interact();
         musicManager.fadeOut();
 
+        // Check if yesterday was a kill day before updating
+        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
+        {
+            Debug.Log("Player Lost Game!");
+            LoseGame();
+            yield break;
+        }
+        isFeedDay = feedDays.Contains(day);
+        npcKilled = false;
+        
+        yield return StartCoroutine(transition.FadeIn(2));
+
         if (playCutscenes)
         {
             Cutscene cutscene = CheckForCutscene();
@@ -97,6 +109,8 @@ public class DaySystem : MonoBehaviour
         }
 
         UpdateGameState(day);
+
+        yield return StartCoroutine(transition.FadeOut(2));
 
         playerInteractor.EndInteract();
         musicManager.fadeIn();

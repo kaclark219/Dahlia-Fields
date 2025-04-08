@@ -42,6 +42,8 @@ public class InkManager : MonoBehaviour
     {
         if (storyPlaying && Input.GetKeyDown(KeyCode.E)) {
             DisplayNextLine();
+            storyPlaying = false;
+            StartCoroutine(StoryIsPlaying());
         } 
     }
 
@@ -55,7 +57,7 @@ public class InkManager : MonoBehaviour
         BindFunctions();
 
         DisplayNextLine();
-        storyPlaying = true;
+        StartCoroutine(StoryIsPlaying());
     }
 
     // keeps track of InteractableObj to call EndInteract() at end of dialogue
@@ -70,7 +72,7 @@ public class InkManager : MonoBehaviour
         BindFunctions();
 
         DisplayNextLine();
-        storyPlaying = true;
+        StartCoroutine(StoryIsPlaying());
 
         return story;
     }
@@ -99,7 +101,7 @@ public class InkManager : MonoBehaviour
         if (story)
         {
             DisplayNextLine();
-            storyPlaying = true;
+            StartCoroutine(StoryIsPlaying());
         }
     }
 
@@ -183,6 +185,12 @@ public class InkManager : MonoBehaviour
             yield return new WaitForSeconds(0.04f);
         }
         printCoroutine = null;
+    }
+
+    private IEnumerator StoryIsPlaying()
+    {
+        yield return new WaitForSeconds(.25f);
+        storyPlaying = true;
     }
 
     // Styling Stuff:
