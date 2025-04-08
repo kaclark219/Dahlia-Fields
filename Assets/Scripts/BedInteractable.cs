@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class BedInteractable : InteractableObj
@@ -20,6 +21,19 @@ public class BedInteractable : InteractableObj
         base.Awake();
         daySystem = GameObject.Find("GameManager").GetComponent<DaySystem>();
     }
+
+    public override void Update()
+    {
+        base.Update();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (bedUI.activeInHierarchy)
+            {
+                EndInteract();
+            }
+        }
+    }
+
     public override void OnInteract()
     {
         base.OnInteract();
