@@ -18,8 +18,8 @@ MonoBehaviour:
   seedStock: 10
   flowerStock: 0
   daysToGrow: 6
-  growing: {fileID: 0}
-  growingWatered: {fileID: 0}
-  harvest: {fileID: 0}
+  growing: {fileID: 21300000, guid: 1c7c8bbd085581c47a6650438de13515, type: 3}
+  growingWatered: {fileID: 21300000, guid: 9c057ad7c29a9c342b9fda0826412d6d, type: 3}
+  harvest: {fileID: 21300000, guid: 3c8b9adf6c960904e97204e9c97fbbff, type: 3}
   seedIcon: {fileID: 21300000, guid: 11dbd0d7999e1ca4b977475d9f90b979, type: 3}
   flowerIcon: {fileID: -1921734355, guid: e6c51fbb46748a04e9cb999a1152942c, type: 3}
