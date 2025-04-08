@@ -94,8 +94,7 @@ public class MusicManager : MonoBehaviour
 
     public void VolumeControl()
     {
-        float value = volumeSlider.value;
-        Debug.Log(value); 
+        float value = volumeSlider.value; 
         speaker1.volume = value;
         speaker2.volume = value;    
     }

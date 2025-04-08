@@ -23,12 +23,17 @@ public class InkManager : MonoBehaviour
     [Space]
     [SerializeField] private DialogueVariables dialogueVariables;
 
+    [Space]
+    [SerializeField] public Slider speedSlider; 
+
     private NPCManager npcManager;
     private InteractableObj currInteractable;
     private Coroutine printCoroutine = null;
     private string text;
     private bool isStoryPaused = false;
     private bool storyPlaying = false;
+
+    private float dialogSpeed = 0.05f; 
 
     private void Awake()
     {
@@ -173,6 +178,11 @@ public class InkManager : MonoBehaviour
         }
 
     }
+    
+    public void SetDialogSpeed(float i)
+    {
+        dialogSpeed = 0.1f - speedSlider.value;
+    }
 
     // Coroutine to slowly print each character in a line.
     private IEnumerator PrintLine()
@@ -182,7 +192,7 @@ public class InkManager : MonoBehaviour
         foreach (char c in text)
         {
             textBox.maxVisibleCharacters++;
-            yield return new WaitForSeconds(0.04f);
+            yield return new WaitForSeconds(dialogSpeed);
         }
         printCoroutine = null;
     }
