@@ -21,6 +21,7 @@ public class InventoryUI : InteractableObj
     [SerializeField] public Image description;
     [SerializeField] public Sprite[] flowerDescriptions;
     [SerializeField] public Sprite[] seedDescriptions;
+    [SerializeField] public Sprite blankDescription; 
 
     // Store button information (true = flower, false = seed)
     private Dictionary<Button, bool> isFlowerMap = new Dictionary<Button, bool>();
@@ -126,6 +127,7 @@ public class InventoryUI : InteractableObj
         int i = 0;
         isFlowerMap.Clear();
         buttonIDMap.Clear();
+        description.sprite = blankDescription; 
 
         foreach (string key in mapValues.Keys)
         {
