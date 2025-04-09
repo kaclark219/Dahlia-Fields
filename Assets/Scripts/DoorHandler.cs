@@ -3,7 +3,6 @@ using System.Collections.Generic;
 // using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
-using static Unity.Burst.Intrinsics.X86;
 
 public class DoorHandler : InteractableObj
 {
