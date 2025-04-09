@@ -508,6 +508,8 @@ GameObject:
   - component: {fileID: 6421099624746369286}
   - component: {fileID: 6298806135843130753}
   - component: {fileID: 4119726781987688035}
+  - component: {fileID: 5225805116855503519}
+  - component: {fileID: 6948687182626045375}
   m_Layer: 0
   m_Name: StartingNote
   m_TagString: Untagged
@@ -648,6 +650,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   serializedVersion: 6
   m_Component:
   - component: {fileID: 293245284440544445}
@@ -664,6 +667,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 4172099548427411688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -3842,12 +3846,16 @@ PrefabInstance:
       objectReference: {fileID: 674366088160206155}
     - target: {fileID: 2090094949705218038, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2090094949705218038, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.data[0]
       value: 
       objectReference: {fileID: 9100000, guid: bb708fbdbf896694aac8eb0de0a0b8a3, type: 2}
+    - target: {fileID: 2090094949705218038, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: 251dffb503d9c5f408964818443d156a, type: 2}
     - target: {fileID: 2781228528320981040, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.size
       value: 1
@@ -3862,12 +3870,16 @@ PrefabInstance:
       objectReference: {fileID: 674366088160206155}
     - target: {fileID: 4025467880552757511, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4025467880552757511, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.data[0]
       value: 
       objectReference: {fileID: 9100000, guid: 1f6036cfe6c40934ea2710f79cddfe27, type: 2}
+    - target: {fileID: 4025467880552757511, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: 1feaf18dc0fb04a4eaee7891495fe44f, type: 2}
     - target: {fileID: 4628316051340762244, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -175.98
@@ -3882,12 +3894,16 @@ PrefabInstance:
       objectReference: {fileID: 674366088160206155}
     - target: {fileID: 4752162024808070822, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4752162024808070822, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.data[0]
       value: 
       objectReference: {fileID: 9100000, guid: bb4d906e6c0addb43add237079a4050b, type: 2}
+    - target: {fileID: 4752162024808070822, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: e60f63938c803d644806a4b42719fe32, type: 2}
     - target: {fileID: 5355634608738289082, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.size
       value: 1
@@ -3958,12 +3974,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8155125605675860083, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8155125605675860083, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.data[0]
       value: 
       objectReference: {fileID: 9100000, guid: 5493f1d96fd9f014fa8aea89590b9c23, type: 2}
+    - target: {fileID: 8155125605675860083, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: 5f981c60d47282e4aabe4eb126b74ce2, type: 2}
+    - target: {fileID: 8155125605675860083, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: animations.Array.data[2]
+      value: 
+      objectReference: {fileID: 9100000, guid: f976fb8ef6a25b144ab50ae2fd3abba3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
