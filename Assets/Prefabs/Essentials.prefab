@@ -3715,6 +3715,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 971978923564027479}
     - target: {fileID: 2390571552944893111, guid: cf38f8d0a12d7d64cac4d6262dcb8b22, type: 3}
+      propertyPath: voffset
+      value: -2.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390571552944893111, guid: cf38f8d0a12d7d64cac4d6262dcb8b22, type: 3}
       propertyPath: inventory
       value: 
       objectReference: {fileID: 7407745853463797708}

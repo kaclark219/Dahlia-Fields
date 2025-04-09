@@ -48,7 +48,8 @@ public class SeedStore : InteractableObj
     public int[] purchase = new int[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public int[] delivery = new int[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-    [SerializeField] GameObject signal; 
+    [SerializeField] GameObject signal;
+    public float voffset = 0.0f;
 
     public override void Awake()
     {
@@ -112,6 +113,11 @@ public class SeedStore : InteractableObj
                 Collect.SetActive(false);
                 EndInteract();
             }
+        }
+
+        if(signal.activeInHierarchy)
+        {
+            signal.transform.position = new Vector2(signal.transform.position.x, Mathf.Sin(Time.time * 2f) * 0.2f + voffset);
         }
     }
 
@@ -368,7 +374,7 @@ public class SeedStore : InteractableObj
                 if (cartMap[key] == id)
                 {
                     cart[id] += 5;
-                    a = int.Parse(counts[key].text) + 1;
+                    a = int.Parse(counts[key].text) + 5;
                     counts[key].text = a.ToString();
 
                     pr = int.Parse(price.text) + (int)chosenFlower.seedPrice;
@@ -397,7 +403,7 @@ public class SeedStore : InteractableObj
                     if (cartMap[key] == id)
                     {
                         cart[id] -= 5;
-                        a = int.Parse(counts[key].text) - 1;
+                        a = int.Parse(counts[key].text) - 5;
                         counts[key].text = a.ToString();
 
                         pr = int.Parse(price.text) - (int)chosenFlower.seedPrice;
