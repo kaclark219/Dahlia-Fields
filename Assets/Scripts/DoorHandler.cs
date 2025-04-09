@@ -9,6 +9,7 @@ public class DoorHandler : InteractableObj
 {
     [SerializeField] public GameObject player;
     [SerializeField] public GameObject location;
+    public bool isexit;
     private FadeInFadeOut transition;
     float alpha = 0f; 
 
@@ -32,6 +33,6 @@ public class DoorHandler : InteractableObj
 
     private void TeleportPlayer()
     {
-        player.transform.position = new Vector2(location.transform.position.x, location.transform.position.y + 1);
+        player.transform.position = new Vector2(location.transform.position.x, location.transform.position.y + (isexit ? -1 : 1));
     }
 }

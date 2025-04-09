@@ -12818,6 +12818,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 3928311145822015090}
+  isexit: 1
 --- !u!61 &4873104255901823882
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13483,7 +13484,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 7.68}
+  m_Size: {x: 1, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -13526,7 +13527,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 3}
-    newSize: {x: 2.56, y: 7.68}
+    newSize: {x: 1, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -15415,7 +15416,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 7.68}
+  m_Size: {x: 1, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -15458,7 +15459,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 3}
-    newSize: {x: 2.56, y: 7.68}
+    newSize: {x: 1, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -16208,6 +16209,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 2678672247408411297}
+  isexit: 1
 --- !u!61 &2125042279222198754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16677,6 +16679,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 2266992782772076065}
+  isexit: 0
 --- !u!1 &2859242636778540472
 GameObject:
   m_ObjectHideFlags: 0
@@ -19253,6 +19256,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 3904078440669945604}
+  isexit: 0
 --- !u!61 &8884807021450900799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35251,6 +35255,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 3058518903201326305}
+  isexit: 1
 --- !u!61 &2319942573671661855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35396,6 +35401,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 347828757208158433}
+  isexit: 0
 --- !u!1 &3963848827686868471
 GameObject:
   m_ObjectHideFlags: 0
@@ -36008,6 +36014,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 5500656095218182162}
+  isexit: 1
 --- !u!61 &3341344184529287684
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47091,6 +47098,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 8456501770832346587}
+  isexit: 1
 --- !u!61 &8336658603965577724
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47236,6 +47244,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 4323552158894606222}
+  isexit: 0
 --- !u!1 &5508267772907287757
 GameObject:
   m_ObjectHideFlags: 0
@@ -47653,7 +47662,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 7.68}
+  m_Size: {x: 1, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -47696,7 +47705,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 3}
-    newSize: {x: 2.56, y: 7.68}
+    newSize: {x: 1, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -53096,7 +53105,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.3763441, y: 4.129032}
+  m_Size: {x: 1, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -54711,7 +54720,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.8817205, y: 4.129032}
+  m_Size: {x: 5, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -54754,7 +54763,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 5, y: 3}
-    newSize: {x: 6.8817205, y: 4.129032}
+    newSize: {x: 5, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -54881,7 +54890,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.3763441, y: 4.129032}
+  m_Size: {x: 1, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -55596,6 +55605,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 5450007224702883020}
+  isexit: 0
 --- !u!1 &8468716610155631635
 GameObject:
   m_ObjectHideFlags: 0
@@ -55720,7 +55730,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 2}
+  m_Size: {x: 6.8817205, y: 2.7526882}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -55777,7 +55787,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 6.8817205, y: 2.7526882}
-    newSize: {x: 5, y: 2}
+    newSize: {x: 6.8817205, y: 2.7526882}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -56614,7 +56624,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 7.68}
+  m_Size: {x: 1, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -56657,7 +56667,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 3}
-    newSize: {x: 2.56, y: 7.68}
+    newSize: {x: 1, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -56840,7 +56850,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 7.68}
+  m_Size: {x: 1, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
