@@ -37,7 +37,7 @@ public class FlowerBox : InteractableObj
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && collision.gameObject.GetComponent<PlayerInteractor>().enabled && !WateredToday)
+        if (collision.CompareTag("Player") && collision.gameObject.GetComponent<PlayerInteractor>().canInteract && !WateredToday)
         {
             plint.list.Add(this);
         }

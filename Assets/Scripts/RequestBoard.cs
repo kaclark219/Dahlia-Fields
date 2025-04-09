@@ -101,7 +101,6 @@ public class RequestBoard : InteractableObj
     }
     
     private void GainTrust(GameObject request){
-        //TODO:
         playerData.ModifyMoney(requestList[request].reward);
         string[] trusts = requestList[request].trust.Split("; ");
         foreach (string people in trusts){
