@@ -12818,6 +12818,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 3928311145822015090}
+  isexit: 1
 --- !u!61 &4873104255901823882
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16208,6 +16209,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 2678672247408411297}
+  isexit: 1
 --- !u!61 &2125042279222198754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16677,6 +16679,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 2266992782772076065}
+  isexit: 0
 --- !u!1 &2859242636778540472
 GameObject:
   m_ObjectHideFlags: 0
@@ -19253,6 +19256,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 3904078440669945604}
+  isexit: 0
 --- !u!61 &8884807021450900799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35251,6 +35255,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 3058518903201326305}
+  isexit: 1
 --- !u!61 &2319942573671661855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35396,6 +35401,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 347828757208158433}
+  isexit: 0
 --- !u!1 &3963848827686868471
 GameObject:
   m_ObjectHideFlags: 0
@@ -36008,6 +36014,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 5500656095218182162}
+  isexit: 1
 --- !u!61 &3341344184529287684
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47091,6 +47098,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 8456501770832346587}
+  isexit: 1
 --- !u!61 &8336658603965577724
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47236,6 +47244,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 4323552158894606222}
+  isexit: 0
 --- !u!1 &5508267772907287757
 GameObject:
   m_ObjectHideFlags: 0
@@ -55596,6 +55605,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   player: {fileID: 0}
   location: {fileID: 5450007224702883020}
+  isexit: 0
 --- !u!1 &8468716610155631635
 GameObject:
   m_ObjectHideFlags: 0
