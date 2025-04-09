@@ -389,7 +389,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3127352498149895688}
-  - {fileID: 814531556498659263}
   - {fileID: 4233915617328888589}
   - {fileID: 7508205854820407124}
   - {fileID: 5832271804757366468}
@@ -14535,7 +14534,8 @@ Transform:
   m_LocalPosition: {x: -61.4, y: 25.5, z: 0.015703255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 814531556498659263}
   m_Father: {fileID: 327116025660357062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9075738043413692846
@@ -47828,7 +47828,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4113880053708805416}
   - component: {fileID: 4218949344897107181}
-  - component: {fileID: 135269753772986270}
   m_Layer: 0
   m_Name: Lake
   m_TagString: Untagged
@@ -47903,51 +47902,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &135269753772986270
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5567795456171199428}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.9292035, y: 7.9292035}
-    newSize: {x: 17.92, y: 17.92}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 7.9292035, y: 7.9292035}
-  m_EdgeRadius: 0
 --- !u!1 &5584067891845386067
 GameObject:
   m_ObjectHideFlags: 0
@@ -57402,7 +57356,6 @@ GameObject:
   m_Component:
   - component: {fileID: 814531556498659263}
   - component: {fileID: 8203962817568134690}
-  - component: {fileID: 3954350315539155685}
   m_Layer: 0
   m_Name: Chair_Fwd
   m_TagString: Untagged
@@ -57419,11 +57372,11 @@ Transform:
   m_GameObject: {fileID: 9174873942412416355}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -61.4, y: 27, z: 0.015703255}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 327116025660357062}
+  m_Father: {fileID: 4233915617328888589}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8203962817568134690
 SpriteRenderer:
@@ -57477,20 +57430,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3954350315539155685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9174873942412416355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eae0f4d264dd5ea479cb158da7fa9213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sr: {fileID: 0}
-  pm: {fileID: 0}
 --- !u!1001 &4550441290932059565
 PrefabInstance:
   m_ObjectHideFlags: 0
