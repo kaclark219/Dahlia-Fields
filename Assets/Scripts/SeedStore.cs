@@ -420,30 +420,35 @@ public class SeedStore : InteractableObj
 
     public bool Purchase()
     {
-        if(playerData.ModifyMoney(-1 * int.Parse(price.text)))
+        int priceOfCart = int.Parse(price.text); 
+        
+        if(priceOfCart > 0)
         {
-            int j = 0;
-            price.text = j.ToString();
-
-            background.sprite = fbackgrounds[9];
-            id = 10;
-
-            for (int i = 0; i < cart.Length; i++)
+            if (playerData.ModifyMoney(priceOfCart * -1))
             {
-                purchase[i] = cart[i];
+                int j = 0;
+                price.text = j.ToString();
+
+                background.sprite = fbackgrounds[9];
+                id = 10;
+
+                for (int i = 0; i < cart.Length; i++)
+                {
+                    purchase[i] = cart[i];
+                }
+
+                ifDelivery = true;
+
+                p = true;
+
+                return true;
             }
-
-            ifDelivery = true;
-
-            p = true; 
-
-            return true; 
-        } 
-        else
-        {
-            broke.SetActive(true);
-            //change maddie statment 
-            maddie.sprite = statements[2];
+            else
+            {
+                broke.SetActive(true);
+                //change maddie statment 
+                maddie.sprite = statements[2];
+            }
         }
 
         return false;
