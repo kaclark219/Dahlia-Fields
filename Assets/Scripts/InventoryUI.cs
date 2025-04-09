@@ -73,11 +73,6 @@ public class InventoryUI : InteractableObj
         SetUpView();
         uiScreen.SetActive(true);
 
-        // If there's at least one item, display its description by default
-        if (slots[0].gameObject.activeSelf)
-        {
-            DisplayDescription(0);
-        }
     }
 
     public override void EndInteract()
