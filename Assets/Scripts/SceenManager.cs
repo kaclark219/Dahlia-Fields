@@ -55,6 +55,7 @@ public class ScreenManager : MonoBehaviour
     //Go to Title Screen
     public void ToName()
     {
+        new_game_confirm.SetActive(false);
         name_screen.SetActive(true);
     }
 
@@ -102,7 +103,7 @@ public class ScreenManager : MonoBehaviour
 
     public void NewGame()
     {
-        Debug.Log(player_name);
+        //Debug.Log(player_name);
         PlayerPrefs.SetString(nameKey, player_name);
         PlayerPrefs.SetInt(newGameKey, 1);  // 1 => is a new game
         SceneManager.LoadScene(game_scene);
