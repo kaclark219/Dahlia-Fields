@@ -85,6 +85,12 @@ public class GlobalStateManager : MonoBehaviour
         inventoryManager.LoadData();
         requestBoard.LoadData();
         seedStore.LoadData();
+
+        if (daySystem.day == 1)
+        {
+            startingNote.GetComponent<BoxCollider2D>().enabled = true;
+            startingNote.SetActive(true);
+        }
     }
 
     public void ResetAllData()
