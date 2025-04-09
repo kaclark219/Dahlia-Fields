@@ -196,6 +196,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4896782759395972303, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: playCutscenes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984642080766805005, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5814080197229141757, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.95
