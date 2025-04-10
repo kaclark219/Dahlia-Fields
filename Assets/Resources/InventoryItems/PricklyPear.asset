@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: 6
   seedPrice: 84
   description: Jeremy's favorite
-  seedStock: 10
+  seedStock: 0
   flowerStock: 0
   daysToGrow: 6
   growing: {fileID: 21300000, guid: 1c7c8bbd085581c47a6650438de13515, type: 3}

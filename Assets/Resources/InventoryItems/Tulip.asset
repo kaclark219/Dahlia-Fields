@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: 3
   seedPrice: 48
   description: Megan's favorite
-  seedStock: 10
+  seedStock: 0
   flowerStock: 0
   daysToGrow: 4
   growing: {fileID: 21300000, guid: 3ac3f0837a09ae047a22947e7d4e9c11, type: 3}
