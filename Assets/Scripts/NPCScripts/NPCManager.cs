@@ -20,7 +20,7 @@ public class NPCManager : MonoBehaviour
     }
     public void MoveNPCs(int day, int stage)
     {
-        Debug.Log("Moving NPCs to day " + day + " and time " + stage);
+        //Debug.Log("Moving NPCs to day " + day + " and time " + stage);
         day = day%3;
         if(day == 0){
             day = 3;
