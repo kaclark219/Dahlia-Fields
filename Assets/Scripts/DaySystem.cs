@@ -29,6 +29,7 @@ public class DaySystem : MonoBehaviour
     private FadeInFadeOut transition;
     private MusicManager musicManager;
     private GameObject floorDirections; 
+    private GameObject startingNote;
 
     private InGameHUD inGameHud;
 
@@ -47,7 +48,10 @@ public class DaySystem : MonoBehaviour
         musicManager = FindFirstObjectByType<MusicManager>();
 
         floorDirections = GameObject.Find("WASDFloor"); 
-        floorDirections.SetActive(false);
+        floorDirections.SetActive(true);
+
+        startingNote = GameObject.Find("StartingNoteObj");
+        startingNote.SetActive(true);
 
         inGameHud = GameObject.Find("InGameHUD").GetComponent<InGameHUD>();
 
@@ -124,16 +128,6 @@ public class DaySystem : MonoBehaviour
 
     private void UpdateGameState(int day)
     {
-        // Check if yesterday was a kill day before updating
-        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
-        {
-            Debug.Log("Player Lost Game!");
-            LoseGame();
-            return;
-        }
-        isFeedDay = feedDays.Contains(day);
-        npcKilled = false;
-
         // Reset player location
         playerMovement.ResetLocation();
 
@@ -158,12 +152,13 @@ public class DaySystem : MonoBehaviour
         if(day == 1)
         {
             floorDirections.SetActive(true);
+            startingNote.SetActive(true);
+            startingNote.GetComponent<BoxCollider2D>().enabled = true;
         } else
         {
             floorDirections.SetActive(false);
+            startingNote.SetActive(false);
         }
-
-        
     }
 
     private Cutscene CheckForCutscene()

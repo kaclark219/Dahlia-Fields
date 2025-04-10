@@ -17,16 +17,12 @@ public class VideoPlayerManager : MonoBehaviour
 
     private RawImage image;
     private VideoPlayer videoPlayer;
-    private RenderTexture blackRenderTexture;
-    private RenderTexture originalTexture;
     private float length;
     private void Start()
     {
         image = GetComponent<RawImage>();
         videoPlayer = GetComponent<VideoPlayer>();
         transition = FindFirstObjectByType<FadeInFadeOut>();
-        originalTexture = videoPlayer.targetTexture;
-        blackRenderTexture = new RenderTexture(1920, 1080, 0);
     }
     public IEnumerator PlayNextDay(VideoClip cutscene, bool includeSleepAnimation)
     {
@@ -71,13 +67,11 @@ public class VideoPlayerManager : MonoBehaviour
     private IEnumerator PlayVideo()
     {
         image.enabled = true;
-        videoPlayer.targetTexture = originalTexture;
         videoPlayer.Play();
         yield return new WaitForSeconds(length);
         videoPlayer.clip = null;
         image.enabled = false;
         videoPlayer.enabled = false; 
         videoPlayer.Stop();
-        videoPlayer.targetTexture = blackRenderTexture;
     }
 }

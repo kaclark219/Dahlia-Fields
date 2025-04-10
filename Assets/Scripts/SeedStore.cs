@@ -37,7 +37,6 @@ public class SeedStore : InteractableObj
 
     public bool ifDelivery = false;
     public bool delivered = false;
-    public bool pickedUp = false;
     public bool p = false;
 
     private InventoryItem chosenFlower; 
@@ -338,8 +337,6 @@ public class SeedStore : InteractableObj
             signal.SetActive(true);
         }
 
-        pickedUp = false;
-
         int sets = 0;
         for (int i = 0; i < purchase.Length; i++)
         {
@@ -507,7 +504,6 @@ public class SeedStore : InteractableObj
                 delivery[i] = 0;
             }
 
-            pickedUp = true;
             delivered = false;
             signal.SetActive(false);
             Collect.SetActive(true); 
@@ -522,9 +518,8 @@ public class SeedStore : InteractableObj
     #region SAVE_SYSTEM
     public void SaveData()
     {
-        PlayerPrefs.SetInt("Delivery", delivered ? 1 : 0);
-        PlayerPrefs.SetInt("IfDelivery", ifDelivery? 1 : 0);
-        if (delivered || pickedUp)
+        PlayerPrefs.SetInt("Delivered", delivered ? 1 : 0);
+        if (delivered)
         {
             foreach (string key in mapValues.Keys)
             {
@@ -534,20 +529,29 @@ public class SeedStore : InteractableObj
                 Enum.TryParse(key, out flower);
 
                 PlayerPrefs.SetInt("Delivery_" + i, delivery[i]);
+            }
+        }
 
-                if (pickedUp)
-                {
-                    inventory.inventory[flower].seedStock -= delivery[i];
-                }
+        PlayerPrefs.SetInt("IfDelivery", ifDelivery ? 1 : 0);
+        if (ifDelivery)
+        {
+            foreach (string key in mapValues.Keys)
+            {
+                int i = mapValues[key];
+
+                Flowers flower;
+                Enum.TryParse(key, out flower);
+
+                PlayerPrefs.SetInt("Purchase_" + i, purchase[i]);
             }
         }
     }
 
     public void LoadData()
     {
-        if (PlayerPrefs.HasKey("Delivery"))
+        if (PlayerPrefs.HasKey("Delivered"))
         {
-            delivered = PlayerPrefs.GetInt("Delivery") == 1 ? true : false;
+            delivered = PlayerPrefs.GetInt("Delivered") == 1 ? true : false;
             if (delivered)
             {
                 for (int i = 0; i < delivery.Length; i++)
@@ -561,14 +565,24 @@ public class SeedStore : InteractableObj
         {
             delivered = false;
         }
+
         if (PlayerPrefs.HasKey("IfDelivery"))
         {
             ifDelivery = PlayerPrefs.GetInt("IfDelivery") == 1 ? true : false;
+            if (ifDelivery)
+            {
+                for (int i = 0; i < purchase.Length; i++)
+                {
+                    purchase[i] = PlayerPrefs.GetInt("Purchase_" + i);
+                }
+                signal.SetActive(true);
+            }
         }
         else
         {
             ifDelivery = false;
         }
+
         Delivery();
     }
 
