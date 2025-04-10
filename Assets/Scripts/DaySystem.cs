@@ -48,10 +48,10 @@ public class DaySystem : MonoBehaviour
         musicManager = FindFirstObjectByType<MusicManager>();
 
         floorDirections = GameObject.Find("WASDFloor"); 
-        floorDirections.SetActive(false);
+        floorDirections.SetActive(true);
 
         startingNote = GameObject.Find("StartingNoteObj");
-        startingNote.SetActive(false);
+        startingNote.SetActive(true);
 
         inGameHud = GameObject.Find("InGameHUD").GetComponent<InGameHUD>();
 
