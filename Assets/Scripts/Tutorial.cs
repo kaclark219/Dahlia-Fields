@@ -19,6 +19,7 @@ public class Tutorial : MonoBehaviour
     void Awake(){
         flowerManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
         requestboard = FindFirstObjectByType<RequestBoard>();
+        button.SetActive(false);
     }
 
     public void FlowerBoxTutorial(){
@@ -34,12 +35,15 @@ public class Tutorial : MonoBehaviour
         img.GetComponent<Image>().sprite = pic;
         button.SetActive(true);
 
+       
         yield return new WaitUntil(() => finished);
 
         button.SetActive(false);
         flowerManager.openedBox = true;
         flowerManager.exclaim.SetActive(false);
         img.SetActive(false);
+        finished = false;
+        yield return 0; 
     }
 
     private IEnumerator rbt(){
@@ -47,22 +51,31 @@ public class Tutorial : MonoBehaviour
         img.GetComponent<Image>().sprite = pic;
         button.SetActive(true);
 
+        
         yield return new WaitUntil(() => finished);
 
         button.SetActive(false);
         requestboard.openedBoard = true;
         requestboard.exclaim.SetActive(false);
         img.SetActive(false);
+        finished = false;
+        yield return 0;
     }
 
     void Update(){
         transform.position = new Vector2(transform.position.x, Mathf.Sin(Time.time * 2f) *0.2f + voffset);
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (img.activeInHierarchy)
             {
                 finished = true;
             }
+        }
+
+        if(!img.activeInHierarchy)
+        {
+            finished = false;
         }
     }
 
