@@ -53,7 +53,6 @@ public class NPCMaddie : NPC
         {
             CloseSeedUI();
         }
-        EndInteract();
     }
 
     public void CloseSeedUI()

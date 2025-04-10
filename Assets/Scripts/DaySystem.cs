@@ -28,6 +28,7 @@ public class DaySystem : MonoBehaviour
     private GlobalStateManager globalStateManager;
     private FadeInFadeOut transition;
     private MusicManager musicManager;
+    private GameObject floorDirections; 
 
     private InGameHUD inGameHud;
 
@@ -45,7 +46,12 @@ public class DaySystem : MonoBehaviour
         transition = FindFirstObjectByType<FadeInFadeOut>();
         musicManager = FindFirstObjectByType<MusicManager>();
 
+        floorDirections = GameObject.Find("WASDFloor"); 
+        floorDirections.SetActive(false);
+
         inGameHud = GameObject.Find("InGameHUD").GetComponent<InGameHUD>();
+
+
     }
 
     public void NextDay()
@@ -148,6 +154,16 @@ public class DaySystem : MonoBehaviour
 
         //Update Day counter
         inGameHud.UpdateDay(day); 
+
+        if(day == 1)
+        {
+            floorDirections.SetActive(true);
+        } else
+        {
+            floorDirections.SetActive(false);
+        }
+
+        
     }
 
     private Cutscene CheckForCutscene()
