@@ -593,6 +593,11 @@ public class SeedStore : InteractableObj
         {
             delivery[i] = 0;
         }
+        ifDelivery = false;
+        for (int i = 0; i < purchase.Length; i++)
+        {
+            purchase[i] = 0;
+        }
         Delivery();
     }
 

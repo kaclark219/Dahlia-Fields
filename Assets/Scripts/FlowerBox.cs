@@ -243,7 +243,10 @@ public class FlowerBox : InteractableObj
         WateredToday = false;
         CycleIndex = 0;
         spriteInd = 0;
-
+        if (exclaim)
+        {
+            exclaim.SetActive(true);
+        }
         UpdateSprite();
     }
 

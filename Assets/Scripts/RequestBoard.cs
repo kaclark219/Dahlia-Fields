@@ -352,6 +352,7 @@ public class RequestBoard : InteractableObj
         Refresh();
 
         openedBoard = false;
+        exclaim.SetActive(true);
     }
     #endregion
 }
