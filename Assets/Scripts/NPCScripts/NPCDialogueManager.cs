@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 public class NPCDialogueManager : MonoBehaviour
 {
-    private List<NPCPortrait> NPCs;
     [SerializeField] private GameObject NPCPrefab;
+    public TextMeshProUGUI nameText;
+    public Image trustImage;
     public Transform leftLocation;
     public Transform centerLocation;
     public Transform rightLocation;
@@ -21,12 +24,33 @@ public class NPCDialogueManager : MonoBehaviour
     [SerializeField] private NPCMoods PoppyMoods;
     [SerializeField] private NPCMoods LindaMoods;
     [SerializeField] private NPCMoods JeremyMoods;
+    public List<Sprite> trustSprites = new List<Sprite>();
+
+    private List<NPCPortrait> NPCs;
+    private DialogueVariables dialogueVariables;
+    private NPCManager npcM;
 
     private void Start()
     {
         NPCs = new List<NPCPortrait>();
+        npcM = FindFirstObjectByType<NPCManager>();
+        dialogueVariables = FindFirstObjectByType<DialogueVariables>();
     }
-
+    
+    public void SetName(string name)
+    {
+        nameText.text = name;
+        trustImage.enabled = false;
+    }
+    public void UpdateTrustMeter(NPCName name)
+    {
+        NPC npc = npcM.GetNPC(name);
+        int trust = int.Parse(dialogueVariables.variables[name.ToString() + "Trust"]);
+        int maxTrust = npc.trustRequired;
+        float percentage = ((float)trust / maxTrust) * 10;
+        Debug.Log("trust: " + trust + ", maxTrust: " + maxTrust + ", precentage: " + percentage);
+        trustImage.sprite = trustSprites[(int) percentage]; 
+    }
     public void ShowCharacter(NPCName name, NPCPosition position, NPCMood mood)
     {
         var character = NPCs.FirstOrDefault(x => x.Name == name);
@@ -59,7 +83,29 @@ public class NPCDialogueManager : MonoBehaviour
             Debug.LogWarning($"Failed to show character {name}. Character already showing");
             return;
         }
+
+
         character.Init(name, position, mood, GetMoodSetForCharacter(name));
+
+        // Update Displayed name and trust meter
+        if (name == NPCName.Player )
+        {
+            nameText.text = "You";
+        }
+        else
+        {
+            nameText.text = name.ToString();
+
+            if (name != NPCName.Maddie)
+            {
+                trustImage.enabled = true;
+                UpdateTrustMeter(name);
+            }
+            else
+            {
+                trustImage.enabled=false;
+            }
+        }
     }
 
     public void ShowCharacter(string name, string position, string mood)
@@ -124,6 +170,7 @@ public class NPCDialogueManager : MonoBehaviour
         {
             child.GetComponent<NPCPortrait>().Hide();
         }
+        trustImage.enabled = false;
     }
 
     public void ChangeMood(string name, string mood)

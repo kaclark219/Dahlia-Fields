@@ -27,16 +27,16 @@ public class InteractableObj : MonoBehaviour
         plint = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerInteractor>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    virtual protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && collision.gameObject.GetComponent<PlayerInteractor>().enabled)
+        if (collision.CompareTag("Player") && collision.gameObject.GetComponent<PlayerInteractor>().canInteract && !plint.list.Contains(this))
         {
             plint.list.Add(this);
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    virtual protected void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && plint.list.Contains(this))
         {
             plint.list.Remove(this);
             active = false;
@@ -46,17 +46,19 @@ public class InteractableObj : MonoBehaviour
     public virtual void Update()
     {
         if (active){
-            if(pm.rb.position.y > transform.position.y){
-                sr.sortingOrder = 6;
-            }else{
-                sr.sortingOrder = 3;
-            }
             if (Popup) { Popup.SetActive(true); }
             if(Input.GetKeyDown(KeyCode.E) && plint.canInteract){
                 OnInteract();
             }
         }else{
             if (Popup) { Popup.SetActive(false); }
+            // if(sr.sortingOrder != 6){sr.sortingOrder=6;}
+        }
+
+        if(pm.rb.position.y > transform.position.y){
+            sr.sortingOrder = 6;
+        }else{
+            sr.sortingOrder = 3;
         }
     }
 

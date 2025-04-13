@@ -3,24 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class FlowerboxManager : MonoBehaviour
 {
     [SerializeField] private GameObject FlowerBoxUI;
     [SerializeField] TextMeshProUGUI[] counts;
+    [SerializeField] public Image[] buttons; 
+    [SerializeField] public Sprite[] baseSprites;
+    [SerializeField] public Sprite[] selectedSprites;
+    public Dictionary<string, int> mapValues;
+
+    [Space]
     [SerializeField] private List<FlowerBox> FlowerBoxes; 
+    [SerializeField] public GameObject exclaim;
     public FlowerBox ActiveBox;
+    public string chosenFlower; 
 
     private InventoryManager inventoryManager;
     private PlayerInteractor plint;
 
-    [SerializeField] private int numActiveBoxes = 1;
+    [SerializeField] private int numActiveBoxes = 2;
     private const string activeBoxesKey = "Active_Boxes";
+    public bool openedBox = false;
+
+    
 
     void Awake()
     {
         plint = GameObject.FindWithTag("Player").GetComponent<PlayerInteractor>();
         inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
+        mapValues = new Dictionary<string, int>()
+        {
+            {"Dandelion", 0},
+            {"Daisy",  1},
+            {"Poppy", 2},
+            {"Tulip", 3},
+            {"Rose", 4},
+            {"Lavender", 5},
+            {"PricklyPear", 6},
+            {"Sunflower", 7},
+            {"LilyValley", 8}
+        };
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (FlowerBoxUI.activeInHierarchy && !exclaim.activeInHierarchy)
+            {
+                CloseUI();
+            }
+        }
     }
 
     public void OpenUI()
@@ -30,6 +65,14 @@ public class FlowerboxManager : MonoBehaviour
             counts[i].text = item.Value.seedStock.ToString();
             i++;
         }
+
+        for(int j = 0; j < buttons.Length; j++)
+        {
+            buttons[j].sprite = baseSprites[j];
+        }
+
+        chosenFlower = " "; 
+
         FlowerBoxUI.SetActive(true);
     }
 
@@ -53,10 +96,22 @@ public class FlowerboxManager : MonoBehaviour
         }
     }
 
-    public void Plant(string plantName){
+    public void SelectFlower(string flowerName)
+    {
+        for (int j = 0; j < buttons.Length; j++)
+        {
+            buttons[j].sprite = baseSprites[j];
+        }
+
+        chosenFlower = flowerName;
+        int id = mapValues[flowerName];
+        buttons[id].sprite = selectedSprites[id]; 
+    }
+
+    public void Plant(){
         if(ActiveBox != null){
             Flowers flower;
-            Enum.TryParse(plantName, out flower);
+            Enum.TryParse(chosenFlower, out flower);
             ActiveBox.Plant(flower);
         }
     }
@@ -100,6 +155,7 @@ public class FlowerboxManager : MonoBehaviour
         }
 
         PlayerPrefs.SetInt(activeBoxesKey, numActiveBoxes);
+        PlayerPrefs.SetInt("OpenedBox", openedBox ? 1 : 0);
     }
 
     public void LoadData()
@@ -110,8 +166,18 @@ public class FlowerboxManager : MonoBehaviour
         }
         else
         {
-            numActiveBoxes = 1;
+            numActiveBoxes = 2;
         }
+
+        if (PlayerPrefs.HasKey("OpenedBox"))
+        {
+            openedBox = PlayerPrefs.GetInt("OpenedBox") == 1;
+        }
+        else
+        {
+            openedBox = false;
+        }
+        exclaim.SetActive(!openedBox);
         UpdateVisibleBoxes();
 
         foreach (FlowerBox box in FlowerBoxes)
@@ -132,7 +198,8 @@ public class FlowerboxManager : MonoBehaviour
                 box.ResetData();
             }
         }
-        numActiveBoxes = 1;
+        openedBox = false;
+        numActiveBoxes = 2;
         UpdateVisibleBoxes();
     }
 

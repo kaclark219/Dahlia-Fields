@@ -141,7 +141,6 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   requestBoard: {fileID: 0}
   seedStore: {fileID: 0}
-  startingNote: {fileID: 0}
 --- !u!114 &1961994125542866198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,13 +155,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   day: 1
   week: 1
-  MorningToAfternoon: {fileID: 0}
-  AfternoonToEvening: {fileID: 0}
   playCutscenes: 0
   cutsceneList:
   - {fileID: 11400000, guid: 3c99d8a8986aa514086238cf4acc165e, type: 2}
+  - {fileID: 11400000, guid: fc3a48442f77c7b4982dda527db3e5b9, type: 2}
+  - {fileID: 11400000, guid: f08c263eeb2359f42936e9362ef79a6d, type: 2}
+  - {fileID: 11400000, guid: ece24411fe3415f49a86891fc77d40c5, type: 2}
+  - {fileID: 11400000, guid: ac9654859c96b2143910dc0609d046f9, type: 2}
+  - {fileID: 11400000, guid: ffb9ea01ea490d644a8bb714281ca24e, type: 2}
   - {fileID: 11400000, guid: e7a0094c7d6c67a478cfe6abd486cd5c, type: 2}
-  feedDays: 080000000e0000001300000017000000
+  - {fileID: 11400000, guid: 6ff9163da2d1a5a458e133812b394c89, type: 2}
+  - {fileID: 11400000, guid: 28aed5c1d8dd84c498d611dd6c56052b, type: 2}
+  - {fileID: 11400000, guid: 9e5ee831cb1625245874f13ab3530332, type: 2}
+  - {fileID: 11400000, guid: d1fedd6a3271a3241925c62a097f2ce2, type: 2}
+  - {fileID: 11400000, guid: 71b2abfa20c1cf240aa1b4b286cc338c, type: 2}
+  - {fileID: 11400000, guid: 7764e3991871ea04bab9ccf405772b32, type: 2}
+  - {fileID: 11400000, guid: 87995e3c89c49a74dae7b335e7dbbffb, type: 2}
+  feedDays: 070000000e0000001300000017000000
   isFeedDay: 0
   npcKilled: 0
 --- !u!114 &4218859400215620059

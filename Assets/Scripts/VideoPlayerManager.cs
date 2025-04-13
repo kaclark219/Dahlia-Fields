@@ -6,55 +6,77 @@ using UnityEngine.Video;
 
 public class VideoPlayerManager : MonoBehaviour
 {
-    [SerializeField] private VideoPlayer videoPlayer;
-    [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerInteractor playerInteractor;
     [SerializeField] private GameObject HUD;
-    [SerializeField] private MusicManager musicManager;
+    [SerializeField] private FadeInFadeOut transition;
+    [Space]
+    public VideoClip SleepClip;
+    public VideoClip WakeUpClip;
+    [Space]
+    public VideoClip MorningToAfternoon;
+    public VideoClip AfternoonToEvening;
 
-    public bool isPlaying = false;
-    private float length;
     private RawImage image;
+    private VideoPlayer videoPlayer;
 
     private void Start()
     {
         image = GetComponent<RawImage>();
-        image.enabled = false;
+        videoPlayer = GetComponent<VideoPlayer>();
+        transition = FindFirstObjectByType<FadeInFadeOut>();
     }
-    public void StartVideo(VideoClip clip)
+    public IEnumerator PlayNextDay(VideoClip cutscene, bool includeSleepAnimation)
     {
-        image.enabled = true;
-        videoPlayer.clip = clip;
-        length = (float)clip.length;
-        videoPlayer.Prepare();
-        videoPlayer.Play();
-
-        // Disable player
-        playerMovement.canmove = false;
-        playerInteractor.canInteract = false;
         HUD.SetActive(false);
 
-        // pause music
-        musicManager.PauseMusic();
+        if (includeSleepAnimation)
+        {
+            yield return StartCoroutine(PrepareVideo(SleepClip));
+            yield return StartCoroutine(PlayVideo());
+            yield return new WaitForSeconds(2f);
+        }
 
-        isPlaying = true;
-        StartCoroutine(WaitClipToEnd());
-    }   
+        if (cutscene != null)
+        {
+            yield return StartCoroutine(PrepareVideo(cutscene));
+            yield return StartCoroutine(PlayVideo());
+            yield return new WaitForSeconds(2f);
+        }
 
-    public void EndVideo()
-    {
-        image.enabled = false;
-        playerMovement.canmove=true;
-        playerInteractor.canInteract=true;
+        yield return StartCoroutine(PrepareVideo(WakeUpClip));
+        yield return StartCoroutine(PlayVideo());
+
         HUD.SetActive(true);
-        musicManager.ResumeMusic();
-
-        isPlaying = false;
     }
 
-    private IEnumerator WaitClipToEnd()
+    public IEnumerator PlayTimeChange(int time)
     {
-        yield return new WaitForSeconds(length);
-        EndVideo();
+        VideoClip clip = time == 2 ? MorningToAfternoon : AfternoonToEvening;   
+        yield return StartCoroutine(PrepareVideo(clip));
+        yield return StartCoroutine(PlayVideo());
+    }
+
+    public IEnumerator PrepareVideo(VideoClip clip)
+    {
+        videoPlayer.clip = clip;
+        videoPlayer.Prepare(); 
+        yield return new WaitUntil(() => videoPlayer.isPrepared);
+    }
+
+    private IEnumerator PlayVideo()
+    {
+        image.enabled = true;
+        videoPlayer.Play();
+        while (videoPlayer.isPlaying)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                videoPlayer.Stop();
+                break;
+            }
+            yield return null;
+        }
+        videoPlayer.clip = null;
+        image.enabled = false;
+        videoPlayer.Stop();
     }
 }

@@ -16,9 +16,9 @@ INCLUDE ../Globals.ink
 -> END
 
 === SkepticalMedicinal ===
-{HideCharacter("Gerald")} {ShowCharacter("Player", "Right", "Normal")} That’s just old folklore. There's no real proof.
-{HideCharacter("Player")} {ShowCharacter("Gerald", "Right", "Suspicious")} You don’t trust centuries of herbal remedies?
+{HideCharacter("Gerald")} {ShowCharacter("Player", "Right", "Normal")} That's just old folklore. There's no real proof.
+{HideCharacter("Player")} {ShowCharacter("Gerald", "Right", "Suspicious")} You don't trust centuries of herbal remedies?
 {HideCharacter("Gerald")} {ShowCharacter("Player", "Right", "Normal")} I mean, I trust medicine, just not the frilly stories of the scent of roses curing depression and such.
-{HideCharacter("Player")} {ShowCharacter("Gerald", "Right", "Normal")} Good thing I use all types of medical remedies. Just don’t be surprised when I turn out to be right.
+{HideCharacter("Player")} {ShowCharacter("Gerald", "Right", "Normal")} Good thing I use all types of medical remedies. Just don't be surprised when I turn out to be right.
 ~GeraldTrust -= 10
 -> END

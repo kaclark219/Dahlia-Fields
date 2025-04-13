@@ -50,16 +50,11 @@ public class DialogueVariables : MonoBehaviour
     }
 
     // Functions that change variables outside of Ink and updates the stories
-    public void ChangeVariable(string name, string value)
+    public void ChangePlayerName(string value)
     {
-        if (variables.ContainsKey(name))
+        if (currStory)
         {
-            variables[name] = value;
-            if (currStory)
-            {
-                currStory.variablesState.SetGlobal(name, new Ink.Runtime.StringValue(value));
-            }
-            Debug.Log("Variable Updated: " + name + " = " + value);
+            currStory.variablesState.SetGlobal("PlayerName", new Ink.Runtime.StringValue(value));
         }
     }
 
@@ -91,7 +86,10 @@ public class DialogueVariables : MonoBehaviour
         {
             foreach (KeyValuePair<string, string> var in variables)
             {
-                story.variablesState.SetGlobal(var.Key, new Ink.Runtime.StringValue(var.Value));
+                if (var.Key.Contains("Trust"))
+                {
+                    story.variablesState.SetGlobal(var.Key, new Ink.Runtime.IntValue(int.Parse(var.Value)));
+                }
             }
         }
     }
@@ -133,11 +131,15 @@ public class DialogueVariables : MonoBehaviour
     }
     public void ResetData()
     {
-        variables.Clear();
-        foreach (KeyValuePair<string, string> var in variables)
+        if (GlobalStory == null)
         {
-            variables.Add(var.Key, "0");
-            VariablesToStory(GlobalStory);
+            GlobalStory = new Story(LoadGlobalsJSON.text);
+        }
+        variables.Clear();
+        foreach (string name in GlobalStory.variablesState)
+        {
+            string value = GlobalStory.variablesState.GetVariableWithName(name).ToString();
+            variables[name] = value;
         }
     }
     #endregion

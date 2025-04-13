@@ -1,0 +1,558 @@
+fileFormatVersion: 2
+guid: 13f4b0731b353ef4fb9e33965ba55ba7
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_0
+      rect:
+        serializedVersion: 2
+        x: 6725
+        y: 3736
+        width: 296
+        height: 297
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2151618f542d41b4b9a9c6b65e50156a
+      internalID: 1311188605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_1
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 2533
+        width: 968
+        height: 969
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8abf0e1343e597549b0844af6afa4fd4
+      internalID: -892890729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_2
+      rect:
+        serializedVersion: 2
+        x: 2018
+        y: 2533
+        width: 968
+        height: 969
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 463957852ab4a384fbfd1e756299889c
+      internalID: -889351893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_3
+      rect:
+        serializedVersion: 2
+        x: 3053
+        y: 2533
+        width: 968
+        height: 969
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19ae507e228f83b44ad08d596bea2ed6
+      internalID: -1326754851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_4
+      rect:
+        serializedVersion: 2
+        x: 5268
+        y: 3150
+        width: 257
+        height: 258
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ad849fce0d4e5345bbace01ed4c0d62
+      internalID: 1659342501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_5
+      rect:
+        serializedVersion: 2
+        x: 6271
+        y: 3162
+        width: 149
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b270eb65ed82a3b4fba0cbf7e79357ec
+      internalID: -1127116060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_6
+      rect:
+        serializedVersion: 2
+        x: 5268
+        y: 2596
+        width: 257
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c6836ae9217cc47a4b1423dc9c2533
+      internalID: 1528539049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_7
+      rect:
+        serializedVersion: 2
+        x: 6268
+        y: 2678
+        width: 144
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c4cd59993229f4491b86f34f5aaa7d
+      internalID: 624408849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_8
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1482
+        width: 968
+        height: 969
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18119ad307b7dc548b95c609d6fea6c0
+      internalID: 1490629376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_9
+      rect:
+        serializedVersion: 2
+        x: 2018
+        y: 1482
+        width: 968
+        height: 969
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2004bffd9bc95c34c920bd02edbcd6cf
+      internalID: -1663451711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_10
+      rect:
+        serializedVersion: 2
+        x: 3053
+        y: 1482
+        width: 968
+        height: 969
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08679746abc846549a5dfaba81d2bbde
+      internalID: 591363079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_11
+      rect:
+        serializedVersion: 2
+        x: 6268
+        y: 2193
+        width: 144
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fae8d03d708756a428b5750d1a80072f
+      internalID: -1403387073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_12
+      rect:
+        serializedVersion: 2
+        x: 6268
+        y: 1709
+        width: 144
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c0e78711c1a5046903fb9f6fd2afc0
+      internalID: 664024916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_13
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 451
+        width: 968
+        height: 969
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 650c31b7b3409a145ac470129f2d0618
+      internalID: 1058780621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_14
+      rect:
+        serializedVersion: 2
+        x: 2018
+        y: 451
+        width: 968
+        height: 969
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3aa4f86e6049354baaac63813c6383a
+      internalID: -1196463062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_15
+      rect:
+        serializedVersion: 2
+        x: 3053
+        y: 451
+        width: 968
+        height: 969
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437195fb4121ee140a3b283f1091b260
+      internalID: 1574257425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_16
+      rect:
+        serializedVersion: 2
+        x: 6248
+        y: 1225
+        width: 148
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78cba20ab3dc39d46ad97b24ad8a7579
+      internalID: -650069676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_17
+      rect:
+        serializedVersion: 2
+        x: 5908
+        y: 537
+        width: 981
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d36fe9a188d3d24789c5e03e14c53f4
+      internalID: 316297609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seed-store-ui-OVERHAUL-btns_18
+      rect:
+        serializedVersion: 2
+        x: 4594
+        y: 3680
+        width: 380
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e571c5aaf534674194c748a679e9f79
+      internalID: -160751424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      seed-store-ui-OVERHAUL-btns_0: 1311188605
+      seed-store-ui-OVERHAUL-btns_1: -892890729
+      seed-store-ui-OVERHAUL-btns_10: 591363079
+      seed-store-ui-OVERHAUL-btns_11: -1403387073
+      seed-store-ui-OVERHAUL-btns_12: 664024916
+      seed-store-ui-OVERHAUL-btns_13: 1058780621
+      seed-store-ui-OVERHAUL-btns_14: -1196463062
+      seed-store-ui-OVERHAUL-btns_15: 1574257425
+      seed-store-ui-OVERHAUL-btns_16: -650069676
+      seed-store-ui-OVERHAUL-btns_17: 316297609
+      seed-store-ui-OVERHAUL-btns_18: -160751424
+      seed-store-ui-OVERHAUL-btns_2: -889351893
+      seed-store-ui-OVERHAUL-btns_3: -1326754851
+      seed-store-ui-OVERHAUL-btns_4: 1659342501
+      seed-store-ui-OVERHAUL-btns_5: -1127116060
+      seed-store-ui-OVERHAUL-btns_6: 1528539049
+      seed-store-ui-OVERHAUL-btns_7: 624408849
+      seed-store-ui-OVERHAUL-btns_8: 1490629376
+      seed-store-ui-OVERHAUL-btns_9: -1663451711
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -4,7 +4,7 @@ INCLUDE ../Globals.ink
 
 === start ===
 {ShowCharacter("Linda", "Right", "Normal")} Hey, {PlayerName}. What's on your mind today?
-* [There's a water leak in my basement.] -> Kill
+* [There's a water leak in my basement. #kill] -> Kill
 * [Nevermind.] -> NoKill
 
 === Kill ===

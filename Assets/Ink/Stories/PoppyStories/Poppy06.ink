@@ -3,7 +3,7 @@ INCLUDE ../Globals.ink
 -> start
 
 === start ===  
-{ShowCharacter("Poppy", "Right", "Normal")} So.. I might have overheard some drunken ramblings I definitely shouldn’t have.
+{ShowCharacter("Poppy", "Right", "Normal")} So.. I might have overheard some drunken ramblings I definitely shouldn't have.
 * [Tell me!] -> PoppyGossip
 * [You shouldn't spread rumors.] -> PoppyScold  
 

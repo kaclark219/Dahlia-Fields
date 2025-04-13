@@ -11,7 +11,7 @@ INCLUDE ../Globals.ink
 {HideCharacter("Jeremy")} {ShowCharacter("Player", "Right", "Normal")} No? I have no idea what you're talking about
 {HideCharacter("Player")} {ShowCharacter("Jeremy", "Right", "Normal")} I've got a lucky hammer that's never let me down. But it's disappeared from my workbench, and I'm freaking out, man.
 {HideCharacter("Jeremy")} {ShowCharacter("Player", "Right", "Normal")} A lucky hammer?
-{HideCharacter("Player")} {ShowCharacter("Jeremy", "Right", "Normal")} Yeah. Only broke, like, twice. But it’s got good vibes, y'know? You sure you haven't seen it?
+{HideCharacter("Player")} {ShowCharacter("Jeremy", "Right", "Normal")} Yeah. Only broke, like, twice. But it's got good vibes, y'know? You sure you haven't seen it?
 {HideCharacter("Jeremy")} {ShowCharacter("Player", "Right", "Normal")} Yeah, I have not.
 {HideCharacter("Player")} {ShowCharacter("Jeremy", "Right", "Suspicious")} Ugh this is the WORST! I'm going insane and no one can help me out.
 ~JeremyTrust -= 10

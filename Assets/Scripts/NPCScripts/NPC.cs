@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Ink.Runtime;
 using UnityEngine;
 
 public class NPC : InteractableObj
@@ -16,6 +14,7 @@ public class NPC : InteractableObj
     public bool isFeedDay = false;
     public int trustRequired = 0;
     [SerializeField] public TextAsset killText;
+    [SerializeField] public RuntimeAnimatorController[] animations;
 
     // Public variables inherited by child classes but hidden in Unity inspector
     [HideInInspector] public InkManager ink;

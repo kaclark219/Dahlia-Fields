@@ -5,6 +5,7 @@ using UnityEngine;
 public class SimpleDialogueInteractable : InteractableObj
 {
     public TextAsset textAsset;
+    public string DisplayName = "---";
     private InkManager inkManager;
 
     public override void Awake()
@@ -22,6 +23,7 @@ public class SimpleDialogueInteractable : InteractableObj
     {
         base.OnInteract();
         inkManager.StartStory(textAsset, this);
+        inkManager.SetDialogueName(DisplayName);
     }
 
     public override void EndInteract()

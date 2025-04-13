@@ -14,6 +14,7 @@ public class FlowerBox : InteractableObj
     public int spriteInd = 0;
 
     [SerializeField] public Sprite[] sprites;
+    [SerializeField] private GameObject exclaim;
 
     private string boxKey;
     private InventoryItem flowerPlanted;
@@ -34,8 +35,30 @@ public class FlowerBox : InteractableObj
         base.Start();
     }
 
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && collision.gameObject.GetComponent<PlayerInteractor>().canInteract && !WateredToday)
+        {
+            plint.list.Add(this);
+        }
+    }
+    protected override void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if(plint.list.Contains(this)){
+                plint.list.Remove(this);
+            }
+            active = false;
+        }
+    }
+
     public override void OnInteract()
     {
+        if(exclaim && exclaim.activeSelf){
+            exclaim.GetComponent<Tutorial>().FlowerBoxTutorial();
+        }
+
         if (!playerData.CheckEnergy(5)) { return; }
 
         base.OnInteract();
@@ -91,6 +114,8 @@ public class FlowerBox : InteractableObj
 
         WateredToday = true;
         playerData.ModifyEnergy(-5);
+        active = false;
+        plint.list.Remove(this);
         
         sr.sprite = sprites[++spriteInd];
 
@@ -218,7 +243,10 @@ public class FlowerBox : InteractableObj
         WateredToday = false;
         CycleIndex = 0;
         spriteInd = 0;
-
+        if (exclaim)
+        {
+            exclaim.SetActive(true);
+        }
         UpdateSprite();
     }
 

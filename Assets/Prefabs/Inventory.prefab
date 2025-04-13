@@ -137,8 +137,8 @@ MonoBehaviour:
   pm: {fileID: 0}
   playerData: {fileID: 0}
   uiScreen: {fileID: 0}
-  inventory: {fileID: 2399888363277904680}
-  flowerAmounts:
+  inventoryManager: {fileID: 2399888363277904680}
+  slots:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -148,7 +148,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  seedAmounts:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -158,6 +157,66 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  counts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  flowerIcons:
+  - {fileID: 267933177, guid: ad79cf072d6448249ac1a1a5d8a4f6b3, type: 3}
+  - {fileID: -240020443, guid: 5ae73d236b8dc7745b4ff31ff7333df4, type: 3}
+  - {fileID: 768999914, guid: ad097ad46934ff84bb15272cf0ea6374, type: 3}
+  - {fileID: 493501419, guid: cc0766d1b06ddd54dae5a070e9070957, type: 3}
+  - {fileID: 1184209120, guid: 92bbf266b91d3ee4795c9ff4a4db6a9d, type: 3}
+  - {fileID: -1068924544, guid: 93d160abff70bbc4981f294668fe726a, type: 3}
+  - {fileID: -1921734355, guid: e6c51fbb46748a04e9cb999a1152942c, type: 3}
+  - {fileID: 985292096, guid: 55cebb0b487f09a47b5cd86c553f1804, type: 3}
+  - {fileID: 1070616522, guid: 80ee5b2100aff7e4da8fb50e62f6dea4, type: 3}
+  seedIcons:
+  - {fileID: 21300000, guid: 509af4d4351238741bb5da732b73ca19, type: 3}
+  - {fileID: 21300000, guid: 58dc8fa54e53137499731a28a28446a3, type: 3}
+  - {fileID: 21300000, guid: 3c6e61c4fb0f39f43a37489036327477, type: 3}
+  - {fileID: 21300000, guid: 9fc24137cda2614449b155ccec84617e, type: 3}
+  - {fileID: 21300000, guid: 9129379e415e66543bd2bd779959a3ea, type: 3}
+  - {fileID: 21300000, guid: ec522fe2e0b89b047a49f31f2aedb6a3, type: 3}
+  - {fileID: 21300000, guid: 11dbd0d7999e1ca4b977475d9f90b979, type: 3}
+  - {fileID: 21300000, guid: afcddac1586233c418dcf207c6fd29f9, type: 3}
+  - {fileID: 21300000, guid: 72615cf4897f1eb499d2d15d3706a519, type: 3}
+  description: {fileID: 0}
+  flowerDescriptions:
+  - {fileID: 21300000, guid: bebe58f148749024db0aef47b6aabe6a, type: 3}
+  - {fileID: 21300000, guid: 8d655f0284930db43a33c9b4fba490e2, type: 3}
+  - {fileID: 21300000, guid: 1e5a702060e54f642971ac26b417d929, type: 3}
+  - {fileID: 21300000, guid: d136fbef4f7c5c74fbeddd4327d4e38a, type: 3}
+  - {fileID: 21300000, guid: ec3af425e91a7d4439eb7befa56969f0, type: 3}
+  - {fileID: 21300000, guid: 317e81d8f5a616343a35b9f26170ae25, type: 3}
+  - {fileID: 21300000, guid: ec243bf260357554d96ec72e7ec4a60f, type: 3}
+  - {fileID: 21300000, guid: 888b9630f2495c24caf944c3b1f348da, type: 3}
+  - {fileID: 21300000, guid: 251120915474bbb4490a986365f62362, type: 3}
+  seedDescriptions:
+  - {fileID: 21300000, guid: 91f9af00dca445341bd6df8f842f8a32, type: 3}
+  - {fileID: 21300000, guid: cf2fb737af1761c47be99abe6e9872eb, type: 3}
+  - {fileID: 21300000, guid: 2253ed5b30eb95c48a3402219e63163f, type: 3}
+  - {fileID: 21300000, guid: b345823b957ac2b4486c93336a9167f9, type: 3}
+  - {fileID: 21300000, guid: 3f462ccc0dbb8b64cb17bb53e9978cef, type: 3}
+  - {fileID: 21300000, guid: 2a2511809cf7ca94982e4f4774e0e67c, type: 3}
+  - {fileID: 21300000, guid: 435dbdb728b6ed84895848533a8722b6, type: 3}
+  - {fileID: 21300000, guid: 74fe0d165d169bf468d53d2f11730491, type: 3}
+  - {fileID: 21300000, guid: f8814992d0bb2eb45a98b964e7e65066, type: 3}
 --- !u!61 &4204388936825653607
 BoxCollider2D:
   m_ObjectHideFlags: 0

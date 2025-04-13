@@ -53,6 +53,7 @@ MonoBehaviour:
   panel: {fileID: 0}
   choiceButtonContainer: {fileID: 0}
   choiceButtonPrefab: {fileID: 4802107501613646800, guid: 7d27a6f0e87402444905bd23e4e9d10d, type: 3}
+  killButtonSprite: {fileID: -1889203605, guid: df484ae7bbafd7f4ab2e2d73be2d4e03, type: 3}
   dialogueVariables: {fileID: 5934105558860872651}
 --- !u!114 &5934105558860872651
 MonoBehaviour:
@@ -123,6 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 3720186509679898539, guid: 990afb787b2754e4f9e267376375e815, type: 3}
+  nameText: {fileID: 0}
+  trustImage: {fileID: 0}
   leftLocation: {fileID: 0}
   centerLocation: {fileID: 0}
   rightLocation: {fileID: 0}
@@ -137,6 +140,16 @@ MonoBehaviour:
   PoppyMoods: {fileID: 4710222692875583894}
   LindaMoods: {fileID: 7386746482836180379}
   JeremyMoods: {fileID: 6099109079391814039}
+  trustSprites:
+  - {fileID: 21300000, guid: b8cd029a95bf4664abdcd6efa810e766, type: 3}
+  - {fileID: 21300000, guid: 85eb4da8e9611d642a3c21c2e26e8ade, type: 3}
+  - {fileID: 21300000, guid: 5e15100f1d6101b45857bb5992faf53a, type: 3}
+  - {fileID: 21300000, guid: 806718edd722bb444a8fcc80ab6f771b, type: 3}
+  - {fileID: 21300000, guid: 148ae6f2be9c9cf4492b3cf4b07ef14f, type: 3}
+  - {fileID: 21300000, guid: 43a0bb722ad6d7648909f156d74e508a, type: 3}
+  - {fileID: 21300000, guid: b2ded2cf93b5b5f4c92ad20d9341247e, type: 3}
+  - {fileID: 21300000, guid: f200195a16ec5524590a85e270c78800, type: 3}
+  - {fileID: 21300000, guid: 87750d87f83a5f749be64dbd95fde7d8, type: 3}
 --- !u!114 &5941182217501235346
 MonoBehaviour:
   m_ObjectHideFlags: 0

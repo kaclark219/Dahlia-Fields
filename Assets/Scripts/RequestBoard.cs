@@ -15,8 +15,10 @@ public class RequestBoard : InteractableObj
     [SerializeField] InventoryManager inventory;
     [SerializeField] DialogueVariables dvar;
     [SerializeField] GameObject remaining;
+    [SerializeField] public GameObject exclaim;
     int day;
     Dictionary<GameObject, Request> requestList;
+    public bool openedBoard = false;
 
     public override void Start()
     {
@@ -29,6 +31,18 @@ public class RequestBoard : InteractableObj
             requestList.Add(requests[i - 1], new Request(int.Parse(info[0]), info[1], getName(info[2]), int.Parse(info[3]), int.Parse(info[4]), info[5], int.Parse(info[6]))); //If this line errors make sure the CSV doesn't have a blak line at the end
         }
         Refresh();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (canvas.activeInHierarchy && !exclaim.activeInHierarchy)
+            {
+                CloseBoard();
+            }
+        }
     }
 
     private void Refresh(){
@@ -87,7 +101,6 @@ public class RequestBoard : InteractableObj
     }
     
     private void GainTrust(GameObject request){
-        //TODO:
         playerData.ModifyMoney(requestList[request].reward);
         string[] trusts = requestList[request].trust.Split("; ");
         foreach (string people in trusts){
@@ -251,6 +264,9 @@ public class RequestBoard : InteractableObj
 
     override public void OnInteract(){
         base.OnInteract();
+        if(exclaim.activeSelf){
+            exclaim.GetComponent<Tutorial>().RequestBoardTutorial();
+        }
         canvas.SetActive(true);
         Refresh();
     }
@@ -287,6 +303,8 @@ public class RequestBoard : InteractableObj
             string key = req.Value.author.ToString() + "_" + req.Value.day + "_" + "Request";
             PlayerPrefs.SetInt(key, req.Value.completed);
         }
+
+        PlayerPrefs.SetInt("OpenedBoard", openedBoard ? 1 : 0);
     }
 
     private IEnumerator Load(){
@@ -304,6 +322,16 @@ public class RequestBoard : InteractableObj
                 requestList[key] = req; 
             }
         }
+
+        if (PlayerPrefs.HasKey("OpenedBoard"))
+        {
+            openedBoard = PlayerPrefs.GetInt("OpenedBoard") == 1;
+        }
+        else
+        {
+            openedBoard = false;
+        }
+        exclaim.SetActive(!openedBoard);
     }
 
     public void LoadData()
@@ -313,18 +341,18 @@ public class RequestBoard : InteractableObj
 
     public void ResetData()
     {
-        List<GameObject> keys = new List<GameObject>(requestList.Keys);
-        foreach (GameObject key in keys)
+        if (requestList == null) { return; }
+        requestList.Clear();
+        string[] lines = Resources.Load<TextAsset>("RequestBoard").ToString().Split("\n");
+        for (int i = 1; i < lines.Length; i++)
         {
-            Request req = requestList[key];
-            string prefKey = req.author.ToString() + "_" + req.day + "_" + "Request";
-
-            if (PlayerPrefs.HasKey(prefKey))
-            {
-                req.completed = 0;
-                requestList[key] = req;
-            }
+            string[] info = lines[i].Split(",");
+            requestList.Add(requests[i - 1], new Request(int.Parse(info[0]), info[1], getName(info[2]), int.Parse(info[3]), int.Parse(info[4]), info[5], int.Parse(info[6]))); //If this line errors make sure the CSV doesn't have a blak line at the end
         }
+        Refresh();
+
+        openedBoard = false;
+        exclaim.SetActive(true);
     }
     #endregion
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: 4
   seedPrice: 60
   description: Charlie's favorite
-  seedStock: 10
+  seedStock: 0
   flowerStock: 0
   daysToGrow: 4
   growing: {fileID: 21300000, guid: 74821ccd044bbae408d6fafeac20ff37, type: 3}

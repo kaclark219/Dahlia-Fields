@@ -15,6 +15,7 @@ public class StartingNoteInteractable : ShowImageInteractable
     public override void Update()
     {
         base.Update();
+
         if (daySystem.day != 1)
         {
             transform.parent.gameObject.SetActive(false);

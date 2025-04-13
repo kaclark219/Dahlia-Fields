@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
+// using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
-using static Unity.Burst.Intrinsics.X86;
 
 public class DoorHandler : InteractableObj
 {
     [SerializeField] public GameObject player;
     [SerializeField] public GameObject location;
+    public bool isexit;
     private FadeInFadeOut transition;
     float alpha = 0f; 
 
@@ -27,11 +27,11 @@ public class DoorHandler : InteractableObj
     public override void OnInteract()
     {
         base.OnInteract();
-        transition.StartTransition(TeleportPlayer, base.EndInteract);
+        StartCoroutine(transition.FullTransition(TeleportPlayer, base.EndInteract));
     }
 
     private void TeleportPlayer()
     {
-        player.transform.position = location.transform.position;
+        player.transform.position = new Vector2(location.transform.position.x, location.transform.position.y + (isexit ? -1 : 1));
     }
 }

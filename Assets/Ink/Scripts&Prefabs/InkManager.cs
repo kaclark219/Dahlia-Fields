@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
@@ -12,22 +13,27 @@ public class InkManager : MonoBehaviour
     [SerializeField] private NPCDialogueManager npcDialogueManager;
     [SerializeField] private TextAsset inkJsonAsset;
     [SerializeField] private Story story;
-
+    [Space]
     [SerializeField] private GameObject UI;
     [SerializeField] private TextMeshProUGUI textBox;
     [SerializeField] private OnClickNextDialogue panel;
-
     [SerializeField] private VerticalLayoutGroup choiceButtonContainer;
-
     [SerializeField] private GameObject choiceButtonPrefab;
-
+    [SerializeField] private Sprite killButtonSprite;
+    [Space]
     [SerializeField] private DialogueVariables dialogueVariables;
+
+    [Space]
+    [SerializeField] public Slider speedSlider; 
 
     private NPCManager npcManager;
     private InteractableObj currInteractable;
     private Coroutine printCoroutine = null;
     private string text;
     private bool isStoryPaused = false;
+    private bool storyPlaying = false;
+
+    private float dialogSpeed = 0.05f; 
 
     private void Awake()
     {
@@ -37,10 +43,18 @@ public class InkManager : MonoBehaviour
         UI.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (storyPlaying && Input.GetKeyDown(KeyCode.E)) {
+            DisplayNextLine();
+            storyPlaying = false;
+            StartCoroutine(StoryIsPlaying());
+        } 
+    }
+
     // For testing
     private void StartStory()
     {
-        Debug.Log("Starting Dialogue");
         story = new Story(inkJsonAsset.text);
         UI.SetActive(true);
 
@@ -48,13 +62,12 @@ public class InkManager : MonoBehaviour
         BindFunctions();
 
         DisplayNextLine();
+        StartCoroutine(StoryIsPlaying());
     }
 
     // keeps track of InteractableObj to call EndInteract() at end of dialogue
     public Story StartStory(TextAsset newstory, InteractableObj obj)
     {
-        Debug.Log("Starting Dialogue");
-
         currInteractable = obj; 
         inkJsonAsset = newstory;
         story = new Story(inkJsonAsset.text);
@@ -64,6 +77,7 @@ public class InkManager : MonoBehaviour
         BindFunctions();
 
         DisplayNextLine();
+        StartCoroutine(StoryIsPlaying());
 
         return story;
     }
@@ -71,8 +85,6 @@ public class InkManager : MonoBehaviour
     // Used to create the story but not display the next line for other ExternalFunction bindings
     public Story CreateStory(TextAsset newstory, InteractableObj obj)
     {
-        Debug.Log("Starting Dialogue");
-
         currInteractable = obj;
         inkJsonAsset = newstory;
         story = new Story(inkJsonAsset.text);
@@ -80,8 +92,22 @@ public class InkManager : MonoBehaviour
 
         // Connects function calls in Ink file with function calls in Unity
         BindFunctions();
-
+        
         return story;
+    }
+
+    public void SetDialogueName(string name)
+    {
+        npcDialogueManager.SetName(name);
+    }
+
+    public void StartCreatedStory()
+    {
+        if (story)
+        {
+            DisplayNextLine();
+            StartCoroutine(StoryIsPlaying());
+        }
     }
 
     private void BindFunctions()
@@ -95,18 +121,20 @@ public class InkManager : MonoBehaviour
 
     public void EndStory()
     {
-        Debug.Log("Exiting Dialogue");
-
         // Reset Dialogue 
         story.ResetState();
         dialogueVariables.StopListening(story);
         UI.SetActive(false);
+        story = null;
 
         // Clear all Portraits
         npcDialogueManager.ClearCharacters();
 
         // End Interaction for Player
         currInteractable.EndInteract();
+        currInteractable = null;
+
+        storyPlaying = false;
     }
 
     public void DisplayNextLine()
@@ -150,6 +178,11 @@ public class InkManager : MonoBehaviour
         }
 
     }
+    
+    public void SetDialogSpeed(float i)
+    {
+        dialogSpeed = 0.1f - speedSlider.value;
+    }
 
     // Coroutine to slowly print each character in a line.
     private IEnumerator PrintLine()
@@ -159,9 +192,15 @@ public class InkManager : MonoBehaviour
         foreach (char c in text)
         {
             textBox.maxVisibleCharacters++;
-            yield return new WaitForSeconds(0.04f);
+            yield return new WaitForSeconds(dialogSpeed);
         }
         printCoroutine = null;
+    }
+
+    private IEnumerator StoryIsPlaying()
+    {
+        yield return new WaitForSeconds(.25f);
+        storyPlaying = true;
     }
 
     // Styling Stuff:
@@ -206,9 +245,13 @@ public class InkManager : MonoBehaviour
     {
         if (choiceButtonContainer.GetComponentsInChildren<Button>().Length > 0) { return; }
 
-        foreach (Choice choice in story.currentChoices)
-        {
+        foreach (Choice choice in story.currentChoices) 
+        { 
             GameObject button = CreateChoiceButton(choice.text);
+            if (choice.tags != null && choice.tags.Contains("kill"))
+            {
+                button.GetComponentInChildren<Image>().sprite = killButtonSprite;
+            }
             button.GetComponentsInChildren<Button>()[0].onClick.AddListener(() => OnClickChoiceButton(choice)); 
         }
 

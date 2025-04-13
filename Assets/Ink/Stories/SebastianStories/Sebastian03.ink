@@ -8,9 +8,9 @@ INCLUDE ../Globals.ink
 * [What brand?] -> BrandInquiry
 
 === Scold ===
-{HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Normal")} You really should quit that. It’s not good for you.
+{HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Normal")} You really should quit that. It's not good for you.
 {HideCharacter("Player")} {ShowCharacter("Sebastian", "Right", "Suspicious")} He shrugs, taking another drag. #thought
-{HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Normal")} Seriously, it’ll catch up to you eventually.
+{HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Normal")} Seriously, it'll catch up to you eventually.
 {HideCharacter("Sebastian")} {ShowCharacter("Player", "Right", "Suspicious")} I don't need you scolding me like a little kid. I get that enough from other people around here. Buzz off, or maybe the smoke'll get you too.
 ~SebastianTrust -= 10
 -> END

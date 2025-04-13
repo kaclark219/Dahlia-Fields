@@ -17,8 +17,6 @@ public class GlobalStateManager : MonoBehaviour
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private RequestBoard requestBoard;
     [SerializeField] private SeedStore seedStore;
-    [Space]
-    [SerializeField] private GameObject startingNote;
 
     private const string newGameKey = "NEW_GAME";   // used to tell GlobalStateManager on load if its a new game 
     private const string nameKey = "PLAYER_NAME";
@@ -56,8 +54,6 @@ public class GlobalStateManager : MonoBehaviour
 
         WinUI.SetActive(false);
         LoseUI.SetActive(false);
-
-        startingNote.SetActive(true);
     }
 
     public void SaveAllData()
@@ -71,7 +67,6 @@ public class GlobalStateManager : MonoBehaviour
         requestBoard.SaveData();
         seedStore.SaveData();
         inventoryManager.SaveData();
-
     }
 
     public void LoadAllData()
@@ -98,8 +93,6 @@ public class GlobalStateManager : MonoBehaviour
         inventoryManager.ResetData();
         requestBoard.ResetData();
         seedStore.ResetData();
-
-        startingNote.SetActive(true);
 
         PlayerPrefs.DeleteAll();
     }
