@@ -17,7 +17,7 @@ public class VideoPlayerManager : MonoBehaviour
 
     private RawImage image;
     private VideoPlayer videoPlayer;
-    private float length;
+
     private void Start()
     {
         image = GetComponent<RawImage>();
@@ -57,21 +57,26 @@ public class VideoPlayerManager : MonoBehaviour
 
     public IEnumerator PrepareVideo(VideoClip clip)
     {
-        videoPlayer.enabled = true;
         videoPlayer.clip = clip;
-        length = (float)clip.length;
-        videoPlayer.Prepare();  // Prepare video and wait till it's done
-        yield return new WaitUntil(() => videoPlayer.isPrepared == true);
+        videoPlayer.Prepare(); 
+        yield return new WaitUntil(() => videoPlayer.isPrepared);
     }
 
     private IEnumerator PlayVideo()
     {
         image.enabled = true;
         videoPlayer.Play();
-        yield return new WaitForSeconds(length);
+        while (videoPlayer.isPlaying)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                videoPlayer.Stop();
+                break;
+            }
+            yield return null;
+        }
         videoPlayer.clip = null;
         image.enabled = false;
-        videoPlayer.enabled = false; 
         videoPlayer.Stop();
     }
 }
