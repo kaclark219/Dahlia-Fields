@@ -70,9 +70,6 @@ public class VideoPlayerManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                videoPlayer.clip = null;
-                image.enabled = false;
-                videoPlayer.enabled = false;
                 videoPlayer.Stop();
                 break;
             }

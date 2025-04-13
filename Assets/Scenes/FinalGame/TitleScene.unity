@@ -1763,7 +1763,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1411061086}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
         m_MethodName: LoadGame
         m_Mode: 1
@@ -2081,7 +2081,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1411061086}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -2213,7 +2213,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1411061086}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
         m_MethodName: ToName
         m_Mode: 1
@@ -2388,7 +2388,7 @@ MonoBehaviour:
   LoadGameButton: {fileID: 1168981031}
   name_input: {fileID: 2071179002}
   player_name: 
-  game_scene: Prototype
+  game_scene: MainScene
   hasSave: 0
 --- !u!1 &1421184234
 GameObject:
@@ -2472,7 +2472,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1411061086}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
         m_MethodName: ToCredits
         m_Mode: 1
@@ -2642,7 +2642,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1411061086}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
         m_MethodName: MainPage
         m_Mode: 1
@@ -2736,10 +2736,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 692089507}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1411061086}
+        m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
+        m_MethodName: MainPage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3802,7 +3802,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1411061086}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
         m_MethodName: MainPage
         m_Mode: 1
@@ -3934,7 +3934,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1411061086}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
         m_MethodName: ToNewGame
         m_Mode: 1
@@ -4085,7 +4085,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1411061086}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
         m_MethodName: NewGame
         m_Mode: 1
