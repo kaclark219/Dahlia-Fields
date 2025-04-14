@@ -145,7 +145,6 @@ public class PlayerData : MonoBehaviour
 
     public void ResetData()
     {
-        SetName("Y/N");
         SetMoney(startMoney);
         ResetEnergy();
     }

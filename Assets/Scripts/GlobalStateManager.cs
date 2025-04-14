@@ -42,9 +42,7 @@ public class GlobalStateManager : MonoBehaviour
 
         if (newGame == 1)   // reset all data, create new game
         {
-            string name = PlayerPrefs.GetString(nameKey);
             ResetAllData();
-            playerData.SetName(name);
         }
         else
         {
@@ -85,6 +83,9 @@ public class GlobalStateManager : MonoBehaviour
     public void ResetAllData()
     {
         //Debug.Log("Resetting Data Data...");
+        string name = PlayerPrefs.GetString(nameKey);
+        playerData.SetName(name);
+
         dialogueVariables.ResetData();
         playerData.ResetData();
         daySystem.ResetData();
@@ -93,8 +94,6 @@ public class GlobalStateManager : MonoBehaviour
         inventoryManager.ResetData();
         requestBoard.ResetData();
         seedStore.ResetData();
-
-        PlayerPrefs.DeleteAll();
     }
 
     public void ShowLoseScreen()

@@ -22,7 +22,7 @@ public class DialogueVariables : MonoBehaviour
             string value = GlobalStory.variablesState.GetVariableWithName(name).ToString();
             variables[name] = value;
 
-             Debug.Log("Initialized global dialogue variable: " + name + " = " + value);
+             //Debug.Log("Initialized global dialogue variable: " + name + " = " + value);
         }
     }
 

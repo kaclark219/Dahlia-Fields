@@ -103,6 +103,7 @@ public class ScreenManager : MonoBehaviour
     public void NewGame()
     {
         //Debug.Log(player_name);
+        PlayerPrefs.DeleteKey(nameKey);
         PlayerPrefs.SetString(nameKey, player_name);
         PlayerPrefs.SetInt(newGameKey, 1);  // 1 => is a new game
         SceneManager.LoadScene(game_scene);
