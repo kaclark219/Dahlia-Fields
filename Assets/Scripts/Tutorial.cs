@@ -14,7 +14,6 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private Sprite pic;
     private int page = 0;
     private bool finished = false;
-    public float voffset = 0.0f;
 
     void Awake(){
         flowerManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
@@ -63,7 +62,7 @@ public class Tutorial : MonoBehaviour
     }
 
     void Update(){
-        transform.position = new Vector2(transform.position.x, Mathf.Sin(Time.time * 2f) *0.2f + voffset);
+        transform.position = new Vector2(transform.position.x, Mathf.Sin(Time.time * 2f) *0.2f - 1);
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

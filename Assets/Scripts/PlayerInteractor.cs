@@ -9,6 +9,7 @@ public class PlayerInteractor : MonoBehaviour
     public List<InteractableObj> list = new List<InteractableObj>();
     public PlayerMovement pm;
     public bool canInteract = true;
+    [SerializeField] GameObject map;
 
     private Rigidbody2D rb;
     private InteractableObj closest;
@@ -35,6 +36,11 @@ public class PlayerInteractor : MonoBehaviour
             
             closest.active = true;
             closest.frame = Time.time;
+        }
+
+        if(Input.GetKeyDown(KeyCode.M) && canInteract){
+            map.GetComponent<Map>().open();
+            map.SetActive(true);
         }
     }
 
