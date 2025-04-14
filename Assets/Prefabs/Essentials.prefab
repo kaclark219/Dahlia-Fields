@@ -1451,7 +1451,7 @@ MonoBehaviour:
   harvesting: {fileID: 8300000, guid: f76baca774db7aa43909728612b1c70e, type: 3}
   healing: {fileID: 0}
   purchase: {fileID: 8300000, guid: 2ada402f390bfcf4f836228afd206d86, type: 3}
-  requestComplete: {fileID: 0}
+  requestComplete: {fileID: 8300000, guid: 1062d353de405f343aa141632bb70550, type: 3}
   walking: {fileID: 0}
   dialogClick: {fileID: 0}
   uiClick: {fileID: 0}

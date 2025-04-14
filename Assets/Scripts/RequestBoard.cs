@@ -19,6 +19,13 @@ public class RequestBoard : InteractableObj
     int day;
     Dictionary<GameObject, Request> requestList;
     public bool openedBoard = false;
+    private SoundEffects effect;
+
+    public override void Awake()
+    {
+        base.Awake();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
+    }
 
     public override void Start()
     {
@@ -250,6 +257,7 @@ public class RequestBoard : InteractableObj
     public void PlaceOrder(){
         foreach (GameObject req in requests){
             if(req.transform.GetChild(0).gameObject.activeSelf){
+                effect.PlayRequest(); 
                 LoseFlowers(req);
                 GainTrust(req);
                 MarkComplete(req);
