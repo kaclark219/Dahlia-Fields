@@ -109,7 +109,7 @@ public class FlowerboxManager : MonoBehaviour
     }
 
     public void Plant(){
-        if(ActiveBox != null){
+        if(ActiveBox != null && chosenFlower != " "){
             Flowers flower;
             Enum.TryParse(chosenFlower, out flower);
             ActiveBox.Plant(flower);
