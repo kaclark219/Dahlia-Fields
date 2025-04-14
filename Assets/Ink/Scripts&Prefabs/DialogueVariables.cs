@@ -67,6 +67,10 @@ public class DialogueVariables : MonoBehaviour
         }
     }
 
+    public void AddTrustMegan()
+    {
+        AddTrust("MeganTrust", 5);
+    }
     public void AddTrust(string name, int value)
     {
         if (variables.ContainsKey(name))
@@ -74,6 +78,8 @@ public class DialogueVariables : MonoBehaviour
             int current = int.Parse(variables[name]); 
             current += value; 
             variables[name] = current.ToString();
+
+            GlobalStory.variablesState.SetGlobal(name, new Ink.Runtime.IntValue(value));
 
             if (currStory)
             {
@@ -148,11 +154,16 @@ public class DialogueVariables : MonoBehaviour
         {
             GlobalStory = new Story(LoadGlobalsJSON.text);
         }
-        variables.Clear();
-        foreach (string name in GlobalStory.variablesState)
+        foreach (KeyValuePair<string, string> var in variables)
         {
-            string value = GlobalStory.variablesState.GetVariableWithName(name).ToString();
-            variables[name] = value;
+            if (var.Key.Contains("Trust"))
+            {
+                GlobalStory.variablesState.SetGlobal(var.Key, new Ink.Runtime.IntValue(0));
+            }
+            else
+            {
+                GlobalStory.variablesState.SetGlobal(var.Key, new Ink.Runtime.StringValue("Y/N"));
+            }
         }
     }
     #endregion

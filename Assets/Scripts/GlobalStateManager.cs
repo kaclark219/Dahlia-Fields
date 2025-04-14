@@ -18,6 +18,8 @@ public class GlobalStateManager : MonoBehaviour
     [SerializeField] private RequestBoard requestBoard;
     [SerializeField] private SeedStore seedStore;
 
+    private PlayerInteractor interactor;
+
     private const string newGameKey = "NEW_GAME";   // used to tell GlobalStateManager on load if its a new game 
     private const string nameKey = "PLAYER_NAME";
 
@@ -31,6 +33,7 @@ public class GlobalStateManager : MonoBehaviour
         inventoryManager = inventoryManager ? inventoryManager : FindObjectOfType<InventoryManager>(); ;
         requestBoard = requestBoard ? requestBoard : FindObjectOfType<RequestBoard>();
         seedStore = seedStore ? seedStore : FindFirstObjectByType<SeedStore>();
+        interactor = FindFirstObjectByType<PlayerInteractor>();
     }
     private void Start()
     {
@@ -98,6 +101,8 @@ public class GlobalStateManager : MonoBehaviour
 
     public void ShowLoseScreen()
     {
+        ResetAllData();
+        interactor.Interact();
         LoseUI.SetActive (true);
     }
 
@@ -108,7 +113,7 @@ public class GlobalStateManager : MonoBehaviour
 
     public void PlayAgain()
     {
-        ResetAllData();
+        interactor.EndInteract();
         SceneManager.LoadScene(menuSceneName);
     }
 }

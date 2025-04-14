@@ -251,6 +251,7 @@ public class InkManager : MonoBehaviour
             if (choice.tags != null && choice.tags.Contains("kill"))
             {
                 button.GetComponentInChildren<Image>().sprite = killButtonSprite;
+                button.GetComponentInChildren<TextMeshProUGUI>().color = new Color(148, 0, 0);
             }
             button.GetComponentsInChildren<Button>()[0].onClick.AddListener(() => OnClickChoiceButton(choice)); 
         }

@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d457f81d4fc594b8af27477a43dbba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuSceneName: Prototype_Menu
+  menuSceneName: TitleScene
   LoseUI: {fileID: 0}
   WinUI: {fileID: 0}
   dialogueVariables: {fileID: 0}

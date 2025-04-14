@@ -54,14 +54,22 @@ public class DaySystem : MonoBehaviour
         startingNote.SetActive(true);
 
         inGameHud = GameObject.Find("InGameHUD").GetComponent<InGameHUD>();
-
-
     }
 
     public void NextDay()
     {
         day++;
         week = (day / 3) + 1;
+
+        // Check if yesterday was a kill day before updating
+        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
+        {
+            Debug.Log("Player Lost Game!");
+            LoseGame();
+            return;
+        }
+        isFeedDay = feedDays.Contains(day);
+        npcKilled = false;
 
         StartCoroutine(LoadDay(day, true));
 
@@ -99,28 +107,22 @@ public class DaySystem : MonoBehaviour
 
         playerInteractor.Interact();
         musicManager.fadeOut();
-
-        // Check if yesterday was a kill day before updating
-        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
-        {
-            Debug.Log("Player Lost Game!");
-            LoseGame();
-            yield break;
-        }
-        isFeedDay = feedDays.Contains(day);
-        npcKilled = false;
         
-        yield return StartCoroutine(transition.FadeIn(2));
 
         if (playCutscenes)
         {
+            yield return StartCoroutine(transition.FadeIn(2));
+
             Cutscene cutscene = CheckForCutscene();
             yield return StartCoroutine(videoPlayerManager.PlayNextDay(cutscene ? cutscene.clip : null, startingGame));
         }
 
         UpdateGameState(day);
 
-        yield return StartCoroutine(transition.FadeOut(2));
+        if (playCutscenes)
+        {
+            yield return StartCoroutine(transition.FadeOut(2));
+        }
 
         playerInteractor.EndInteract();
         musicManager.fadeIn();
@@ -174,12 +176,7 @@ public class DaySystem : MonoBehaviour
     }
 
     private void LoseGame()
-    {
-        // Disable player movement and interactions
-        playerInteractor.Interact();
-        GameObject.Find("Player").GetComponent<PlayerInteractor>().enabled = false;
-
-        // Display lose ui
+    { 
         globalStateManager.ShowLoseScreen();
     }
 
