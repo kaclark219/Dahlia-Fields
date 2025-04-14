@@ -110,21 +110,17 @@ public class DaySystem : MonoBehaviour
         isFeedDay = feedDays.Contains(day);
         npcKilled = false;
         
+        yield return StartCoroutine(transition.FadeIn(2));
 
         if (playCutscenes)
         {
-            yield return StartCoroutine(transition.FadeIn(2));
-
             Cutscene cutscene = CheckForCutscene();
             yield return StartCoroutine(videoPlayerManager.PlayNextDay(cutscene ? cutscene.clip : null, startingGame));
         }
 
         UpdateGameState(day);
 
-        if (playCutscenes)
-        {
-            yield return StartCoroutine(transition.FadeOut(2));
-        }
+        yield return StartCoroutine(transition.FadeOut(2));
 
         playerInteractor.EndInteract();
         musicManager.fadeIn();

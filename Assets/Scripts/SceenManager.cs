@@ -69,7 +69,6 @@ public class ScreenManager : MonoBehaviour
         if (hasSave)
         {
             new_game_confirm.SetActive(true);
-
         }
         else
         {
