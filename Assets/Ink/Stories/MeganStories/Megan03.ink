@@ -10,8 +10,8 @@ INCLUDE ../Globals.ink
 === ReassureMegan ===  
 {HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Normal")} I think she's a good kid. A little wild, maybe, but she has a good heart.
 {HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Happy")} You really think so?
-{HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Normal")} Yeah. She's got a strong personality, but that's not a bad thing. She just needs the right guidance.
-{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Happy")} That means a lot to hear. I just want the best for her. Thank you for hearing me out!
+{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Normal")} Yeah. She's got a strong personality, but that's not a bad thing. She just needs the right guidance.
+{HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Happy")} That means a lot to hear. I just want the best for her. Thank you for hearing me out!
 ~MeganTrust += 10
 -> END
 
