@@ -191,6 +191,10 @@ PrefabInstance:
       propertyPath: sceneName
       value: TitleScene
       objectReference: {fileID: 0}
+    - target: {fileID: 1136786413997294598, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: menuSceneName
+      value: TitleScene
+      objectReference: {fileID: 0}
     - target: {fileID: 5814080197229141757, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.95

@@ -105,7 +105,7 @@ public class RequestBoard : InteractableObj
         string[] trusts = requestList[request].trust.Split("; ");
         foreach (string people in trusts){
             string[] statement = people.Split(" Trust ");
-            dvar.AddTrust(statement[1], int.Parse(statement[0]));
+            dvar.AddTrust(statement[1] + "Trust", int.Parse(statement[0]));
         }
     }
     
