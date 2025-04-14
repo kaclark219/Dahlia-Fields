@@ -28,6 +28,14 @@ public class InventoryUI : InteractableObj
     // Store button IDs
     private Dictionary<Button, int> buttonIDMap = new Dictionary<Button, int>();
 
+    private SoundEffects effect;
+
+    public override void Awake()
+    {   
+        base.Awake();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
+    }
+
     public override void Start()
     {
         base.Start();
@@ -59,7 +67,8 @@ public class InventoryUI : InteractableObj
     {
         base.Update();
         if(Input.GetKeyDown(KeyCode.Escape))
-        {   
+        {
+            Debug.Log("ui close");
             if(uiScreen.activeInHierarchy)
             {
                 EndInteract();
@@ -70,6 +79,7 @@ public class InventoryUI : InteractableObj
     public override void OnInteract()
     {
         base.OnInteract();
+        effect.PlayChestOpen();
         SetUpView();
         uiScreen.SetActive(true);
 
@@ -78,6 +88,7 @@ public class InventoryUI : InteractableObj
     public override void EndInteract()
     {
         base.EndInteract();
+        effect.PlayChestClose();
         isFlowerMap.Clear();
         buttonIDMap.Clear();
 

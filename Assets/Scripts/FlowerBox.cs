@@ -21,12 +21,14 @@ public class FlowerBox : InteractableObj
 
     private FlowerboxManager fman;
     private InventoryManager inventoryManager;
+    private SoundEffects effect; 
 
     public override void Awake()
     {
        base.Awake();
        inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
        fman = GetComponentInParent<FlowerboxManager>();
+       effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
        boxKey = "Box" + BoxNumber;
     }
 
@@ -83,10 +85,11 @@ public class FlowerBox : InteractableObj
     }
 
     public void Plant(Flowers flower)
-    {
+    {   
         //Open UI and select a plant
         if(inventoryManager.GetSeedStock(flower) >= 5)
         {
+            effect.PlayPlant();
             fman.CloseUI();
             planted = true;
             flowerPlanted = inventoryManager.FindItem(flower);
@@ -111,7 +114,7 @@ public class FlowerBox : InteractableObj
         //plint.pm.canmove = false;
         //yield return new WaitForSeconds(1);
         //plint.pm.canmove = true;
-
+        effect.PlayWater();
         WateredToday = true;
         playerData.ModifyEnergy(-5);
         active = false;
@@ -129,7 +132,7 @@ public class FlowerBox : InteractableObj
         //plint.pm.canmove = false;
         //yield return new WaitForSeconds(1);
         //plint.pm.canmove = true;
-
+        effect.PlayHarvest();
         inventoryManager.SetFlowerStock(flowerPlanted.itemName, 5); 
         CycleIndex = 0;
         planted = false;

@@ -103,6 +103,7 @@ public class MusicManager : MonoBehaviour
     {
         float value = volumeSlider.value;
         volume = value;
+
     }
 
     // TODO: Save player's volume setting
