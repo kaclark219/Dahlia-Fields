@@ -52,7 +52,10 @@ public class DialogueVariables : MonoBehaviour
     // Functions that change variables outside of Ink and updates the stories
     public void ChangePlayerName(string value)
     {
-        GlobalStory.variablesState.SetGlobal("PlayerName", new Ink.Runtime.StringValue(value));
+        if (currStory)
+        {
+            currStory.variablesState.SetGlobal("PlayerName", new Ink.Runtime.StringValue(value));
+        }
     }
 
     public void AddTrust(string name, int value)
@@ -63,7 +66,10 @@ public class DialogueVariables : MonoBehaviour
             current += value; 
             variables[name] = current.ToString();
 
-            GlobalStory.variablesState.SetGlobal(name, new Ink.Runtime.IntValue(value));
+            if (currStory)
+            {
+                currStory.variablesState.SetGlobal(name, new Ink.Runtime.IntValue(value));
+            }
 
             Debug.Log($"Variable Updated: {name} = {current}");
         }
@@ -71,12 +77,6 @@ public class DialogueVariables : MonoBehaviour
         {
             Debug.LogWarning($"Variable '{name}' not found or is not an integer.");
         }
-    }
-
-    // For TESTING
-    public void AddTrustToGerald(int value)
-    {
-        AddTrust("BruceTrust", 10);
     }
 
     // Updates all variable changes to the dictionary to the Ink Story

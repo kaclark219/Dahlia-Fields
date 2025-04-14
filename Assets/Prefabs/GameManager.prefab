@@ -171,7 +171,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 71b2abfa20c1cf240aa1b4b286cc338c, type: 2}
   - {fileID: 11400000, guid: 7764e3991871ea04bab9ccf405772b32, type: 2}
   - {fileID: 11400000, guid: 87995e3c89c49a74dae7b335e7dbbffb, type: 2}
-  feedDays: 080000000e0000001300000017000000
+  feedDays: 070000000e0000001300000017000000
   isFeedDay: 0
   npcKilled: 0
 --- !u!114 &4218859400215620059
