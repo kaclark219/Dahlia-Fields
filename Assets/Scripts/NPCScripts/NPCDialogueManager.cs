@@ -49,6 +49,7 @@ public class NPCDialogueManager : MonoBehaviour
         int maxTrust = npc.trustRequired;
         float percentage = ((float)trust / maxTrust) * 10;
         Debug.Log("trust: " + trust + ", maxTrust: " + maxTrust + ", precentage: " + percentage);
+        if ((int) percentage >= 8) { percentage = 8; }
         trustImage.sprite = trustSprites[(int) percentage]; 
     }
     public void ShowCharacter(NPCName name, NPCPosition position, NPCMood mood)
