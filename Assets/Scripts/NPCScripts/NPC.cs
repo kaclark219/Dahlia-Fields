@@ -16,6 +16,8 @@ public class NPC : InteractableObj
     [SerializeField] public TextAsset killText;
     [SerializeField] public RuntimeAnimatorController[] animations;
 
+    [HideInInspector] Map map;
+
     // Public variables inherited by child classes but hidden in Unity inspector
     [HideInInspector] public InkManager ink;
     [HideInInspector] public DialogueVariables dialogueVariables;   
@@ -30,6 +32,7 @@ public class NPC : InteractableObj
         ink = GameObject.Find("InkManager").GetComponent<InkManager>();
         dialogueVariables = GameObject.Find("InkManager").GetComponent<DialogueVariables>();
         npcKey = npcName.ToString();
+        map = GameObject.Find("Map").GetComponent<Map>();
     }
     public override void Start()
     {
@@ -47,6 +50,8 @@ public class NPC : InteractableObj
         if (!playerData.CheckEnergy(5)) { return; }
 
         base.OnInteract();
+
+        map.log(npcKey + "_Found");
 
         int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
 
