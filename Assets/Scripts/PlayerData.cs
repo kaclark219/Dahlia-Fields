@@ -14,7 +14,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private DaySystem daySystem;
     [SerializeField] public InGameHUD inGameHud;
 
-    private string playerName = "";
+    public string playerName = "";
     public int money;
     public int energy;
 
@@ -124,6 +124,7 @@ public class PlayerData : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(nameKey))
         {
+            Debug.Log(PlayerPrefs.GetString(nameKey));
             SetName(PlayerPrefs.GetString(nameKey));
         }
         else
