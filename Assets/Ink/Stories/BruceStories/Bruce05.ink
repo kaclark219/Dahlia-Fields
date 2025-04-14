@@ -10,7 +10,7 @@ INCLUDE ../Globals.ink
 === CasualDrinker ===
 {HideCharacter("Bruce")} {ShowCharacter("Player", "Right", "Normal")} Yeah, sometimes. You?
 {HideCharacter("Player")} {ShowCharacter("Bruce", "Right", "Happy")} Of course, with the way Poppy makes these mango things, I'd be there every day of the week if my liver could handle it.
-{HideCharacter("Bruce")} {ShowCharacter("Player", "Right", "Normal")} Oh? Mango things?
+{HideCharacter("Bruce")} {ShowCharacter("Player", "Right", "Normal")} Oh? Mago things?
 {HideCharacter("Player")} {ShowCharacter("Bruce", "Right", "Normal")} You know, mango things. They've got liquor and pulp, like a real man drinks.
 {HideCharacter("Bruce")} {ShowCharacter("Player", "Right", "Normal")} Oh, sure. That sound delicious. And ... really manly.
 {HideCharacter("Player")} {ShowCharacter("Bruce", "Right", "Normal")} Yeah, I knew you'd get it.
