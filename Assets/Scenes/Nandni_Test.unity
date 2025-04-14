@@ -181,6 +181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 117324395}
+  - component: {fileID: 117324396}
   m_Layer: 0
   m_Name: SoundEffectManager
   m_TagString: Untagged
@@ -206,6 +207,32 @@ Transform:
   - {fileID: 862859710}
   m_Father: {fileID: 657891133}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &117324396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117324394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be3bde11996ccb4aa4cee4a7f6bc7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 8300000, guid: 8ece055942b65a74194704e326dc4874, type: 3}
+  chest: {fileID: 0}
+  mailbox: {fileID: 0}
+  planting: {fileID: 0}
+  watering: {fileID: 0}
+  harvesting: {fileID: 0}
+  healing: {fileID: 0}
+  purchase: {fileID: 0}
+  requestComplete: {fileID: 0}
+  walking: {fileID: 0}
+  dialogClick: {fileID: 0}
+  uiClick: {fileID: 0}
+  speaker: {fileID: 497001721}
+  volumeSlider: {fileID: 593701984}
 --- !u!1 &259488213 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3904078440669945604, guid: ecca26d4e269f6d46a8215dc0ca69af2, type: 3}
@@ -295,6 +322,22 @@ PrefabInstance:
     - target: {fileID: 2780767089961318706, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094963707378772011, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 117324396}
+    - target: {fileID: 3094963707378772011, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VolumeControl
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094963707378772011, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundEffects, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094963707378772011, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3620333986055891609, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -431,8 +474,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -516,6 +559,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &593701984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3094963707378772011, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+  m_PrefabInstance: {fileID: 400932859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &657891133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5814080197229141757, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
@@ -565,7 +619,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -693,7 +747,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
