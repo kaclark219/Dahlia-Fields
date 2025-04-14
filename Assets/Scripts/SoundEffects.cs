@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class SoundEffects : MonoBehaviour
 {
     [SerializeField] private AudioClip door;
-    [SerializeField] private AudioClip chest;
+    [SerializeField] private AudioClip chestOpen;
+    [SerializeField] private AudioClip chestClose;
     [SerializeField] private AudioClip mailbox;
     [SerializeField] private AudioClip planting;
     [SerializeField] private AudioClip watering;
@@ -35,9 +36,15 @@ public class SoundEffects : MonoBehaviour
         speaker.Play();
     }
 
-    public void PlayChest()
+    public void PlayChestOpen()
     {
-        speaker.clip = chest;
+        speaker.clip = chestOpen;
+        speaker.Play();
+    }
+
+    public void PlayChestClose()
+    {
+        speaker.clip = chestClose;
         speaker.Play();
     }
 

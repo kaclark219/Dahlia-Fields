@@ -1709,7 +1709,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 8300000, guid: 8ece055942b65a74194704e326dc4874, type: 3}
-  chest: {fileID: 0}
+  chestOpen: {fileID: 8300000, guid: b145702dbad50dc49ac8034451e94746, type: 3}
+  chestClose: {fileID: 8300000, guid: 3f10d78be2e4c4f46a0c051bdf36ebe0, type: 3}
   mailbox: {fileID: 0}
   planting: {fileID: 0}
   watering: {fileID: 0}
