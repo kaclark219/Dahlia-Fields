@@ -122,17 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &1593832876 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2336555754150149217, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-  m_PrefabInstance: {fileID: 3424595474031006296}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67610bf7256d244bbd78e01d16ce580, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2070612021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -198,26 +187,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114841502684460420, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 1593832876}
-    - target: {fileID: 2986248033586869148, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 1593832876}
-    - target: {fileID: 3551156569824758609, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 1593832876}
-    - target: {fileID: 4244683837622743117, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 1593832876}
-    - target: {fileID: 5144933277373385968, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 1593832876}
     - target: {fileID: 5814080197229141757, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.95
@@ -258,30 +227,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6207020934062874055, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 1593832876}
     - target: {fileID: 7105137776691616820, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_Name
       value: Essentials
       objectReference: {fileID: 0}
-    - target: {fileID: 7831750815928266278, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 1593832876}
-    - target: {fileID: 7906823906189525505, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 1593832876}
-    - target: {fileID: 8514530707828486837, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 1593832876}
-    - target: {fileID: 8757924968682575028, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 1593832876}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
