@@ -68,8 +68,6 @@ public class DaySystem : MonoBehaviour
             LoseGame();
             return;
         }
-        isFeedDay = feedDays.Contains(day);
-        npcKilled = false;
 
         StartCoroutine(LoadDay(day, true));
 
@@ -107,7 +105,9 @@ public class DaySystem : MonoBehaviour
 
         playerInteractor.Interact();
         musicManager.fadeOut();
-        
+
+        isFeedDay = feedDays.Contains(day);
+        npcKilled = false;
 
         if (playCutscenes)
         {

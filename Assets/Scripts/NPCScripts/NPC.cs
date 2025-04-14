@@ -54,18 +54,18 @@ public class NPC : InteractableObj
 
         int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
 
-        if (!isFeedDay && (textAssets.Count <= numOfInteractions || dailyInteraction))
-        {
-            ink.StartStory(fuckOffText, this);
-            costsEnergy = false;
-        }
-        else if(isFeedDay && trust >= trustRequired) 
+        if (isFeedDay && trust >= trustRequired)
         {
             ink.StartStory(killText, this);
             costsEnergy = true;
             isFeedDay = false;
         }
-        else
+        else if (textAssets.Count <= numOfInteractions || dailyInteraction)
+        {
+            ink.StartStory(fuckOffText, this);
+            costsEnergy = false;
+        }
+        else if (playerData.CheckEnergy(5))
         {
             ink.StartStory(textAssets[numOfInteractions], this);
             dailyInteraction = true;

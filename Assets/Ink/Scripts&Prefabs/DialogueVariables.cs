@@ -103,6 +103,7 @@ public class DialogueVariables : MonoBehaviour
             {
                 if (var.Key.Contains("Trust"))
                 {
+                    Debug.Log(var.Key + ": " + var.Value);
                     story.variablesState.SetGlobal(var.Key, new Ink.Runtime.IntValue(int.Parse(var.Value)));
                 }
                 else

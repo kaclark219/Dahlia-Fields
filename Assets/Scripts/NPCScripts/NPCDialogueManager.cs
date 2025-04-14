@@ -72,15 +72,15 @@ public class NPCDialogueManager : MonoBehaviour
         {
             trustImage.sprite = trustSprites[4];
         }
-        else if (percentage >= 60 && percentage < 70)
+        else if (percentage >= 50 && percentage < 60)
         {
             trustImage.sprite = trustSprites[5];
         }
-        else if (percentage >= 70 && percentage < 80)
+        else if (percentage >= 60 && percentage < 70)
         {
             trustImage.sprite = trustSprites[6];
         }
-        else if (percentage >= 80 && percentage < 90)
+        else if (percentage >= 70 && percentage < 80)
         {
             trustImage.sprite = trustSprites[7];
         }

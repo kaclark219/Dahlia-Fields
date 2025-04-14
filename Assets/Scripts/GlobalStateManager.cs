@@ -114,6 +114,7 @@ public class GlobalStateManager : MonoBehaviour
     public void PlayAgain()
     {
         interactor.EndInteract();
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(menuSceneName);
     }
 }
