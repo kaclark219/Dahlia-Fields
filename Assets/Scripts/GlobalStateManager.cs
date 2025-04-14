@@ -99,7 +99,6 @@ public class GlobalStateManager : MonoBehaviour
 
     public void ShowLoseScreen()
     {
-        ResetAllData();
         LoseUI.SetActive (true);
     }
 
