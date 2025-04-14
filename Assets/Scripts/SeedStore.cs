@@ -435,6 +435,7 @@ public class SeedStore : InteractableObj
 
         if (playerData.ModifyMoney(priceOfCart * -1))
         {
+            effect.PlayPurchase();
             int j = 0;
             price.text = j.ToString();
 

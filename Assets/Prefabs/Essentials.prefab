@@ -1450,7 +1450,7 @@ MonoBehaviour:
   watering: {fileID: 8300000, guid: 9794822f6c0ac76428eeb08d4ec66818, type: 3}
   harvesting: {fileID: 8300000, guid: f76baca774db7aa43909728612b1c70e, type: 3}
   healing: {fileID: 0}
-  purchase: {fileID: 0}
+  purchase: {fileID: 8300000, guid: 2ada402f390bfcf4f836228afd206d86, type: 3}
   requestComplete: {fileID: 0}
   walking: {fileID: 0}
   dialogClick: {fileID: 0}
