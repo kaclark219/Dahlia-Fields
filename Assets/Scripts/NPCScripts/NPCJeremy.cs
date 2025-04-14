@@ -43,7 +43,7 @@ public class NPCJeremy : NPC
             ink.StartStory(fuckOffText, this);
             costsEnergy = false;
         }
-        else
+        else if (playerData.CheckEnergy(5))
         {
             ink.StartStory(textAssets[numOfInteractions], this);
             dailyInteraction = true;

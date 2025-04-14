@@ -51,6 +51,14 @@ public class InventoryManager : MonoBehaviour
             inventory[itemName].flowerStock += newStock;
     }
 
+    // FOR TESTING
+    public void GiveSeedsTesting()
+    {
+        foreach (KeyValuePair<Flowers, InventoryItem> item in inventory)
+        {
+            item.Value.seedStock += 5;
+        }
+    }
 
     #region SAVE_SYSTEM
     public void SaveData()
