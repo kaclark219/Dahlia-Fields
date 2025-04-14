@@ -1444,7 +1444,8 @@ MonoBehaviour:
   door: {fileID: 8300000, guid: 8ece055942b65a74194704e326dc4874, type: 3}
   chestOpen: {fileID: 8300000, guid: b145702dbad50dc49ac8034451e94746, type: 3}
   chestClose: {fileID: 8300000, guid: 3f10d78be2e4c4f46a0c051bdf36ebe0, type: 3}
-  mailbox: {fileID: 0}
+  mailbox: {fileID: 8300000, guid: 7e7b438a386071146b67a169c78c693c, type: 3}
+  noMail: {fileID: 8300000, guid: 0e14212ca39204e47984eac0f687cafe, type: 3}
   planting: {fileID: 8300000, guid: 1295e3ee7f290cc4d9bcc750db7fb695, type: 3}
   watering: {fileID: 8300000, guid: 9794822f6c0ac76428eeb08d4ec66818, type: 3}
   harvesting: {fileID: 8300000, guid: f76baca774db7aa43909728612b1c70e, type: 3}

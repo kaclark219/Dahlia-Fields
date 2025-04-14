@@ -9,6 +9,7 @@ public class SoundEffects : MonoBehaviour
     [SerializeField] private AudioClip chestOpen;
     [SerializeField] private AudioClip chestClose;
     [SerializeField] private AudioClip mailbox;
+    [SerializeField] private AudioClip noMail;
     [SerializeField] private AudioClip planting;
     [SerializeField] private AudioClip watering;
     [SerializeField] private AudioClip harvesting;
@@ -51,6 +52,12 @@ public class SoundEffects : MonoBehaviour
     public void PlayMail()
     {
         speaker.clip = mailbox;
+        speaker.Play();
+    }
+
+    public void PlayNoMail()
+    {
+        speaker.clip = noMail;
         speaker.Play();
     }
 

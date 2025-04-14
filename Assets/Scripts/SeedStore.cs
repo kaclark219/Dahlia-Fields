@@ -50,10 +50,13 @@ public class SeedStore : InteractableObj
     [SerializeField] GameObject signal;
     public float voffset = 0.0f;
 
+    private SoundEffects effect; 
+
     public override void Awake()
     {
         base.Awake();
         inventory = GameObject.Find("Inventory").GetComponent<InventoryManager>();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
     }
 
     public override void Start()
@@ -480,6 +483,7 @@ public class SeedStore : InteractableObj
     {
         if(delivered)
         {
+            effect.PlayMail(); 
             foreach (string key in mapValues.Keys)
             {
                 int temp = mapValues[key];
@@ -509,7 +513,8 @@ public class SeedStore : InteractableObj
             Collect.SetActive(true); 
 
         } else
-        {
+        {   
+            effect.PlayNoMail();
             notCollect.SetActive(true); 
         }
               
