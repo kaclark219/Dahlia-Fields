@@ -68,7 +68,7 @@ public class InventoryUI : InteractableObj
         base.Update();
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("ui close");
+            //Debug.Log("ui close");
             if(uiScreen.activeInHierarchy)
             {
                 EndInteract();
