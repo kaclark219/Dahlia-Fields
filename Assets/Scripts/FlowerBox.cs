@@ -213,6 +213,7 @@ public class FlowerBox : InteractableObj
     {
         if (PlayerPrefs.HasKey(boxKey))
         {
+            WateredToday = false;
             string flowerName = PlayerPrefs.GetString(boxKey);
             if (flowerName != "None")
             {
