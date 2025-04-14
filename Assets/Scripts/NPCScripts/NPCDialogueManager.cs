@@ -29,12 +29,14 @@ public class NPCDialogueManager : MonoBehaviour
     private List<NPCPortrait> NPCs;
     private DialogueVariables dialogueVariables;
     private NPCManager npcM;
+    private PlayerData playerData;
 
     private void Start()
     {
         NPCs = new List<NPCPortrait>();
         npcM = FindFirstObjectByType<NPCManager>();
         dialogueVariables = FindFirstObjectByType<DialogueVariables>();
+        playerData = FindFirstObjectByType<PlayerData>();
     }
     
     public void SetName(string name)
@@ -48,7 +50,8 @@ public class NPCDialogueManager : MonoBehaviour
         int trust = int.Parse(dialogueVariables.variables[name.ToString() + "Trust"]);
         int maxTrust = npc.trustRequired;
         float percentage = ((float)trust / maxTrust) * 10;
-        Debug.Log("trust: " + trust + ", maxTrust: " + maxTrust + ", precentage: " + percentage);
+        //Debug.Log("trust: " + trust + ", maxTrust: " + maxTrust + ", precentage: " + percentage);
+        if ((int) percentage >= 8) { percentage = 8; }
         trustImage.sprite = trustSprites[(int) percentage]; 
     }
     public void ShowCharacter(NPCName name, NPCPosition position, NPCMood mood)
@@ -90,7 +93,7 @@ public class NPCDialogueManager : MonoBehaviour
         // Update Displayed name and trust meter
         if (name == NPCName.Player )
         {
-            nameText.text = "You";
+            nameText.text = playerData.playerName;
         }
         else
         {

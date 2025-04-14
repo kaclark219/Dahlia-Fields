@@ -10,12 +10,14 @@ public class DoorHandler : InteractableObj
     [SerializeField] public GameObject location;
     public bool isexit;
     private FadeInFadeOut transition;
+    private SoundEffects effect; 
     float alpha = 0f; 
 
     public override void Awake()
     {
         base.Awake();
         transition = FindObjectOfType<FadeInFadeOut>();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
         player = GameObject.Find("Player");
     }
 
@@ -27,6 +29,7 @@ public class DoorHandler : InteractableObj
     public override void OnInteract()
     {
         base.OnInteract();
+        effect.PlayDoor();
         StartCoroutine(transition.FullTransition(TeleportPlayer, base.EndInteract));
     }
 

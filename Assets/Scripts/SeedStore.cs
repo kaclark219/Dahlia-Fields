@@ -440,7 +440,7 @@ public class SeedStore : InteractableObj
 
             for (int i = 0; i < cart.Length; i++)
             {
-                purchase[i] = cart[i];
+                purchase[i] += cart[i];
             }
 
             ifDelivery = true;
