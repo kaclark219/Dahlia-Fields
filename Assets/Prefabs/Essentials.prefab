@@ -1712,9 +1712,9 @@ MonoBehaviour:
   chestOpen: {fileID: 8300000, guid: b145702dbad50dc49ac8034451e94746, type: 3}
   chestClose: {fileID: 8300000, guid: 3f10d78be2e4c4f46a0c051bdf36ebe0, type: 3}
   mailbox: {fileID: 0}
-  planting: {fileID: 0}
-  watering: {fileID: 0}
-  harvesting: {fileID: 0}
+  planting: {fileID: 8300000, guid: 1295e3ee7f290cc4d9bcc750db7fb695, type: 3}
+  watering: {fileID: 8300000, guid: 9794822f6c0ac76428eeb08d4ec66818, type: 3}
+  harvesting: {fileID: 8300000, guid: f76baca774db7aa43909728612b1c70e, type: 3}
   healing: {fileID: 0}
   purchase: {fileID: 0}
   requestComplete: {fileID: 0}

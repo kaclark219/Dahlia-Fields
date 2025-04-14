@@ -30,8 +30,9 @@ public class InventoryUI : InteractableObj
 
     private SoundEffects effect;
 
-    private void Awake()
-    {
+    public override void Awake()
+    {   
+        base.Awake();
         effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
     }
 
@@ -66,7 +67,8 @@ public class InventoryUI : InteractableObj
     {
         base.Update();
         if(Input.GetKeyDown(KeyCode.Escape))
-        {   
+        {
+            Debug.Log("ui close");
             if(uiScreen.activeInHierarchy)
             {
                 EndInteract();
