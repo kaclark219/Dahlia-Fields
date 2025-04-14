@@ -20,7 +20,7 @@ INCLUDE ../Globals.ink
 {HideCharacter("Player")} {ShowCharacter("Charlie", "Right", "Happy")} Okay, so, hear me out. Banana peels? Actually slippery! I thought that was just a cartoon thing.
 {HideCharacter("Charlie")} {ShowCharacter("Player", "Right", "Normal")} Oh no.
 {HideCharacter("Player")} {ShowCharacter("Charlie", "Right", "Normal")} Oh yes. And I might have been the reason it was on the ground. On accident, I swear! But Bruce isn't seeing it that way.
-{HideCharacter("Player")} {ShowCharacter("Charlie", "Right", "Normal")} I think you might be a hazard.
-{HideCharacter("Charlie")} {ShowCharacter("Player", "Right", "Happy")} I prefer "funny side character," but I'll take it.
+{HideCharacter("Charlie")} {ShowCharacter("Player", "Right", "Normal")} I think you might be a hazard.
+{HideCharacter("Player")} {ShowCharacter("Charlie", "Right", "Happy")} I prefer "funny side character," but I'll take it.
 ~CharlieTrust += 10
 -> END
