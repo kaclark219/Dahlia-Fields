@@ -16,7 +16,7 @@ public class NPC : InteractableObj
     [SerializeField] public TextAsset killText;
     [SerializeField] public RuntimeAnimatorController[] animations;
 
-    [HideInInspector] Map map;
+    [SerializeField] Map map;
 
     // Public variables inherited by child classes but hidden in Unity inspector
     [HideInInspector] public InkManager ink;
@@ -32,7 +32,6 @@ public class NPC : InteractableObj
         ink = GameObject.Find("InkManager").GetComponent<InkManager>();
         dialogueVariables = GameObject.Find("InkManager").GetComponent<DialogueVariables>();
         npcKey = npcName.ToString();
-        map = GameObject.Find("Map").GetComponent<Map>();
     }
     public override void Start()
     {
