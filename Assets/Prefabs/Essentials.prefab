@@ -5927,12 +5927,16 @@ PrefabInstance:
       objectReference: {fileID: 2336555754150149217}
     - target: {fileID: 473613165737772866, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 473613165737772866, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.data[0]
       value: 
       objectReference: {fileID: 9100000, guid: 3b5022d859619c042a93fa7369c8bfa0, type: 2}
+    - target: {fileID: 473613165737772866, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: cc4287185aa625d44b2348bcc80fbccf, type: 2}
     - target: {fileID: 662392399097717059, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: ink
       value: 
@@ -5943,12 +5947,16 @@ PrefabInstance:
       objectReference: {fileID: 2336555754150149217}
     - target: {fileID: 662392399097717059, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 662392399097717059, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.data[0]
       value: 
       objectReference: {fileID: 9100000, guid: 932bf03bb79217843b601ae2ca1d9170, type: 2}
+    - target: {fileID: 662392399097717059, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: a03f94ec502378d4aa26775773e21478, type: 2}
     - target: {fileID: 1840002905592745101, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: m_Name
       value: NPCManager
@@ -6007,12 +6015,20 @@ PrefabInstance:
       objectReference: {fileID: 2336555754150149217}
     - target: {fileID: 2781228528320981040, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2781228528320981040, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.data[0]
       value: 
       objectReference: {fileID: 9100000, guid: a370b4efcdace0d46afd901cf4023ae1, type: 2}
+    - target: {fileID: 2781228528320981040, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: 8786b9e241687d94182aa314fc5d9ac6, type: 2}
+    - target: {fileID: 2900950421008039849, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4025467880552757511, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: ink
       value: 
@@ -6041,6 +6057,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 26
       objectReference: {fileID: 0}
+    - target: {fileID: 4697519897488708196, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4752162024808070822, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: ink
       value: 
@@ -6067,12 +6087,16 @@ PrefabInstance:
       objectReference: {fileID: 2336555754150149217}
     - target: {fileID: 5355634608738289082, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5355634608738289082, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: animations.Array.data[0]
       value: 
       objectReference: {fileID: 9100000, guid: 452a4ad21d9653c499ada97a79e57026, type: 2}
+    - target: {fileID: 5355634608738289082, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: c3cd02b8bb010e64da2a9d5ed67df413, type: 2}
     - target: {fileID: 5401801099112124740, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -170
@@ -6097,6 +6121,14 @@ PrefabInstance:
       propertyPath: animations.Array.data[0]
       value: 
       objectReference: {fileID: 9100000, guid: 829ea97f093b74b42940de4955e094d8, type: 2}
+    - target: {fileID: 6931739709034546195, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931739709034546195, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 49
+      objectReference: {fileID: 0}
     - target: {fileID: 7272884149163975241, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.95
@@ -6157,6 +6189,10 @@ PrefabInstance:
       propertyPath: animations.Array.data[2]
       value: 
       objectReference: {fileID: 9100000, guid: f976fb8ef6a25b144ab50ae2fd3abba3, type: 2}
+    - target: {fileID: 8358390250445349352, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
