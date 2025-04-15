@@ -117,7 +117,7 @@ public class InkManager : MonoBehaviour
         story.BindExternalFunction("ShowCharacter", (string name, string position, string mood) => npcDialogueManager.ShowCharacter(name, position, mood));
         story.BindExternalFunction("HideCharacter", (string name) => npcDialogueManager.HideCharacter(name));
         story.BindExternalFunction("ChangeMood", (string name, string mood) => npcDialogueManager.ChangeMood(name, mood));
-        story.BindExternalFunction("KillNPC", (string name) => npcManager.KillNPC(name));
+        story.BindExternalFunction("KillNPC", (string name) => this.KillNPC(name));
         dialogueVariables.StartListening(story);
     }
 
@@ -238,6 +238,12 @@ public class InkManager : MonoBehaviour
 
             DisplayNextLine();
         }
+    }
+
+    private void KillNPC(string name)
+    {
+        EndStory();
+        npcManager.KillNPC(name);
     }
 
     #region CHOICES_FUNCTIONS

@@ -162,6 +162,17 @@ public class FlowerBox : InteractableObj
         UpdateSprite(); // update sprite based on growth
     }
 
+    public void FeedCompleted()
+    {
+        CycleIndex += 2;
+        if (flowerPlanted.daysToGrow < CycleIndex)
+        {
+            CycleIndex = flowerPlanted.daysToGrow;
+        }
+
+        UpdateSprite(); // update sprite based on growth
+    }
+
     private void UpdateSprite()
     {
         if (planted)

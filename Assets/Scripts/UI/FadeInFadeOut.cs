@@ -15,7 +15,14 @@ public class FadeInFadeOut : MonoBehaviour
     private void Awake()
     {
         image = image ? image : GetComponent<Image>();
-        image.enabled = false;
+        image.enabled = true;
+        image.color = new Color(0,0,0,1.0f);
+    }
+
+    public void BlackScreen()
+    {
+        image.enabled=true;
+        image.color = new Color(0, 0, 0, 1.0f);
     }
 
     // Basic transition for basic functions to be called in between the transition and at the end
@@ -49,7 +56,7 @@ public class FadeInFadeOut : MonoBehaviour
 
 
     // For more complicated transitions, where complex functions need to be called in between 
-    public IEnumerator FadeIn(float speed)
+    public IEnumerator FadeIn()
     {
         image.enabled = true;
 
@@ -57,9 +64,9 @@ public class FadeInFadeOut : MonoBehaviour
 
         yield return null;
 
-        for (float i = 0; i < speed; i += Time.deltaTime)
+        for (float i = 0; i <= 1; i += Time.deltaTime)
         {
-            alpha = Mathf.Lerp(0f, 1f, i / 1.2f);
+            alpha = Mathf.Lerp(0f, 1f, i);
             image.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
@@ -67,7 +74,7 @@ public class FadeInFadeOut : MonoBehaviour
         image.color = Color.black;
     }
 
-    public IEnumerator FadeOut(float speed)
+    public IEnumerator FadeOut()
     {
         image.enabled = true;
 
@@ -75,9 +82,9 @@ public class FadeInFadeOut : MonoBehaviour
 
         yield return null;
 
-        for (float i = 0; i < speed; i += Time.deltaTime)
+        for (float i = 0; i <= 1; i += Time.deltaTime)
         {
-            alpha = Mathf.Lerp(1f, 0f, i / 1.2f);
+            alpha = Mathf.Lerp(1f, 0f, i);
             image.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
