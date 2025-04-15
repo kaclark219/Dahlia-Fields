@@ -26,13 +26,14 @@ public class FlowerboxManager : MonoBehaviour
     [SerializeField] private int numActiveBoxes = 2;
     private const string activeBoxesKey = "Active_Boxes";
     public bool openedBox = false;
-
+    private SoundEffects effect; 
     
 
     void Awake()
     {
         plint = GameObject.FindWithTag("Player").GetComponent<PlayerInteractor>();
         inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
         mapValues = new Dictionary<string, int>()
         {
             {"Dandelion", 0},
@@ -78,6 +79,7 @@ public class FlowerboxManager : MonoBehaviour
 
     public void CloseUI()
     {
+        effect.PlayClose();
         FlowerBoxUI.SetActive(false);
         plint.EndInteract();
         ActiveBox = null;
@@ -98,6 +100,7 @@ public class FlowerboxManager : MonoBehaviour
 
     public void SelectFlower(string flowerName)
     {
+        effect.PlayUIClick();
         for (int j = 0; j < buttons.Length; j++)
         {
             buttons[j].sprite = baseSprites[j];
