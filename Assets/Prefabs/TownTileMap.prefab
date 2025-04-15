@@ -16253,7 +16253,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.026684761, y: -1.3497906}
+  m_Offset: {x: -0.026684761, y: -1.1985168}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -16264,7 +16264,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.2553234, y: 4.3961525}
+  m_Size: {x: 7.2553234, y: 4.6987}
   m_EdgeRadius: 0
 --- !u!1 &711186703716080293
 GameObject:
@@ -17269,7 +17269,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.1238787, y: -0.79460716}
+  m_Offset: {x: 1.1238787, y: -0.6130689}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -17280,7 +17280,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.483586, y: 2.5869823}
+  m_Size: {x: 6.483586, y: 2.950059}
   m_EdgeRadius: 0
 --- !u!114 &6179125353873075478
 MonoBehaviour:
@@ -17937,6 +17937,7 @@ GameObject:
   - component: {fileID: 5852622470796622305}
   - component: {fileID: 4540301025498515974}
   - component: {fileID: 5647866831881742792}
+  - component: {fileID: 8976398221921057630}
   m_Layer: 0
   m_Name: Seb
   m_TagString: Untagged
@@ -18057,7 +18058,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02174282, y: -1.4559469}
+  m_Offset: {x: 0.02174282, y: -0.98531437}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -18068,7 +18069,52 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.9547367, y: 3.766203}
+  m_Size: {x: 6.9547367, y: 4.707468}
+  m_EdgeRadius: 0
+--- !u!61 &8976398221921057630
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649698837027472928}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.033615112, y: 3.1263466}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 17.066668, y: 17.066668}
+    newSize: {x: 25.6, y: 25.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.754486, y: 4.023407}
   m_EdgeRadius: 0
 --- !u!1 &1771395460980789117
 GameObject:
@@ -21972,7 +22018,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.028427124, y: -1.4626484}
+  m_Offset: {x: 0.028427124, y: -1.1574383}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -21983,7 +22029,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.6118584, y: 3.462551}
+  m_Size: {x: 6.6118584, y: 4.0729713}
   m_EdgeRadius: 0
 --- !u!1 &2888278214614992828
 GameObject:
@@ -59800,7 +59846,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0053887367, y: -1.059981}
+  m_Offset: {x: 0.0053887367, y: -0.61051995}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -59811,7 +59857,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.5499935, y: 2.7438943}
+  m_Size: {x: 5.5499935, y: 3.6428165}
   m_EdgeRadius: 0
 --- !u!114 &8525525225792887064
 MonoBehaviour:
