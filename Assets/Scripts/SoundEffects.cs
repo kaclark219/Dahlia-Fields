@@ -13,11 +13,9 @@ public class SoundEffects : MonoBehaviour
     [SerializeField] private AudioClip planting;
     [SerializeField] private AudioClip watering;
     [SerializeField] private AudioClip harvesting;
-    [SerializeField] private AudioClip healing; //maybe?
     [SerializeField] private AudioClip purchase;
     [SerializeField] private AudioClip requestComplete;
     [SerializeField] private AudioClip walking;
-    [SerializeField] private AudioClip dialogClick; 
     [SerializeField] private AudioClip uiClick;
     [SerializeField] private AudioClip close; 
 
@@ -80,12 +78,6 @@ public class SoundEffects : MonoBehaviour
         speaker.Play();
     }
 
-    public void PlayHealing()
-    {
-        speaker.clip = healing;
-        speaker.Play();
-    }
-
     public void PlayPurchase()
     {
         speaker.clip = purchase;
@@ -101,12 +93,6 @@ public class SoundEffects : MonoBehaviour
     public void PlayWalking()
     {
         speaker.clip = walking;
-        speaker.Play();
-    }
-
-    public void PlayDialogClick()
-    {
-        speaker.clip = dialogClick;
         speaker.Play();
     }
 

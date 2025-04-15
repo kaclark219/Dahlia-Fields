@@ -2172,11 +2172,10 @@ MonoBehaviour:
   planting: {fileID: 8300000, guid: 1295e3ee7f290cc4d9bcc750db7fb695, type: 3}
   watering: {fileID: 8300000, guid: 9794822f6c0ac76428eeb08d4ec66818, type: 3}
   harvesting: {fileID: 8300000, guid: f76baca774db7aa43909728612b1c70e, type: 3}
-  healing: {fileID: 0}
-  purchase: {fileID: 8300000, guid: 2ada402f390bfcf4f836228afd206d86, type: 3}
+  purchase: {fileID: 8300000, guid: ab038c692f908e841a32e44d96d1ba1e, type: 3}
   requestComplete: {fileID: 8300000, guid: 1062d353de405f343aa141632bb70550, type: 3}
   walking: {fileID: 0}
-  dialogClick: {fileID: 0}
+  dialogClick: {fileID: 8300000, guid: e96e3abb42a343b4c91b20b3f83b8c43, type: 3}
   uiClick: {fileID: 8300000, guid: 21f051105c663044480f7a399ab23b40, type: 3}
   close: {fileID: 8300000, guid: e96e3abb42a343b4c91b20b3f83b8c43, type: 3}
   speaker: {fileID: 6550224114064115787}

@@ -33,13 +33,15 @@ public class InkManager : MonoBehaviour
     private bool isStoryPaused = false;
     private bool storyPlaying = false;
 
-    private float dialogSpeed = 0.05f; 
+    private float dialogSpeed = 0.05f;
+    private SoundEffects effect; 
 
     private void Awake()
     {
         dialogueVariables = GetComponent<DialogueVariables>();
         npcDialogueManager = FindObjectOfType<NPCDialogueManager>();
         npcManager = FindAnyObjectByType<NPCManager>();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
         UI.SetActive(false);
     }
 
@@ -164,7 +166,6 @@ public class InkManager : MonoBehaviour
             else
             {
                 ApplyStyling();
-
                 printCoroutine = StartCoroutine(PrintLine());
             }
         }
@@ -174,6 +175,7 @@ public class InkManager : MonoBehaviour
         }
         else if (!story.canContinue)
         {
+            effect.PlayClose();
             EndStory();
         }
 
@@ -262,6 +264,7 @@ public class InkManager : MonoBehaviour
     
     private void OnClickChoiceButton(Choice choice)
     {
+        effect.PlayUIClick(); 
         story.ChooseChoiceIndex(choice.index);
         RefreshChoiceView();
         DisplayNextLine();
