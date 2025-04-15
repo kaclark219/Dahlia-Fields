@@ -38,7 +38,11 @@ public class BedInteractable : InteractableObj
         base.OnInteract();
         bedUI.SetActive(true);
 
-        if (playerData.GetEnergy() > 0)
+        if (daySystem.isFeedDay)
+        {
+            description.text = "They are hungry.\nFeed them - or be its next meal...";
+        }
+        else if (playerData.GetEnergy() > 0)
         {
             description.text = "You have energy left to spend today! \n Sleeping will end the day early.";
         }

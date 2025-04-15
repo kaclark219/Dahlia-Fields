@@ -60199,8 +60199,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3876057878277850922}
   - component: {fileID: 193629521505439212}
-  - component: {fileID: 9135519180980623598}
   - component: {fileID: 8648079593062410067}
+  - component: {fileID: 4012290846077815579}
   m_Layer: 0
   m_Name: Hatch
   m_TagString: Untagged
@@ -60268,27 +60268,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1371765, y: 1.7677777}
   m_EdgeRadius: 0
---- !u!114 &9135519180980623598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7091040416929018469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8478a175aa2bfb4a94c8e886b796459, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Popup: {fileID: 0}
-  active: 0
-  plint: {fileID: 0}
-  frame: 0
-  sr: {fileID: 0}
-  pm: {fileID: 0}
-  playerData: {fileID: 0}
-  textAsset: {fileID: 4900000, guid: 51d0734edad03414ea34d3a907cbaac7, type: 3}
-  DisplayName: ???
 --- !u!212 &8648079593062410067
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -60329,7 +60308,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: -574
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -60341,6 +60320,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4012290846077815579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7091040416929018469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57570f402ab9b074497fb25795312c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Popup: {fileID: 0}
+  active: 0
+  plint: {fileID: 0}
+  frame: 0
+  sr: {fileID: 0}
+  pm: {fileID: 0}
+  playerData: {fileID: 0}
+  DisplayName: ???
+  textAsset: {fileID: 4900000, guid: 51d0734edad03414ea34d3a907cbaac7, type: 3}
+  day1: {fileID: 4900000, guid: f4aa1ac11c10c0942bc65010bd0917d9, type: 3}
+  day2to3: {fileID: 4900000, guid: 50ba220fbe598094a9d95567e1c12e8b, type: 3}
+  day5to6: {fileID: 4900000, guid: f51dd9aa74b18c842896d1de6c32f388, type: 3}
+  beforeFeedDay: {fileID: 4900000, guid: 972ab8f6a14c50a4398658dcd35455e7, type: 3}
+  feedDay: {fileID: 4900000, guid: 121ec8366dcffef439e8a5faee05f316, type: 3}
+  afterFeedDay: {fileID: 4900000, guid: 3fbce7ff9b1ff0547bacc927037c35b0, type: 3}
+  laugh: {fileID: 8300000, guid: 49b47b8b6034d834195f6c3fa84b6dff, type: 3}
 --- !u!1 &7158157287361990622
 GameObject:
   m_ObjectHideFlags: 0
