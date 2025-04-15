@@ -123,13 +123,15 @@ public class SeedStore : InteractableObj
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(notCollect.activeInHierarchy)
-            {
+            {   
+                effect.PlayClose();
                 notCollect.SetActive(false);
                 EndInteract();
             }
 
             if (Collect.activeInHierarchy)
-            {
+            {   
+                effect.PlayClose();
                 Collect.SetActive(false);
                 EndInteract();
             }
@@ -143,8 +145,9 @@ public class SeedStore : InteractableObj
 
     public void ClearButton(int i)
     {
-        if (purchase[i] == 0)
-        {
+        if (cart[i] != 0)
+        {   
+            effect.PlayClose();
             // Store the current price to adjust it
             int currentPrice = int.Parse(price.text);
 
@@ -182,6 +185,11 @@ public class SeedStore : InteractableObj
 
     public void CloseSeedStore()
     {
+        if (!ifDelivery)
+        {
+            effect.PlayClose();
+        }
+
         storeCanvas.SetActive(false);
 
         int sets = 0;
@@ -391,6 +399,7 @@ public class SeedStore : InteractableObj
             {
                 if (cartMap[key] == id)
                 {
+                    effect.PlayUIClick();
                     cart[id] += 5;
                     a = int.Parse(counts[key].text) + 5;
                     counts[key].text = a.ToString();
@@ -419,7 +428,8 @@ public class SeedStore : InteractableObj
                 for (int key = 0; key < 5; key++)
                 {
                     if (cartMap[key] == id)
-                    {
+                    {   
+                        effect.PlayUIClick();
                         cart[id] -= 5;
                         a = int.Parse(counts[key].text) - 5;
                         counts[key].text = a.ToString();
@@ -484,7 +494,7 @@ public class SeedStore : InteractableObj
 
     public void ChooseFlower(string name)
     {
-
+        effect.PlayUIClick();
         broke.SetActive(false);
         //change maddie statement to purchase
         maddie.sprite = statements[1]; 
