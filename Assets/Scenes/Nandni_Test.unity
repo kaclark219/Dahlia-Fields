@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Essentials
       objectReference: {fileID: 0}
+    - target: {fileID: 7792945061448761273, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
+      propertyPath: mailbox
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e7b438a386071146b67a169c78c693c, type: 3}
     - target: {fileID: 8093505561409933934, guid: fe3a09b485838df489f6c90d9c20b61a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

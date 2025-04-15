@@ -19,6 +19,7 @@ public class SoundEffects : MonoBehaviour
     [SerializeField] private AudioClip walking;
     [SerializeField] private AudioClip dialogClick; 
     [SerializeField] private AudioClip uiClick;
+    [SerializeField] private AudioClip close; 
 
     [SerializeField] private AudioSource speaker;
 
@@ -112,6 +113,12 @@ public class SoundEffects : MonoBehaviour
     public void PlayUIClick()
     {
         speaker.clip = uiClick;
+        speaker.Play();
+    }
+
+    public void PlayClose()
+    {
+        speaker.clip = close;
         speaker.Play();
     }
 
