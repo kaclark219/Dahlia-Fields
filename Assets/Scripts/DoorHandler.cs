@@ -37,4 +37,15 @@ public class DoorHandler : InteractableObj
     {
         player.transform.position = new Vector2(location.transform.position.x, location.transform.position.y + (isexit ? -1 : 1));
     }
+
+    override public void Update(){
+        if (active){
+            if (Popup) { Popup.SetActive(true); }
+            if(Input.GetKeyDown(KeyCode.E) && plint.canInteract){
+                OnInteract();
+            }
+        }else{
+            if (Popup) { Popup.SetActive(false); }
+        }
+    }
 }
