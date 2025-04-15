@@ -78,5 +78,6 @@ public class VideoPlayerManager : MonoBehaviour
         videoPlayer.clip = null;
         image.enabled = false;
         videoPlayer.Stop();
+        videoPlayer.targetTexture.Release();
     }
 }
