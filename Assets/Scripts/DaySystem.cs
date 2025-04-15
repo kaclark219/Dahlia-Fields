@@ -71,13 +71,13 @@ public class DaySystem : MonoBehaviour
         yield return new WaitUntil(() => playerInteractor.canInteract); // Wait until player is done interacting
 
         playerInteractor.Interact();
-        yield return StartCoroutine(transition.FadeIn(1f));
+        yield return StartCoroutine(transition.FadeIn());
 
         yield return videoPlayerManager.PlayTimeChange(time);
 
         npcManager.MoveNPCs(day, time);
 
-        yield return StartCoroutine(transition.FadeOut(1f));
+        yield return StartCoroutine(transition.FadeOut());
         playerInteractor.EndInteract();
     }
     public void NextDay()
@@ -115,7 +115,7 @@ public class DaySystem : MonoBehaviour
         if (playCutscenes) { 
             if (!startingGame)
             {
-                yield return StartCoroutine(transition.FadeIn(2));
+                yield return StartCoroutine(transition.FadeIn());
             }
 
             Cutscene cutscene = CheckForCutscene();
@@ -126,7 +126,7 @@ public class DaySystem : MonoBehaviour
 
         if (playCutscenes)
         {
-            yield return StartCoroutine(transition.FadeOut(2));
+            yield return StartCoroutine(transition.FadeOut());
         }
 
         playerInteractor.EndInteract();

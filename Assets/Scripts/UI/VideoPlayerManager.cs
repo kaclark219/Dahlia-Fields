@@ -32,14 +32,14 @@ public class VideoPlayerManager : MonoBehaviour
         {
             yield return StartCoroutine(PrepareVideo(SleepClip));
             yield return StartCoroutine(PlayVideo());
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
 
         if (cutscene != null)
         {
             yield return StartCoroutine(PrepareVideo(cutscene));
             yield return StartCoroutine(PlayVideo());
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
 
         yield return StartCoroutine(PrepareVideo(WakeUpClip));
