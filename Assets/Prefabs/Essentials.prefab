@@ -251,10 +251,10 @@ RectTransform:
   - {fileID: 8481731919467237667}
   m_Father: {fileID: 800251577451059354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 800, y: 475}
-  m_SizeDelta: {x: 160, y: 100}
+  m_SizeDelta: {x: -1560, y: -880}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &254237848446071702
 CanvasRenderer:
@@ -3261,6 +3261,10 @@ PrefabInstance:
     - target: {fileID: 3566153542158910798, guid: 87a10106614d6524c875a156ba393d0c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569073262405491670, guid: 87a10106614d6524c875a156ba393d0c, type: 3}
+      propertyPath: sceneName
+      value: TitleScene
       objectReference: {fileID: 0}
     - target: {fileID: 3571070392162951840, guid: 87a10106614d6524c875a156ba393d0c, type: 3}
       propertyPath: m_text
