@@ -9,15 +9,15 @@ public class SoundEffects : MonoBehaviour
     [SerializeField] private AudioClip chestOpen;
     [SerializeField] private AudioClip chestClose;
     [SerializeField] private AudioClip mailbox;
+    [SerializeField] private AudioClip noMail;
     [SerializeField] private AudioClip planting;
     [SerializeField] private AudioClip watering;
     [SerializeField] private AudioClip harvesting;
-    [SerializeField] private AudioClip healing; //maybe?
     [SerializeField] private AudioClip purchase;
     [SerializeField] private AudioClip requestComplete;
     [SerializeField] private AudioClip walking;
-    [SerializeField] private AudioClip dialogClick; 
     [SerializeField] private AudioClip uiClick;
+    [SerializeField] private AudioClip close; 
 
     [SerializeField] private AudioSource speaker;
 
@@ -54,6 +54,12 @@ public class SoundEffects : MonoBehaviour
         speaker.Play();
     }
 
+    public void PlayNoMail()
+    {
+        speaker.clip = noMail;
+        speaker.Play();
+    }
+
     public void PlayPlant()
     {
         speaker.clip = planting;
@@ -69,12 +75,6 @@ public class SoundEffects : MonoBehaviour
     public void PlayHarvest()
     {
         speaker.clip = harvesting;
-        speaker.Play();
-    }
-
-    public void PlayHealing()
-    {
-        speaker.clip = healing;
         speaker.Play();
     }
 
@@ -96,15 +96,15 @@ public class SoundEffects : MonoBehaviour
         speaker.Play();
     }
 
-    public void PlayDialogClick()
-    {
-        speaker.clip = dialogClick;
-        speaker.Play();
-    }
-
     public void PlayUIClick()
     {
         speaker.clip = uiClick;
+        speaker.Play();
+    }
+
+    public void PlayClose()
+    {
+        speaker.clip = close;
         speaker.Play();
     }
 

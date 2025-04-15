@@ -21,6 +21,13 @@ public class RequestBoard : InteractableObj
     int day;
     Dictionary<GameObject, Request> requestList;
     public bool openedBoard = false;
+    private SoundEffects effect;
+
+    public override void Awake()
+    {
+        base.Awake();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
+    }
 
     public override void Start()
     {
@@ -212,6 +219,7 @@ public class RequestBoard : InteractableObj
 
     public void ClickNote(GameObject text)
     {
+        effect.PlayUIClick();
         foreach (GameObject req in requests)
         {
             req.gameObject.transform.GetChild(0).gameObject.SetActive(false);
@@ -256,6 +264,7 @@ public class RequestBoard : InteractableObj
     public void PlaceOrder(){
         foreach (GameObject req in requests){
             if(req.transform.GetChild(0).gameObject.activeSelf){
+                effect.PlayRequest(); 
                 LoseFlowers(req);
                 GainTrust(req);
                 MarkComplete(req);
@@ -264,6 +273,7 @@ public class RequestBoard : InteractableObj
     }
 
     public void CloseBoard(){
+        effect.PlayClose();
         canvas.SetActive(false);
         EndInteract();
     }

@@ -9,6 +9,7 @@ public class BedInteractable : InteractableObj
     [SerializeField] private TextMeshProUGUI description;
 
     private DaySystem daySystem;
+    private SoundEffects effect; 
 
     public override void Start()
     {
@@ -19,6 +20,7 @@ public class BedInteractable : InteractableObj
     {
         base.Awake();
         daySystem = GameObject.Find("GameManager").GetComponent<DaySystem>();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
     }
 
     public override void Update()
@@ -49,13 +51,15 @@ public class BedInteractable : InteractableObj
     }
 
     public override void EndInteract()
-    {
+    {   
+        effect.PlayClose();
         base.EndInteract();
         bedUI.SetActive(false);
     }
 
     public void Sleep()
-    {
+    {   
+        //effect.PlayUIClick();
         daySystem.NextDay();
         bedUI.SetActive(false);
     }

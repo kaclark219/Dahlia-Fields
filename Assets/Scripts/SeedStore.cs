@@ -68,10 +68,13 @@ public class SeedStore : InteractableObj
     [SerializeField] GameObject signal;
     public float voffset = 0.0f;
 
-public override void Awake()
+    private SoundEffects effect; 
+
+    public override void Awake()
     {
         base.Awake();
         inventory = GameObject.Find("Inventory").GetComponent<InventoryManager>();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
     }
 
     public override void Start()
@@ -120,13 +123,15 @@ public override void Awake()
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(notCollect.activeInHierarchy)
-            {
+            {   
+                effect.PlayClose();
                 notCollect.SetActive(false);
                 EndInteract();
             }
 
             if (Collect.activeInHierarchy)
-            {
+            {   
+                effect.PlayClose();
                 Collect.SetActive(false);
                 EndInteract();
             }
@@ -140,8 +145,9 @@ public override void Awake()
 
     public void ClearButton(int i)
     {
-        if (purchase[i] == 0)
-        {
+        if (cart[i] != 0)
+        {   
+            effect.PlayClose();
             // Store the current price to adjust it
             int currentPrice = int.Parse(price.text);
 
@@ -179,6 +185,11 @@ public override void Awake()
 
     public void CloseSeedStore()
     {
+        if (!ifDelivery)
+        {
+            effect.PlayClose();
+        }
+
         storeCanvas.SetActive(false);
 
         int sets = 0;
@@ -388,6 +399,7 @@ public override void Awake()
             {
                 if (cartMap[key] == id)
                 {
+                    effect.PlayUIClick();
                     cart[id] += 5;
                     a = int.Parse(counts[key].text) + 5;
                     counts[key].text = a.ToString();
@@ -416,7 +428,8 @@ public override void Awake()
                 for (int key = 0; key < 5; key++)
                 {
                     if (cartMap[key] == id)
-                    {
+                    {   
+                        effect.PlayUIClick();
                         cart[id] -= 5;
                         a = int.Parse(counts[key].text) - 5;
                         counts[key].text = a.ToString();
@@ -450,6 +463,7 @@ public override void Awake()
 
         if (playerData.ModifyMoney(priceOfCart * -1))
         {
+            effect.PlayPurchase();
             int j = 0;
             price.text = j.ToString();
 
@@ -480,7 +494,7 @@ public override void Awake()
 
     public void ChooseFlower(string name)
     {
-
+        effect.PlayUIClick();
         broke.SetActive(false);
         //change maddie statement to purchase
         maddie.sprite = statements[1]; 
@@ -498,6 +512,7 @@ public override void Awake()
     {
         if(delivered)
         {
+            effect.PlayMail(); 
             foreach (string key in mapValues.Keys)
             {
                 int temp = mapValues[key];
@@ -527,7 +542,8 @@ public override void Awake()
             Collect.SetActive(true); 
 
         } else
-        {
+        {   
+            effect.PlayNoMail();
             notCollect.SetActive(true); 
         }
               

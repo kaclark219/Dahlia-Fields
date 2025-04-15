@@ -14,10 +14,12 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private Sprite pic;
     private int page = 0;
     private bool finished = false;
+    private SoundEffects effect; 
 
     void Awake(){
         flowerManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
         requestboard = FindFirstObjectByType<RequestBoard>();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
         button.SetActive(false);
     }
 
@@ -30,6 +32,7 @@ public class Tutorial : MonoBehaviour
     }
 
     private IEnumerator fbt(){
+        effect.PlayMail(); 
         img.SetActive(true);
         img.GetComponent<Image>().sprite = pic;
         button.SetActive(true);
@@ -46,6 +49,7 @@ public class Tutorial : MonoBehaviour
     }
 
     private IEnumerator rbt(){
+        effect.PlayMail();
         img.SetActive(true);
         img.GetComponent<Image>().sprite = pic;
         button.SetActive(true);
@@ -66,9 +70,9 @@ public class Tutorial : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (img.activeInHierarchy)
+            if (img.activeInHierarchy && finished == false)
             {
-                finished = true;
+                FinishTutorial();
             }
         }
 
@@ -79,6 +83,7 @@ public class Tutorial : MonoBehaviour
     }
 
     public void FinishTutorial(){
+        effect.PlayClose();
         finished = true;
     }
 }

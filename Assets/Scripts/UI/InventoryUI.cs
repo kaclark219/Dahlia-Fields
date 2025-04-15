@@ -109,6 +109,7 @@ public class InventoryUI : InteractableObj
         if (isFlowerMap.TryGetValue(clickedButton, out bool isFlower) &&
             buttonIDMap.TryGetValue(clickedButton, out int flowerID))
         {
+            effect.PlayUIClick();
             if (isFlower)
             {
                 // Display flower description
