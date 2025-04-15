@@ -2164,7 +2164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be3bde11996ccb4aa4cee4a7f6bc7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 8300000, guid: 8ece055942b65a74194704e326dc4874, type: 3}
+  door: {fileID: 8300000, guid: c6bcd01992790ee4d88b14b919702286, type: 3}
   chestOpen: {fileID: 8300000, guid: b145702dbad50dc49ac8034451e94746, type: 3}
   chestClose: {fileID: 8300000, guid: 3f10d78be2e4c4f46a0c051bdf36ebe0, type: 3}
   mailbox: {fileID: 8300000, guid: 7e7b438a386071146b67a169c78c693c, type: 3}
@@ -2175,7 +2175,6 @@ MonoBehaviour:
   purchase: {fileID: 8300000, guid: ab038c692f908e841a32e44d96d1ba1e, type: 3}
   requestComplete: {fileID: 8300000, guid: 1062d353de405f343aa141632bb70550, type: 3}
   walking: {fileID: 0}
-  dialogClick: {fileID: 8300000, guid: e96e3abb42a343b4c91b20b3f83b8c43, type: 3}
   uiClick: {fileID: 8300000, guid: 21f051105c663044480f7a399ab23b40, type: 3}
   close: {fileID: 8300000, guid: e96e3abb42a343b4c91b20b3f83b8c43, type: 3}
   speaker: {fileID: 6550224114064115787}
@@ -2520,6 +2519,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 230487256028769759, guid: 3a737c83222759845bd7ce866a24b93a, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 3047828583009921421, guid: 3a737c83222759845bd7ce866a24b93a, type: 3}
       propertyPath: m_Name
       value: MusicManager
@@ -2527,6 +2530,10 @@ PrefabInstance:
     - target: {fileID: 3763390860922670669, guid: 3a737c83222759845bd7ce866a24b93a, type: 3}
       propertyPath: m_Volume
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3763390860922670669, guid: 3a737c83222759845bd7ce866a24b93a, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7106572622146131279, guid: 3a737c83222759845bd7ce866a24b93a, type: 3}
       propertyPath: daysystem

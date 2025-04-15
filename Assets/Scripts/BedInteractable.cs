@@ -59,7 +59,7 @@ public class BedInteractable : InteractableObj
 
     public void Sleep()
     {   
-        effect.PlayUIClick();
+        //effect.PlayUIClick();
         daySystem.NextDay();
         bedUI.SetActive(false);
     }

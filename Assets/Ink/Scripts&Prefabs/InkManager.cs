@@ -175,7 +175,6 @@ public class InkManager : MonoBehaviour
         }
         else if (!story.canContinue)
         {
-            effect.PlayClose();
             EndStory();
         }
 
