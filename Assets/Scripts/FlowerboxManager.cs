@@ -96,6 +96,19 @@ public class FlowerboxManager : MonoBehaviour
         }
     }
 
+    public void FeedCompleted()
+    {
+        UpdateVisibleBoxes();
+
+        foreach (var box in FlowerBoxes)
+        {
+            if (box.transform.parent.gameObject.activeSelf)
+            {
+                box.FeedCompleted();
+            }
+        }
+    }
+
     public void SelectFlower(string flowerName)
     {
         for (int j = 0; j < buttons.Length; j++)

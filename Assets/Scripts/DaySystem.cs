@@ -56,24 +56,6 @@ public class DaySystem : MonoBehaviour
         inGameHud = GameObject.Find("InGameHUD").GetComponent<InGameHUD>();
     }
 
-    public void NextDay()
-    {
-        day++;
-        week = (day / 3) + 1;
-
-        // Check if yesterday was a kill day before updating
-        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
-        {
-            Debug.Log("Player Lost Game!");
-            LoseGame();
-            return;
-        }
-
-        StartCoroutine(LoadDay(day, true));
-
-        globalStateManager.SaveAllData();
-    }
-
     public int GetDay()
     {
         return day;
@@ -98,6 +80,27 @@ public class DaySystem : MonoBehaviour
         yield return StartCoroutine(transition.FadeOut(1f));
         playerInteractor.EndInteract();
     }
+    public void NextDay()
+    {
+        day++;
+        week = (day / 3) + 1;
+
+        // Check if yesterday was a kill day before updating
+        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
+        {
+            Debug.Log("Player Lost Game!");
+            LoseGame();
+            return;
+        }
+        else if (feedDays.Contains(day - 1) && npcKilled && isFeedDay)  // Player continues, fed the plant
+        {
+            flowerManager.FeedCompleted();
+        }
+
+        StartCoroutine(LoadDay(day, false));
+
+        globalStateManager.SaveAllData();
+    }
 
     private IEnumerator LoadDay(int day, bool startingGame)
     {
@@ -109,9 +112,11 @@ public class DaySystem : MonoBehaviour
         isFeedDay = feedDays.Contains(day);
         npcKilled = false;
 
-        if (playCutscenes)
-        {
-            yield return StartCoroutine(transition.FadeIn(2));
+        if (playCutscenes) { 
+            if (!startingGame)
+            {
+                yield return StartCoroutine(transition.FadeIn(2));
+            }
 
             Cutscene cutscene = CheckForCutscene();
             yield return StartCoroutine(videoPlayerManager.PlayNextDay(cutscene ? cutscene.clip : null, startingGame));
@@ -198,13 +203,13 @@ public class DaySystem : MonoBehaviour
 
         week = (day / 3) + 1;
 
-        StartCoroutine(LoadDay(day, false));
+        StartCoroutine(LoadDay(day, true));
     }
     public void ResetData()
     {
         day = 1;
         week = 1;
-        StartCoroutine(LoadDay(day, false));
+        StartCoroutine(LoadDay(day, true));
         isFeedDay = false;
     }
 

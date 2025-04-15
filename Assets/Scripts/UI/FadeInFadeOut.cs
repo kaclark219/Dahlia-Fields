@@ -15,7 +15,14 @@ public class FadeInFadeOut : MonoBehaviour
     private void Awake()
     {
         image = image ? image : GetComponent<Image>();
-        image.enabled = false;
+        image.enabled = true;
+        image.color = new Color(0,0,0,1.0f);
+    }
+
+    public void BlackScreen()
+    {
+        image.enabled=true;
+        image.color = new Color(0, 0, 0, 1.0f);
     }
 
     // Basic transition for basic functions to be called in between the transition and at the end

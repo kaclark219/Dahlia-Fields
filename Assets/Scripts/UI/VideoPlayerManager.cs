@@ -24,11 +24,11 @@ public class VideoPlayerManager : MonoBehaviour
         videoPlayer = GetComponent<VideoPlayer>();
         transition = FindFirstObjectByType<FadeInFadeOut>();
     }
-    public IEnumerator PlayNextDay(VideoClip cutscene, bool includeSleepAnimation)
+    public IEnumerator PlayNextDay(VideoClip cutscene, bool startingGame)
     {
         HUD.SetActive(false);
 
-        if (includeSleepAnimation)
+        if (!startingGame)
         {
             yield return StartCoroutine(PrepareVideo(SleepClip));
             yield return StartCoroutine(PlayVideo());
