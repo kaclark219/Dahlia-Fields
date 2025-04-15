@@ -11,6 +11,13 @@ public class NPCJeremy : NPC
     public int BoxCost = -40;
 
     private Story story;
+    private SoundEffects effect;
+
+    public override void Awake()
+    {
+        base.Awake();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
+    }
 
     public override void Start()
     {
@@ -66,7 +73,7 @@ public class NPCJeremy : NPC
         FlowerboxManager flowerboxManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
         if (playerData.ModifyMoney(BoxCost) && flowerboxManager.AddBox())
         {
-
+            effect.PlayPurchase(); 
             story.variablesState["BoughtFlowerbox"] = 1;
             Debug.Log("Player bought a flower box");
         }

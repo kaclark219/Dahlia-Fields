@@ -12,6 +12,13 @@ public class NPCGerald : NPC
     public int TonicEnergy = 10;
 
     private Story story;
+    private SoundEffects effect;
+
+    public override void Awake()
+    {
+        base.Awake();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
+    }
 
     public override void Start()
     {
@@ -67,6 +74,7 @@ public class NPCGerald : NPC
         PlayerData playerData = GameObject.Find("Player").GetComponent<PlayerData>();
         if (playerData.ModifyMoney(-TonicCost))
         {
+            effect.PlayPurchase();
             story.variablesState["BoughtTonic"] = 1;
             playerData.ModifyEnergy(TonicEnergy);
             Debug.Log("Player Bought Tonic");
