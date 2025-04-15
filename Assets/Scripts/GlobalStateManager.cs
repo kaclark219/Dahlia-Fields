@@ -18,6 +18,8 @@ public class GlobalStateManager : MonoBehaviour
     [SerializeField] private RequestBoard requestBoard;
     [SerializeField] private SeedStore seedStore;
 
+    private PlayerInteractor interactor;
+
     private const string newGameKey = "NEW_GAME";   // used to tell GlobalStateManager on load if its a new game 
     private const string nameKey = "PLAYER_NAME";
 
@@ -31,6 +33,7 @@ public class GlobalStateManager : MonoBehaviour
         inventoryManager = inventoryManager ? inventoryManager : FindObjectOfType<InventoryManager>(); ;
         requestBoard = requestBoard ? requestBoard : FindObjectOfType<RequestBoard>();
         seedStore = seedStore ? seedStore : FindFirstObjectByType<SeedStore>();
+        interactor = FindFirstObjectByType<PlayerInteractor>();
     }
     private void Start()
     {
@@ -42,9 +45,7 @@ public class GlobalStateManager : MonoBehaviour
 
         if (newGame == 1)   // reset all data, create new game
         {
-            string name = PlayerPrefs.GetString(nameKey);
             ResetAllData();
-            playerData.SetName(name);
         }
         else
         {
@@ -85,6 +86,9 @@ public class GlobalStateManager : MonoBehaviour
     public void ResetAllData()
     {
         //Debug.Log("Resetting Data Data...");
+        string name = PlayerPrefs.GetString(nameKey);
+        playerData.SetName(name);
+
         dialogueVariables.ResetData();
         playerData.ResetData();
         daySystem.ResetData();
@@ -93,12 +97,12 @@ public class GlobalStateManager : MonoBehaviour
         inventoryManager.ResetData();
         requestBoard.ResetData();
         seedStore.ResetData();
-
-        PlayerPrefs.DeleteAll();
     }
 
     public void ShowLoseScreen()
     {
+        ResetAllData();
+        interactor.Interact();
         LoseUI.SetActive (true);
     }
 
@@ -109,7 +113,8 @@ public class GlobalStateManager : MonoBehaviour
 
     public void PlayAgain()
     {
-        ResetAllData();
+        interactor.EndInteract();
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(menuSceneName);
     }
 }

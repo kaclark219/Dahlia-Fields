@@ -16,6 +16,8 @@ public class RequestBoard : InteractableObj
     [SerializeField] DialogueVariables dvar;
     [SerializeField] GameObject remaining;
     [SerializeField] public GameObject exclaim;
+    [SerializeField] public GameObject newQuest;
+    private bool questedToday = false;
     int day;
     Dictionary<GameObject, Request> requestList;
     public bool openedBoard = false;
@@ -72,6 +74,10 @@ public class RequestBoard : InteractableObj
             {
                 req.SetActive(false);
             }
+
+            if(day == requestList[req].day && !questedToday){
+                newQuest.SetActive(true);
+            }
         }
 
         remaining.SetActive(false);
@@ -112,7 +118,7 @@ public class RequestBoard : InteractableObj
         string[] trusts = requestList[request].trust.Split("; ");
         foreach (string people in trusts){
             string[] statement = people.Split(" Trust ");
-            dvar.AddTrust(statement[1], int.Parse(statement[0]));
+            dvar.AddTrust(statement[1] + "Trust", int.Parse(statement[0]));
         }
     }
     
@@ -275,6 +281,8 @@ public class RequestBoard : InteractableObj
         if(exclaim.activeSelf){
             exclaim.GetComponent<Tutorial>().RequestBoardTutorial();
         }
+        newQuest.SetActive(false);
+        questedToday = true;
         canvas.SetActive(true);
         Refresh();
     }
@@ -328,6 +336,11 @@ public class RequestBoard : InteractableObj
             {
                 req.completed = PlayerPrefs.GetInt(prefKey);
                 requestList[key] = req; 
+            }
+
+            day = daySystem.day;
+            if(day == req.day){
+                newQuest.SetActive(true);
             }
         }
 

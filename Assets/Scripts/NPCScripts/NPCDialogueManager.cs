@@ -49,10 +49,45 @@ public class NPCDialogueManager : MonoBehaviour
         NPC npc = npcM.GetNPC(name);
         int trust = int.Parse(dialogueVariables.variables[name.ToString() + "Trust"]);
         int maxTrust = npc.trustRequired;
-        float percentage = ((float)trust / maxTrust) * 10;
-        //Debug.Log("trust: " + trust + ", maxTrust: " + maxTrust + ", precentage: " + percentage);
-        if ((int) percentage >= 8) { percentage = 8; }
-        trustImage.sprite = trustSprites[(int) percentage]; 
+        int percentage = (int) (((float)trust / maxTrust) * 100);
+        Debug.Log("trust: " + trust + ", maxTrust: " + maxTrust + ", precentage: " + (percentage));
+
+        if (percentage < 10)
+        {
+            trustImage.sprite = trustSprites[0];
+        }
+        else if (percentage >= 10 && percentage < 20)
+        {
+            trustImage.sprite = trustSprites[1];
+        }
+        else if (percentage >= 20 && percentage < 30)
+        {
+            trustImage.sprite = trustSprites[2];
+        }
+        else if (percentage >= 30 && percentage < 40)
+        {
+            trustImage.sprite = trustSprites[3];
+        }
+        else if (percentage >= 40 && percentage < 50)
+        {
+            trustImage.sprite = trustSprites[4];
+        }
+        else if (percentage >= 50 && percentage < 60)
+        {
+            trustImage.sprite = trustSprites[5];
+        }
+        else if (percentage >= 60 && percentage < 70)
+        {
+            trustImage.sprite = trustSprites[6];
+        }
+        else if (percentage >= 70 && percentage < 80)
+        {
+            trustImage.sprite = trustSprites[7];
+        }
+        else
+        {
+            trustImage.sprite = trustSprites[8];
+        }
     }
     public void ShowCharacter(NPCName name, NPCPosition position, NPCMood mood)
     {

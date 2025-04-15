@@ -18,7 +18,14 @@ public class SeedStore : InteractableObj
     [SerializeField] public Image[] cartItems;
     [SerializeField] public TextMeshProUGUI[] counts;
     [SerializeField] public Button[] clears; 
-    public Dictionary<int, int> cartMap;
+    public Dictionary<int, int> cartMap = new Dictionary<int, int>()
+        {
+            {0, 10},
+            {1, 10},
+            {2, 10},
+            {3, 10},
+            {4, 10}
+        };
 
     [Space]
     [SerializeField] public Sprite[] fbackgrounds;
@@ -40,7 +47,18 @@ public class SeedStore : InteractableObj
     public bool p = false;
 
     private InventoryItem chosenFlower; 
-    public Dictionary<string, int> mapValues;
+    public Dictionary<string, int> mapValues = new Dictionary<string, int>()
+        {
+            {"Dandelion", 0},
+            {"Daisy",  1},
+            {"Poppy", 2},
+            {"Tulip", 3},
+            {"Rose", 4},
+            {"Lavender", 5},
+            {"PricklyPear", 6},
+            {"Sunflower", 7},
+            {"LilyValley", 8}
+        };
     private int id = 10;
 
     public int[] cart = new int[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
