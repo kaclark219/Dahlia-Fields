@@ -219,6 +219,7 @@ public class RequestBoard : InteractableObj
 
     public void ClickNote(GameObject text)
     {
+        effect.PlayUIClick();
         foreach (GameObject req in requests)
         {
             req.gameObject.transform.GetChild(0).gameObject.SetActive(false);
@@ -272,6 +273,7 @@ public class RequestBoard : InteractableObj
     }
 
     public void CloseBoard(){
+        effect.PlayClose();
         canvas.SetActive(false);
         EndInteract();
     }
