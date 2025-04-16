@@ -5927,6 +5927,34 @@ PrefabInstance:
       propertyPath: playCutscenes
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1961994125542866198, guid: 26a91b98de179714094b3966759ff6d1, type: 3}
+      propertyPath: cutsceneList.Array.size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961994125542866198, guid: 26a91b98de179714094b3966759ff6d1, type: 3}
+      propertyPath: cutsceneList.Array.data[14]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f298e74492d9d545bd95b65ad4c9f68, type: 2}
+    - target: {fileID: 1961994125542866198, guid: 26a91b98de179714094b3966759ff6d1, type: 3}
+      propertyPath: cutsceneList.Array.data[15]
+      value: 
+      objectReference: {fileID: 11400000, guid: dae8c8bc9ca0df2498760329d9e61ef9, type: 2}
+    - target: {fileID: 1961994125542866198, guid: 26a91b98de179714094b3966759ff6d1, type: 3}
+      propertyPath: cutsceneList.Array.data[16]
+      value: 
+      objectReference: {fileID: 11400000, guid: e6e5887e080ef8547a233f691215bf8a, type: 2}
+    - target: {fileID: 1961994125542866198, guid: 26a91b98de179714094b3966759ff6d1, type: 3}
+      propertyPath: cutsceneList.Array.data[17]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d280295f25fd404e82e0222fc3801bc, type: 2}
+    - target: {fileID: 1961994125542866198, guid: 26a91b98de179714094b3966759ff6d1, type: 3}
+      propertyPath: cutsceneList.Array.data[18]
+      value: 
+      objectReference: {fileID: 11400000, guid: ded12b16e5b4ece4aa7bfe3565f0fc11, type: 2}
+    - target: {fileID: 1961994125542866198, guid: 26a91b98de179714094b3966759ff6d1, type: 3}
+      propertyPath: cutsceneList.Array.data[19]
+      value: 
+      objectReference: {fileID: 11400000, guid: 186cf98ff27094f429e7110a1fcc1d12, type: 2}
     - target: {fileID: 6271288331911556575, guid: 26a91b98de179714094b3966759ff6d1, type: 3}
       propertyPath: WinUI
       value: 
