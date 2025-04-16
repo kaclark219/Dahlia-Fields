@@ -30,4 +30,15 @@ public class SimpleDialogueInteractable : InteractableObj
     {
         base.EndInteract();
     }
+
+    override public void Update(){
+        if (active){
+            if (Popup) { Popup.SetActive(true); }
+            if(Input.GetKeyDown(KeyCode.E) && plint.canInteract){
+                OnInteract();
+            }
+        }else{
+            if (Popup) { Popup.SetActive(false); }
+        }
+    }
 }
