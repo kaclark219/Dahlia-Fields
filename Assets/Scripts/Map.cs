@@ -19,7 +19,7 @@ public class Map : MonoBehaviour
     }
 
     public void log(string npc){
-
+        
     }
 
     public void nextDay(){

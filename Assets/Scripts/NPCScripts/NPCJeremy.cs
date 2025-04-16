@@ -22,7 +22,7 @@ public class NPCJeremy : NPC
     public override void Start()
     {
         base.Start();
-        workshopLocation = GetComponentInParent<NPCManager>().coords["Jeremy11"];
+        workshopLocation = GetComponentInParent<NPCManager>().coords["Jeremy31"];
     }
 
     public override void OnInteract()
@@ -31,7 +31,7 @@ public class NPCJeremy : NPC
 
         int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
 
-        if (transform.parent.transform.position == workshopLocation && numOfInteractions > 0)
+        if (transform.parent.transform.position.y == workshopLocation.y && numOfInteractions > 0)
         {
             story = ink.CreateStory(buyFlowerBox, this);
             story.BindExternalFunction("BuyFlowerbox", () => this.BuyFlowerbox());
