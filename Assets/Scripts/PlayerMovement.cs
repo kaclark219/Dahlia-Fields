@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        UnityEngine.Profiling.Profiler.maxUsedMemory = 512 * 1024 * 1024; //512 MB of memory
         ResetLocation();
         canmove = true;
     }
