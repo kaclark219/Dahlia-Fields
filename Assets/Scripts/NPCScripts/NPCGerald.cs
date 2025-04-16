@@ -31,7 +31,7 @@ public class NPCGerald : NPC
 
         int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
 
-        if (transform.parent.transform.position == clinicLocation && numOfInteractions > 0)
+        if (transform.parent.transform.position.y == clinicLocation.y && numOfInteractions > 0)
         {
             story = ink.CreateStory(buyTonicText, this);
             story.BindExternalFunction("BuyTonic", () => this.BuyTonic());

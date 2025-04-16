@@ -3760,6 +3760,10 @@ PrefabInstance:
       propertyPath: m_AspectRatio
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6164413177520471888, guid: 87a10106614d6524c875a156ba393d0c, type: 3}
+      propertyPath: m_TimeUpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6168645498386877329, guid: 87a10106614d6524c875a156ba393d0c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
