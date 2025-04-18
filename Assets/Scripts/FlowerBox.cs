@@ -164,6 +164,7 @@ public class FlowerBox : InteractableObj
 
     public void FeedCompleted()
     {
+        if (!planted) { return; }
         CycleIndex += 2;
         if (flowerPlanted.daysToGrow < CycleIndex)
         {

@@ -22004,7 +22004,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   pm: {fileID: 0}
   playerData: {fileID: 0}
-  textAsset: {fileID: 4900000, guid: 4d3e84b90e0225a47bc94e4843488976, type: 3}
+  textAsset: {fileID: 4900000, guid: c745455a335e0024d8db156d043ed111, type: 3}
   DisplayName: Poppy's & Linda's House
 --- !u!1 &2885010717475508023
 GameObject:
