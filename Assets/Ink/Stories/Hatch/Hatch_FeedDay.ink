@@ -3,7 +3,7 @@ INCLUDE ../Globals.ink
 -> start
 
 === start ===
-Did you fed them?
+Did you feed them?
 *[Yes.] -> FED
 *[No.] -> HUNGRY
 
