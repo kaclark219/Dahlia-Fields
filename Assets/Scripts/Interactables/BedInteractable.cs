@@ -42,7 +42,7 @@ public class BedInteractable : InteractableObj
 
         if (daySystem.isFeedDay)
         {
-            description.text = "They are hungry.\nFeed them - or be its next meal...";
+            description.text = "They are hungry.\nFeed them - or be their next meal...";
         }
         else if (playerData.GetEnergy() > 0)
         {

@@ -18,7 +18,7 @@ public class VideoPlayerManager : MonoBehaviour
     private RawImage image;
     private VideoPlayer videoPlayer;
 
-    private void Start()
+    private void Awake()
     {
         image = GetComponent<RawImage>();
         videoPlayer = GetComponent<VideoPlayer>();
@@ -62,7 +62,7 @@ public class VideoPlayerManager : MonoBehaviour
         yield return new WaitUntil(() => videoPlayer.isPrepared);
     }
 
-    private IEnumerator PlayVideo()
+    public IEnumerator PlayVideo()
     {
         image.enabled = true;
         videoPlayer.Play();
