@@ -3,24 +3,22 @@ INCLUDE ../Globals.ink
 -> start
 
 === start ===
-{ShowCharacter("Megan", "Right", "Normal")} Oh! Hello there, you must be the new neighbor. I'm Megan. Have you settled in okay?
-* [Yes, everything's going well.] -> SettledIn
-* [Still figuring things out.] -> StillAdjusting
+{ShowCharacter("Megan", "Right", "Normal")} If you were to get some sort of welcome goodies, would you prefer cookies or cupcakes>
+* [Cookies.] -> Cookies
+* [Cupcakes.] -> Cupcakes
 
-=== SettledIn ===  
-{HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Happy")} Yeah, I think I'm getting the hang of things. It's a nice town.
-{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Happy")} That's great! It can take some time, but I think you'll like it here. If you ever need anything, just ask!
-{HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Normal")} Thanks, that means a lot. I'm {PlayerName}, by the way.
-{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Happy")} Nice to meet you, {PlayerName}! I'll see you around.
-~MeganTrust += 5
+=== Cookies ===  
+{HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Normal")} I'm more of a cookie person, I don't really like frosting.
+{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Normal")} You don't like frosting? At all? Well I make a really good homemade buttercream that could change your min—
+{HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Normal")} No really, I don't like frosting. Thank you anyway, though.
+{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Suspicious")} ... you could at least try it, especially when I'm trying to be nice. It's fine. Just keep an eye out in front of your door for sweets.
+~MeganTrust -= 10
 -> END
 
-=== StillAdjusting ===  
-{HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Normal")} Not quite yet. There's a lot to take in.
-{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Normal")} That's understandable. Moving is a big change. Just take your time.
-{HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Happy")} I'll try. Thanks for the advice.
-{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Happy")} Of course! Oh, and if you ever need a little pick-me-up, I bake cookies sometimes.
-{HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Normal")} That sounds nice. I might take you up on that.
-{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Happy")} I'll be right next door. Take care, {PlayerName}!
+=== Cupcakes ===  
+{HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Normal")} I'm more into cupcakes. A dessert just isn't the same without frosting.
+{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Happy")} Ah, perfect! I make a mean buttercream frosting, and I can't wait for you to try it. Maybe with a lemon cake?
+{HideCharacter("Megan")} {ShowCharacter("Player", "Right", "Happy")} That sounds delicious! Thank you so much for being so kind, I really appreciate it.
+{HideCharacter("Player")} {ShowCharacter("Megan", "Right", "Normal")} Well, keep an eye out in front of your door for sweets!
 ~MeganTrust += 10
 -> END
