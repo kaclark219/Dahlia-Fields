@@ -50,8 +50,6 @@ public class NPC : InteractableObj
 
         base.OnInteract();
 
-        map.log(npcKey + "_Found");
-
         int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
 
         if (isFeedDay && trust >= trustRequired)

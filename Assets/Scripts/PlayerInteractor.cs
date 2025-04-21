@@ -41,6 +41,8 @@ public class PlayerInteractor : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.M) && canInteract){
             map.GetComponent<Map>().open();
             map.SetActive(true);
+        }else if(Input.GetKeyDown(KeyCode.M) && !canInteract && map.activeSelf){
+            map.GetComponent<Map>().close();
         }
     }
 
