@@ -22,6 +22,10 @@ public class TestUI : MonoBehaviour
             {
                 daySystem.playCutscenes = false;
             }
+            else
+            {
+                daySystem.playCutscenes = true;
+            }
         }
     }
 }

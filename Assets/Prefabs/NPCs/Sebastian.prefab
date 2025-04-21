@@ -160,7 +160,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 3, y: 4}
   m_EdgeRadius: 0
 --- !u!114 &2969848605564873296
 MonoBehaviour:
@@ -194,8 +194,10 @@ MonoBehaviour:
   numOfInteractions: 0
   fuckOffText: {fileID: 4900000, guid: 699112a866d1c5c4e9df8f3f5c6b2b6c, type: 3}
   isFeedDay: 0
-  trustRequired: 140
+  trustRequired: 130
   killText: {fileID: 4900000, guid: 1541fc3b647408a4496e29e43d1128aa, type: 3}
+  animations: []
+  map: {fileID: 0}
   ink: {fileID: 0}
   dialogueVariables: {fileID: 0}
   costsEnergy: 0
@@ -276,7 +278,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -543482713, guid: a876de88af09ba24cb0ef00e05bae7d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -320,11 +322,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.4}
-    oldSize: {x: 1, y: 1.25}
+    oldSize: {x: 1.6, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

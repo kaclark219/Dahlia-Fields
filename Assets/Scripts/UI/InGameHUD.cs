@@ -15,7 +15,7 @@ public class InGameHUD : MonoBehaviour
         float minScale = 0f;
         float maxScale = 1.0f;
 
-        float energyPercentage = (35.0f - energy) / 35.0f;
+        float energyPercentage = (40.0f - energy) / 40.0f;
 
         float scale = minScale + (energyPercentage * (maxScale - minScale));
 

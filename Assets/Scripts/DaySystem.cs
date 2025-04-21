@@ -92,6 +92,12 @@ public class DaySystem : MonoBehaviour
             LoseGame();
             return;
         }
+        else if (day == 20) // game win
+        {
+            Debug.Log("Player Won Game!");
+            StartCoroutine(WinGame());
+            return;
+        }
         else if (feedDays.Contains(day - 1) && npcKilled && isFeedDay)  // Player continues, fed the plant
         {
             flowerManager.FeedCompleted();
@@ -119,6 +125,7 @@ public class DaySystem : MonoBehaviour
             }
 
             Cutscene cutscene = CheckForCutscene();
+            Debug.Log(cutscene.clip.name);
             yield return StartCoroutine(videoPlayerManager.PlayNextDay(cutscene ? cutscene.clip : null, startingGame));
         }
 
@@ -181,8 +188,22 @@ public class DaySystem : MonoBehaviour
     }
 
     private void LoseGame()
-    { 
+    {
+        playerInteractor.Interact();
+        musicManager.fadeOut();
         globalStateManager.ShowLoseScreen();
+    }
+
+    private IEnumerator WinGame()
+    {
+        playerInteractor.Interact();
+        musicManager.fadeOut();
+
+        Cutscene cutscene = CheckForCutscene();
+        yield return StartCoroutine(videoPlayerManager.PrepareVideo(cutscene.clip));
+        yield return StartCoroutine(videoPlayerManager.PlayVideo());
+
+        globalStateManager.ShowWinScreen();
     }
 
     #region SAVE_SYSTEM
