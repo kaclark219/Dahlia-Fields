@@ -101,9 +101,13 @@ public class DaySystem : MonoBehaviour
         else if (feedDays.Contains(day - 1) && npcKilled && isFeedDay)  // Player continues, fed the plant
         {
             flowerManager.FeedCompleted();
+            StartCoroutine(LoadDay(day, true));
+        }
+        else    // regular day
+        {
+            StartCoroutine(LoadDay(day, false));
         }
 
-        StartCoroutine(LoadDay(day, false));
 
         globalStateManager.SaveAllData();
     }

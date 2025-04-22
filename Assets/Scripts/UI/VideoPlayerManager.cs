@@ -34,6 +34,10 @@ public class VideoPlayerManager : MonoBehaviour
             yield return StartCoroutine(PlayVideo());
             yield return new WaitForSeconds(1f);
         }
+        else
+        {
+            yield return new WaitForSeconds(2f);
+        }
 
         if (cutscene != null)
         {
