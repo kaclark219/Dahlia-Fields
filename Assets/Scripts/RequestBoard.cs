@@ -323,6 +323,8 @@ public class RequestBoard : InteractableObj
         }
 
         PlayerPrefs.SetInt("OpenedBoard", openedBoard ? 1 : 0);
+
+        questedToday = false;
     }
 
     private IEnumerator Load(){
@@ -355,6 +357,7 @@ public class RequestBoard : InteractableObj
             openedBoard = false;
         }
         exclaim.SetActive(!openedBoard);
+        questedToday = false;
     }
 
     public void LoadData()
