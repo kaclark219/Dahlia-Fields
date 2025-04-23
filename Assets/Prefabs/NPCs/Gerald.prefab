@@ -344,6 +344,10 @@ MonoBehaviour:
   - {fileID: 4900000, guid: eb8640915110b6d419c9b5ae443ad0c8, type: 3}
   - {fileID: 4900000, guid: c52304356e86d3342b184c3177e83c96, type: 3}
   - {fileID: 4900000, guid: df42a4bd2b058dd499f00cb3119a35cf, type: 3}
+  - {fileID: 4900000, guid: 4097c21a246fe0e4a8661121bff8757b, type: 3}
+  - {fileID: 4900000, guid: a48f5217666fc344cba351620e90e3d8, type: 3}
+  - {fileID: 4900000, guid: 2e9b2594b67402a469d3d31968996d28, type: 3}
+  - {fileID: 4900000, guid: a7b73605d27d4b544b253d3e2e606933, type: 3}
   dailyInteraction: 0
   numOfInteractions: 0
   fuckOffText: {fileID: 4900000, guid: e8c898e24dfe83e4f9a1afdf54abf551, type: 3}
