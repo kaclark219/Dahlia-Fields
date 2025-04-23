@@ -84,7 +84,6 @@ public class GlobalStateManager : MonoBehaviour
     {
         //Debug.Log("Resetting Data Data...");
         string name = PlayerPrefs.GetString(nameKey);
-        playerData.SetName(name);
 
         dialogueVariables.ResetData();
         playerData.ResetData();
@@ -94,6 +93,8 @@ public class GlobalStateManager : MonoBehaviour
         inventoryManager.ResetData();
         requestBoard.ResetData();
         seedStore.ResetData();
+
+        playerData.SetName(name);
     }
 
     public void ShowLoseScreen()

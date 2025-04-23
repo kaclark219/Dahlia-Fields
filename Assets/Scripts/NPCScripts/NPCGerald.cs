@@ -30,6 +30,7 @@ public class NPCGerald : NPC
         plint.Interact();
 
         int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
+        bool isFeedDay = FindFirstObjectByType<DaySystem>().isFeedDay;
 
         if (transform.parent.transform.position.y == clinicLocation.y && numOfInteractions > 0)
         {

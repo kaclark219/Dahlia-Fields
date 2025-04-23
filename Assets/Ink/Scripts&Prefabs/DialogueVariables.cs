@@ -147,6 +147,12 @@ public class DialogueVariables : MonoBehaviour
         {
             string state = PlayerPrefs.GetString(saveVariablesKey);
             GlobalStory.state.LoadJson(state);
+            foreach (string name in GlobalStory.variablesState)
+            {
+                string value = GlobalStory.variablesState.GetVariableWithName(name).ToString();
+                variables[name] = value;
+            }
+            VariablesToStory(GlobalStory);
         }
     }
     public void ResetData()
@@ -166,6 +172,12 @@ public class DialogueVariables : MonoBehaviour
                 GlobalStory.variablesState.SetGlobal(var.Key, new Ink.Runtime.StringValue("Y/N"));
             }
         }
+        foreach (string name in GlobalStory.variablesState)
+        {
+            string value = GlobalStory.variablesState.GetVariableWithName(name).ToString();
+            variables[name] = value;
+        }
+        VariablesToStory(GlobalStory);
     }
     #endregion
 }
