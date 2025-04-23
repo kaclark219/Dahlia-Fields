@@ -165,14 +165,17 @@ public class DialogueVariables : MonoBehaviour
         {
             if (var.Key.Contains("Trust"))
             {
-                variables[var.Key] = "0";
                 GlobalStory.variablesState.SetGlobal(var.Key, new Ink.Runtime.IntValue(0));
             }
             else
             {
-                variables[var.Key] = "Y/N";
                 GlobalStory.variablesState.SetGlobal(var.Key, new Ink.Runtime.StringValue("Y/N"));
             }
+        }
+        foreach (string name in GlobalStory.variablesState)
+        {
+            string value = GlobalStory.variablesState.GetVariableWithName(name).ToString();
+            variables[name] = value;
         }
         VariablesToStory(GlobalStory);
     }

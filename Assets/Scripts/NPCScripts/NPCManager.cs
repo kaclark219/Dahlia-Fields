@@ -60,17 +60,9 @@ public class NPCManager : MonoBehaviour
         }
     }
                                                                                                                                                                                                                                                     
-    public void NextDay(int day, bool isFeedDay)
+    public void NextDay(int day)
     {
         MoveNPCs(day, 1);
-
-        foreach (GameObject npc in NPCs)
-        {
-            if (!npc.activeSelf && npc.GetComponentInChildren<NPC>() != null)
-            {
-                npc.GetComponentInChildren<NPC>().isFeedDay = isFeedDay;
-            }
-        }
     }
 
     public void KillNPC(string name)
@@ -83,9 +75,6 @@ public class NPCManager : MonoBehaviour
             if (npc.GetComponentInChildren<NPC>().npcName == npcName)
             {
                 npc.SetActive(false);
-
-                // TODO: start town suspicion task for next day
-
                 break;
             }
         }

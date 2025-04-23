@@ -640,7 +640,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1467662116759210296, guid: b1d5e7d9a67f9be43b57599e41cc0f4a, type: 3}
       propertyPath: animations.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1467662116759210296, guid: b1d5e7d9a67f9be43b57599e41cc0f4a, type: 3}
       propertyPath: animations.Array.data[0]
@@ -650,6 +650,10 @@ PrefabInstance:
       propertyPath: animations.Array.data[1]
       value: 
       objectReference: {fileID: 9100000, guid: e60f63938c803d644806a4b42719fe32, type: 2}
+    - target: {fileID: 1467662116759210296, guid: b1d5e7d9a67f9be43b57599e41cc0f4a, type: 3}
+      propertyPath: animations.Array.data[2]
+      value: 
+      objectReference: {fileID: 9100000, guid: 6d284e98f5a2a474a8b7724287ecabdd, type: 2}
     - target: {fileID: 2195019822632605548, guid: b1d5e7d9a67f9be43b57599e41cc0f4a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.1
