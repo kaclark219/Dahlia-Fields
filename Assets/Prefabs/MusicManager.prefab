@@ -53,6 +53,7 @@ MonoBehaviour:
   evening: {fileID: 8300000, guid: ef783d263a4b76c4c8c372d67e3db437, type: 3}
   daysystem: {fileID: 0}
   thisTime: 0
+  volumeSlider: {fileID: 0}
 --- !u!1 &4211807119927190233
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +98,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -141,7 +142,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.35
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -225,7 +226,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -269,7 +270,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.35
       inSlope: 0
       outSlope: 0
       tangentMode: 0
