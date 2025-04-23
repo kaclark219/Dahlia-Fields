@@ -1238,6 +1238,10 @@ PrefabInstance:
       propertyPath: choiceButtonContainer
       value: 
       objectReference: {fileID: 8836655229952620499}
+    - target: {fileID: 5941182217501235346, guid: e5f77980b6ffce54591d8ea3551e8e47, type: 3}
+      propertyPath: Special
+      value: 
+      objectReference: {fileID: 21300000, guid: ae6a44ab6db4bef458f5ec321fbfe3b5, type: 3}
     - target: {fileID: 6360180090440216539, guid: e5f77980b6ffce54591d8ea3551e8e47, type: 3}
       propertyPath: m_Name
       value: InkManager
