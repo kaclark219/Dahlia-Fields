@@ -66,7 +66,7 @@ public class NPCManager : MonoBehaviour
 
         foreach (GameObject npc in NPCs)
         {
-            if (!npc.activeSelf || npc.GetComponentInChildren<NPC>() != null)
+            if (!npc.activeSelf && npc.GetComponentInChildren<NPC>() != null)
             {
                 npc.GetComponentInChildren<NPC>().isFeedDay = isFeedDay;
             }
