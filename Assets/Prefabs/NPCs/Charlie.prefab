@@ -190,6 +190,10 @@ MonoBehaviour:
   - {fileID: 4900000, guid: d56fccbf233717b4d8449c3a360b9a4d, type: 3}
   - {fileID: 4900000, guid: d9d5ddacba490514487fa7675aba64c7, type: 3}
   - {fileID: 4900000, guid: eb4b87aa87ffca041864f4b9d84f0f34, type: 3}
+  - {fileID: 4900000, guid: ab1d8522a1d216c43ac29dd67bf56ca3, type: 3}
+  - {fileID: 4900000, guid: 70b30d468bbe5dc4494064198453af06, type: 3}
+  - {fileID: 4900000, guid: f8c15714baf2cda4bb0811f90a2480ab, type: 3}
+  - {fileID: 4900000, guid: 02d2377f8e68c2d48abf7acd6cf66f76, type: 3}
   dailyInteraction: 0
   numOfInteractions: 0
   fuckOffText: {fileID: 4900000, guid: 3769d9e121188cf499129f4c1cf8416b, type: 3}
