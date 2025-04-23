@@ -152,8 +152,8 @@ public class DaySystem : MonoBehaviour
         // Reset player energy
         playerData.ResetEnergy();
 
-        // Update NPCS (move them and check if kill day
-        npcManager.NextDay(day, isFeedDay);
+        // Update NPCS (move them)
+        npcManager.NextDay(day);
 
         // reset NPC daily interaction
         npcManager.ResetDailyInteraction();

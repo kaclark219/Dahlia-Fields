@@ -84,9 +84,17 @@ public class NPCDialogueManager : MonoBehaviour
         {
             trustImage.sprite = trustSprites[7];
         }
-        else
+        else if (percentage >= 80 && percentage < 90)
         {
             trustImage.sprite = trustSprites[8];
+        }
+        else if (percentage >= 90 && percentage < 100)
+        {
+            trustImage.sprite = trustSprites[9];
+        }
+        else if (percentage >= 100)
+        {
+            trustImage.sprite = trustSprites[10];
         }
     }
     public void ShowCharacter(NPCName name, NPCPosition position, NPCMood mood)

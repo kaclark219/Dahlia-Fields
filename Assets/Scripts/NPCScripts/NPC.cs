@@ -11,7 +11,6 @@ public class NPC : InteractableObj
     public int numOfInteractions;
     [SerializeField] public TextAsset fuckOffText;
     [Space]
-    public bool isFeedDay = false;
     public int trustRequired = 0;
     [SerializeField] public TextAsset killText;
     [SerializeField] public RuntimeAnimatorController[] animations;
@@ -51,6 +50,7 @@ public class NPC : InteractableObj
         base.OnInteract();
 
         int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
+        bool isFeedDay = FindFirstObjectByType<DaySystem>().isFeedDay;
 
         if (isFeedDay && trust >= trustRequired)
         {
