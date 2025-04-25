@@ -54,12 +54,18 @@ public class PlayerInteractor : MonoBehaviour
     public void EndInteract()
     {
         pm.canmove = true;
-        canInteract = true;
+        StartCoroutine(InteractCooldown());
     }
 
     public void Plant(Flowers plant){
         if(closest is FlowerBox){
             (closest as FlowerBox).Plant(plant);
         }
+    }
+
+    private IEnumerator InteractCooldown()
+    {
+        yield return new WaitForSeconds(0.25f);
+        canInteract = true;
     }
 }

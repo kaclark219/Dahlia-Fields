@@ -26,7 +26,7 @@ public class InkManager : MonoBehaviour
     [Space]
     [SerializeField] public Slider speedSlider; 
 
-    private NPCManager npcManager;
+    private DaySystem daySystem;
     private InteractableObj currInteractable;
     private Coroutine printCoroutine = null;
     private string text;
@@ -40,7 +40,7 @@ public class InkManager : MonoBehaviour
     {
         dialogueVariables = GetComponent<DialogueVariables>();
         npcDialogueManager = FindObjectOfType<NPCDialogueManager>();
-        npcManager = FindAnyObjectByType<NPCManager>();
+        daySystem = FindObjectOfType<DaySystem>();
         effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
         UI.SetActive(false);
     }
@@ -50,7 +50,7 @@ public class InkManager : MonoBehaviour
         if (storyPlaying && Input.GetKeyDown(KeyCode.E)) {
             DisplayNextLine();
             storyPlaying = false;
-            StartCoroutine(StoryIsPlaying());
+            StartCoroutine(Cooldown());
         } 
     }
 
@@ -64,7 +64,7 @@ public class InkManager : MonoBehaviour
         BindFunctions();
 
         DisplayNextLine();
-        StartCoroutine(StoryIsPlaying());
+        StartCoroutine(Cooldown());
     }
 
     // keeps track of InteractableObj to call EndInteract() at end of dialogue
@@ -79,7 +79,7 @@ public class InkManager : MonoBehaviour
         BindFunctions();
 
         DisplayNextLine();
-        StartCoroutine(StoryIsPlaying());
+        StartCoroutine(Cooldown());
 
         return story;
     }
@@ -108,7 +108,7 @@ public class InkManager : MonoBehaviour
         if (story)
         {
             DisplayNextLine();
-            StartCoroutine(StoryIsPlaying());
+            StartCoroutine(Cooldown());
         }
     }
 
@@ -141,6 +141,8 @@ public class InkManager : MonoBehaviour
 
     public void DisplayNextLine()
     {
+        if (story == null) { return; }
+
         if (isStoryPaused)
         {
             return;
@@ -198,7 +200,7 @@ public class InkManager : MonoBehaviour
         printCoroutine = null;
     }
 
-    private IEnumerator StoryIsPlaying()
+    private IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(.25f);
         storyPlaying = true;
@@ -242,8 +244,17 @@ public class InkManager : MonoBehaviour
 
     private void KillNPC(string name)
     {
-        EndStory();
-        npcManager.KillNPC(name);
+        // End story
+        story.ResetState();
+        dialogueVariables.StopListening(story);
+        UI.SetActive(false);
+        story = null;
+        npcDialogueManager.ClearCharacters();
+        currInteractable = null;
+        storyPlaying = false;
+        
+        // kill cutscene and skip to next day
+        StartCoroutine(daySystem.KillNPC(name));
     }
 
     #region CHOICES_FUNCTIONS

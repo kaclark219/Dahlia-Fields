@@ -52,6 +52,15 @@ public class VideoPlayerManager : MonoBehaviour
         HUD.SetActive(true);
     }
 
+    public IEnumerator PlayKillScene(VideoClip clip)
+    {
+        yield return StartCoroutine(PrepareVideo(clip));
+        yield return StartCoroutine(PlayVideo());
+        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PrepareVideo(WakeUpClip));
+        yield return StartCoroutine(PlayVideo());
+    }
+
     public IEnumerator PlayTimeChange(int time)
     {
         VideoClip clip = time == 2 ? MorningToAfternoon : AfternoonToEvening;   

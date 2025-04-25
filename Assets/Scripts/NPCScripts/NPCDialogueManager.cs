@@ -50,7 +50,7 @@ public class NPCDialogueManager : MonoBehaviour
         int trust = int.Parse(dialogueVariables.variables[name.ToString() + "Trust"]);
         int maxTrust = npc.trustRequired;
         int percentage = (int) (((float)trust / maxTrust) * 100);
-        Debug.Log("trust: " + trust + ", maxTrust: " + maxTrust + ", precentage: " + (percentage));
+        //Debug.Log("trust: " + trust + ", maxTrust: " + maxTrust + ", precentage: " + (percentage));
 
         if (percentage < 10)
         {
