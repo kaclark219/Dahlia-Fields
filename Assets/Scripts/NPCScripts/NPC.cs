@@ -56,7 +56,6 @@ public class NPC : InteractableObj
         {
             ink.StartStory(killText, this);
             costsEnergy = true;
-            isFeedDay = false;
         }
         else if (textAssets.Count <= numOfInteractions || dailyInteraction)
         {
