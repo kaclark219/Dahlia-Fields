@@ -86,7 +86,7 @@ public class DialogueVariables : MonoBehaviour
                 currStory.variablesState.SetGlobal(name, new Ink.Runtime.IntValue(value));
             }
 
-            Debug.Log($"Variable Updated: {name} = {current}");
+            //Debug.Log($"Variable Updated: {name} = {current}");
         }
         else
         {

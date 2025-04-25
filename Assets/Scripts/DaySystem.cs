@@ -6,18 +6,16 @@ using UnityEngine;
 
 public class DaySystem : MonoBehaviour
 {
+    private const string dayKey = "DAY";
+
     public int day;
     public int week;
+    public bool isFeedDay = false;
+    public List<int> feedDays = new List<int> { 8, 14, 19, 23 };
     [Space]
     public bool playCutscenes = true;   // for testing sake
     public List<Cutscene> cutsceneList = new List<Cutscene>();
     [Space]
-    public List<int> feedDays = new List<int> { 8, 14, 19, 23 };
-    public bool isFeedDay = false;
-    public bool npcKilled = false;
-
-    private const string dayKey = "DAY";
-
     private NPCManager npcManager;
     private PlayerMovement playerMovement;
     private PlayerData playerData;
@@ -28,6 +26,7 @@ public class DaySystem : MonoBehaviour
     private GlobalStateManager globalStateManager;
     private FadeInFadeOut transition;
     private MusicManager musicManager;
+    [Space]
     private GameObject floorDirections; 
     private GameObject startingNote;
 
@@ -85,8 +84,7 @@ public class DaySystem : MonoBehaviour
         day++;
         week = (day / 3) + 1;
 
-        // Check if yesterday was a kill day before updating
-        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
+        if (isFeedDay)  // Player loses, didn't feed plant
         {
             Debug.Log("Player Lost Game!");
             LoseGame();
@@ -97,11 +95,6 @@ public class DaySystem : MonoBehaviour
             Debug.Log("Player Won Game!");
             StartCoroutine(WinGame());
             return;
-        }
-        else if (feedDays.Contains(day - 1) && npcKilled && isFeedDay)  // Player continues, fed the plant
-        {
-            flowerManager.FeedCompleted();
-            StartCoroutine(LoadDay(day, true));
         }
         else    // regular day
         {
@@ -119,9 +112,6 @@ public class DaySystem : MonoBehaviour
         playerInteractor.Interact();
         musicManager.fadeOut();
 
-        isFeedDay = feedDays.Contains(day);
-        npcKilled = false;
-
         if (playCutscenes) { 
             if (!startingGame)
             {
@@ -129,7 +119,6 @@ public class DaySystem : MonoBehaviour
             }
 
             Cutscene cutscene = CheckForCutscene();
-            Debug.Log(cutscene.clip.name);
             yield return StartCoroutine(videoPlayerManager.PlayNextDay(cutscene ? cutscene.clip : null, startingGame));
         }
 
@@ -146,6 +135,8 @@ public class DaySystem : MonoBehaviour
 
     private void UpdateGameState(int day)
     {
+        isFeedDay = feedDays.Contains(day);
+
         // Reset player location
         playerMovement.ResetLocation();
 
@@ -179,16 +170,32 @@ public class DaySystem : MonoBehaviour
         }
     }
 
-    private Cutscene CheckForCutscene()
+    public IEnumerator KillNPC(string name)
     {
-        foreach (Cutscene cutscene in cutsceneList)
+        day++;
+        week = (day / 3) + 1;
+        playerInteractor.Interact();
+        musicManager.StopMusic();
+
+        yield return null;
+
+        if (playCutscenes)
         {
-            if (cutscene.day == day)
-            {
-                return cutscene;
-            }
+            transition.BlackScreen();
+            yield return new WaitForSeconds(2f);
+            yield return StartCoroutine(videoPlayerManager.PlayKillScene(CheckForCutscene().clip));
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(transition.FadeOut());
         }
-        return null;
+
+        // Update game state
+        npcManager.KillNPC(name);
+        flowerManager.FeedCompleted();
+        UpdateGameState(day);
+
+        playerInteractor.EndInteract();
+        musicManager.fadeIn();
+        globalStateManager.SaveAllData();
     }
 
     private void LoseGame()
@@ -208,6 +215,18 @@ public class DaySystem : MonoBehaviour
         yield return StartCoroutine(videoPlayerManager.PlayVideo());
 
         globalStateManager.ShowWinScreen();
+    }
+
+    private Cutscene CheckForCutscene()
+    {
+        foreach (Cutscene cutscene in cutsceneList)
+        {
+            if (cutscene.day == day)
+            {
+                return cutscene;
+            }
+        }
+        return null;
     }
 
     #region SAVE_SYSTEM

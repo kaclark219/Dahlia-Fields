@@ -75,7 +75,7 @@ public class PlayerData : MonoBehaviour
             energy = 50;
         }
         inGameHud.UpdateEnergy(energy); //Update UI
-        Debug.Log("Player Energy changed by " + amount + ", new energy is " + energy);
+        //Debug.Log("Player Energy changed by " + amount + ", new energy is " + energy);
 
             
         if (amount < 0) // Increasing energy should not affect dayNightCycle

@@ -78,10 +78,6 @@ public class NPCManager : MonoBehaviour
                 break;
             }
         }
-
-        // Skip to next day
-        daySystem.npcKilled = true;
-        daySystem.NextDay();
     }
 
     #region SAVE_SYSTEM

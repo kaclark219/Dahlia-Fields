@@ -67,6 +67,12 @@ public class MusicManager : MonoBehaviour
         coroutine = StartCoroutine(Fade());
     }
 
+    public void StopMusic()
+    {
+        speaker1.Stop();
+        speaker2.Stop();
+    }
+
     private IEnumerator Fade(){
         for(int i = 0; i < 100; i++){
             yield return new WaitForSeconds(.01f);
