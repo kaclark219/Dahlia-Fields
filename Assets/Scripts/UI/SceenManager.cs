@@ -14,6 +14,7 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] GameObject credits_screen;
     [SerializeField] GameObject new_game_confirm;
     [SerializeField] GameObject LoadGameButton;
+    [SerializeField] TitleMusic titlemusic;
     [Space]
     public TMP_InputField name_input;
     public string player_name = " "; 
@@ -89,8 +90,10 @@ public class ScreenManager : MonoBehaviour
     {
         if (hasSave)
         {
+            titlemusic.fadeOut();
             PlayerPrefs.SetInt(newGameKey, 0);  // 0 => not a new game
-            SceneManager.LoadScene(game_scene);
+            //SceneManager.LoadScene(game_scene);
+            StartCoroutine(LoadYourAsyncScene());
         }
     }
 
@@ -103,10 +106,12 @@ public class ScreenManager : MonoBehaviour
     public void NewGame()
     {
         //Debug.Log(player_name);
+        titlemusic.fadeOut();
         PlayerPrefs.DeleteKey(nameKey);
         PlayerPrefs.SetString(nameKey, player_name);
         PlayerPrefs.SetInt(newGameKey, 1);  // 1 => is a new game
-        SceneManager.LoadScene(game_scene);
+        //SceneManager.LoadScene(game_scene);
+        StartCoroutine(LoadYourAsyncScene());
         new_game_confirm.SetActive(false);
     }
 
@@ -116,5 +121,19 @@ public class ScreenManager : MonoBehaviour
         player_name = input; // Store the input text
     }
 
+    IEnumerator LoadYourAsyncScene()
+    {
+        // The Application loads the Scene in the background as the current Scene runs.
+        // This is particularly good for creating loading screens.
+        // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
+        // a sceneBuildIndex of 1 as shown in Build Settings.
 
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(game_scene);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
 }

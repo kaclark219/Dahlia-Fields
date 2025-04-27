@@ -3673,6 +3673,14 @@ PrefabInstance:
       propertyPath: ink
       value: 
       objectReference: {fileID: 674366088160206155}
+    - target: {fileID: 1836502498313187498, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836502498313187498, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1840002905592745101, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: m_Name
       value: NPCManager
@@ -3689,6 +3697,10 @@ PrefabInstance:
       propertyPath: ink
       value: 
       objectReference: {fileID: 674366088160206155}
+    - target: {fileID: 3106933991924968086, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4025467880552757511, guid: c39d06d638ba2cb4d905e89110e9eea2, type: 3}
       propertyPath: ink
       value: 

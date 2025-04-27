@@ -13,7 +13,6 @@ public class MusicManager : MonoBehaviour
     [SerializeField] AudioClip evening;
     private bool primarySpeaker = true;
     [SerializeField] DaySystem daysystem;
-    public float thisTime;
 
     [SerializeField] Slider volumeSlider;
     private float volume = 0.5f;
@@ -24,7 +23,6 @@ public class MusicManager : MonoBehaviour
     // }
 
     void Update(){  
-        thisTime = speaker1.time;
         if(primarySpeaker){
             if(daysystem.day%3 == 1 && speaker1.time >= 80){
                 speaker2.clip = morning;
