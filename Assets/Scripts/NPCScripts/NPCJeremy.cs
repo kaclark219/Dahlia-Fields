@@ -8,7 +8,7 @@ public class NPCJeremy : NPC
     [Header("Flower Box Attributes")]
     [SerializeField] public TextAsset buyFlowerBox;
     public Vector3 workshopLocation;
-    public int BoxCost = -40;
+    public int BoxCost = -50;
 
     private Story story;
     private SoundEffects effect;
