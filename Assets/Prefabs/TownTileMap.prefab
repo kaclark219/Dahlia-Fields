@@ -17886,7 +17886,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   pm: {fileID: 0}
   playerData: {fileID: 0}
-  textAsset: {fileID: 4900000, guid: 306448a4b0a02a342b39aad35a3f53e9, type: 3}
+  textAsset: {fileID: 4900000, guid: 7a00c3a0006ff0443aa6001cfcf5816f, type: 3}
   DisplayName: Jeremy's House
 --- !u!1 &825132058456682483
 GameObject:
@@ -17985,7 +17985,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   pm: {fileID: 0}
   playerData: {fileID: 0}
-  textAsset: {fileID: 4900000, guid: 0aab38a7c0028824f8776ec744bb1eac, type: 3}
+  textAsset: {fileID: 4900000, guid: 4a6ceddffd44a1e4781507f6b004a702, type: 3}
   DisplayName: Gerald's House
 --- !u!1 &890009736487840513
 GameObject:
@@ -18229,7 +18229,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   pm: {fileID: 0}
   playerData: {fileID: 0}
-  textAsset: {fileID: 4900000, guid: 18c7cbda3262acd469c9d814fc138b26, type: 3}
+  textAsset: {fileID: 4900000, guid: ae179062ba8a63d4c961e03818463f85, type: 3}
   DisplayName: Ava's & Megan's House
 --- !u!1 &900214895052116494
 GameObject:
@@ -22543,6 +22543,105 @@ MonoBehaviour:
   player: {fileID: 0}
   location: {fileID: 2266992782772076065}
   isexit: 0
+--- !u!1 &2748365642358025254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4132847382118523118}
+  - component: {fileID: 2093953505765599813}
+  - component: {fileID: 7526857283161378209}
+  m_Layer: 0
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4132847382118523118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748365642358025254}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.59, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7374176670436906063}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2093953505765599813
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748365642358025254}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8475423, y: 1.1520271}
+  m_EdgeRadius: 0
+--- !u!114 &7526857283161378209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748365642358025254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8478a175aa2bfb4a94c8e886b796459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Popup: {fileID: 0}
+  active: 0
+  plint: {fileID: 0}
+  frame: 0
+  sr: {fileID: 0}
+  pm: {fileID: 0}
+  playerData: {fileID: 0}
+  textAsset: {fileID: 4900000, guid: 14f8e8ecdca4bd54da10707f38946e4f, type: 3}
+  DisplayName: Mailbox
 --- !u!1 &2859242636778540472
 GameObject:
   m_ObjectHideFlags: 0
@@ -24755,7 +24854,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   pm: {fileID: 0}
   playerData: {fileID: 0}
-  textAsset: {fileID: 4900000, guid: c745455a335e0024d8db156d043ed111, type: 3}
+  textAsset: {fileID: 4900000, guid: a481799a0d7d8024ea50e59d1cca3336, type: 3}
   DisplayName: Poppy's & Linda's House
 --- !u!1 &2885010717475508023
 GameObject:
@@ -36866,7 +36965,8 @@ Transform:
   m_LocalPosition: {x: -15.5, y: -3.15, z: 0.015703255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4132847382118523118}
   m_Father: {fileID: 5877438108700576685}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &252911626343179377
@@ -47658,7 +47758,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   pm: {fileID: 0}
   playerData: {fileID: 0}
-  textAsset: {fileID: 4900000, guid: ef976f6116db79a4db5fff01b4b97d7f, type: 3}
+  textAsset: {fileID: 4900000, guid: 069f63d7b1f686649bc77e85e03ef278, type: 3}
   DisplayName: Charlie's House
 --- !u!1 &5082624876092452615
 GameObject:
@@ -51759,7 +51859,7 @@ Transform:
   m_GameObject: {fileID: 5998265803037002380}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.299995, y: 24.77, z: 0.015703255}
+  m_LocalPosition: {x: -26.299995, y: 24.51, z: 0.015703255}
   m_LocalScale: {x: 1, y: 0.6461, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56102,7 +56202,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   pm: {fileID: 0}
   playerData: {fileID: 0}
-  textAsset: {fileID: 4900000, guid: bd79382d3a69b664cba7765f3edf66e2, type: 3}
+  textAsset: {fileID: 4900000, guid: 3d056961bbe572d45b8c377f1a4015fa, type: 3}
   DisplayName: Sebastian's House
 --- !u!1 &6151547068743665124
 GameObject:
@@ -56675,7 +56775,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   pm: {fileID: 0}
   playerData: {fileID: 0}
-  textAsset: {fileID: 4900000, guid: 4d3e84b90e0225a47bc94e4843488976, type: 3}
+  textAsset: {fileID: 4900000, guid: cb3aef7203e6e6444a7f52b5c4fa023b, type: 3}
   DisplayName: Bruce's House
 --- !u!1 &6461085781700518093
 GameObject:
@@ -59702,7 +59802,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   pm: {fileID: 0}
   playerData: {fileID: 0}
-  textAsset: {fileID: 4900000, guid: 2d420717ca2941342ad607919ad26dcc, type: 3}
+  textAsset: {fileID: 4900000, guid: 244fc2143bf09ce4ba2ad9ed29a20c5a, type: 3}
   DisplayName: Town Hall
 --- !u!1 &7807471407258870428
 GameObject:
