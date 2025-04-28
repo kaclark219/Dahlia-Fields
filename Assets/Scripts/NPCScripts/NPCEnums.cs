@@ -2,4 +2,4 @@
 
  public enum NPCPosition{ Center, Left, Right };
 
- public enum NPCMood { Normal, Happy, Suspicious};
+ public enum NPCMood { Normal, Happy, Suspicious, Special};

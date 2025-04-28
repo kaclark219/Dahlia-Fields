@@ -9,6 +9,7 @@ public class PlayerInteractor : MonoBehaviour
     public List<InteractableObj> list = new List<InteractableObj>();
     public PlayerMovement pm;
     public bool canInteract = true;
+    [SerializeField] GameObject map;
 
     private Rigidbody2D rb;
     private InteractableObj closest;
@@ -36,6 +37,12 @@ public class PlayerInteractor : MonoBehaviour
             closest.active = true;
             closest.frame = Time.time;
         }
+
+        if(Input.GetKeyDown(KeyCode.M) && canInteract){
+            map.GetComponent<Map>().open();
+        }else if((Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Escape)) && !canInteract && map.activeSelf){
+            map.GetComponent<Map>().close();
+        }
     }
 
     public void Interact()
@@ -47,12 +54,18 @@ public class PlayerInteractor : MonoBehaviour
     public void EndInteract()
     {
         pm.canmove = true;
-        canInteract = true;
+        StartCoroutine(InteractCooldown());
     }
 
     public void Plant(Flowers plant){
         if(closest is FlowerBox){
             (closest as FlowerBox).Plant(plant);
         }
+    }
+
+    private IEnumerator InteractCooldown()
+    {
+        yield return new WaitForSeconds(0.25f);
+        canInteract = true;
     }
 }

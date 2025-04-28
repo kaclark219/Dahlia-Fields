@@ -6,18 +6,16 @@ using UnityEngine;
 
 public class DaySystem : MonoBehaviour
 {
+    private const string dayKey = "DAY";
+
     public int day;
     public int week;
+    public bool isFeedDay = false;
+    public List<int> feedDays = new List<int> { 8, 14, 19, 23 };
     [Space]
     public bool playCutscenes = true;   // for testing sake
     public List<Cutscene> cutsceneList = new List<Cutscene>();
     [Space]
-    public List<int> feedDays = new List<int> { 8, 14, 19, 23 };
-    public bool isFeedDay = false;
-    public bool npcKilled = false;
-
-    private const string dayKey = "DAY";
-
     private NPCManager npcManager;
     private PlayerMovement playerMovement;
     private PlayerData playerData;
@@ -28,6 +26,7 @@ public class DaySystem : MonoBehaviour
     private GlobalStateManager globalStateManager;
     private FadeInFadeOut transition;
     private MusicManager musicManager;
+    [Space]
     private GameObject floorDirections; 
     private GameObject startingNote;
 
@@ -54,18 +53,6 @@ public class DaySystem : MonoBehaviour
         startingNote.SetActive(true);
 
         inGameHud = GameObject.Find("InGameHUD").GetComponent<InGameHUD>();
-
-
-    }
-
-    public void NextDay()
-    {
-        day++;
-        week = (day / 3) + 1;
-
-        StartCoroutine(LoadDay(day, true));
-
-        globalStateManager.SaveAllData();
     }
 
     public int GetDay()
@@ -83,14 +70,39 @@ public class DaySystem : MonoBehaviour
         yield return new WaitUntil(() => playerInteractor.canInteract); // Wait until player is done interacting
 
         playerInteractor.Interact();
-        yield return StartCoroutine(transition.FadeIn(1f));
+        yield return StartCoroutine(transition.FadeIn());
 
         yield return videoPlayerManager.PlayTimeChange(time);
 
         npcManager.MoveNPCs(day, time);
 
-        yield return StartCoroutine(transition.FadeOut(1f));
+        yield return StartCoroutine(transition.FadeOut());
         playerInteractor.EndInteract();
+    }
+    public void NextDay()
+    {
+        day++;
+        week = (day / 3) + 1;
+
+        if (isFeedDay)  // Player loses, didn't feed plant
+        {
+            Debug.Log("Player Lost Game!");
+            LoseGame();
+            return;
+        }
+        else if (day == 20) // game win
+        {
+            Debug.Log("Player Won Game!");
+            StartCoroutine(WinGame());
+            return;
+        }
+        else    // regular day
+        {
+            StartCoroutine(LoadDay(day, false));
+        }
+
+
+        globalStateManager.SaveAllData();
     }
 
     private IEnumerator LoadDay(int day, bool startingGame)
@@ -100,27 +112,22 @@ public class DaySystem : MonoBehaviour
         playerInteractor.Interact();
         musicManager.fadeOut();
 
-        // Check if yesterday was a kill day before updating
-        if (feedDays.Contains(day - 1) && !npcKilled && isFeedDay)  // Player loses, didn't feed plant
-        {
-            Debug.Log("Player Lost Game!");
-            LoseGame();
-            yield break;
-        }
-        isFeedDay = feedDays.Contains(day);
-        npcKilled = false;
-        
-        yield return StartCoroutine(transition.FadeIn(2));
+        if (playCutscenes) { 
+            if (!startingGame)
+            {
+                yield return StartCoroutine(transition.FadeIn());
+            }
 
-        if (playCutscenes)
-        {
             Cutscene cutscene = CheckForCutscene();
             yield return StartCoroutine(videoPlayerManager.PlayNextDay(cutscene ? cutscene.clip : null, startingGame));
         }
 
         UpdateGameState(day);
 
-        yield return StartCoroutine(transition.FadeOut(2));
+        if (playCutscenes)
+        {
+            yield return StartCoroutine(transition.FadeOut());
+        }
 
         playerInteractor.EndInteract();
         musicManager.fadeIn();
@@ -128,14 +135,16 @@ public class DaySystem : MonoBehaviour
 
     private void UpdateGameState(int day)
     {
+        isFeedDay = feedDays.Contains(day);
+
         // Reset player location
         playerMovement.ResetLocation();
 
         // Reset player energy
         playerData.ResetEnergy();
 
-        // Update NPCS (move them and check if kill day
-        npcManager.NextDay(day, isFeedDay);
+        // Update NPCS (move them)
+        npcManager.NextDay(day);
 
         // reset NPC daily interaction
         npcManager.ResetDailyInteraction();
@@ -161,6 +170,53 @@ public class DaySystem : MonoBehaviour
         }
     }
 
+    public IEnumerator KillNPC(string name)
+    {
+        day++;
+        week = (day / 3) + 1;
+        playerInteractor.Interact();
+        musicManager.StopMusic();
+
+        yield return null;
+
+        if (playCutscenes)
+        {
+            transition.BlackScreen();
+            yield return new WaitForSeconds(2f);
+            yield return StartCoroutine(videoPlayerManager.PlayKillScene(CheckForCutscene().clip));
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(transition.FadeOut());
+        }
+
+        // Update game state
+        npcManager.KillNPC(name);
+        flowerManager.FeedCompleted();
+        UpdateGameState(day);
+
+        playerInteractor.EndInteract();
+        musicManager.fadeIn();
+        globalStateManager.SaveAllData();
+    }
+
+    private void LoseGame()
+    {
+        playerInteractor.Interact();
+        musicManager.fadeOut();
+        globalStateManager.ShowLoseScreen();
+    }
+
+    private IEnumerator WinGame()
+    {
+        playerInteractor.Interact();
+        musicManager.fadeOut();
+
+        Cutscene cutscene = CheckForCutscene();
+        yield return StartCoroutine(videoPlayerManager.PrepareVideo(cutscene.clip));
+        yield return StartCoroutine(videoPlayerManager.PlayVideo());
+
+        globalStateManager.ShowWinScreen();
+    }
+
     private Cutscene CheckForCutscene()
     {
         foreach (Cutscene cutscene in cutsceneList)
@@ -171,16 +227,6 @@ public class DaySystem : MonoBehaviour
             }
         }
         return null;
-    }
-
-    private void LoseGame()
-    {
-        // Disable player movement and interactions
-        playerInteractor.Interact();
-        GameObject.Find("Player").GetComponent<PlayerInteractor>().enabled = false;
-
-        // Display lose ui
-        globalStateManager.ShowLoseScreen();
     }
 
     #region SAVE_SYSTEM
@@ -201,13 +247,13 @@ public class DaySystem : MonoBehaviour
 
         week = (day / 3) + 1;
 
-        StartCoroutine(LoadDay(day, false));
+        StartCoroutine(LoadDay(day, true));
     }
     public void ResetData()
     {
         day = 1;
         week = 1;
-        StartCoroutine(LoadDay(day, false));
+        StartCoroutine(LoadDay(day, true));
         isFeedDay = false;
     }
 

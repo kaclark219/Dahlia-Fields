@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Day10
   m_EditorClassIdentifier: 
   day: 10
-  clip: {fileID: 0}
+  clip: {fileID: 32900000, guid: 90145aaaf7cb26642ad4428a875b122f, type: 3}

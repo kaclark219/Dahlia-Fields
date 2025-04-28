@@ -22,7 +22,7 @@ public class DialogueVariables : MonoBehaviour
             string value = GlobalStory.variablesState.GetVariableWithName(name).ToString();
             variables[name] = value;
 
-             Debug.Log("Initialized global dialogue variable: " + name + " = " + value);
+             //Debug.Log("Initialized global dialogue variable: " + name + " = " + value);
         }
     }
 
@@ -67,6 +67,10 @@ public class DialogueVariables : MonoBehaviour
         }
     }
 
+    public void AddTrustMegan()
+    {
+        AddTrust("MeganTrust", 5);
+    }
     public void AddTrust(string name, int value)
     {
         if (variables.ContainsKey(name))
@@ -75,12 +79,14 @@ public class DialogueVariables : MonoBehaviour
             current += value; 
             variables[name] = current.ToString();
 
+            GlobalStory.variablesState.SetGlobal(name, new Ink.Runtime.IntValue(value));
+
             if (currStory)
             {
                 currStory.variablesState.SetGlobal(name, new Ink.Runtime.IntValue(value));
             }
 
-            Debug.Log($"Variable Updated: {name} = {current}");
+            //Debug.Log($"Variable Updated: {name} = {current}");
         }
         else
         {
@@ -97,6 +103,7 @@ public class DialogueVariables : MonoBehaviour
             {
                 if (var.Key.Contains("Trust"))
                 {
+                    //Debug.Log(var.Key + ": " + var.Value);
                     story.variablesState.SetGlobal(var.Key, new Ink.Runtime.IntValue(int.Parse(var.Value)));
                 }
                 else
@@ -140,6 +147,12 @@ public class DialogueVariables : MonoBehaviour
         {
             string state = PlayerPrefs.GetString(saveVariablesKey);
             GlobalStory.state.LoadJson(state);
+            foreach (string name in GlobalStory.variablesState)
+            {
+                string value = GlobalStory.variablesState.GetVariableWithName(name).ToString();
+                variables[name] = value;
+            }
+            VariablesToStory(GlobalStory);
         }
     }
     public void ResetData()
@@ -148,12 +161,23 @@ public class DialogueVariables : MonoBehaviour
         {
             GlobalStory = new Story(LoadGlobalsJSON.text);
         }
-        variables.Clear();
+        foreach (KeyValuePair<string, string> var in variables)
+        {
+            if (var.Key.Contains("Trust"))
+            {
+                GlobalStory.variablesState.SetGlobal(var.Key, new Ink.Runtime.IntValue(0));
+            }
+            else
+            {
+                GlobalStory.variablesState.SetGlobal(var.Key, new Ink.Runtime.StringValue("Y/N"));
+            }
+        }
         foreach (string name in GlobalStory.variablesState)
         {
             string value = GlobalStory.variablesState.GetVariableWithName(name).ToString();
             variables[name] = value;
         }
+        VariablesToStory(GlobalStory);
     }
     #endregion
 }

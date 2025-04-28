@@ -162,6 +162,18 @@ public class FlowerBox : InteractableObj
         UpdateSprite(); // update sprite based on growth
     }
 
+    public void FeedCompleted()
+    {
+        if (!planted) { return; }
+        CycleIndex += 2;
+        if (flowerPlanted.daysToGrow < CycleIndex)
+        {
+            CycleIndex = flowerPlanted.daysToGrow;
+        }
+
+        UpdateSprite(); // update sprite based on growth
+    }
+
     private void UpdateSprite()
     {
         if (planted)
@@ -213,6 +225,7 @@ public class FlowerBox : InteractableObj
     {
         if (PlayerPrefs.HasKey(boxKey))
         {
+            WateredToday = false;
             string flowerName = PlayerPrefs.GetString(boxKey);
             if (flowerName != "None")
             {

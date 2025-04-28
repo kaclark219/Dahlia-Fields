@@ -26,20 +26,22 @@ public class InkManager : MonoBehaviour
     [Space]
     [SerializeField] public Slider speedSlider; 
 
-    private NPCManager npcManager;
+    private DaySystem daySystem;
     private InteractableObj currInteractable;
     private Coroutine printCoroutine = null;
     private string text;
     private bool isStoryPaused = false;
     private bool storyPlaying = false;
 
-    private float dialogSpeed = 0.05f; 
+    private float dialogSpeed = 0.05f;
+    private SoundEffects effect; 
 
     private void Awake()
     {
         dialogueVariables = GetComponent<DialogueVariables>();
         npcDialogueManager = FindObjectOfType<NPCDialogueManager>();
-        npcManager = FindAnyObjectByType<NPCManager>();
+        daySystem = FindObjectOfType<DaySystem>();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
         UI.SetActive(false);
     }
 
@@ -48,7 +50,7 @@ public class InkManager : MonoBehaviour
         if (storyPlaying && Input.GetKeyDown(KeyCode.E)) {
             DisplayNextLine();
             storyPlaying = false;
-            StartCoroutine(StoryIsPlaying());
+            StartCoroutine(Cooldown());
         } 
     }
 
@@ -62,7 +64,7 @@ public class InkManager : MonoBehaviour
         BindFunctions();
 
         DisplayNextLine();
-        StartCoroutine(StoryIsPlaying());
+        StartCoroutine(Cooldown());
     }
 
     // keeps track of InteractableObj to call EndInteract() at end of dialogue
@@ -77,7 +79,7 @@ public class InkManager : MonoBehaviour
         BindFunctions();
 
         DisplayNextLine();
-        StartCoroutine(StoryIsPlaying());
+        StartCoroutine(Cooldown());
 
         return story;
     }
@@ -106,7 +108,7 @@ public class InkManager : MonoBehaviour
         if (story)
         {
             DisplayNextLine();
-            StartCoroutine(StoryIsPlaying());
+            StartCoroutine(Cooldown());
         }
     }
 
@@ -115,7 +117,7 @@ public class InkManager : MonoBehaviour
         story.BindExternalFunction("ShowCharacter", (string name, string position, string mood) => npcDialogueManager.ShowCharacter(name, position, mood));
         story.BindExternalFunction("HideCharacter", (string name) => npcDialogueManager.HideCharacter(name));
         story.BindExternalFunction("ChangeMood", (string name, string mood) => npcDialogueManager.ChangeMood(name, mood));
-        story.BindExternalFunction("KillNPC", (string name) => npcManager.KillNPC(name));
+        story.BindExternalFunction("KillNPC", (string name) => this.KillNPC(name));
         dialogueVariables.StartListening(story);
     }
 
@@ -139,6 +141,8 @@ public class InkManager : MonoBehaviour
 
     public void DisplayNextLine()
     {
+        if (story == null) { return; }
+
         if (isStoryPaused)
         {
             return;
@@ -164,7 +168,6 @@ public class InkManager : MonoBehaviour
             else
             {
                 ApplyStyling();
-
                 printCoroutine = StartCoroutine(PrintLine());
             }
         }
@@ -197,7 +200,7 @@ public class InkManager : MonoBehaviour
         printCoroutine = null;
     }
 
-    private IEnumerator StoryIsPlaying()
+    private IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(.25f);
         storyPlaying = true;
@@ -239,6 +242,21 @@ public class InkManager : MonoBehaviour
         }
     }
 
+    private void KillNPC(string name)
+    {
+        // End story
+        story.ResetState();
+        dialogueVariables.StopListening(story);
+        UI.SetActive(false);
+        story = null;
+        npcDialogueManager.ClearCharacters();
+        currInteractable = null;
+        storyPlaying = false;
+        
+        // kill cutscene and skip to next day
+        StartCoroutine(daySystem.KillNPC(name));
+    }
+
     #region CHOICES_FUNCTIONS
     // Displays all choices for a dialogue 
     private void DisplayChoices()
@@ -251,6 +269,7 @@ public class InkManager : MonoBehaviour
             if (choice.tags != null && choice.tags.Contains("kill"))
             {
                 button.GetComponentInChildren<Image>().sprite = killButtonSprite;
+                button.GetComponentInChildren<TextMeshProUGUI>().color = new Color(148, 0, 0);
             }
             button.GetComponentsInChildren<Button>()[0].onClick.AddListener(() => OnClickChoiceButton(choice)); 
         }
@@ -261,6 +280,7 @@ public class InkManager : MonoBehaviour
     
     private void OnClickChoiceButton(Choice choice)
     {
+        effect.PlayUIClick(); 
         story.ChooseChoiceIndex(choice.index);
         RefreshChoiceView();
         DisplayNextLine();

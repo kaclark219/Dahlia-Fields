@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 521979894, guid: 1a4d8134ace75524f98c3ab45998db0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -120,11 +120,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.3478261}
-    oldSize: {x: 1, y: 1.4375}
+    oldSize: {x: 1.6, y: 2.3}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -314,7 +314,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 3, y: 4}
   m_EdgeRadius: 0
 --- !u!114 &1791800641339596937
 MonoBehaviour:
@@ -344,12 +344,18 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 11ea398a6cb6b2f4faf411eaedd40745, type: 3}
   - {fileID: 4900000, guid: a92a8881b02b15449b114f72d7900fb5, type: 3}
   - {fileID: 4900000, guid: 10edc4879e68f6341a40fd2f156563f3, type: 3}
+  - {fileID: 4900000, guid: 2e40095aca2327a4f8d9d2c03baea490, type: 3}
+  - {fileID: 4900000, guid: f2a8128f201a5294c9e1100e3d301e1b, type: 3}
+  - {fileID: 4900000, guid: ef8a05d90e0ccf24dac3b260f7fd3276, type: 3}
+  - {fileID: 4900000, guid: 4878482ffbc39a9418c3dd90209b7df9, type: 3}
   dailyInteraction: 0
   numOfInteractions: 0
   fuckOffText: {fileID: 4900000, guid: 76d8ae0865d3dc94d998873eab4492a3, type: 3}
   isFeedDay: 0
   trustRequired: 60
   killText: {fileID: 4900000, guid: 2bdf3ac2f8ebc524791f7f00913824d0, type: 3}
+  animations: []
+  map: {fileID: 0}
   ink: {fileID: 0}
   dialogueVariables: {fileID: 0}
   costsEnergy: 0

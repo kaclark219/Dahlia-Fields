@@ -11,10 +11,11 @@ public class NPC : InteractableObj
     public int numOfInteractions;
     [SerializeField] public TextAsset fuckOffText;
     [Space]
-    public bool isFeedDay = false;
     public int trustRequired = 0;
     [SerializeField] public TextAsset killText;
     [SerializeField] public RuntimeAnimatorController[] animations;
+
+    [SerializeField] Map map;
 
     // Public variables inherited by child classes but hidden in Unity inspector
     [HideInInspector] public InkManager ink;
@@ -49,19 +50,19 @@ public class NPC : InteractableObj
         base.OnInteract();
 
         int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
+        bool isFeedDay = FindFirstObjectByType<DaySystem>().isFeedDay;
 
-        if (textAssets.Count <= numOfInteractions || dailyInteraction)
+        if (isFeedDay && trust >= trustRequired)
+        {
+            ink.StartStory(killText, this);
+            costsEnergy = true;
+        }
+        else if (textAssets.Count <= numOfInteractions || dailyInteraction)
         {
             ink.StartStory(fuckOffText, this);
             costsEnergy = false;
         }
-        else if(isFeedDay && trust >= trustRequired) 
-        {
-            ink.StartStory(killText, this);
-            costsEnergy = true;
-            isFeedDay = false;
-        }
-        else
+        else if (playerData.CheckEnergy(5))
         {
             ink.StartStory(textAssets[numOfInteractions], this);
             dailyInteraction = true;

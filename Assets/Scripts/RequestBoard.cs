@@ -16,9 +16,18 @@ public class RequestBoard : InteractableObj
     [SerializeField] DialogueVariables dvar;
     [SerializeField] GameObject remaining;
     [SerializeField] public GameObject exclaim;
+    [SerializeField] public GameObject newQuest;
+    private bool questedToday = false;
     int day;
     Dictionary<GameObject, Request> requestList;
     public bool openedBoard = false;
+    private SoundEffects effect;
+
+    public override void Awake()
+    {
+        base.Awake();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
+    }
 
     public override void Start()
     {
@@ -65,6 +74,10 @@ public class RequestBoard : InteractableObj
             {
                 req.SetActive(false);
             }
+
+            if(day == requestList[req].day && !questedToday){
+                newQuest.SetActive(true);
+            }
         }
 
         remaining.SetActive(false);
@@ -105,7 +118,7 @@ public class RequestBoard : InteractableObj
         string[] trusts = requestList[request].trust.Split("; ");
         foreach (string people in trusts){
             string[] statement = people.Split(" Trust ");
-            dvar.AddTrust(statement[1], int.Parse(statement[0]));
+            dvar.AddTrust(statement[1] + "Trust", int.Parse(statement[0]));
         }
     }
     
@@ -206,6 +219,7 @@ public class RequestBoard : InteractableObj
 
     public void ClickNote(GameObject text)
     {
+        effect.PlayUIClick();
         foreach (GameObject req in requests)
         {
             req.gameObject.transform.GetChild(0).gameObject.SetActive(false);
@@ -250,6 +264,7 @@ public class RequestBoard : InteractableObj
     public void PlaceOrder(){
         foreach (GameObject req in requests){
             if(req.transform.GetChild(0).gameObject.activeSelf){
+                effect.PlayRequest(); 
                 LoseFlowers(req);
                 GainTrust(req);
                 MarkComplete(req);
@@ -258,6 +273,7 @@ public class RequestBoard : InteractableObj
     }
 
     public void CloseBoard(){
+        effect.PlayClose();
         canvas.SetActive(false);
         EndInteract();
     }
@@ -267,6 +283,8 @@ public class RequestBoard : InteractableObj
         if(exclaim.activeSelf){
             exclaim.GetComponent<Tutorial>().RequestBoardTutorial();
         }
+        newQuest.SetActive(false);
+        questedToday = true;
         canvas.SetActive(true);
         Refresh();
     }
@@ -305,6 +323,8 @@ public class RequestBoard : InteractableObj
         }
 
         PlayerPrefs.SetInt("OpenedBoard", openedBoard ? 1 : 0);
+
+        questedToday = false;
     }
 
     private IEnumerator Load(){
@@ -321,6 +341,11 @@ public class RequestBoard : InteractableObj
                 req.completed = PlayerPrefs.GetInt(prefKey);
                 requestList[key] = req; 
             }
+
+            day = daySystem.day;
+            if(day == req.day){
+                newQuest.SetActive(true);
+            }
         }
 
         if (PlayerPrefs.HasKey("OpenedBoard"))
@@ -332,6 +357,7 @@ public class RequestBoard : InteractableObj
             openedBoard = false;
         }
         exclaim.SetActive(!openedBoard);
+        questedToday = false;
     }
 
     public void LoadData()

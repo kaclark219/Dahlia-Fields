@@ -55,6 +55,7 @@ MonoBehaviour:
   choiceButtonPrefab: {fileID: 4802107501613646800, guid: 7d27a6f0e87402444905bd23e4e9d10d, type: 3}
   killButtonSprite: {fileID: -1889203605, guid: df484ae7bbafd7f4ab2e2d73be2d4e03, type: 3}
   dialogueVariables: {fileID: 5934105558860872651}
+  speedSlider: {fileID: 0}
 --- !u!114 &5934105558860872651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +146,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 85eb4da8e9611d642a3c21c2e26e8ade, type: 3}
   - {fileID: 21300000, guid: 5e15100f1d6101b45857bb5992faf53a, type: 3}
   - {fileID: 21300000, guid: 806718edd722bb444a8fcc80ab6f771b, type: 3}
+  - {fileID: 21300000, guid: 175b975938390a945b5fbdc43cf12f0e, type: 3}
+  - {fileID: 21300000, guid: b29f75372f8b40a4e854e80a06f6a556, type: 3}
   - {fileID: 21300000, guid: 148ae6f2be9c9cf4492b3cf4b07ef14f, type: 3}
   - {fileID: 21300000, guid: 43a0bb722ad6d7648909f156d74e508a, type: 3}
   - {fileID: 21300000, guid: b2ded2cf93b5b5f4c92ad20d9341247e, type: 3}
@@ -166,6 +169,7 @@ MonoBehaviour:
   Normal: {fileID: 21300000, guid: fd17749db9a68ce4d88c45eda2beb465, type: 3}
   Suspicious: {fileID: 21300000, guid: 3f110e8728cec134eaff4b78428505e2, type: 3}
   Happy: {fileID: 21300000, guid: 6a2ca4b9849adf44ba56b7ec9e073557, type: 3}
+  Special: {fileID: 21300000, guid: ae6a44ab6db4bef458f5ec321fbfe3b5, type: 3}
 --- !u!114 &5979394386717294336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +186,7 @@ MonoBehaviour:
   Normal: {fileID: 21300000, guid: 76d4160c129a12e4c9a364b983ac9d9a, type: 3}
   Suspicious: {fileID: 21300000, guid: a4c71e6dc57670644815c20bce91f2f3, type: 3}
   Happy: {fileID: 21300000, guid: 4a15cf14f4b4a2344a0f470fa726388f, type: 3}
+  Special: {fileID: 0}
 --- !u!114 &3697799267430201851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +203,7 @@ MonoBehaviour:
   Normal: {fileID: 21300000, guid: 6b1e0e8312ee1fc4a8e5685e31ebf8c6, type: 3}
   Suspicious: {fileID: 21300000, guid: 9864e1d661ea6f243bad8aa28bb259e2, type: 3}
   Happy: {fileID: 21300000, guid: 443bf8b10a9cd8a40a2211998dfbacf3, type: 3}
+  Special: {fileID: 0}
 --- !u!114 &7386746482836180379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +220,7 @@ MonoBehaviour:
   Normal: {fileID: 21300000, guid: abf592bc0f01735488faf90060f1a677, type: 3}
   Suspicious: {fileID: 21300000, guid: bf8201751e7639a4ba1cc846b59ce14e, type: 3}
   Happy: {fileID: 21300000, guid: ba830f63b0459b7419b1c46a29a38d95, type: 3}
+  Special: {fileID: 0}
 --- !u!114 &5527674709890612324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +237,7 @@ MonoBehaviour:
   Normal: {fileID: 21300000, guid: 0df515a7e692af7459e878369471d5fd, type: 3}
   Suspicious: {fileID: 21300000, guid: ae8a2eb1f7d773848af7ba7c9799c3af, type: 3}
   Happy: {fileID: 21300000, guid: 49579ddbd95447149b786ef2a2d4d48c, type: 3}
+  Special: {fileID: 0}
 --- !u!114 &8096349959622852861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +254,7 @@ MonoBehaviour:
   Normal: {fileID: 21300000, guid: bca5a085527577f408a14c36942dcb77, type: 3}
   Suspicious: {fileID: 21300000, guid: ad787aaf70ed8ed438082b4fd37996b1, type: 3}
   Happy: {fileID: 21300000, guid: 11352d932a17b39479f0dfa457d27133, type: 3}
+  Special: {fileID: 0}
 --- !u!114 &7655366854142307707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +271,7 @@ MonoBehaviour:
   Normal: {fileID: 21300000, guid: a84e925b7741f3b4b9d2387ddf75c5ae, type: 3}
   Suspicious: {fileID: 21300000, guid: 22f814b4e19f7434185905ce83f580c3, type: 3}
   Happy: {fileID: 21300000, guid: 650a2cea48106ec4797ad96a19f6f579, type: 3}
+  Special: {fileID: 0}
 --- !u!114 &4710222692875583894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +288,7 @@ MonoBehaviour:
   Normal: {fileID: 21300000, guid: 64f87a26f8712a841b8a971ddd0cf5a0, type: 3}
   Suspicious: {fileID: 21300000, guid: 9239fbbc655b5cd449e171c28468d5e2, type: 3}
   Happy: {fileID: 21300000, guid: 8cce4791c94b59147831b4404c3c92e6, type: 3}
+  Special: {fileID: 0}
 --- !u!114 &2470322498661457888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +305,7 @@ MonoBehaviour:
   Normal: {fileID: 21300000, guid: 72292c990762f3540910e67e749e1134, type: 3}
   Suspicious: {fileID: 21300000, guid: e3a429548bdfac04db1845b65c399c36, type: 3}
   Happy: {fileID: 21300000, guid: d0508635852bcf445b02e4ddd6fc2a2a, type: 3}
+  Special: {fileID: 0}
 --- !u!114 &6099109079391814039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +322,7 @@ MonoBehaviour:
   Normal: {fileID: 21300000, guid: 3bf63d0e702d9eb4a9724f0afde8e78b, type: 3}
   Suspicious: {fileID: 21300000, guid: 2661d10f8b9306745878a556cf6ab404, type: 3}
   Happy: {fileID: 21300000, guid: d152ced8eecfe314ab48f15a9108a038, type: 3}
+  Special: {fileID: 0}
 --- !u!114 &7314687686138830539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,3 +339,4 @@ MonoBehaviour:
   Normal: {fileID: 21300000, guid: b6abcccd39be74249b1e4835260b862b, type: 3}
   Suspicious: {fileID: 21300000, guid: b6abcccd39be74249b1e4835260b862b, type: 3}
   Happy: {fileID: 21300000, guid: b6abcccd39be74249b1e4835260b862b, type: 3}
+  Special: {fileID: 0}

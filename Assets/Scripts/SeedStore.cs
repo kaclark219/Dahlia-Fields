@@ -18,7 +18,14 @@ public class SeedStore : InteractableObj
     [SerializeField] public Image[] cartItems;
     [SerializeField] public TextMeshProUGUI[] counts;
     [SerializeField] public Button[] clears; 
-    public Dictionary<int, int> cartMap;
+    public Dictionary<int, int> cartMap = new Dictionary<int, int>()
+        {
+            {0, 10},
+            {1, 10},
+            {2, 10},
+            {3, 10},
+            {4, 10}
+        };
 
     [Space]
     [SerializeField] public Sprite[] fbackgrounds;
@@ -40,7 +47,18 @@ public class SeedStore : InteractableObj
     public bool p = false;
 
     private InventoryItem chosenFlower; 
-    public Dictionary<string, int> mapValues;
+    public Dictionary<string, int> mapValues = new Dictionary<string, int>()
+        {
+            {"Dandelion", 0},
+            {"Daisy",  1},
+            {"Poppy", 2},
+            {"Tulip", 3},
+            {"Rose", 4},
+            {"Lavender", 5},
+            {"PricklyPear", 6},
+            {"Sunflower", 7},
+            {"LilyValley", 8}
+        };
     private int id = 10;
 
     public int[] cart = new int[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -50,10 +68,13 @@ public class SeedStore : InteractableObj
     [SerializeField] GameObject signal;
     public float voffset = 0.0f;
 
+    private SoundEffects effect; 
+
     public override void Awake()
     {
         base.Awake();
         inventory = GameObject.Find("Inventory").GetComponent<InventoryManager>();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
     }
 
     public override void Start()
@@ -102,13 +123,15 @@ public class SeedStore : InteractableObj
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(notCollect.activeInHierarchy)
-            {
+            {   
+                effect.PlayClose();
                 notCollect.SetActive(false);
                 EndInteract();
             }
 
             if (Collect.activeInHierarchy)
-            {
+            {   
+                effect.PlayClose();
                 Collect.SetActive(false);
                 EndInteract();
             }
@@ -122,8 +145,9 @@ public class SeedStore : InteractableObj
 
     public void ClearButton(int i)
     {
-        if (purchase[i] == 0)
-        {
+        if (cart[i] != 0)
+        {   
+            effect.PlayClose();
             // Store the current price to adjust it
             int currentPrice = int.Parse(price.text);
 
@@ -161,6 +185,11 @@ public class SeedStore : InteractableObj
 
     public void CloseSeedStore()
     {
+        if (!ifDelivery)
+        {
+            effect.PlayClose();
+        }
+
         storeCanvas.SetActive(false);
 
         int sets = 0;
@@ -370,6 +399,7 @@ public class SeedStore : InteractableObj
             {
                 if (cartMap[key] == id)
                 {
+                    effect.PlayUIClick();
                     cart[id] += 5;
                     a = int.Parse(counts[key].text) + 5;
                     counts[key].text = a.ToString();
@@ -398,7 +428,8 @@ public class SeedStore : InteractableObj
                 for (int key = 0; key < 5; key++)
                 {
                     if (cartMap[key] == id)
-                    {
+                    {   
+                        effect.PlayUIClick();
                         cart[id] -= 5;
                         a = int.Parse(counts[key].text) - 5;
                         counts[key].text = a.ToString();
@@ -432,6 +463,7 @@ public class SeedStore : InteractableObj
 
         if (playerData.ModifyMoney(priceOfCart * -1))
         {
+            effect.PlayPurchase();
             int j = 0;
             price.text = j.ToString();
 
@@ -462,7 +494,7 @@ public class SeedStore : InteractableObj
 
     public void ChooseFlower(string name)
     {
-
+        effect.PlayUIClick();
         broke.SetActive(false);
         //change maddie statement to purchase
         maddie.sprite = statements[1]; 
@@ -480,6 +512,7 @@ public class SeedStore : InteractableObj
     {
         if(delivered)
         {
+            effect.PlayMail(); 
             foreach (string key in mapValues.Keys)
             {
                 int temp = mapValues[key];
@@ -509,7 +542,8 @@ public class SeedStore : InteractableObj
             Collect.SetActive(true); 
 
         } else
-        {
+        {   
+            effect.PlayNoMail();
             notCollect.SetActive(true); 
         }
               

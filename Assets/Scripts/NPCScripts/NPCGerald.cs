@@ -12,6 +12,13 @@ public class NPCGerald : NPC
     public int TonicEnergy = 10;
 
     private Story story;
+    private SoundEffects effect;
+
+    public override void Awake()
+    {
+        base.Awake();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
+    }
 
     public override void Start()
     {
@@ -23,8 +30,9 @@ public class NPCGerald : NPC
         plint.Interact();
 
         int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
+        bool isFeedDay = FindFirstObjectByType<DaySystem>().isFeedDay;
 
-        if (transform.parent.transform.position == clinicLocation && numOfInteractions > 0)
+        if (transform.parent.transform.position.y == clinicLocation.y && numOfInteractions > 0)
         {
             story = ink.CreateStory(buyTonicText, this);
             story.BindExternalFunction("BuyTonic", () => this.BuyTonic());
@@ -67,6 +75,7 @@ public class NPCGerald : NPC
         PlayerData playerData = GameObject.Find("Player").GetComponent<PlayerData>();
         if (playerData.ModifyMoney(-TonicCost))
         {
+            effect.PlayPurchase();
             story.variablesState["BoughtTonic"] = 1;
             playerData.ModifyEnergy(TonicEnergy);
             Debug.Log("Player Bought Tonic");

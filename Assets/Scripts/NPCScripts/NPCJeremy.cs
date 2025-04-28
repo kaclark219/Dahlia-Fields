@@ -8,14 +8,21 @@ public class NPCJeremy : NPC
     [Header("Flower Box Attributes")]
     [SerializeField] public TextAsset buyFlowerBox;
     public Vector3 workshopLocation;
-    public int BoxCost = -40;
+    public int BoxCost = -50;
 
     private Story story;
+    private SoundEffects effect;
+
+    public override void Awake()
+    {
+        base.Awake();
+        effect = GameObject.Find("SoundEffectManager").GetComponent<SoundEffects>();
+    }
 
     public override void Start()
     {
         base.Start();
-        workshopLocation = GetComponentInParent<NPCManager>().coords["Jeremy11"];
+        workshopLocation = GetComponentInParent<NPCManager>().coords["Jeremy31"];
     }
 
     public override void OnInteract()
@@ -23,8 +30,9 @@ public class NPCJeremy : NPC
         plint.Interact();
 
         int trust = dialogueVariables.GetVariableState(npcName.ToString() + "Trust");
+        bool isFeedDay = FindFirstObjectByType<DaySystem>().isFeedDay;
 
-        if (transform.parent.transform.position == workshopLocation && numOfInteractions > 0)
+        if (transform.parent.transform.position.y == workshopLocation.y && numOfInteractions > 0)
         {
             story = ink.CreateStory(buyFlowerBox, this);
             story.BindExternalFunction("BuyFlowerbox", () => this.BuyFlowerbox());
@@ -43,7 +51,7 @@ public class NPCJeremy : NPC
             ink.StartStory(fuckOffText, this);
             costsEnergy = false;
         }
-        else
+        else if (playerData.CheckEnergy(5))
         {
             ink.StartStory(textAssets[numOfInteractions], this);
             dailyInteraction = true;
@@ -66,7 +74,7 @@ public class NPCJeremy : NPC
         FlowerboxManager flowerboxManager = GameObject.Find("FlowerboxManager").GetComponent<FlowerboxManager>();
         if (playerData.ModifyMoney(BoxCost) && flowerboxManager.AddBox())
         {
-
+            effect.PlayPurchase(); 
             story.variablesState["BoughtFlowerbox"] = 1;
             Debug.Log("Player bought a flower box");
         }

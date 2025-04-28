@@ -160,7 +160,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2.5}
+  m_Size: {x: 3, y: 4}
   m_EdgeRadius: 0
 --- !u!114 &1467662116759210296
 MonoBehaviour:
@@ -190,12 +190,18 @@ MonoBehaviour:
   - {fileID: 4900000, guid: d56fccbf233717b4d8449c3a360b9a4d, type: 3}
   - {fileID: 4900000, guid: d9d5ddacba490514487fa7675aba64c7, type: 3}
   - {fileID: 4900000, guid: eb4b87aa87ffca041864f4b9d84f0f34, type: 3}
+  - {fileID: 4900000, guid: ab1d8522a1d216c43ac29dd67bf56ca3, type: 3}
+  - {fileID: 4900000, guid: 70b30d468bbe5dc4494064198453af06, type: 3}
+  - {fileID: 4900000, guid: f8c15714baf2cda4bb0811f90a2480ab, type: 3}
+  - {fileID: 4900000, guid: 02d2377f8e68c2d48abf7acd6cf66f76, type: 3}
   dailyInteraction: 0
   numOfInteractions: 0
   fuckOffText: {fileID: 4900000, guid: 3769d9e121188cf499129f4c1cf8416b, type: 3}
   isFeedDay: 0
-  trustRequired: 110
+  trustRequired: 100
   killText: {fileID: 4900000, guid: 4c526a1d8e223e54095f5c7b838ab258, type: 3}
+  animations: []
+  map: {fileID: 0}
   ink: {fileID: 0}
   dialogueVariables: {fileID: 0}
   costsEnergy: 0
@@ -210,8 +216,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2195019822632605548}
   - component: {fileID: 8435901058078125825}
-  - component: {fileID: 3424092363981310249}
   - component: {fileID: 1871822319870659833}
+  - component: {fileID: 3984894021912604993}
   m_Layer: 0
   m_Name: Charlie
   m_TagString: Untagged
@@ -276,7 +282,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 101031708, guid: f8d5cfa06b926194f850d36af9bcc48e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -288,27 +294,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &3424092363981310249
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8490495413014769746}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4, y: 2.01875, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1871822319870659833
 Animator:
   serializedVersion: 5
@@ -330,3 +315,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &3984894021912604993
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8490495413014769746}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.3}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.3809524}
+    oldSize: {x: 1.6, y: 2.1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

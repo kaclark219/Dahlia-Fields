@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d457f81d4fc594b8af27477a43dbba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuSceneName: Prototype_Menu
+  menuSceneName: TitleScene
   LoseUI: {fileID: 0}
   WinUI: {fileID: 0}
   dialogueVariables: {fileID: 0}
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   day: 1
   week: 1
-  playCutscenes: 0
+  playCutscenes: 1
   cutsceneList:
   - {fileID: 11400000, guid: 3c99d8a8986aa514086238cf4acc165e, type: 2}
   - {fileID: 11400000, guid: fc3a48442f77c7b4982dda527db3e5b9, type: 2}
@@ -171,7 +171,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 71b2abfa20c1cf240aa1b4b286cc338c, type: 2}
   - {fileID: 11400000, guid: 7764e3991871ea04bab9ccf405772b32, type: 2}
   - {fileID: 11400000, guid: 87995e3c89c49a74dae7b335e7dbbffb, type: 2}
-  feedDays: 070000000e0000001300000017000000
+  - {fileID: 11400000, guid: 3f298e74492d9d545bd95b65ad4c9f68, type: 2}
+  - {fileID: 11400000, guid: dae8c8bc9ca0df2498760329d9e61ef9, type: 2}
+  - {fileID: 11400000, guid: e6e5887e080ef8547a233f691215bf8a, type: 2}
+  - {fileID: 11400000, guid: 8d280295f25fd404e82e0222fc3801bc, type: 2}
+  - {fileID: 11400000, guid: ded12b16e5b4ece4aa7bfe3565f0fc11, type: 2}
+  - {fileID: 11400000, guid: 186cf98ff27094f429e7110a1fcc1d12, type: 2}
+  feedDays: 080000000e00000013000000
   isFeedDay: 0
   npcKilled: 0
 --- !u!114 &4218859400215620059
